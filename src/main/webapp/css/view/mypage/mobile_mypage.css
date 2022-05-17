@@ -1,0 +1,295 @@
+#mobile_password_check{
+	display: none;
+    flex-direction: column;
+}
+
+#mobile_password_check .contents_area{
+	width: 100%;
+    box-sizing: border-box;
+    padding: 0 8%;
+    margin-top: 80px;
+}
+
+#mobile_password_check .contents_area .contents_item{
+	width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#mobile_password_check .contents_area .contents_item .text_area{
+	display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 10%;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+#mobile_password_check .contents_area .contents_item .text_area span:nth-child(1) {
+	margin-bottom: 2%;
+}
+
+#mobile_password_check .contents_area .contents_item .input_area form{
+	display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+#mobile_password_check .contents_area .contents_item .input_area form input:nth-child(1) {
+	width: 100%;
+    height: 50px;
+    font-size: 14px;
+    text-indent: 5%;
+    border: solid 1px #707070;
+    color: #333333;
+    box-sizing: border-box;
+}
+
+#mobile_password_check .contents_area .contents_item .input_area form input:nth-child(2) {
+	width: 100%;
+    background-color: #EA933C;
+    border: unset;
+    color: white;
+    font-size: 18px;
+    height: 50px;
+    margin-top: 5%;
+}
+
+#mobile_mypage{
+	width: 100%;
+    display: none;
+    flex-direction: column;
+    background-color: #EBEBEB;
+    height: 100vh;
+}
+
+#mobile_mypage .contents_area{
+	width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#mobile_mypage .contents_area .content_item_1{
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 10% 0;
+    margin-top: 55px;
+}
+
+#mobile_mypage .contents_area .content_item_1 p{
+	font-size: 14px;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+}
+
+#mobile_mypage .contents_area .content_item_1 p span{
+	color: #EA933C;
+    font-weight: bold;
+}
+
+#mobile_mypage .contents_area .content_item_2{
+	background-color: white;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 5%;
+}
+
+#mobile_mypage .contents_area .content_item_2 a{
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 11px;
+    color: #333333;
+    width: auto;
+}
+
+#mobile_mypage .contents_area .content_item_2 a img{
+	width: 50px;
+    height: 35px;
+    display: block;
+}
+
+#mobile_mypage .contents_area .content_item_2 a span{
+	margin-top: 10%;
+}
+
+#mobile_mypage .contents_area .content_item_2 .line_area{
+	border-left: solid;
+    border-width: 1px;
+    border-color: #707070;
+}
+
+#mobile_mypage .contents_area .content_item_3{
+	box-sizing: border-box;
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+}
+
+#mobile_mypage .contents_area .content_item_3 a{
+	width: 100%;
+    border: solid 1px #b1b1b1;
+    color: #333333;
+    font-size: 12px;
+    box-sizing: border-box;
+    padding: 3% 5%;
+    background-color: white;
+}
+
+#mobile_mypage .contents_area .content_item_3 a:nth-child(1){
+	border-bottom: none;
+}
+
+#mobile_mypage .contents_area .content_item_4{
+	width: 100%;
+    box-sizing: border-box;
+    padding: 0 5%;
+    padding-bottom: 10%;
+    display: flex;
+    flex-direction: column;
+}
+
+#mobile_mypage .contents_area .content_item_4 a{
+	width: 100%;
+    border: solid 1px #b1b1b1;
+    color: #333333;
+    font-size: 12px;
+    box-sizing: border-box;
+    padding: 3% 5%;
+    background-color: white;
+}
+
+#mobile_mypage .contents_area .content_item_4 a:nth-child(2) {
+	border-top: none;
+	border-bottom: none;
+}
+
+#m_member_payment{
+	display: none;
+    flex-direction: column;
+    width: 100%;
+}
+
+#m_member_payment .contents_area{
+	width: 100%;
+    margin-top: 55px;
+}
+
+#m_member_payment .content_area{
+	width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-bottom: solid;
+    border-width: 1px;
+    font-size: 15px;
+}
+
+#m_member_payment .content_area .m_title_area{
+	display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    padding: 3% 8%;
+    border-bottom: solid;
+    border-width: 1px;
+    border-color: #BCBABA;
+}
+
+#m_member_payment .content_area .content_item{
+	display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    padding: 2% 8%;
+}
+
+#m_member_payment .content_area .left_area{
+	width: 25%;
+	font-weight: bold;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 12px;
+}
+
+#m_member_payment .content_area .right_area{
+	width: 75%;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 11px;
+}
+
+#m_member_info{
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #EBEBEB;
+}
+
+#m_member_info .contents_area{
+	width: 100%;
+}
+
+#m_member_info .contents_area form{
+	display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 5%;
+    font-size: 15px;
+    margin-top: 55px;
+}
+
+#m_member_info .contents_area form .content_item{
+	display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 5%;
+}
+
+#m_member_info .contents_area form .content_item input{
+	font-size: 14px;
+    text-indent: 5%;
+    height: 50px;
+    margin-top: 3%;
+    border: unset;
+    box-sizing: border-box;
+}
+
+#m_member_info .contents_area form .content_item .m_text_area{
+	display: flex;
+    flex-direction: row;
+}
+
+#m_member_info .contents_area form .content_item .tel_area{
+	display: flex;
+    justify-content: space-between;
+}
+
+#m_member_info .contents_area form .content_item .tel_area input:nth-child(1) {
+	width: 75%;
+}
+
+#m_member_info .contents_area form .content_item .tel_area input:nth-child(2) {
+	background-color: #EF8E24;
+    color: white;
+    border: unset;
+    height: 50px;
+    width: 22%;
+    font-size: 11px;
+    box-sizing: border-box;
+}
+
+#m_member_info #m_submit_btn{
+	background-color: #EF8E24;
+    color: white;
+    border: unset;
+    height: 50px;
+    width: 100%;
+    font-size: 18px;
+    margin: 14% 0;
+    box-sizing: border-box;
+    font-weight: bold;
+}

@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="website">
+	<select id="get_Introduction_list" parameterType="int" resultType="com.website.Introduction_img">
+		select * from introduction_img where contents_idx = #{contents_idx}
+	</select>
+	
+	<select id="get_Gallery_list" parameterType="com.common.PagingVO_3" resultType="com.website.GalleryVO">
+		select * from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from gallery where contents_idx = #{contents_idx} ${sql} order by idx desc)n,
+		(select @rownum:=0)v)num Where num.num between ${start} and ${end}
+	</select>
+	
+	<select id="get_introduction_cnt" parameterType="int" resultType="int">
+		select count(*) from introduction_img where contents_idx = #{contents_idx}
+	</select>
+	
+	<select id="get_gallery_cnt" parameterType="com.common.PagingVO_3" resultType="int">
+		select count(*) from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from web_notice where contents_idx = #{contents_idx} ${sql} order by idx desc)n,
+		(select @rownum:=0)v)num;
+	</select>
+	
+	<insert id="update_main_img" parameterType="com.contents.ContentsVO">
+		update contents set web_main_name = #{web_main_name} where idx = #{idx}
+	</insert> 
+	
+	<select id="web_notice_count" parameterType="com.common.PagingVO_2" resultType="int">
+		select count(*) from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from web_notice where contents_idx = #{contents_idx} ${sql} order by idx desc)n,
+		(select @rownum:=0)v)num;
+	</select>
+	
+	<select id="select_web_NoticeList" parameterType="com.common.PagingVO_2" resultType="com.notice.Web_notice">
+		select * from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from web_notice where flag = 'Y' and contents_idx = #{contents_idx} ${sql} order by idx desc)n,
+		(select @rownum:=0)v)num Where num.num between ${start} and ${end}
+	</select>
+	
+	<insert id="notice_management_insert" parameterType="com.notice.Web_notice">
+		insert into web_notice (contents_idx, title, contents, writer, start_day, end_day, file_path)
+		values(#{contents_idx}, #{title}, #{contents}, #{writer}, #{start_day}, #{end_day}, #{file_path})
+	</insert>
+	
+	<insert id="notice_management_update" parameterType="com.notice.Web_notice">
+		update web_notice set title = #{title}, contents = #{contents}, writer = #{writer}, start_day = #{start_day},
+		end_day = #{end_day}, file_path = #{file_path} where contents_idx = #{contents_idx}
+	</insert>
+	
+	<select id="report_comments_cnt" parameterType="com.common.PagingVO_2" resultType="int">
+		select count(*) from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from comments where count > 0 and contents_idx = #{contents_idx} ${sql} order by idx desc)n,
+		(select @rownum:=0)v)num;
+	</select>
+	
+	<select id="select_report_comments" parameterType="com.common.PagingVO_2" resultType="com.contents.comments.CommentsVO">
+		select * from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from comments where count > 0 and contents_idx = #{contents_idx} ${sql} order by idx desc)n,
+		(select @rownum:=0)v)num where num.num between ${start} and ${end}
+	</select>
+	
+	<select id="report_answers_cnt" parameterType="com.common.PagingVO_2" resultType="int">
+		select count(*) from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from comments_answer where count > 0 and contents_idx = #{contents_idx} ${sql} order by idx desc)n,
+		(select @rownum:=0)v)num;
+	</select>
+	
+	<select id="select_report_answers" parameterType="com.common.PagingVO_2" resultType="com.contents.comments.Comments_answerVO">
+		select * from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from comments_answer where count > 0 and contents_idx = #{contents_idx} ${sql} order by idx desc)n,
+		(select @rownum:=0)v)num where num.num between ${start} and ${end}
+	</select>
+	
+	<select id="get_web_notice" parameterType="int" resultType="com.notice.Web_notice">
+		select * from web_notice where idx = #{idx}
+	</select>
+	
+	<insert id="set_gallery" parameterType="com.website.GalleryVO">
+		insert into gallery (contents_idx, title, thumbnail, link_1, link_2, link_3)
+		values (#{contents_idx}, #{title}, #{thumbnail}, #{link_1}, #{link_2}, #{link_3})
+	</insert>
+	
+	<select id="get_gallery_idx" parameterType="int" resultType="int">
+		select idx from gallery order by idx desc limit 1
+	</select>
+	
+	<insert id="set_gallery_img" parameterType="com.website.Gallery_img">
+		insert into gallery_img (contents_idx, gallery_idx, img_path) values (#{contents_idx}, #{gallery_idx}, #{img_path})
+	</insert>
+	
+	<select id="get_gallery_img" parameterType="int" resultType="com.website.Gallery_img">
+		select * from gallery_img where gallery_idx = #{gallery_idx}
+	</select>
+	
+	<insert id="set_pop_up" parameterType="com.website.Pop_upVO">
+		insert into pop_up (contents_idx, title_1, start_day_1, end_day_1, ratio_1, img_1,
+		title_2, start_day_2, end_day_2, ratio_2, img_2,
+		title_3, start_day_3, end_day_3, ratio_3, img_3)
+		values (#{contents_idx}, #{title_1}, #{start_day_1}, #{end_day_1}, #{ratio_1}, #{img_1},
+		#{title_2}, #{start_day_2}, #{end_day_2}, #{ratio_2}, #{img_2},
+		#{title_3}, #{start_day_3}, #{end_day_3}, #{ratio_3}, #{img_3})
+	</insert>
+	
+	<select id="get_pop_up" parameterType="int" resultType="com.website.Pop_upVO" >
+		select * from pop_up where contents_idx = #{contents_idx}
+	</select>
+	
+	<insert id="update_pop_up" parameterType="com.website.Pop_upVO">
+		update pop_up set title_1 = #{title_1}, start_day_1 = #{start_day_1}, end_day_1 = #{end_day_1}, ratio_1 = #{ratio_1}, img_1 = #{img_1},
+		title_2 = #{title_2}, start_day_2 = #{start_day_2}, end_day_2 = #{end_day_2}, ratio_2 = #{ratio_2}, img_2 = #{img_2},
+		title_3 = #{title_3}, start_day_3 = #{start_day_3}, end_day_3 = #{end_day_3}, ratio_3 = #{ratio_3}, img_3 = #{img_3}
+		where contents_idx = #{contents_idx}
+	</insert>
+	
+	<select id="get_pop_up_cnt" parameterType="int" resultType="int">
+		select count(*) from pop_up where contents_idx = #{contents_idx}
+	</select>
+	
+	<select id="comments_write" parameterType="String" resultType="String">
+		select user_id from comments where idx = #{c}
+	</select>
+	
+	<insert id="user_delete_management" parameterType="String">
+		update member set flag='N' where id = #{writer}
+	</insert>
+	
+	<insert id="user_delete_comments" parameterType="String">
+		delete from comments where idx = #{c}
+	</insert>
+	
+	<insert id="user_delete_answer" parameterType="String">
+		delete from comments_answer where comments_idx = #{c}
+	</insert>
+	
+	<insert id="notice_delete_management" parameterType="String">
+		update web_notice set flag = 'N' where idx =#{c}
+	</insert>
+	
+	<select id="get_web_notice_cnt" parameterType="int" resultType="int">
+		select count(*) from web_notice where contents_idx = #{contents_idx}
+	</select>
+	
+	<select id="get_main_notice" parameterType="int" resultType="com.notice.Web_notice">
+		select * from web_notice where contents_idx = #{contents_idx} order by idx desc limit 5
+	</select>
+	
+	<select id="get_gallery" parameterType="int" resultType="com.website.GalleryVO">
+		select * from gallery where contents_idx = #{contents_idx}
+	</select>
+	
+	<select id="get_gallery_cnt_2" parameterType="int" resultType="int">
+		select count(*) from gallery where contents_idx = #{contents_idx}
+	</select>
+	
+	<insert id="create_gallery" parameterType="com.contents.ContentsVO">
+		insert into gallery (contents_idx, title) values (#{idx}, #{title})
+	</insert>
+	
+	<select id="get_gallery_list_cnt" parameterType="int" resultType="int">
+		select count(*) from gallery_img where contents_idx = #{contents_idx}
+	</select>
+	
+	<select id="get_gallery_img_list" parameterType="int" resultType="com.website.Gallery_img">
+		select * from gallery_img where contents_idx = #{contents_idx}
+	</select>
+	
+	<insert id="set_gallery_img_list" parameterType="com.website.Gallery_img">
+		insert into gallery_img (contents_idx, img_path) values (#{contents_idx}, #{img_path})
+	</insert>
+	
+	<insert id="media_insert" parameterType="com.website.GalleryVO">
+		insert into gallery (link_1, link_2, link_3, link_4) values (#{link_1}, #{link_2}, #{link_3}, #{link_4})
+	</insert>
+	
+	<insert id="update_gallery" parameterType="com.website.GalleryVO">
+		update gallery set title = #{title}, thumbnail = #{thumbnail}, link_1 = #{link_1},
+		link_2 = #{link_2}, link_3 = #{link_3} where idx = #{idx}		
+	</insert>
+	
+	<insert id="delete_gallery" parameterType="com.website.Gallery_img">
+		delete from gallery_img where contents_idx = #{contents_idx} and gallery_idx = #{gallery_idx}
+	</insert>
+	
+	<select id="get_img_cnt" parameterType="String" resultType="int">
+		select count(*) from gallery_img where img_path = #{img_path}
+	</select>
+	
+	<select id="get_existing_list" parameterType="int" resultType="com.website.Gallery_img">
+		select * from gallery_img where contents_idx = #{contents_idx}
+	</select>
+	
+	<insert id="remove_gallery" parameterType="com.website.Gallery_img">
+		delete from gallery_img where contents_idx = #{contents_idx} and img_path = #{img_path};
+	</insert>
+	
+	<insert id="add_web_notice_view" parameterType="int">
+		update web_notice set views = views + 1 where idx = #{idx}
+	</insert>
+	
+	<select id="get_web_menu" parameterType="int" resultType="com.website.Web_menuVO">
+		select * from web_menu where contents_idx = #{contents_idx}
+	</select>
+	
+	<insert id="introduction_insert" parameterType="com.website.Introduction_img">
+		insert into introduction_img (contents_idx, img_path) values(#{contents_idx}, #{img_path})
+	</insert>
+	
+	<insert id="introduction_update" parameterType="com.website.Introduction_img">
+		update introduction_img set img_path = #{img_path} where contents_idx = #{contents_idx}
+	</insert>
+	
+	<select id="get_business_num" parameterType="int" resultType="String">
+		select business_num from contents where idx = #{contents_idx};
+	</select>
+	
+	<select id="get_business" parameterType="String" resultType="com.business.BusinessVO">
+		select * from business where business_num = #{business_num};
+	</select>
+</mapper>

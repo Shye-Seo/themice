@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="business">
+
+	<insert id="businessJoin"
+		parameterType="com.business.BusinessVO">
+		insert into business (business_num, password,
+		business_name, address, detail_address, email, tel, fax, img_path)
+		values
+		(#{business_num}, #{password},
+		#{business_name}, #{address},
+		#{detail_address},
+		#{email}, #{tel}, #{fax}, #{img_path});
+	</insert>
+
+	<select id="BusinessCheck" parameterType="com.common.loginVO" resultType="com.business.BusinessVO">
+		select * from business where business_num=#{id} and password=SHA2(#{password}, 256)
+	</select>
+	
+	<select id="business_num_check" parameterType="String" resultType="com.business.BusinessVO">
+		select * from business where business_num = #{business_num}
+	</select>
+	
+	<select id="duplicate_business_email" parameterType="String" resultType="com.business.BusinessVO">
+		select * from business where email = #{email}
+	</select>
+	
+	<select id="business_password_check" parameterType="com.business.BusinessVO" resultType="com.business.BusinessVO">
+		select * from business where business_num=#{business_num} and password=SHA2(#{password}, 256);
+	</select>
+	
+	<select id="getBusiness_info" parameterType="String" resultType="com.business.BusinessVO">
+		select * from business where business_num = #{business_num}
+	</select>
+	
+	<insert id="getBusiness_info_update" parameterType="String">
+		${sql}
+	</insert>
+	
+	<select id="business_secession" parameterType="String">
+		update business set flag ='N' where id = #{business_num}
+	</select>
+	
+	<insert id="setBusiness_password_update" parameterType="com.business.BusinessVO">
+		update business set password = #{password} where business_num = #{business_num}
+	</insert>
+	
+	<select id="business_payment_count" parameterType="String" resultType="int">
+		select count(*) from payments where business_num = #{business_num}
+	</select>
+	
+	<select id="business_payment_count_search" parameterType="com.common.PagingVO_2" resultType="int">
+		select count(*) from payments where business_num = #{business_num} and title like ${sql_2}
+	</select>
+	
+	<select id="count_business_contents" parameterType="com.common.PagingVO_2" resultType="int">
+		select count(*) from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from contents where flag='Y' and business_num = #{business_num} ${sql} order by idx desc)n,
+		(select @rownum:=0)v)num;
+	</select>
+	
+	<select id="getBusiness_payment" parameterType="com.common.PagingVO_2" resultType="com.payment.PaymentVO">
+		select * from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from payments where business_num = #{business_num} ${sql} order by idx desc)n,
+		(select @rownum:=0)v)num Where num.num between #{start} and #{end}
+	</select>
+	
+	<select id="getBusiness_contents_list" parameterType="com.common.PagingVO_2" resultType="com.contents.ContentsVO">
+		select * from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from contents where flag = 'Y' and business_num = #{business_num} ${sql} order by idx desc)n,
+		(select @rownum:=0)v)num Where num.num between ${start} and ${end}
+	</select>
+	
+	<select id="getcontent" parameterType="String" resultType="com.contents.ContentsVO">
+		select * from contents where idx = #{contents_idx}
+	</select>
+	
+	<select id="business_email_pw_find" parameterType="com.business.BusinessVO" resultType="com.business.BusinessVO">
+		select * from business where business_num = #{business_num} and email = #{email}
+	</select>
+	
+	<select id="business_tel_pw_find" parameterType="com.business.BusinessVO" resultType="com.business.BusinessVO">
+		select * from business where business_num = #{business_num} and tel = #{tel}
+	</select>
+	
+	<insert id="business_password_update" parameterType="com.member.MemberVO">
+		update business set password = #{password}
+	</insert>
+</mapper>

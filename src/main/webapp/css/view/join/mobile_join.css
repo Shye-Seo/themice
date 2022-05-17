@@ -1,0 +1,75 @@
+#mobile_join{
+	width: 100%;
+    display: none;
+    flex-direction: column;
+    background-color: #EBEBEB;
+}
+
+#mobile_join #m_form{
+	display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 10% 5%;
+    font-size: 15px;
+    margin-top: 55px;
+}
+
+#mobile_join #m_form .contents_item {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 5%;
+}
+
+#mobile_join #m_form .contents_item .m_text_area{
+	display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#mobile_join #m_form .contents_item .m_text_area span:nth-child(1) {
+	font-weight: bold;
+}
+
+#mobile_join #m_form .contents_item input{
+	font-size: 14px;
+    text-indent: 10px;
+    height: 50px;
+    margin-top: 2%;
+    border: unset;
+    box-sizing: border-box;
+}
+
+#mobile_join #m_form .contents_item .tel_area{
+	display: flex;
+    justify-content: space-between;
+}
+
+#mobile_join #m_form .contents_item .tel_area input:nth-child(1){
+	width: 75%;
+}
+
+#mobile_join #m_form #m_tel_btn{
+	background-color: #EF8E24;
+    color: white;
+    border: unset;
+    height: 50px;
+    width: 22%;
+    font-size: 11px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+#mobile_join #m_form #m_submit_btn{
+	background-color: #EF8E24;
+    color: white;
+    border: unset;
+    height: 50px;
+    width: 100%;
+    font-size: 17px;
+    margin-top: 14%;
+    margin-bottom: 20%;
+    box-sizing: border-box;
+}

@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="contents">
+
+	<select id="getContentinfo" parameterType="com.common.PagingVO" resultType="com.contents.ContentsVO">
+		select * from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from contents where flag = 'Y' ${sql} order by idx desc)n,
+		(select @rownum:=0)v)num Where num.num between ${start} and ${end}
+	</select>
+	
+	<select id="get_m_Contentinfo" parameterType="com.common.PagingVO" resultType="com.contents.ContentsVO">
+		select * from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from contents where flag = 'Y' ${sql} order by idx desc)n,
+		(select @rownum:=0)v)num Where num.num;
+	</select>
+
+	<insert id="insertContents" parameterType="com.contents.ContentsVO">
+		insert into contents
+		(business_num, business, title, start_day, end_day, address, detail_address, start_time, end_time, tel,
+		price, age, exhn_type, layout_type, font_type, pattern, background_color, key_word, content, sub_title,
+		web_address, img_path, website_type, web_main_name, logo_name, banner_name)
+		values (#{business_num}, #{business}, #{title}, #{start_day}, #{end_day}, #{address}, 
+		#{detail_address}, #{start_time}, #{end_time}, #{tel}, #{price}, #{age}, #{exhn_type},
+		#{layout_type}, #{font_type}, #{pattern}, #{background_color}, #{key_word}, #{content}, #{sub_title},
+		#{web_address}, #{img_path}, #{website_type}, #{web_main_name}, #{logo_name}, #{banner_name})
+	</insert>
+
+	<select id="selectContent" parameterType="int" resultType="com.contents.ContentsVO">
+		select * from contents where idx = #{contents_idx}
+	</select>
+
+	<insert id="insertComment"
+		parameterType="com.contents.comments.CommentsVO">
+		insert into comments (user_id, contents_idx, comment, score)
+		values (#{user_id}, #{contents_idx}, #{comment}, #{score})
+	</insert>
+	
+	<insert id="insert_Mobile_Comment"
+		parameterType="com.contents.comments.CommentsVO">
+		insert into comments (user_id, contents_idx, comment, img_path, score)
+		values (#{user_id}, #{contents_idx}, #{comment}, #{score})
+	</insert>
+
+	<select id="selectComment" parameterType="com.common.PagingVO_2"
+		resultType="com.contents.comments.CommentsVO">
+		select * from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from comments where contents_idx = ${contents_idx} order by idx desc)n,
+		(select @rownum:=0)v)num Where num.num between ${start} and ${end}
+	</select>
+
+	<select id="selectAnswer" parameterType="int"
+		resultType="com.contents.comments.Comments_answerVO">
+		select * from comments_answer where contents_idx = #{contents_idx}
+	</select>
+
+	<insert id="insertAnswer"
+		parameterType="com.contents.comments.Comments_answerVO">
+		insert into comments_answer (contents_idx, comments_idx, user_id, comments)
+		values (#{contents_idx}, #{comments_idx}, #{user_id}, #{comments});
+	</insert>
+
+	<select id="comments_count" parameterType="int" resultType="int">
+		select count(*) from comments where contents_idx = #{contents_idx}
+	</select>
+
+	<insert id="imgupload" parameterType="com.common.ImgVO">
+		insert into img
+		(contents_idx, img_seq, img_path)
+		values
+		(#{contents_idx}, #{img_seq}, #{img_path})
+	</insert>
+
+	<select id="getContents_idx" resultType="int">
+		SELECT idx FROM contents ORDER BY
+		idx DESC LIMIT 1
+	</select>
+
+	<select id="selectMemeber" parameterType="String"
+		resultType="com.member.MemberVO">
+		select * from member where id = #{id}
+	</select>
+	
+	<select id="getContents_img" parameterType="int"
+		resultType="com.common.ImgVO">
+		select * from img where contents_idx = #{contents_idx}
+	</select>
+	
+	<select id="temporary_check" parameterType="String"
+		resultType="com.contents.Temporary_storage_VO">
+		select * from temporary_storage where business = #{business}
+	</select>
+	
+	<select id="insertTemporary" parameterType="com.contents.Temporary_storage_VO">
+		insert into temporary_storage
+		(business, title, start_day, end_day, start_time, end_time, tel, address, detail_address, sub_title, content,
+		price, exhn_type, layout_type, font_type, pattern, background_color, web_address)
+		values
+		(#{business}, #{title}, #{start_day}, #{end_day}, #{start_time}, #{end_time}, #{tel},
+		#{address}, #{detail_address}, #{sub_title} ,#{content}, #{price}, #{exhn_type}, #{layout_type},
+		#{font_type}, #{pattern}, #{background_color}, #{web_address})
+	</select>
+	
+	<select id="updateTemporary" parameterType="com.contents.Temporary_storage_VO">
+		update temporary_storage set
+		title = #{title}, start_day = #{start_day}, end_day = #{end_day}, start_time = #{start_time}, end_time = #{end_time}, tel = #{tel},
+		address = #{address}, detail_address = #{detail_address}, sub_title = #{sub_title} ,content = #{content}, price = #{price}, age = #{age},
+		exhn_type = #{exhn_type}, layout_type = #{layout_type}, font_type =#{font_type},
+		pattern = #{pattern}, pattern = #{pattern}, background_color = #{background_color},
+		web_address = #{web_address} where business = #{business}
+	</select>
+	
+	<select id="countContents" resultType="int">
+		select count(*) from contents
+	</select>
+	
+	<select id="countSelectContents" parameterType="com.common.PagingVO" resultType="int">
+		select count(*) from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from contents where flag='Y' ${sql} order by idx desc)n,
+		(select @rownum:=0)v)num;
+	</select>
+	
+	<select id="getContents_idx_business" parameterType="String" resultType="com.contents.ContentsVO">
+		select * from business where business = #{business_name} order by idx desc
+	</select>
+	
+	<select id="getTel" parameterType="String" resultType="String">
+		select tel from business where business_num = #{business_id}
+	</select>
+	
+	<select id="getInterest" parameterType="com.member.InterestVO" resultType="com.member.InterestVO">
+		select * from interest where member_id = #{member_id} and contents_idx = #{contents_idx}
+	</select>
+	
+	<insert id="insertInterest" parameterType="com.member.InterestVO">
+		insert into interest (member_id, contents_idx) values(#{member_id}, #{contents_idx})
+	</insert>
+	
+	<insert id="deleteInterest" parameterType="com.member.InterestVO">
+		delete from interest where member_id = #{member_id} and contents_idx = #{contents_idx}
+	</insert>
+	
+	<select id="getSection_2_list" resultType="com.contents.ContentsVO">
+		select * from contents order by idx desc limit 0,5
+	</select>
+	
+	<select id="m_getSection_2_list" resultType="com.contents.ContentsVO">
+		select * from contents order by idx desc limit 0,5
+	</select>
+	
+	<select id="getmainNotice" resultType="com.notice.NoticeVO">
+		select * from Notice order by idx desc limit 0,6
+	</select>
+	
+	<select id="countNotice" parameterType="int" resultType="int">
+		select count(*) from Notice
+	</select>
+	
+	<select id="getNotice_list" parameterType="com.common.PagingVO" resultType="com.notice.NoticeVO">
+		select * from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from Notice where flag='Y' order by idx desc)n,
+		(select @rownum:=0)v)num Where num.num between #{start} and #{end}
+	</select>
+	
+	<select id="getBusiness_name" parameterType="String" resultType="String">
+		select business_name from business where business_num = #{business_num}
+	</select>
+	
+	<insert id="insertTemporary_Img" parameterType="com.common.Temporary_ImgVO">
+		insert into temporary_img
+		(business_num, img_path)
+		values
+		(#{business_num}, #{img_path})
+	</insert>
+	
+	<select id="getTemporary_Img" parameterType="String" resultType="com.common.Temporary_ImgVO">
+		select * from temporary_img where business_num = #{business}
+	</select>
+	
+	<insert id="delete_temporary_img" parameterType="String">
+		delete from temporary_img where business_num = #{business_num}
+	</insert>
+
+	<select id="updateComment" parameterType="com.contents.comments.CommentsVO">
+		update comments set
+		comment = #{comment}, img_1 = #{img_1}, img_2 = #{img_2}, img_3 = #{img_3}, img_4 = #{img_4}, img_5 = #{img_5}, score = #{score}
+		where idx = #{idx}
+	</select>
+	
+	<select id="notice_count" parameterType="com.common.PagingVO_2" resultType="int">
+		select count(*) from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from Notice where flag='Y' ${sql} order by idx desc)n,
+		(select @rownum:=0)v)num;
+	</select>
+	
+	<select id="selectNoticeList" parameterType="com.common.PagingVO_2" resultType="com.notice.NoticeVO">
+		select * from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from Notice where flag = 'Y' ${sql} order by idx desc)n,
+		(select @rownum:=0)v)num Where num.num between ${start} and ${end}
+	</select>
+	
+	<select id="getNotice_detail" parameterType="int" resultType="com.notice.NoticeVO">
+		select * from Notice where flag = 'Y' and idx = #{idx}
+	</select>
+	
+	<select id="getSection_1_list" parameterType="String" resultType="com.contents.AdvertisementVO">
+		select * from advertisement
+	</select>
+	
+	<select id="getSection_3_list" parameterType="String" resultType="com.contents.ContentsVO">
+		select * from contents where start_day like ${day} order by grade desc
+	</select>
+	
+	<select id="m_getSection_3_list" resultType="com.contents.ContentsVO">
+		select * from contents where date(end_day) >= date(subdate(DATE_FORMAT(now(), "%Y.%m.%d"), INTERVAL 0 DAY))
+		and date(end_day) order by views desc limit 0,8
+	</select>
+	
+	<select id="getSection_3_cnt" parameterType="String" resultType="int">
+		select count(*) from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from contents where start_day like ${day} order by grade desc)n,
+		(select @rownum:=0)v)num
+	</select>
+	
+	<select id="getSection_1_cnt" resultType="int">
+		select count(*) from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from advertisement)n,
+		(select @rownum:=0)v)num
+	</select>
+	
+	<select id="comment_check" parameterType="com.contents.comments.CommentsVO"
+		resultType="com.contents.comments.CommentsVO">
+		select * from comments where idx = #{idx} and user_id = #{user_id}
+	</select>
+	
+	<insert id="delete_comment" parameterType="int">
+		delete from comments where idx = #{idx} 
+	</insert>
+	
+	<insert id="delete_answer" parameterType="int">
+		delete from comments_answer where idx = #{idx} 
+	</insert>
+	
+	<select id="answer_check" parameterType="com.contents.comments.Comments_answerVO"
+		resultType="com.contents.comments.Comments_answerVO">
+		select * from comments_answer where idx = #{idx} and user_id = #{user_id}
+	</select>
+	
+	<select id="check_payment" parameterType="com.payment.PaymentVO" resultType="com.payment.PaymentVO">
+		select * from payments where contents_idx = #{contents_idx} and consumer = #{consumer}
+	</select>
+	
+	<insert id="add_contents_view" parameterType="int">
+		update contents set views = views + 1 where idx = #{contents_idx}
+	</insert>
+	
+	<select id="getContent_Score" parameterType="int" resultType="String">
+		select truncate(avg(score), 0) from comments where contents_idx = #{contents_idx}
+	</select>
+	
+	<insert id="add_notice_view" parameterType="int">
+		update Notice set views = views + 1 where idx = #{idx}
+	</insert>
+	
+	<select id="comment_delete_check" parameterType="int" resultType="com.contents.comments.CommentsVO">
+		select * from comments where idx = #{idx}
+	</select>
+	
+	<insert id="comment_report" parameterType="com.contents.comments.Report_commentsVO">
+		insert into report_comments (comments_idx, reporter, report_target, report_content)
+		values (#{comments_idx}, #{reporter}, #{report_target}, #{report_content})
+	</insert>
+	
+	<select id="getcomments" parameterType="int" resultType="com.contents.comments.CommentsVO">
+		select * from comments where idx = #{idx}
+	</select>
+	
+	<select id="comments_report_check" parameterType="com.contents.comments.CommentsVO" resultType="int">
+		select count(*) from report_comments where (comments_idx, reporter) = (#{comments_idx}, #{reporter})
+	</select>
+	
+	<insert id="comment_report_cnt" parameterType="int">
+		update comments set count = count+1 where idx = #{idx}
+	</insert>
+	
+	<select id="answers_report_check" parameterType="com.contents.comments.Comments_answerVO" resultType="int">
+		select count(*) from report_answers where (answers_idx, reporter) = (#{answers_idx}, #{reporter})
+	</select>
+	
+	<insert id="answer_report" parameterType="com.contents.comments.Report_answersVO">
+		insert into report_answers (answers_idx, reporter, report_target, report_content)
+		values (#{answers_idx}, #{reporter}, #{report_target}, #{report_content})
+	</insert>
+	
+	<insert id="answer_report_cnt" parameterType="int">
+		update answers set count = count+1 where idx = #{idx}
+	</insert>
+	
+	<insert id="insert_introduction_img" parameterType="com.website.Introduction_img">
+		insert into introduction_img (contents_idx, img_path) values(#{contents_idx}, #{img_path})
+	</insert>
+</mapper>

@@ -1,0 +1,171 @@
+* {
+	margin: 0;
+	padding: 0
+}
+
+body {
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+ul, ol {
+	list-style: none
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.header {
+	z-index: 10;
+	top: 0;
+	width: 100%;
+	background-color: #1D1D1D;
+	height: 8vh;
+}
+
+.header ul:after {
+	content: "";
+	display: block;
+	clear: both
+}
+
+.header ul li {
+	float: left;
+	border-left: 1px solid rgba(255, 255, 255, 0);
+	box-sizing: border-box;
+	width: 25%
+}
+
+.header ul li:first-child {
+	border-left: none
+}
+
+.header ul li a {
+	display: block;
+	height: 100%;
+	text-align: center;
+	line-height: 72px;
+	font-size: 16px;
+	text-decoration: none;
+	background-color: #1D1D1D;
+	color: #fff
+}
+
+.header ul li.on a {
+	background-color: #fff;
+	color: #000
+}
+
+.header_inner_wrap {
+	display: flex;
+	justify-content: space-between;
+	width: 90%;
+	height: 100%;
+	margin: 0 auto;
+}
+
+.header_logo {
+	display: flex;
+	align-items: center;
+}
+
+.header_inner_wrap ul {
+	display: flex;
+	justify-content: space-between;
+	width: 60%;
+}
+
+.mobile_menu {
+	display: none;
+}
+
+.logo_img {
+	cursor: pointer;
+	width: 180px;
+}
+
+.mobile_title {
+	display: none;
+}
+
+.mobile_back_btn {
+	display: none;
+}
+
+@media screen and (max-width: 1024px) {
+	.header_inner_wrap ul {
+		display: flex;
+		justify-content: space-between;
+		width: 70%;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.header_inner_wrap ul {
+		width: 75%;
+	}
+	.header ul li a {
+		font-size: 14px;
+	}
+}
+
+@media screen and (max-width: 425px) {
+	.header {
+		height: 50px;
+	}
+	.header_inner_wrap {
+		justify-content: unset;
+		align-items: center;
+	}
+	.header ul {
+		display: none;
+	}
+	.header_logo {
+		display: none;
+	}
+	.mobile_title {
+		font-size: 15px;
+		display: block;
+		color: white;
+		width: 100%;
+		text-align: center;
+	}
+	.mobile_back_btn {
+		display: block;
+		position: absolute;
+		top: 2%;
+		left: 5%;
+		cursor: pointer;
+	}
+}
+
+@media screen and (max-width: 414px) {
+	.mobile_back_btn {
+		top: 2.5%;
+	}
+}
+
+@media screen and (max-width: 411px) {
+	.mobile_back_btn {
+		top: 2.5%;
+	}
+}
+
+@media screen and (max-width: 375px) {
+	.mobile_back_btn {
+		top: 2.1%;
+	}
+}
+
+@media screen and (max-width: 360px) {
+	.mobile_back_btn {
+		top: 3%;
+	}
+}
+
+@media screen and (max-width: 280px) {
+	.mobile_back_btn {
+		top: 2.5%;
+	}
+}

@@ -1,0 +1,57 @@
+#mobile_login{
+	display: none;
+    flex-direction: column;
+}
+
+#mobile_login form{
+	margin-top: 55px;
+}
+
+#mobile_login form .input_area{
+	display: flex;
+    flex-direction: column;
+    width: 84%;
+    margin: 0 auto;
+    margin-top: 10%;
+}
+
+#mobile_login form .input_area input{
+	height: 50px;
+    font-size: 14px;
+    text-indent: 20px;
+    border: solid 1px #707070;
+    box-sizing: border-box;
+}
+
+#mobile_login form .input_area input:nth-child(2){
+	margin-top: 20px;
+}
+
+#mobile_login form .input_area button{
+	height: 50px;
+    background-color: #EA933C;
+    color: white;
+    border: unset;
+    margin-top: 10%;
+    margin-bottom: 5%;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 5px;
+}
+
+#mobile_login .find_area{
+	display: flex;
+    justify-content: center;
+    font-size: 12px;
+}
+
+#mobile_login .find_area a{
+	color: #5F5E5E;	
+}
+
+#mobile_login .find_area .line_area{
+	border-left: solid;
+    border-width: 1px;
+    border-color: #5F5E5E;
+    margin: 0 5%;
+}

@@ -1,0 +1,426 @@
+#join{
+	width: 1024px;
+    margin: 4% auto;
+    color: #444343;
+}
+
+#join p{
+	margin: 0;
+	padding: 0;
+}
+
+#join img{
+	width: 100%;
+	display: block;
+}
+
+#join span{
+	color: #EA933C;
+}
+
+#join .title_area{
+	text-align: center;
+    font-size: 1.7em;
+    font-weight: 600;
+    margin-bottom: 5%;
+}
+
+#join .division_area{
+	display: flex;
+    width: 100%;
+    border-top: solid;
+    border-bottom: solid;
+    border-width: 1px;
+    border-color: #707070;
+    font-size: 1.1rem;
+    height: 45px;
+    align-items: center;
+}
+
+#join .division_area .right input{
+	vertical-align: baseline;
+}
+
+.left{
+	width: 25%;
+    background-color: #F4F2F2;
+    font-size: 1.3rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-weight: 600;
+}
+
+.right{
+	box-sizing: border-box;
+    padding: 0 5%;
+	width: 75%;
+}
+
+.right label{
+	margin-right: 5%;
+	cursor: pointer;
+}
+
+.left p{
+	width: 70%;
+}
+
+.right input{
+	margin-right: 1%;
+}
+
+.text_area{
+	display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 8%;
+    margin-bottom: 2%;
+    font-weight: 600;
+}
+
+.text_area .item_1{
+	font-size: 1.3rem;
+}
+
+.text_area .item_2{
+	position: relative;
+    font-size: 1.1rem;
+}
+
+.text_area .item_2 span{
+	position: absolute;
+    left: -15px;
+}
+
+#joinform{
+	display: flex;
+    flex-direction: column;
+    background-color: #F4F2F2;
+}
+
+#join .infomation_item{
+	border-top: solid;
+    border-width: 1px;
+    border-color: #707070;
+    display: flex;
+    align-items: center;
+}
+
+#join .last_area{
+	border-bottom: solid;
+}
+
+#join .infomation_item .name_item{
+	position: relative;
+    width: 25%;
+    background-color: #F4F2F2;
+    display: flex;
+    font-size: 1.2rem;
+    height: 100%;
+    align-items: center;
+    font-weight: 600;
+    justify-content: flex-end;
+    border: unset;
+}
+
+#join .infomation_item .name_item p{
+	width: 70%;
+}
+
+#join .infomation_item .name_item span{
+	position: absolute;
+    left: 20%;
+}
+
+#join .infomation_item .value_item{
+	box-sizing: border-box;
+    padding: 3% 5%;
+    width: 75%;
+    background-color: white;
+}
+
+#join .infomation_item .value_item p{
+	padding-top: 1%;
+}
+
+#join .infomation_item .value_item input{
+	width: 70%;
+    border: none;
+    border-bottom: solid;
+    border-width: 1px;
+    border-color: #707070;
+    height: 30px;
+    text-indent: 1%;
+    font-size: 1rem;
+}
+
+#join .infomation_item .value_item span{
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+#join .infomation_item .value_item #postcode{
+	width: 50%;
+    vertical-align: bottom;
+    margin-right: 10px;
+}
+
+#join .infomation_item .value_item .post{
+	width: 15%;
+    background: no-repeat;
+    border: solid 1px #707070;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#join .infomation_item .value_item .div:nth-child(2){
+	margin: 4% 0;
+}
+
+#join .infomation_item .value_item .mail_item_1{
+	width: 22%;
+    margin-right: 10px;
+}
+
+#join .infomation_item .value_item .mail_item_2{
+	width: 22%;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#join .infomation_item .value_item .mail_item_3{
+	width: 15%;
+    height: 30px;
+    text-indent: 2%;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#join .infomation_item .value_item #tel{
+	vertical-align: bottom;
+    width: 50%;
+    margin-right: 10px;
+}
+
+#join .infomation_item .value_item #sms_certification{
+	display: none;
+}
+
+#join .infomation_item .value_item .certification_button{
+	width: 15%;
+    background: no-repeat;
+    border: solid 1px #707070;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#join .infomation_item .value_item .img_area{
+	width: 100px;
+}
+
+#join .infomation_item .value_item .input_file_area{
+	width: 100px;
+    text-align: center;
+    margin-top: 3%;
+}
+
+#join .infomation_item .value_item .input_file_area input{
+	display: none;
+}
+
+#join .infomation_item .value_item .input_file_area label{
+	border: solid 1px #707070;
+    display: flex;
+    height: 30px;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#join .member_submit{
+	background-color: white;
+    text-align: center;
+    padding-top: 10%;
+}
+
+#join .member_submit input{
+	background-color: #EA933C;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    padding: 0.5% 2.5%;
+    cursor: pointer;
+}
+
+#join .member_submit .reset{
+	background-color: white;
+    border: solid 1px #EA933C;
+    color: #EA933C;
+    font-size: 1.2rem;
+    padding: 0.5% 2.5%;
+    margin-left: 3%;
+    cursor: pointer;
+}
+
+#business{
+	display: none;
+}
+
+#businessform{
+	display: flex;
+    flex-direction: column;
+    background-color: #F4F2F2;
+}
+
+#join .infomation_item .value_item .business_num{
+	width: 50%;
+    margin-right: 10px;
+}
+
+#join .infomation_item .value_item .business_file_upload_btn{
+	background-color: #EA933C;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    padding: 0.5% 2.5%;
+    cursor: pointer;
+}
+
+#business_sms_certification{
+	display: none;
+}
+
+#join .infomation_item .value_item #postcode_1{
+	width: 50%;
+    vertical-align: bottom;
+    margin-right: 10px;
+}
+
+#join .infomation_item .value_item #business_tel{
+	width: 50%;
+    vertical-align: bottom;
+    margin-right: 10px;
+}
+
+#business_file_upload{
+	display: none;
+}
+
+#join .business_submit{
+	background-color: white;
+    text-align: center;
+    padding-top: 10%;
+    cursor: pointer;
+}
+
+#join .business_submit input{
+	background-color: #EA933C;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    padding: 0.5% 2.5%;
+    cursor: pointer;
+}
+
+#join .business_submit .reset{
+	background-color: white;
+    border: solid 1px #EA933C;
+    color: #EA933C;
+    font-size: 1.2rem;
+    padding: 0.5% 2.5%;
+    margin-left: 3%;
+    cursor: pointer;
+}
+
+#join .agreement {
+	background-color: white;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding-top: 7%;
+}
+
+#join .agreement .agree_title_area {
+	display: flex;
+    flex-direction: column;
+}
+
+#join .agreement .agree_title_area span {
+	color: #333333;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#join .agreement .agree_title_area .check_area {
+	display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 2%;
+}
+
+#join .agreement .agree_title_area .check_area span {
+	color: #333333;
+	font-size: 18px;
+	margin-left: 15px;
+}
+
+#join .agreement .check_area input {
+	display: none;
+}
+
+#join .agreement .check_area input:checked + label img:nth-child(1) {
+	display: none;
+}
+
+#join .agreement .check_area input:checked + label img:nth-child(2) {
+	display: block;
+}
+
+#join .agreement .check_area label img {
+	width: 25px;
+	cursor: pointer;
+}
+
+#join .agreement .check_area label img:nth-child(2) {
+	display: none;
+}
+
+#join .agreement .agreement_area {
+	width: 100%;
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+}
+
+#join .agreement .agreement_area .title_span {
+	color: #333333;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 1%;
+}
+
+#join .agreement .agreement_area textarea {
+	background-color: #F4F2F2;
+    height: 300px;
+    width: 100%;
+    resize: none;
+}
+
+#join .agreement .agreement_area .check_area {
+	display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 1%;
+}
+
+#join .agreement .agreement_area .check_area span {
+	color: #333333;
+	margin-right: 10px;
+}
+

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="737" height="123" viewBox="0 0 737 123">
+  <defs>
+    <clipPath id="clip-path">
+      <rect y="65" width="737" height="123" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="스크롤_그룹_1" data-name="스크롤 그룹 1" transform="translate(0 -65)" clip-path="url(#clip-path)" style="isolation: isolate">
+    <text id="THE_MICE" data-name="THE MICE" transform="translate(0 188)" fill="#dbdbdb" font-size="174" font-family="SegoeUI, Segoe UI" opacity="0.246"><tspan x="0" y="0">THE MICE</tspan></text>
+  </g>
+</svg>

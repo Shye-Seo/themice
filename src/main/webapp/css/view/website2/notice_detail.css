@@ -1,0 +1,145 @@
+.notice_banner {
+	width: 100%;
+}
+
+.notice_banner img {
+	width: 100%;
+}
+.notice_detail_wrap {
+	width: 100%;
+    margin: 3% 0 5% 0;
+}
+.nd_inner_wrap {
+	width: 60%;
+    margin: auto;
+    border-top: 1px solid #333333;
+}
+.nd_title {
+	font-size: 22px;
+    font-weight: bold;
+    color: #333333;
+    padding: 1% 0;
+}
+.nd_table {
+	width: 100%;
+    border-collapse: collapse;
+    border-top: 1px solid #707070;
+    border-bottom: 1px solid #707070;
+}
+.f_tr {
+	border-bottom: 1px solid #707070;
+}
+.nd_table th {
+	background-color: #F7F5F5;
+    padding: 1%;
+    width: 17%;
+    font-size: 17px;
+    font-weight: normal;
+    color: #333333;
+}
+.nd_table .f_td {
+	padding: 1%;
+    width: 43%;
+    font-size: 15px;
+    color: #333333;
+}
+.nd_table .s_td {
+	padding: 1%;
+    width: 23%;
+    font-size: 15px;
+    color: #333333;
+}
+.nd_content {
+	display: flex;
+    align-items: center;
+    padding: 1% 0 3% 0;
+    width: 100%;
+    font-size: 15px;
+    color: #333333;
+}
+.nd_img {
+	width: 100%;
+}
+.nd_img img {
+	width: 100%;
+}
+.nd_btn_function {
+	text-align: center;
+    margin: 5% 0;
+}
+.nd_btn {
+	width: 135px;
+    height: 38px;
+    background-color: #1D1D1D;
+    border: 1px solid #1D1D1D;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+@media screen and (max-width: 1024px) {
+	.nd_inner_wrap {
+    	width: 80%;
+	}
+}
+@media screen and (max-width: 425px) {
+	.notice_banner {
+		display: none;
+	}	
+	.nd_inner_wrap {
+	    width: 95%;
+	}
+	.nd_table th {
+	    font-size: 15px;
+	}
+	.nd_table .f_td {
+	    font-size: 13px;
+	}
+	.nd_table .s_td {
+	    font-size: 13px;
+	}
+}
+@media screen and (max-width: 375px) {
+	.nd_table th {
+	    font-size: 14px;
+	}
+	.nd_table .f_td {
+	    font-size: 12px;
+	}
+	.nd_table .s_td {
+	    font-size: 12px;
+	}
+}
+@media screen and (max-width: 360px) {
+	.nd_table th {
+	    font-size: 13px;
+	}
+	.nd_table .f_td {
+	    font-size: 12px;
+	}
+	.nd_table .s_td {
+	    font-size: 12px;
+	}
+}
+@media screen and (max-width: 320px) {
+	.nd_table th {
+	    font-size: 12px;
+	}
+	.nd_table .f_td {
+	    font-size: 11px;
+	}
+	.nd_table .s_td {
+	    font-size: 11px;
+	}	
+}
+@media screen and (max-width: 280px) {
+	.nd_table th {
+	    font-size: 10px;
+	}
+	.nd_table .f_td {
+	    font-size: 10px;
+	}
+	.nd_table .s_td {
+	    font-size: 10px;
+	}	
+}

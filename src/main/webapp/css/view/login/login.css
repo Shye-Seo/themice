@@ -1,0 +1,128 @@
+#login {
+	width: 1024px;
+    margin: 0 auto;
+	display: flex;
+    justify-content: space-between;
+    padding: 5% 0;
+}
+
+#login img{
+	width: 55px;
+}
+
+#login .login_area {
+	width: 45%;
+    box-sizing: border-box;
+}
+
+#login .line_area{
+	height: 300px;
+    width: 1px;
+    border-right: solid;
+    border-width: 1px;
+    border-color: #D0D0D0;
+    margin: auto;
+}
+
+#login .login_area .title_area {
+	width: 70%;
+    float: left;
+    text-align: center;
+    margin-bottom: 8%;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+#login .login_area .input_area {
+	width: 100%;
+	float: left;
+	position: relative;
+}
+
+#login .login_area .input_area input {
+	width: 70%;
+    float: left;
+    height: 32px;
+    margin-bottom: 20px;
+    font-size: 1em;
+    text-indent: 2%;
+    border: solid 1px #bbbaba;
+}
+
+#login .login_area .input_area button {
+	height: 97px;
+    width: 25%;
+    background-color: #EA933C;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1em;
+    right: 0;
+    position: absolute;
+    cursor: pointer;
+}
+
+#login .login_area .remember_area {
+	width: 100%;
+    float: left;
+    margin-bottom: 2%;
+}
+
+#login .login_area .remember_area input {
+	float: left;
+}
+
+#login .login_area .remember_area p {
+	width: auto;
+	float: left;
+	margin: 0;
+	margin-left: 6px;
+	font-size: 0.8em;
+	opacity: 0.6;
+}
+
+#login .login_area .login_sub_area {
+	width: 100%;
+    float: left;
+    margin-top: 1%;
+    border-top: solid;
+    border-width: 1px;
+    border-color: #D0D0D0;
+}
+
+#login .login_area .login_sub_area .sub_area
+	{
+	width: 49.5%;
+	float: left;
+	margin: 0 auto;
+	border-right: solid;
+	border-width: 1px;
+	border-color: #D0D0D0;
+	padding-bottom: 7%;
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#login .login_area .login_sub_area .sub_area .img_area
+	{
+	width: max-content;
+	margin: 0 auto;
+	margin-top: 9%;
+}
+
+#login .login_area .login_sub_area .sub_area .input_area{
+	text-align: center;
+    margin-top: 5%;
+    border: solid 1px #707070;
+    border-radius: 50px;
+    padding: 2% 5%;
+    font-size: 0.8em;
+    opacity: 0.8;
+    width: auto;
+}
+
+#login .login_area .login_sub_area .sub_area .input_area a{
+	text-decoration: none;
+    color: #707070;
+}

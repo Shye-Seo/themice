@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="76" height="76" viewBox="0 0 76 76">
+  <defs>
+    <filter id="타원_324" x="0" y="0" width="76" height="76" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="그룹_3826" data-name="그룹 3826" transform="translate(-510 -3511)">
+    <g transform="matrix(1, 0, 0, 1, 510, 3511)" filter="url(#타원_324)">
+      <circle id="타원_324-2" data-name="타원 324" cx="29" cy="29" r="29" transform="translate(9 6)" fill="#fff"/>
+    </g>
+    <g id="Glyph" transform="translate(531.26 3529.281)">
+      <path id="패스_7654" data-name="패스 7654" d="M28.054,14.145a11.321,11.321,0,0,0-22.62,0A5,5,0,0,0,7.257,23.8,1.855,1.855,0,0,0,9.1,21.956V15.632a1.855,1.855,0,0,0-1.845-1.845H7.036a9.739,9.739,0,0,1,19.416,0H26.23a1.855,1.855,0,0,0-1.845,1.845v6.324A1.855,1.855,0,0,0,26.23,23.8h.095a5.544,5.544,0,0,1-5.365,4.216H19.347a1.286,1.286,0,0,0-1.054-.527H15.131a1.318,1.318,0,1,0,0,2.635h3.162a1.286,1.286,0,0,0,1.054-.527H20.96A7.125,7.125,0,0,0,28,23.463a4.986,4.986,0,0,0,.053-9.318Z" transform="translate(0 0)"/>
+    </g>
+  </g>
+</svg>

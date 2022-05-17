@@ -1,0 +1,137 @@
+@media ( min-width :320px) {
+	#footer {
+		display: none;
+	}
+}
+
+@media (min-width: 721px){
+	#footer {
+    	display: block;
+	}
+}
+
+#footer {
+	float: left;
+	width: 100%;
+	background-color: #DBDBDB;
+}
+
+#footer ul, li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#footer a {
+	text-decoration: none;
+	color: #808080;
+	font-size: 0.9rem;
+}
+
+#footer .link {
+	border-bottom: solid;
+	border-width: 1px;
+	border-color: #CCCACA;
+	display: flex;
+	justify-content: space-between;
+	box-sizing: border-box;
+	height: 40px;
+}
+
+#footer .link .info_link {
+	width: 100%;
+    padding: 0 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#footer .link .info_link ul {
+	display: flex;
+	height: 100%;
+	align-items: center;
+}
+
+#footer .link .info_link ul li:first-child {
+	border-right: solid;
+	border-width: 1px;
+	border-color: #808080;
+	padding-right: 20px;
+	font-size: 1rem;
+}
+
+#footer .link .info_link ul li:nth-child(2) {
+	border-right: solid;
+	border-width: 1px;
+	border-color: #808080;
+	padding: 0 20px;
+	font-size: 1rem;
+}
+
+#footer .link .info_link ul li:last-child {
+	padding-left: 20px;
+}
+
+#footer .link .info_link .site {
+	width: 10%;
+    height: 100%;
+    border: unset;
+    background: unset;
+    border-left: solid;
+    border-right: solid;
+    border-width: 1px;
+    border-color: #CCCACA;
+    box-sizing: border-box;
+    padding: 0 1%;
+    color: #808080;
+    cursor: pointer;
+    background-size: 6%;
+}
+
+#footer .infomation {
+	display: flex;
+	align-items: center;
+	box-sizing: border-box;
+	color: #808080;
+	justify-content: space-between;
+	font-size: 0.9rem;
+	height: 90px;
+	width: 100%;
+	padding: 0 10%;
+}
+
+#footer .infomation .address {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	padding: 2% 0;
+	justify-content: space-around;
+}
+
+#footer .infomation .address ul {
+	display: flex;
+}
+
+#footer .infomation .address ul:first-child {
+	margin-bottom: 1%;
+}
+
+#footer .infomation .address ul li:first-child {
+	padding-right: 20px;
+	border-right: solid;
+	border-width: 1px;
+	border-color: #808080;
+}
+
+#footer .infomation .address ul li:nth-child(2) {
+	padding: 0 20px;
+	border-right: solid;
+	border-width: 1px;
+	border-color: #808080;
+}
+
+#footer .infomation .address ul li:nth-child(3) {
+	padding-left: 20px;
+}

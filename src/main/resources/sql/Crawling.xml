@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="Crawiling">
+
+	<insert id="setCrawling"
+		parameterType="com.crawling.Bexco_InsertVO">
+		insert into crawling
+		(title, business, start_day,
+		end_day, time, address, tel, web_address,
+		price, content, img_path)
+		values (#{title}, #{business}, #{start_day},
+		#{end_day}, #{time},
+		#{address}, #{tel}, #{web_address}, #{price},
+		#{content}, #{img_path})
+	</insert>
+
+	<insert id="setEndContents">
+		insert into ended_content (SELECT * FROM crawling
+		WHERE date(end_day) &lt; date(subdate(DATE_FORMAT(now(), "%Y.%m.%d"),
+		INTERVAL 0 DAY)) and date(end_day))
+	</insert>
+
+	<insert id="deleteContents">
+		DELETE FROM crawling WHERE end_day &lt;=
+		DATE_FORMAT(SYSDATE(), '%Y.%m.%d');
+	</insert>
+
+	<select id="getidx" resultType="com.crawling.BexcoVO">
+		select * from
+		on_display_content
+		order by idx limit 1;
+	</select>
+	
+	<insert id="overlap_delete">
+		delete from crawling where title in (select b.title from(select max(a.title)
+		 as title from crawling a group by a.title having count(a.title) > 1)b);
+	</insert>
+	
+	<insert id="move_data">
+		insert into contents(title, business, start_day, end_day, time, address, tel,  web_address, price, content, crawling_num, img_path)
+		select title, business, start_day, end_day, time, address, tel, web_address, price, content, idx, img_path
+		from crawling where idx > 0
+	</insert>
+</mapper>

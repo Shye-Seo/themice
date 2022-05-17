@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+	
+	<mvc:annotation-driven />
+	
+	<!-- 컨트롤러등을 찾는 기본 패키지 경로 -->
+	<!-- 개체를 찾는 경로 -->
+	
+	<context:component-scan base-package="com.*" />
+	
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix">
+			<value>/WEB-INF/jsp/</value>
+		</property>
+		<property name="suffix">
+			<value>.jsp</value>
+		</property>
+	</bean>
+	
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="100000000" />
+		<property name="maxInMemorySize" value="100000000" />
+	</bean>
+	
+	<mvc:resources mapping="/css/**" location="/css/" />
+	<mvc:resources mapping="/img/**" location="/img/" />
+	<mvc:resources mapping="/js/**" location="/js/" />
+	<mvc:resources mapping="/se2/**" location="/se2/" />
+	<mvc:resources mapping="/img/*" location="/img/" />
+	
+	
+	<mvc:resources mapping="/business_img/*" location="file:\\\C:\workspace\img\business\" />
+	<mvc:resources mapping="/contents_img/*" location="file:\\\C:\workspace\img\contents\" />
+	<mvc:resources mapping="/crawiling_img/*" location="file:\\\C:\workspace\img\crawiling\" />
+	<mvc:resources mapping="/advertisement_img/*" location="file:\\\C:\workspace\img\advertisement\" />
+	<mvc:resources mapping="/notice_img/*" location="file:\\\C:\workspace\img\notice\" />
+	<mvc:resources mapping="/watermark_path/*" location="file:\\\C:\workspace\img\watermark\" />
+	<mvc:resources mapping="/web_main_path/*" location="file:\\\C:\workspace\img\web_main\" />
+	<mvc:resources mapping="/logo_path/*" location="file:\\\C:\workspace\img\logo\" />
+	<mvc:resources mapping="/banner_path/*" location="file:\\\C:\workspace\img\banner\" />
+	<mvc:resources mapping="/gallery_path/*" location="file:\\\C:\workspace\img\gallery\" />
+	<mvc:resources mapping="/introduction_path/*" location="file:\\\C:\workspace\img\introduction\" />
+	<mvc:resources mapping="/thumbnail_path/*" location="file:\\\C:\workspace\img\thumbnail\" />
+	<mvc:resources mapping="/pop_up_path/*" location="file:\\\C:\workspace\img\pop_up\" />
+	
+	<bean id="contents_path" class="java.lang.String">
+		<constructor-arg value="C:\workspace\img\contents" />
+	</bean>
+	
+	<bean id="business_path" class="java.lang.String">
+		<constructor-arg value="C:\workspace\img\business" />
+	</bean>
+	
+	<bean id="advertisement_path" class="java.lang.String">
+		<constructor-arg value="C:\workspace\img\advertisement" />
+	</bean>
+	
+	<bean id="notice_path" class="java.lang.String">
+		<constructor-arg value="C:\workspace\img\notice" />
+	</bean>
+	
+	<bean id="watermark_path" class="java.lang.String">
+		<constructor-arg value="C:\workspace\img\watermark" />
+	</bean>
+	
+	<bean id="web_main_path" class="java.lang.String">
+		<constructor-arg value="C:\workspace\img\web_main" />
+	</bean>
+	
+	<bean id="logo_path" class="java.lang.String">
+		<constructor-arg value="C:\workspace\img\logo" />
+	</bean>
+	
+	<bean id="banner_path" class="java.lang.String">
+		<constructor-arg value="C:\workspace\img\banner" />
+	</bean>
+	
+	<bean id="gallery_path" class="java.lang.String">
+		<constructor-arg value="C:\workspace\img\gallery" />
+	</bean>
+	
+	<bean id="introduction_path" class="java.lang.String">
+		<constructor-arg value="C:\workspace\img\introduction" />
+	</bean>
+	
+	<bean id="thumbnail_path" class="java.lang.String">
+		<constructor-arg value="C:\workspace\img\thumbnail" />
+	</bean>
+	
+	<bean id="pop_up_path" class="java.lang.String">
+		<constructor-arg value="C:\workspace\img\pop_up" />
+	</bean>
+	
+	<!-- 리눅스 -->
+<!-- 	
+	<mvc:resources mapping="/business_img/*"		location="file:///usr/local/img/business/" />
+	<mvc:resources mapping="/contents_img/*"		location="file:///usr/local/img/contents/" />
+	<mvc:resources mapping="/crawiling_img/*"		location="file:///usr/local/img/crawiling/" />
+	<mvc:resources mapping="/advertisement_img/*"	location="file:///usr/local/img/advertisement/" />
+	<mvc:resources mapping="/notice_img/*" 			location="file:///usr/local/img/notice/" />
+	<mvc:resources mapping="/watermark_path/*" 		location="file:///usr/local/img/watermark/" />
+	<mvc:resources mapping="/web_main_path/*" 		location="file:///usr/local/img/web_main/" />
+	<mvc:resources mapping="/logo_path/*" 			location="file:///usr/local/img/logo/" />
+	<mvc:resources mapping="/banner_path/*" 		location="file:///usr/local/img/banner/" />
+	<mvc:resources mapping="/gallery_path/*" 		location="file:///usr/local/img/gallery/" />
+	<mvc:resources mapping="/introduction_path/*" 	location="file:///usr/local/img/introduction/" />
+	<mvc:resources mapping="/thumbnail_path/*" 		location="file:///usr/local/img/thumbnail/" />
+	<mvc:resources mapping="/pop_up_path/*" 		location="file:///usr/local/img/pop_up/" />
+
+	<bean id="contents_path" class="java.lang.String">
+		<constructor-arg value="/usr/local/img/contents" />
+	</bean>
+	
+	<bean id="business_path" class="java.lang.String">
+		<constructor-arg value="/usr/local/img/business" />
+	</bean>
+	
+	<bean id="advertisement_path" class="java.lang.String">
+		<constructor-arg value="/usr/local/img/advertisement" />
+	</bean>
+	
+	<bean id="notice_path" class="java.lang.String">
+		<constructor-arg value="/usr/local/img/notice" />
+	</bean>
+	
+	<bean id="watermark_path" class="java.lang.String">
+		<constructor-arg value="/usr/local/img/watermark" />
+	</bean>
+	
+	<bean id="web_main_path" class="java.lang.String">
+		<constructor-arg value="/usr/local/img/web_main" />
+	</bean>
+	
+	<bean id="logo_path" class="java.lang.String">
+		<constructor-arg value="/usr/local/img/logo" />
+	</bean>
+	
+	<bean id="banner_path" class="java.lang.String">
+		<constructor-arg value="/usr/local/img/banner" />
+	</bean>
+	
+	<bean id="gallery_path" class="java.lang.String">
+		<constructor-arg value="/usr/local/img/gallery" />
+	</bean>
+	
+	<bean id="introduction_path" class="java.lang.String">
+		<constructor-arg value="/usr/local/img/introduction" />
+	</bean>
+	
+	<bean id="thumbnail_path" class="java.lang.String">
+		<constructor-arg value="/usr/local/img/thumbnail" />
+	</bean>
+	
+	<bean id="pop_up_path" class="java.lang.String">
+		<constructor-arg value="/usr/local/img/pop_up" />
+	</bean> -->
+</beans>

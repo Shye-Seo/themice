@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="admin">
+
+	<select id="login_check" parameterType="com.admin.AdminVO"
+		resultType="com.admin.AdminVO">
+		select *
+		from admin
+		where id = #{id} and
+		password=SHA2(#{password}, 256)
+	</select>
+
+	<select id="getMemberList" resultType="com.member.MemberVO">
+		select * from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from member ${sql} order by idx desc)n,
+		(select @rownum:=0)v)num Where num.num between ${start} and ${end}
+	</select>
+
+	<select id="getBusinessList" resultType="com.business.BusinessVO">
+		select * from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from business ${sql} order by idx desc)n,
+		(select @rownum:=0)v)num Where num.num between ${start} and ${end}
+	</select>
+	
+	<select id="count_member_total" parameterType="com.admin.Admin_Paging_VO" resultType="int">
+		select count(*) from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from member ${sql} order by idx desc)n,
+		(select @rownum:=0)v)num;
+	</select>
+	
+	<select id="count_business_total" parameterType="com.admin.Admin_Paging_VO" resultType="int">
+		select count(*) from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from business ${sql} order by idx desc)n,
+		(select @rownum:=0)v)num;
+	</select>
+
+	<select id="getMemberNewList" resultType="com.member.MemberVO">
+		select * from member
+		order by idx desc limit 0, 5
+	</select>
+
+	<select id="getBesinessNewList"
+		resultType="com.business.BusinessVO">
+		select * from business where flag='W' order by idx desc
+		limit 0, 5
+	</select>
+
+	<select id="getContentsList"
+		resultType="com.contents.ContentsVO">
+		select * from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from contents ${sql} order by idx desc)n,
+		(select @rownum:=0)v)num Where num.num between #{start} and #{end}
+	</select>
+
+	<select id="getName" resultType="String" parameterType="int">
+		select
+		business_name from business where idx = #{idx}
+	</select>
+
+	<select id="getNotice" resultType="com.notice.NoticeVO">
+		select * from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from Notice ${sql} order by idx desc)n,
+		(select @rownum:=0)v)num Where num.num between #{start} and #{end}
+	</select>
+
+	<insert id="insert_notice" parameterType="com.notice.NoticeVO">
+		insert into
+		Notice(title, contents, writer, start_day, end_day, file_path)
+		values (#{title}, #{contents}, #{writer}, #{start_day}, #{end_day}, #{file_path})
+	</insert>
+
+	<select id="getnotice_idx" resultType="int">
+		SELECT idx FROM Notice
+		ORDER BY
+		idx DESC LIMIT 1
+	</select>
+
+	<insert id="insert_img" parameterType="com.notice.Notice_ImgVO">
+		insert into
+		notice_img(notice_idx, name, img_path) values (#{notice_idx},
+		#{name},
+		#{img_path})
+	</insert>
+
+	<select id="getpayment" resultType="com.payment.PaymentVO">
+		select * from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from payments ${sql} order by idx desc)n,
+		(select @rownum:=0)v)num Where num.num between #{start} and #{end}
+	</select>
+	
+	<select id="getBusiness" resultType="com.business.BusinessVO">
+		select * from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from business where flag = 'w' ${sql} order by idx desc)n,
+		(select @rownum:=0)v)num Where num.num between #{start} and #{end}
+	</select>
+	
+	<insert id="business_Approval" parameterType="String">
+		update business set flag = 'Y' where idx = #{check}
+	</insert>
+	
+	<select id="business_cnt" resultType="int" parameterType="String">
+		select count(*) from business where flag = 'w' and idx = #{check}
+	</select>
+	
+	<insert id="business_Refusal" parameterType="String">
+		update business set flag = 'N' where idx = #{check}
+	</insert>
+	
+	<insert id="contents_release" parameterType="String">
+		update contents set flag = 'Y' where idx = #{check}
+	</insert>
+	
+	<select id="content_release_cnt" resultType="int" parameterType="String">
+		select count(*) from contents where flag = 'N' and idx = #{check}
+	</select>
+	
+	<insert id="contents_stop" parameterType="String">
+		update contents set flag = 'N' where idx = #{check}
+	</insert>
+	
+	<select id="content_stop_cnt" resultType="int" parameterType="String">
+		select count(*) from contents where flag = 'Y' and idx = #{check}
+	</select>
+	
+	<insert id="member_release" parameterType="String">
+		update member set flag = 'Y' where idx = #{check}
+	</insert>
+	
+	<select id="member_release_cnt" resultType="int" parameterType="String">
+		select count(*) from member where flag = 'N' and idx = #{check}
+	</select>
+	
+	<insert id="member_stop" parameterType="String">
+		update member set flag = 'N' where idx = #{check}
+	</insert>
+	
+	<select id="member_stop_cnt" resultType="int" parameterType="String">
+		select count(*) from member where flag = 'Y' and idx = #{check}
+	</select>
+	
+	<insert id="business_release" parameterType="String">
+		update business set flag = 'Y' where idx = #{check}
+	</insert>
+	
+	<select id="business_release_cnt" resultType="int" parameterType="String">
+		select count(*) from business where flag = 'N' and idx = #{check}
+	</select>
+	
+	<insert id="business_stop" parameterType="String">
+		update business set flag = 'N' where idx = #{check}
+	</insert>
+	
+	<select id="business_stop_cnt" resultType="int" parameterType="String">
+		select count(*) from business where flag = 'Y' and idx = #{check}
+	</select>
+	
+	<select id="admin_countContents" parameterType="com.admin.Admin_Paging_VO" resultType="int">
+		select count(*) from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from contents ${sql} order by idx desc)n,
+		(select @rownum:=0)v)num;
+	</select>
+	
+	<select id="count_admin_otice" parameterType="com.admin.Admin_Paging_VO" resultType="int">
+		select count(*) from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from Notice ${sql} order by idx desc)n,
+		(select @rownum:=0)v)num;
+	</select>
+	
+	<insert id="notice_release" parameterType="String">
+		update Notice set flag = 'Y' where idx = #{check}
+	</insert>
+	
+	<select id="notice_release_cnt" resultType="int" parameterType="String">
+		select count(*) from Notice where flag = 'N' and idx = #{check}
+	</select>
+	
+	<insert id="notice_stop" parameterType="String">
+		update Notice set flag = 'N' where idx = #{check}
+	</insert>
+	
+	<select id="notice_stop_cnt" resultType="int" parameterType="String">
+		select count(*) from Notice where flag = 'Y' and idx = #{check}
+	</select>
+	
+	<select id="getNotice_update" resultType="com.notice.NoticeVO" parameterType="int">
+		select * from Notice where idx = #{idx}
+	</select>
+	
+	<select id="getNoticeNewList" resultType="com.notice.NoticeVO">
+		select * from Notice order by idx desc limit 0, 5
+	</select>
+	
+	<select id="count_advertisement_total" parameterType="com.admin.Admin_Paging_VO" resultType="int">
+		select count(*) from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from advertisement ${sql} order by idx desc)n,
+		(select @rownum:=0)v)num;
+	</select>
+	
+	<select id="getAdvertisement_list"
+		resultType="com.contents.AdvertisementVO">
+		select * from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from advertisement ${sql} order by idx desc)n,
+		(select @rownum:=0)v)num Where num.num between #{start} and #{end}
+	</select>
+	
+	<insert id="advertisement_release" parameterType="String">
+		update advertisement set flag = 'Y' where idx = #{check}
+	</insert>
+	
+	<select id="advertisement_release_cnt" resultType="int" parameterType="String">
+		select count(*) from advertisement where flag = 'N' and idx = #{check}
+	</select>
+	
+	<insert id="advertisement_stop" parameterType="String">
+		update advertisement set flag = 'N' where idx = #{check}
+	</insert>
+	
+	<select id="advertisement_stop_cnt" resultType="int" parameterType="String">
+		select count(*) from advertisement where flag = 'Y' and idx = #{check}
+	</select>
+	
+	<select id="count_payments_total" parameterType="com.admin.Admin_Paging_VO" resultType="int">
+		select count(*) from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from payments ${sql} order by idx desc)n,
+		(select @rownum:=0)v)num;
+	</select>
+	
+	<insert id="insert_advertisement" parameterType="com.contents.AdvertisementVO">
+		insert into advertisement(business_name, title, sub_title, link_address, start_day, end_day, price, img_path)
+		values(#{business_name}, #{title}, #{sub_title}, #{link_address}, #{start_day}, #{end_day}, #{price}, #{img_path})
+	</insert>
+	
+	<select id="count_business_watie_total" parameterType="com.admin.Admin_Paging_VO" resultType="int">
+		select count(*) from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from business where flag = 'w' ${sql} order by idx desc)n,
+		(select @rownum:=0)v)num;
+	</select>
+</mapper>

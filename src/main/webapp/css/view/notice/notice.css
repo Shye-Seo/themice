@@ -1,0 +1,217 @@
+#notice {
+	display: flex;
+	flex-direction: column;
+	width: 1024px;
+	margin: 0 auto;
+	margin-top: 5%;
+}
+
+#notice .search_area form {
+	display: flex;
+	flex-direction: row;
+	position: relative;
+}
+
+#notice .search_area form input:first-child {
+	width: 35%;
+	margin-right: 1%;
+	font-size: 1rem;
+	text-indent: 1%;
+}
+
+#notice .search_area form input:nth-child(2) {
+	background-color: #EA933C;
+	color: white;
+	border: none;
+	width: 85px;
+	height: 30px;
+	font-size: 1rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+}
+
+#notice .search_area form laber {
+	position: absolute;
+	left: 34%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+#notice .search_area form laber img {
+	width: 15px;
+}
+
+#notice .contents_area {
+	display: flex;
+	flex-direction: column;
+	margin-top: 5%;
+	border-top: solid;
+	border-width: 1px;
+	border-color: #505050;
+}
+
+#notice .contents_area .title_area {
+	font-size: 1.1rem;
+	color: #EA933C;
+}
+
+#notice .contents_area .title_area li:nth-child(2) {
+	text-align: center;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+#notice .contents_area ul {
+	text-align: center;
+	display: flex;
+	flex-direction: row;
+	padding: 1% 0;
+	border-bottom: solid;
+	border-width: 1px;
+	border-color: #707070;
+	color: #333333;
+	justify-content: space-between;
+}
+
+#notice .contents_area ul li:first-child {
+	width: 10%;
+}
+
+#notice .contents_area ul li:nth-child(2) {
+	width: 50%;
+	text-align: left;
+}
+
+#notice .contents_area ul li:nth-child(3) {
+	width: 15%;
+}
+
+#notice .contents_area ul li a {
+	color: #333333;
+}
+
+#notice .contents_area ul li:last-child {
+	width: 10%;
+}
+
+#notice_detail{
+	display: none;
+	/* display: flex; */
+    flex-direction: column;
+    width: 1024px;
+    margin: 6% auto;
+}
+
+#notice_detail .title_area{
+	border-top: solid;
+    border-width: 2px;
+    border-color: #333333;
+    padding: 1% 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-indent: 1%;
+}
+
+#notice_detail .info_item_area{
+	display: flex;
+    flex-direction: column;
+}
+
+#notice_detail .info_item_area .info_item_1{
+	display: flex;
+    flex-direction: row;
+    text-indent: 20px;
+    border-top: solid;
+    border-bottom: solid;
+    border-width: 1px;
+    border-color: #707070;
+    height: 35px;
+    font-size: 1rem;
+    color: #333333;
+}
+
+#notice_detail .info_item_area .info_item_1 .sub_item{
+	display: flex;
+    flex-direction: row;
+    width: 50%;
+    align-items: center;
+}
+
+#notice_detail .info_item_area .info_item_1 .sub_item div:first-child{
+	width: 30%;
+    background-color: #F7F5F5;
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+#notice_detail .info_item_area .info_item_1 .sub_item div:last-child{
+	width: 70%;
+}
+
+#notice_detail .info_item_area .info_item_2{
+	display: flex;
+    flex-direction: row;
+    text-indent: 20px;
+    border-bottom: solid;
+    border-width: 1px;
+    border-color: #707070;
+    align-items: center;
+    height: 35px;
+    font-size: 1rem;
+    color: #333333;
+}
+
+#notice_detail .info_item_area .info_item_2 div:first-child {
+	width: 15%;
+	background-color: #F7F5F5;
+	display: flex;
+	height: 100%;
+	align-items: center;
+}
+
+#notice_detail .info_item_area .info_item_2 div:last-child {
+	width: 85%;
+}
+
+#notice_detail .info_item_area .info_item_2 div:last-child input:nth-child(2){
+	background: unset;
+    border: solid 1px #707070;
+    font-size: 0.8rem;
+}
+
+#notice_detail .info_item_area .contents_area .text_area{
+	font-size: 1rem;
+    color: #333333;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5% 0;
+}
+
+#notice_detail .info_item_area .contents_area .img_area{
+	width: 100%;
+}
+
+#notice_detail .info_item_area .contents_area .img_area img{
+	width: 100%;
+	display: block;
+}
+
+#notice_detail .info_item_area .btn_area{
+	display: flex;
+    justify-content: flex-end;
+    margin-top: 5%;
+}
+
+#notice_detail .info_item_area .btn_area a{
+	display: flex;
+    background-color: #EA933C;
+    width: 100px;
+    color: white;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+}

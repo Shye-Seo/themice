@@ -1,0 +1,179 @@
+#mobile {
+	display: none;
+}
+.notice_banner {
+	width: 100%;
+}
+
+.notice_banner img {
+	width: 100%;
+}
+
+.notice_wrap {
+	width: 100%;
+	margin: 5% 0;
+}
+
+#notice {
+	width: 58%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+}
+
+#notice .search_area {
+	width: 45%;
+    margin-bottom: 5%;
+}
+
+#notice .search_area form {
+	width: 100%;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+}
+
+#notice .search_area form input:nth-child(1) {
+	width: 73%;
+    height: 40px;
+    border: solid 1px #707070;
+    text-indent: 10px;
+    font-size: 0.8rem;
+}
+
+#notice .search_area form img:nth-child(2) {
+	position: absolute;
+    top: 50%;
+    left: 67%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+}
+
+#notice .search_area form input:nth-child(3) {
+	width: 20%;
+    background-color: #1D1D1D;
+    border: unset;
+    color: white;
+    cursor: pointer;
+}
+
+.contents_area {
+	display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    border-bottom: solid;
+    border-width: 1px;
+    border-color: #707070;
+    box-sizing: border-box;
+    padding-bottom: 2%;
+    margin-top: 3%;
+    align-items: flex-start;
+    height: 120px;
+}
+
+.contents_area:last-child {
+	border: unset;
+}
+
+.contents_area .content_item:nth-child(1) {
+	font-size: 25px;
+    font-weight: bold;
+    width: auto;
+}
+
+.contents_area .content_item:nth-child(2) {
+	width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contents_area .content_item:nth-child(3) {
+	width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    box-sizing: border-box;
+    padding-top: 0.3%;
+    color: #333333;
+}
+
+.contents_area .content_item:nth-child(4) {
+	width: 15%;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+}
+
+.contents_area .content_item:nth-child(4) img {
+	width: 48px;
+}
+
+.contents_area .content_day {
+	margin-top: 5%;
+}
+
+.contents_area .content_idx {
+	font-size: 74px;
+    font-weight: bold;
+    line-height: 0.9;
+}
+
+.contents_area .content_day {
+	font-size: 15px;
+    margin-top: 5%;
+}
+
+.contents_area .content_title {
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+    height: 30%;
+    font-size: 20px;
+}
+
+.contents_area .content_text {
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: 70%;
+    width: 100%;
+    box-sizing: border-box;
+    padding-top: 1.2%;
+    font-size: 16px;
+}
+
+.paging{
+	display: none;
+	font-size: 0.8rem;
+	display: flex;
+    width: max-content;
+    margin: 0 auto;
+    margin-top: 5%;
+    margin-bottom: 10%;
+}
+
+.paging p{
+	margin: 0;
+	border: solid 1px #CCCACA;
+    background-color: #444547;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0 5px;
+    padding: 5px 10px;
+}
+
+.paging a{
+	text-decoration: none;
+    color: #333;
+    border: solid 1px #CCCACA;
+    padding: 5px 10px;
+    margin: 0 5px;
+}

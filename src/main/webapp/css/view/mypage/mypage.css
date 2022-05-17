@@ -1,0 +1,661 @@
+#navi_area {
+	background-color: #D9D8D8;
+	height: 40px;
+}
+
+#navi_area nav {
+	width: 1024px;
+	margin: 0 auto;
+	height: 100%;
+}
+
+#navi_area nav ul {
+	display: flex;
+	flex-direction: row;
+	height: 100%;
+}
+
+#navi_area nav ul li {
+	border-right: solid;
+	border-width: 1px;
+	display: flex;
+	align-items: center;
+	width: 130px;
+}
+
+#navi_area nav ul li:nth-child(2){
+	justify-content: center;
+}
+
+#navi_area nav ul li:last-child{
+	justify-content: center;
+}
+
+#navi_area nav ul li:first-child {
+	width: 40px;
+}
+
+#navi_area nav ul li a {
+	color: #333333;
+}
+
+#navi_area nav ul li select{
+	border: none;
+    background: unset;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.title_area {
+	font-size: 1.5rem;
+	text-align: center;
+	font-weight: bold;
+	margin-top: 6%;
+	border-bottom: solid;
+	border-width: 1px;
+	border-color: #707070;
+	box-sizing: border-box;
+	padding-bottom: 3%;
+	margin-bottom: 4%;
+}
+
+@media screen and (max-width: 720px) {
+	.title_area{
+		display: none;
+	}
+}
+
+.total_area{
+	margin-top: 5%;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+/** password_check start **/
+#password_check {
+	width: 1024px;
+	margin: 0 auto;
+}
+
+#password_check .contents_area {
+	border: solid 1px #707070;
+	box-sizing: border-box;
+	padding: 6% 5%;
+	width: 750px;
+	margin: 0 auto;
+}
+
+#password_check .contents_area .text_area {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	font-size: 1rem;
+}
+
+#password_check .contents_area .text_area span {
+	margin-bottom: 1%;
+}
+
+#password_check .contents_area .input_area {
+	display: flex;
+	width: 100%;
+	text-align: center;
+	margin-top: 2%;
+}
+
+#password_check .contents_area .input_area form {
+	width: 100%;
+}
+
+#password_check .contents_area .input_area form .text_input {
+	width: 67%;
+	height: 30px;
+	text-indent: 2%;
+	vertical-align: bottom;
+	font-size: 1rem;
+}
+
+#password_check .contents_area .input_area form .text_submit {
+	border: none;
+	background-color: #F4F2F2;
+	font-size: 1rem;
+	color: #333333;
+	width: 100px;
+	height: 36px;
+	vertical-align: bottom;
+	margin-left: 1%;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+/** password_check end **/
+
+/** member_info start **/
+#member_info {
+	display: flex;
+	width: 1024px;
+	margin: 0 auto;
+	flex-direction: column;
+	margin-bottom: 5%;
+}
+
+#member_info .contents {
+	border-top: solid;
+	border-width: 1px;
+	border-color: #707070;
+}
+
+#member_info .contents form {
+	display: flex;
+	flex-direction: column;
+}
+
+#member_info .contents form .infomation_item {
+	display: flex;
+	flex-direction: row;
+	border-bottom: solid;
+	border-width: 1px;
+	border-color: #707070;
+}
+
+#member_info .contents form .infomation_item .left_area {
+	width: 20%;
+	background-color: #F4F2F2;
+	display: flex;
+	font-size: 1.1rem;
+	box-sizing: border-box;
+	align-items: center;
+}
+
+#member_info .contents form .infomation_item .left_area span{
+	margin-left: 18%;
+}
+
+#member_info .contents form .infomation_item .right_area {
+	box-sizing: border-box;
+	width: 80%;
+	padding: 5% 0;
+	padding-left: 2%;
+	padding-right: 25%;
+}
+
+#member_info .contents form .infomation_item .right_area input {
+	border: none;
+	border-bottom: solid;
+	border-width: 1px;
+	border-color: #707070;
+	text-indent: 1%;
+	width: 100%;
+	font-size: 1rem;
+}
+
+#member_info .contents form .infomation_item .right_area .div:first-child
+	{
+	display: flex;
+	justify-content: space-between;
+}
+
+#member_info .contents form .infomation_item .right_area #postcode {
+	width: 75%;
+}
+
+#member_info .contents form .infomation_item .right_area .post {
+	width: 20%;
+	border: solid 1px #707070;
+	background: unset;
+	cursor: pointer;
+	color: #333333;
+	height: 25px;
+	font-size: 0.8rem;
+}
+
+#member_info .contents form .infomation_item .right_area #roadAddress {
+	margin: 5% 0;
+}
+
+#member_info .contents form .infomation_item .email_area {
+	display: flex;
+	justify-content: space-between;
+}
+
+#member_info .contents form .infomation_item .email_area input {
+	width: 32%;
+}
+
+#member_info .contents form .infomation_item .email_area select {
+	width: 20%;
+	font-size: 0.8rem;
+	height: 25px;
+	cursor: pointer;
+}
+
+#member_info .contents form .infomation_item .tel_area {
+	display: flex;
+	justify-content: space-between;
+}
+
+#member_info .contents form .infomation_item .tel_area input:nth-child(1){
+	width: 75%;
+}
+
+#member_info .contents form .infomation_item .tel_area input:nth-child(2){
+	width: 20%;
+	border: solid 1px #707070;
+	background: unset;
+	cursor: pointer;
+	color: #333333;
+	height: 25px;
+	font-size: 0.8rem;
+	cursor: pointer;
+}
+
+#member_info .contents form .infomation_item .profile_area{
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: max-content;
+    margin-left: 1%;
+}
+
+#member_info .contents form .infomation_item .profile_area .input_file_area{
+	margin-top: 5%;
+}
+
+#member_info .contents form .infomation_item .profile_area .input_file_area input{
+	display: none;
+}
+
+#member_info .contents form .infomation_item .profile_area .input_file_area label{
+	border: solid 1px #707070;
+    font-size: 0.8rem;
+    display: flex;
+    width: 70px;
+    height: 25px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#member_info .contents form .btn_area{
+	margin-top: 5%;
+    display: flex;
+    justify-content: center;
+}
+
+#member_info .contents form .btn_area input{
+	display: flex;
+    border: none;
+    background-color: #EA933C;
+    color: white;
+    width: 90px;
+    height: 30px;
+    font-size: 1.2rem;
+    align-items: center;
+    justify-content: center;
+    margin-right: 3%;
+}
+
+#member_info .contents form .btn_area a{
+	display: flex;
+    border: solid 1px #EA933C;
+    color: #EA933C;
+    width: 90px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+#member_info .submit_btn{
+	width: 100px;
+    margin: 0 auto;
+    margin-top: 5%;
+    background-color: #EA933C;
+    color: white;
+    border: none;
+    height: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+/** member_info end **/
+
+/** member_password_update start **/
+#member_password_update{
+	width: 1024px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5%;
+}
+
+#member_password_update .contents .text_area{
+    display: flex;
+    flex-direction: column;
+}
+
+#member_password_update .contents .input_area{
+	border-top: solid;
+    border-width: 1px;
+    border-color: #707070;
+    margin-top: 3%;
+}
+
+#member_password_update .contents .input_area form{
+	display: flex;
+    flex-direction: column;
+}
+
+#member_password_update .contents form .infomation_item {
+	display: flex;
+	flex-direction: row;
+	border-bottom: solid;
+	border-width: 1px;
+	border-color: #707070;
+}
+
+#member_password_update .contents form .infomation_item .left_area {
+	width: 20%;
+	background-color: #F4F2F2;
+	display: flex;
+	font-size: 1.1rem;
+	box-sizing: border-box;
+	align-items: center;
+}
+
+#member_password_update .contents form .infomation_item .left_area span{
+	margin-left: 18%;
+}
+
+#member_password_update .contents form .infomation_item .right_area {
+	box-sizing: border-box;
+	width: 80%;
+	padding: 3% 0;
+	padding-left: 2%;
+	padding-right: 25%;
+}
+
+#member_password_update .contents form .infomation_item .right_area p{
+	margin-bottom: 0;
+	font-size: 0.9rem;
+    font-weight: bold;
+    text-indent: 1%;
+}
+
+#member_password_update .contents form .infomation_item .right_area input {
+	border: none;
+	border-bottom: solid;
+	border-width: 1px;
+	border-color: #707070;
+	text-indent: 1%;
+	width: 100%;
+	font-size: 1rem;
+}
+
+#member_password_update .contents form .btn_area{
+	display: flex;
+    justify-content: center;
+    margin-top: 3%;
+    height: 30px;
+}
+
+#member_password_update .contents form .btn_area input:first-child {
+	border: none;
+    background-color: #EA933C;
+    color: white;
+    width: 80px;
+    font-size: 1rem;
+    margin-right: 2%;
+    cursor: pointer;
+}
+
+#member_password_update .contents form .btn_area input:last-child {
+	border: solid 1px #EA933C;
+    background: unset;
+    color: #EA933C;
+    width: 80px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+/** member_password_update end **/
+
+/** member_payment start **/
+
+#member_payment{
+	width: 1024px;
+    margin: 0 auto;
+}
+
+#member_payment .contents_area{
+	display: flex;
+    flex-direction: column;
+}
+
+#member_payment .contents_area .search_area{
+	margin-bottom: 4%;
+}
+
+#member_payment .contents_area .search_area form{
+	display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+#member_payment .contents_area .search_area form input:first-child{
+	width: 35%;
+}
+
+#member_payment .contents_area .search_area form input:last-child{
+    border: none;
+    background-color: #EA933C;
+    color: white;
+    font-size: 1rem;
+    margin-left: 1%;
+    width: 70px;
+    height: 30px;
+    cursor: pointer;
+}
+
+#member_payment .contents_area .search_area form img{
+	width: 17px;
+    position: absolute;
+    top: 50%;
+    left: 34%;
+    transform: translate(-50%, -50%);
+}
+
+#member_payment .contents_area .text_area{
+	border-top: solid;
+    border-width: 2px;
+    border-color: #707070;
+}
+
+#member_payment .contents_area .text_area ul{
+	display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+    border-bottom: solid;
+    border-width: 1px;
+    border-color: #707070;
+    box-sizing: border-box;
+    padding: 1% 0;
+    color: #333333;
+    font-size: 1rem;
+}
+
+#member_payment .contents_area .text_area ul:first-child{
+	font-weight: bold;
+}
+
+#member_payment .contents_area .text_area ul li:first-child {
+	width: 10%;
+}
+
+#member_payment .contents_area .text_area ul li:nth-child(2) {
+	width: 45%;
+    text-align: left;
+}
+
+#member_payment .contents_area .text_area ul li:nth-child(3) {
+	width: 15%;
+}
+
+#member_payment .contents_area .text_area ul li:nth-child(4) {
+	width: 15%;
+}
+
+#member_payment .contents_area .text_area ul li:last-child {
+	width: 10%;
+}
+/** member_payment end **/
+
+/** business_info start **/
+#business_info {
+	width: 1024px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 5%;
+}
+
+#business_info .contents {
+	border-top: solid;
+	border-width: 1px;
+	border-color: #707070;
+}
+
+#business_info .contents form {
+	display: flex;
+	flex-direction: column;
+}
+
+#business_info .contents form .infomation_item {
+	display: flex;
+	flex-direction: row;
+	border-bottom: solid;
+	border-width: 1px;
+	border-color: #707070;
+}
+
+#business_info .contents form .infomation_item .left_area {
+	width: 20%;
+	background-color: #F4F2F2;
+	display: flex;
+	font-size: 1.1rem;
+	box-sizing: border-box;
+	align-items: center;
+}
+
+#business_info .contents form .infomation_item .left_area span{
+	margin-left: 18%;
+}
+
+#business_info .contents form .infomation_item .right_area {
+	box-sizing: border-box;
+	width: 80%;
+	padding: 5% 0;
+	padding-left: 2%;
+	padding-right: 25%;
+}
+
+#business_info .contents form .infomation_item .right_area input {
+	border: none;
+	border-bottom: solid;
+	border-width: 1px;
+	border-color: #707070;
+	text-indent: 1%;
+	width: 100%;
+	font-size: 1rem;
+}
+
+#business_info .contents form .infomation_item .right_area .div:first-child
+	{
+	display: flex;
+	justify-content: space-between;
+}
+
+#business_info .contents form .infomation_item .right_area #postcode {
+	width: 75%;
+}
+
+#business_info .contents form .infomation_item .right_area .post {
+	width: 20%;
+	border: solid 1px #707070;
+	background: unset;
+	cursor: pointer;
+	color: #333333;
+	height: 25px;
+	font-size: 0.8rem;
+}
+
+#business_info .contents form .infomation_item .right_area #roadAddress {
+	margin: 5% 0;
+}
+
+#business_info .contents form .infomation_item .email_area {
+	display: flex;
+	justify-content: space-between;
+}
+
+#business_info .contents form .infomation_item .email_area input {
+	width: 32%;
+}
+
+#business_info .contents form .infomation_item .email_area select {
+	width: 20%;
+	font-size: 0.8rem;
+	height: 25px;
+}
+
+#business_info .contents form .infomation_item .tel_area {
+	display: flex;
+	justify-content: space-between;
+}
+
+#business_info .contents form .infomation_item .tel_area input:nth-child(1){
+	width: 75%;
+}
+
+#business_info .contents form .infomation_item .tel_area input:nth-child(2){
+	width: 20%;
+	border: solid 1px #707070;
+	background: unset;
+	cursor: pointer;
+	color: #333333;
+	height: 25px;
+	font-size: 0.8rem;
+}
+
+#business_info .contents form .btn_area{
+	margin-top: 5%;
+    display: flex;
+    justify-content: center;
+}
+
+#business_info .contents form .btn_area input{
+	display: flex;
+    border: none;
+    background-color: #EA933C;
+    color: white;
+    width: 90px;
+    height: 30px;
+    font-size: 1.2rem;
+    align-items: center;
+    justify-content: center;
+    margin-right: 3%;
+}
+
+#business_info .contents form .btn_area a{
+	display: flex;
+    border: solid 1px #EA933C;
+    color: #EA933C;
+    width: 90px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+}
+/** business_info end **/

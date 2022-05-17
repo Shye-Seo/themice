@@ -1,0 +1,197 @@
+/** payment_section start **/
+.img_area{
+	position: relative;
+	background-color: black;
+}
+
+.img_area img{
+	width: 100%;
+	display: block;
+	opacity: 0.8;
+}
+
+#payment {
+	width: 800px;
+	margin: 0 auto;
+}
+
+#payment .info_area {
+	width: 100%;
+	display: flex;
+	box-sizing: border-box;
+	padding: 3% 10%;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#payment .info_area .img_area {
+	width: 40%;
+}
+
+#payment .info_area .img_area img {
+	width: 100%;
+	display: block;
+	opacity: 1;
+}
+
+#payment .info_area .text_area {
+	width: 55%;
+}
+
+#payment .info_area .text_area ul li {
+	border-bottom: solid;
+	border-width: 1px;
+	padding-bottom: 2%;
+	margin-bottom: 7%;
+	text-indent: 2%;
+}
+
+#payment .info_area .text_area ul .title {
+	font-size: 1.6rem;
+	margin-bottom: 5%;
+	border: none;
+	font-weight: bold;
+}
+
+#payment .choice_area {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	box-sizing: border-box;
+	padding: 3% 10%;
+	height: 360px;
+}
+
+#payment .choice_area .calendar_area {
+	width: 49%;
+    border: solid 1px black;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#payment .choice_area .calendar_area .title_area {
+	text-align: center;
+	border-bottom: solid;
+	border-width: 1px;
+	padding: 2%;
+	height: 10%;
+	box-sizing: border-box;
+}
+
+#payment .choice_area .calendar_area .input_area {
+	width: 100%;
+	padding: 0;
+	height: 90%;
+	margin: 0;
+}
+
+#payment .choice_area .calendar_area .input_area table {
+	margin: 0;
+    width: 100%;
+    text-align: center;
+    background-color: #F8F8F8;
+    box-sizing: border-box;
+    padding: 3% 6%;
+    height: 100%;
+}
+
+#payment .choice_area .calendar_area .input_area table tr td {
+	border-radius: 50%;
+	height: 32px;
+	cursor: pointer;
+}
+
+#payment .choice_area .personnel_area {
+	width: 49%;
+    border: solid 1px black;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+#payment .choice_area .personnel_area .title_area {
+	text-align: center;
+	border-bottom: solid;
+	border-width: 1px;
+	padding: 2%;
+	height: 10%;
+    box-sizing: border-box;
+}
+
+#payment .choice_area .personnel_area .input_area {
+	height: 90%;
+    background-color: #F8F8F8;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 6%;
+}
+
+#payment .choice_area .personnel_area .input_area ul {
+	height: 100%;
+}
+
+#payment .choice_area .personnel_area .input_area ul li {
+	width: calc(100%/ 3);
+	margin-top: 3%;
+}
+
+#payment .choice_area .personnel_area .input_area .select_area {
+	display: flex;
+    justify-content: space-between;
+    height: 80%;
+}
+
+#payment .choice_area .personnel_area .input_area .select_area li .select_item li
+	{
+	border-bottom: solid;
+	border-width: 1px;
+	width: 100%;
+	padding: 3% 0;
+}
+
+#payment .choice_area .personnel_area .input_area ul li .select_item
+	{
+	display: flex;
+	height: 85%;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+#payment .choice_area .personnel_area .input_area .select_area li .select_item li select
+	{
+	vertical-align: top;
+	border-color: #EA933C;
+	width: 55px;
+	cursor: pointer;
+}
+
+#payment .choice_area .personnel_area .input_area .select_area li .select_item li span
+	{
+	margin-right: 7%;
+	margin-left: 3%;
+}
+
+#payment .choice_area .personnel_area .input_area .payment_area {
+	display: flex;
+    justify-content: space-between;
+    border-top: solid;
+    border-width: 1px;
+    height: auto;
+}
+
+#payment .choice_area .personnel_area .input_area .payment_area .payment_btn
+	{
+	background-color: #EA933C;
+	border: none;
+	border-radius: 5px;
+	color: white;
+	padding: 4% 13%;
+	margin-top: -2%;
+	margin-right: 7%;
+	cursor: pointer;
+}
+
+/** payment_section end **/

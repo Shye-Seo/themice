@@ -1,0 +1,129 @@
+#mobile_id_find{
+	box-sizing: border-box;
+    padding-top: 65px;
+}
+
+#mobile_id_find .title{
+	font-size: 15px;
+    border-bottom: solid;
+    border-width: 1px;
+    border-color: #707070;
+    width: 100%;
+}
+
+#mobile_id_find .title span{
+	width: 50%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    color: #EA933C;
+    border-bottom: solid;
+    border-width: 3px;
+    padding-bottom: 10px;
+    border-color: #EA933C;
+    transform: translateY(2px);
+    z-index: 1;
+}
+
+#mobile_id_find .content_area{
+	text-align: center;
+	margin-top: 5%;
+}
+
+#mobile_id_find .content_area span{
+    color: #ADADAD;
+    font-size: 10px;
+    margin: 5% 0;
+}
+
+#mobile_id_find .content_area .result_area{
+	border: solid 1px #707070;
+    width: 90%;
+    margin: 5% auto;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#mobile_id_find .content_area .result_area span:nth-child(1){
+	font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333333;
+}
+
+#mobile_id_find .content_area .result_area span:nth-child(2){
+	font-size: 10px;
+	color: #333333;
+}
+
+#mobile_id_find .btn_area{
+	display: flex;
+    justify-content: center;
+}
+
+#mobile_id_find .btn_area a:nth-child(1) {
+	font-size: 14px;
+    background-color: #EA933C;
+    color: white;
+    width: 30%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    margin-right: 10px;
+}
+
+#mobile_id_find .btn_area a:nth-child(2) {
+	border: solid 1px #EA933C;
+    box-sizing: border-box;
+    width: 30%;
+    font-size: 14px;
+    color: #EA933C;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+#mobile_id_find form{
+	margin-top: 5%;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 5%;
+}
+
+#mobile_id_find form .content_item{
+	font-size: 15px;
+    color: #333333;
+}
+
+#mobile_id_find form .input_item input{
+	width: 100%;
+    height: 50px;
+    box-sizing: border-box;
+    margin-top: 2%;
+    font-size: 14px;
+    text-indent: 5%;
+    color: #333333;
+}
+
+#mobile_id_find form .input_item p{
+	font-size: 10px;
+}
+
+#mobile_id_find #pw_result_btn{
+	position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    height: 55px;
+    border: unset;
+    background: #EA933C;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}

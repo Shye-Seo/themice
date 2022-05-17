@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="member">
+
+	<select id="idCheck" resultType="int" parameterType="String">
+		select count(*) from member where id=#{id};
+	</select>
+
+	<insert id="join" parameterType="com.member.MemberVO">
+		insert into member (id,
+		password, name, email, tel, address, detail_address, profile_img_path)
+		values (#{id},
+		#{password}, #{name}, #{email}, #{tel}, #{address},
+		#{detail_address}, #{profile_img_path});
+	</insert>
+
+	<select id="loginCheck" parameterType="com.common.loginVO" resultType="com.member.MemberVO">
+		select * from member where flag = 'Y' and id=#{id} and password=SHA2(#{password}, 256)
+	</select>
+	
+	<select id="duplicate_member_tel" parameterType="String" resultType="com.member.MemberVO">
+		select * from member where tel = #{tel}
+	</select>
+	
+	<select id="duplicate_member_email" parameterType="String" resultType="com.member.MemberVO">
+		select * from member where email = #{email}
+	</select>
+	
+	<select id="member_password_check" parameterType="com.member.MemberVO" resultType="com.member.MemberVO">
+		select * from member where id=#{id} and password=SHA2(#{password}, 256)
+	</select>
+	
+	<select id="getMember_info" parameterType="String" resultType="com.member.MemberVO">
+		select * from member where id= #{id}
+	</select>
+	
+	<insert id="set_member_update" parameterType="String">
+		${sql}
+	</insert>
+	
+	<select id="set_m_member_update" parameterType="com.member.MemberVO">
+		update member set name = #{name}, email = #{email}, tel = #{tel} where id = #{id}
+	</select>
+	
+	<select id="getMember_payment" parameterType="com.common.PagingVO_2" resultType="com.payment.PaymentVO">
+		select * from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from payments where consumer = #{consumer} ${sql} order by idx desc)n,
+		(select @rownum:=0)v)num Where num.num between #{start} and #{end}
+	</select>
+	
+	<select id="getm_Member_payment" parameterType="com.common.PagingVO_2" resultType="com.payment.PaymentVO">
+		select * from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from payments where consumer = #{consumer} ${sql} order by idx desc)n,
+		(select @rownum:=0)v)num;
+	</select>
+	
+	<select id="member_email_id_find" parameterType="com.member.MemberVO" resultType="com.member.MemberVO">
+		select * from member where name = #{name} and email = #{email}
+	</select>
+	
+	<select id="member_tel_id_find" parameterType="com.member.MemberVO" resultType="com.member.MemberVO">
+		select * from member where name = #{name} and tel = #{tel}
+	</select>
+	
+	<select id="member_email_pw_find" parameterType="com.member.MemberVO" resultType="com.member.MemberVO">
+		select * from member where id = #{id} and email = #{email}
+	</select>
+	
+	<select id="member_tel_pw_find" parameterType="com.member.MemberVO" resultType="com.member.MemberVO">
+		select * from member where id = #{id} and tel = #{tel}
+	</select>
+	
+	<insert id="member_password_update" parameterType="com.member.MemberVO">
+		update member set password = #{password}
+	</insert>
+	
+	<select id="mobile_id_result" parameterType="com.member.MemberVO" resultType="com.member.MemberVO">
+		select * from member where (name, email) = (#{name}, #{email}) or (name, tel) = (#{name}, #{tel});
+	</select>
+	
+	<select id="member_payment_count" parameterType="String" resultType="int">
+		select count(*) from payments where consumer = #{consumer}
+	</select>
+	
+	<select id="member_secession" parameterType="String">
+		update member set flag ='N' where id = #{id}
+	</select>
+</mapper>

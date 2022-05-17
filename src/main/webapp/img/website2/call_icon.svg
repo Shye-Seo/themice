@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="76" height="76" viewBox="0 0 76 76">
+  <defs>
+    <filter id="타원_323" x="0" y="0" width="76" height="76" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="그룹_3825" data-name="그룹 3825" transform="translate(-376 -3511)">
+    <g transform="matrix(1, 0, 0, 1, 376, 3511)" filter="url(#타원_323)">
+      <circle id="타원_323-2" data-name="타원 323" cx="29" cy="29" r="29" transform="translate(9 6)" fill="#fff"/>
+    </g>
+    <g id="phone-receiver-silhouette" transform="translate(401.187 3533.188)">
+      <path id="패스_7653" data-name="패스 7653" d="M22.079,17.835c-1.548-1.324-3.119-2.126-4.648-.8l-.913.8c-.668.58-1.91,3.29-6.712-2.234S7.862,9.22,8.531,8.645l.918-.8c1.521-1.325.947-2.993-.15-4.71L8.637,2.1C7.535.382,6.335-.743,4.81.58l-.824.72A7.735,7.735,0,0,0,.971,6.419c-.55,3.638,1.185,7.8,5.16,12.375s7.857,6.87,11.539,6.83a7.756,7.756,0,0,0,5.486-2.272l.827-.721c1.521-1.322.576-2.668-.973-3.995Z" fill="#030104"/>
+    </g>
+  </g>
+</svg>
