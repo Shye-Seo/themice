@@ -336,11 +336,11 @@ $('#business_submit_btn').click(function () {
 		alert('비밀번호를 확인해주세요.');
 		$('#business_pw').focus();
 		return false;
-	} else if(business_pw_check != '사용가능') {
+	} else if(business_pw_check != '비밀번호가 일치합니다.') {
 		alert('비밀번호를 확인해주세요.');
 		$('#business_pw_check').focus();
 		return false;
-	} else if(business_email_cehck == 'false') {
+	} else if(business_email_check == 'false') {
 		alert('이미 사용중인 이메일 입니다.');
 		$('.mail_item_1').focus();
 		return false;

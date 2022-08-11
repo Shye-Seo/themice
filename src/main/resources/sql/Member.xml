@@ -9,10 +9,10 @@
 
 	<insert id="join" parameterType="com.member.MemberVO">
 		insert into member (id,
-		password, name, email, tel, address, detail_address, profile_img_path)
+		password, name, address, detail_address, email, tel)
 		values (#{id},
-		#{password}, #{name}, #{email}, #{tel}, #{address},
-		#{detail_address}, #{profile_img_path});
+		#{password}, #{name}, #{address}, #{detail_address}, #{email},
+		#{tel});
 	</insert>
 
 	<select id="loginCheck" parameterType="com.common.loginVO" resultType="com.member.MemberVO">

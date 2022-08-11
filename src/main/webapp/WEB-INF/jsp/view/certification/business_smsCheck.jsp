@@ -10,6 +10,8 @@
 <c:set var="root" value="${pageContext.request.contextPath}" />
 <title>THE MICE</title>
 <link rel="icon" href="${root}/img/common/favicon.svg">
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com"> 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
