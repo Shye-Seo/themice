@@ -19,7 +19,7 @@
 <body>
 	<c:if test="${check != 0}">
 		<div align="center">
-			인증번호를 입력해주세요.
+			인증번호를 입력해주세요.  
 			<form method="post">
 				<input type="text" name="certification" /> <input type="submit" value="확인" />
 			</form>
@@ -29,7 +29,7 @@
 	<c:if test="${check == 0}">
 		<div align="center">인증이 완료되었습니다.</div>
 		<script type="text/javascript">
-			opener.business_joinform.business_sms_certification.value = "인증완료";
+			opener.businessform.business_sms_certification.value = '인증완료';  
 		</script>
 	</c:if>
 

@@ -168,7 +168,7 @@ $('#email_add').focusout(function (){
 });
 	
 $('#sms_certification').change(function(){
-	$("#tel" ).prop('readonly', true);
+	$("#tel").prop('readonly', true);
 });
 	
 $('#member_submit_btn').click(function () {
@@ -316,6 +316,10 @@ $('.mail_item_2').focusout(function (){
 	});
 });
 
+$('#business_sms_certification').change(function(){
+	$("#business_tel").prop('readonly', true);
+});
+
 $('#business_submit_btn').click(function () {
 	var business_num = $('#business_num_check').text();
 	var business_file_upload = $('#business_file_upload').val();
@@ -333,11 +337,11 @@ $('#business_submit_btn').click(function () {
 		$('.business_file_upload').focus();
 		return false;
 	} else if(business_pw != '사용가능') {
-		alert('비밀번호를 확인해주세요.');
+		alert('비밀번호를 확인해주세요11.');
 		$('#business_pw').focus();
 		return false;
 	} else if(business_pw_check != '비밀번호가 일치합니다.') {
-		alert('비밀번호를 확인해주세요.');
+		alert('비밀번호를 확인해주세요22.');
 		$('#business_pw_check').focus();
 		return false;
 	} else if(business_email_check == 'false') {
