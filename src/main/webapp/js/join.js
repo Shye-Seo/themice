@@ -28,6 +28,35 @@ function smsCheck(obj, root) {
 		});
 	}
 }
+
+// 마이페이지 회원수정할때 휴대폰 인증
+function mypage_smsCheck(obj, root) {    
+	
+	var tel = obj.tel.value;
+	
+	if (obj.tel.value == "") {
+		alert("휴대폰 번호를 입력하세요.");    
+		obj.tel.focus();
+		return false;
+	} else {
+		$.ajax({
+			url : 'duplicate_member_tel',
+			type : 'post',
+			data : {
+				tel : tel
+			},
+			success : function(data) {
+				if ($.trim(data) != 0) {
+					let url = root + "/sendSMS?tel=" + tel
+					window.open(url, "", "width=400, height=200");
+				} 
+			},
+			error : function() {
+				alert("다시 입력하세요.");
+			}
+		});
+	}
+}
 	
 function business_smsCheck(obj, root) {
 	

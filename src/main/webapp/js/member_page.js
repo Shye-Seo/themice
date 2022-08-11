@@ -19,7 +19,7 @@ $('#m_tel_btn').click(function(){
 	
 	if (regPhone.test(tel) === true) {
 		if(tel == null || tel == ''){
-			alert('휴대폰 번호를 입력해주세요');
+			alert('휴대폰 번호를 입력해주세요');    
 		} else {
 			$.ajax({
 				url : 'send_m_sms',

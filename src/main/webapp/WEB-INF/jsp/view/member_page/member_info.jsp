@@ -122,8 +122,8 @@
 						oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
 						pattern="(?:(010-\d{4})|(01[1|6|7|8|9]-\d{3,4}))-(\d{4})"
 						id="tel" value="${mv.tel}"> <input type="button"
-						onclick="smsCheck(joinform, '${root}')" value="휴대폰 인증"
-						class="certification_button">
+						onclick="mypage_smsCheck(joinform, '${root}')" value="휴대폰 인증"
+						class="certification_button" readonly>
 						<input type="hidden" id="sms_certification" value="">
 					</div>
 				</div>
