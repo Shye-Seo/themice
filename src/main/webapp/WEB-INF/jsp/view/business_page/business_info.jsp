@@ -109,8 +109,8 @@
 						<span>이메일</span>
 					</div>
 					<div class="right_area form email_area">
-						<input type="text" name="email">@<input type="text"
-							name="email_add" maxlength="50" value=""> <select
+						<input type="text" name="email" value="${email_id}">@<input type="text"
+							name="email_add" maxlength="50" value="${email_domain}"> <select
 							name="sel_email">
 							<option value="etc">직접입력</option>
 							<option value="naver.com">naver.com</option>

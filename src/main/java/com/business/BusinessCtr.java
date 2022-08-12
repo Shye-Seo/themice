@@ -59,7 +59,7 @@ public class BusinessCtr {
 		vo.setPassword(encryption);
 		
 		String email = vo.getEmail() + "@" + request.getParameter("email_add");
-		vo.setEmail(email);
+		vo.setEmail(email);  
 		
 		service.businessJoin(vo);
 		return "view/login";
@@ -163,7 +163,13 @@ public class BusinessCtr {
 		}
 		
 		BusinessVO vo = service.getBusiness_info(business_num);
+		String email = vo.getEmail();
+		String email_id = email.split("@")[0];
+		String email_domain = email.split("@")[1];
+		
 		modelMap.addAttribute("vo", vo);
+		modelMap.addAttribute("email_id", email_id);
+		modelMap.addAttribute("email_domain", email_domain);
 		
 		return "view/business_page/business_info";
 	}

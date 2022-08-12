@@ -40,10 +40,10 @@ public class MemberCtr {
 		String password = vo.getPassword();
 		String encryption = SHA256Util.SHA256(password);
 		
-		vo.setPassword(encryption);
-
+		vo.setPassword(encryption);  
+   
 		String email = vo.getEmail() + "@" + request.getParameter("email_add");
-		vo.setEmail(email);
+		vo.setEmail(email);  
 		memberservice.join(vo);
 		return "redirect:login";
 	}
