@@ -87,7 +87,7 @@
 							<input type="text" id="roadAddress" placeholder="도로명주소" name="address" value="${mv.address}" readonly>
 						</div>
 						<div class="div">
-							<input type="text" id="detailAddress" placeholder="상세주소" name="detail_address" value="${detail_address}">
+							<input type="text" id="detailAddress" placeholder="상세주소" name="detail_address" value="${mv.detail_address}">
 						</div>
 					</div>
 				</div>
@@ -96,9 +96,9 @@
 					<div class="left_area">
 						<span>이메일</span>
 					</div>
-					<div class="right_area email_area">
-						<input type="text" name="email" class="mail_item_1" id="email">@<input type="text"
-							name="email_add" maxlength="50" value="" class="mail_item_2" id="email_add">
+					<div class="right_area email_area">  
+						<input type="text" name="email" class="mail_item_1" id="email" value="${email_id}">@<input type="text"
+							name="email_add" maxlength="50" class="mail_item_2" id="email_add" value="${email_domain}">
 						<select name="sel_email" class="mail_item_3">
 							<option value="etc">직접입력</option>
 							<option value="naver.com">naver.com</option>

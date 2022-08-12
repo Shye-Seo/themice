@@ -215,7 +215,13 @@ public class MemberCtr {
 			ScriptUtils.alertAndMovePage(response, "개인 회원으로 로그인 해주세요.", "main");
 		}
 		MemberVO mv = memberservice.getMember_info(id);
+		String email = mv.getEmail();
+		String email_id = email.split("@")[0];
+		String email_domain = email.split("@")[1];
+		
 		modelMap.addAttribute("mv", mv);
+		modelMap.addAttribute("email_id", email_id);
+		modelMap.addAttribute("email_domain",email_domain);
 		
 		return "view/member_page/member_info";
 	}
