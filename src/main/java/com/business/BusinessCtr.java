@@ -46,7 +46,7 @@ public class BusinessCtr {
 	}
 
 	@RequestMapping(value = "business_join", method = RequestMethod.POST)
-	public String business_insert(BusinessVO vo, MultipartFile file) throws IOException {
+	public String business_insert(HttpServletRequest request, BusinessVO vo, MultipartFile file) throws IOException {
 		
 		String imgName = file.getOriginalFilename();
 		File target = new File(uploadPath, imgName);
@@ -57,6 +57,10 @@ public class BusinessCtr {
 		String password = vo.getPassword();
 		String encryption = SHA256Util.SHA256(password);
 		vo.setPassword(encryption);
+		
+		String email = vo.getEmail() + "@" + request.getParameter("email_add");
+		vo.setEmail(email);
+		
 		service.businessJoin(vo);
 		return "view/login";
 	}

@@ -470,8 +470,8 @@
 						<p>이메일</p>
 					</div>
 					<div class="value_item form">
-						<input type="text" name="email" class="mail_item_1">@
-						<input type="text" name="email_add" maxlength="50" value="" class="mail_item_2">
+						<input type="text" name="email" class="mail_item_1" id="email">@
+						<input type="text" name="email_add" maxlength="50" value="" class="mail_item_2" id="email_add">
 						<select name="business_email" class="mail_item_3">
 							<option value="etc">직접입력</option>
 							<option value="naver.com">naver.com</option>
@@ -491,7 +491,7 @@
 						<p>휴대전화</p>
 					</div>
 					<div class="value_item">
-						<input type="text" name="business_tel" placeholder="휴대폰 번호" class="input"
+						<input type="text" name="tel" placeholder="휴대폰 번호" class="input"
 							oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" id="business_tel">
 						
 						<input type="button" onclick="business_smsCheck(businessform, '${root}')"
