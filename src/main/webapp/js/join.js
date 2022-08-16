@@ -29,7 +29,7 @@ function smsCheck(obj, root) {
 	}
 }
 
-// 마이페이지 회원수정할때 휴대폰 인증
+// [개인]마이페이지 회원수정할때 휴대폰 인증
 function mypage_smsCheck(obj, root) {    
 	
 	var tel = obj.tel.value;
@@ -68,7 +68,7 @@ function business_smsCheck(obj, root) {
 		return false;
 	} else {
 		$.ajax({
-			url : 'duplicate_member_tel',
+			url : 'duplicate_business_tel',
 			type : 'post',
 			data : {
 				tel : tel
@@ -81,6 +81,35 @@ function business_smsCheck(obj, root) {
 					alert("사용중인 번호 입니다.");
 					return false;
 				}
+			},
+			error : function() {
+				alert("다시 입력하세요.");
+			}
+		});
+	}
+}
+
+// [기업]마이페이지 회원수정할때 휴대폰 인증
+function mypage_business_smsCheck(obj, root) {
+	
+	var tel = obj.business_tel.value;
+	
+	if (obj.business_tel.value == "") {
+		alert("휴대폰 번호를 입력하세요.");
+		obj.business_tel.focus();
+		return false;
+	} else {
+		$.ajax({
+			url : 'duplicate_business_tel',
+			type : 'post',
+			data : {
+				tel : tel
+			},
+			success : function(data) {
+				if ($.trim(data) != 0) {
+					let url = root + "/business_sendSMS?tel=" + tel
+					window.open(url, "", "width=400, height=200");
+				} 
 			},
 			error : function() {
 				alert("다시 입력하세요.");

@@ -30,6 +30,10 @@ public class BusinessSvc {
 		return sqlSession.selectOne("business_num_check", business_num);
 	}
 
+	public BusinessVO duplicate_business_tel(String tel) {
+		return sqlSession.selectOne("duplicate_business_tel",tel);
+	}
+	
 	public BusinessVO duplicate_business_email(String email) {
 		return sqlSession.selectOne("duplicate_business_email", email);
 	}

@@ -72,13 +72,13 @@
 		</div>
 
 		<div class="contents">
-			<form method="post" action="business_info_update" id="business_joinform" enctype="multipart/form-data">
+			<form method="post" action="business_info_update" id="businessform" enctype="multipart/form-data">
 				<div class="infomation_item">
 					<div class="left_area">
 						<span>회사명</span>
 					</div>
 					<div class="right_area">
-						<input type="text" name="name" placeholder="회사명을 입력해주세요."
+						<input type="text" name="business_name" placeholder="회사명을 입력해주세요."
 							value="${vo.business_name}" id="name">
 					</div>
 				</div>
@@ -112,7 +112,7 @@
 						<input type="text" name="email" value="${email_id}">@<input type="text"
 							name="email_add" maxlength="50" value="${email_domain}"> <select
 							name="sel_email">
-							<option value="etc">직접입력</option>
+							<option value="etc">직접입력</option> 
 							<option value="naver.com">naver.com</option>
 							<option value="hanmail.net">hanmail.net</option>
 							<option value="gmail.com">gmail.com</option>
@@ -149,8 +149,9 @@
 						<input type="text" name="tel" placeholder="휴대폰 번호" class="input"
 							oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
 							pattern="(?:(010-\d{4})|(01[1|6|7|8|9]-\d{3,4}))-(\d{4})"
-							id="tel" value="${vo.tel}"> <input type="button"
-							onclick="smsCheck(joinform, '${root}')" value="인증번호 발송">
+							id="business_tel" value="${vo.tel}"> <input type="button"
+							onclick="mypage_business_smsCheck(businessform, '${root}')" value="인증번호 발송"
+							class="certification_button" readonly>
 							<input type="hidden" id="business_sms_certification" value="">
 					</div>
 				</div>
@@ -179,7 +180,7 @@
 									alert('휴대폰 번호 인증을 해주세요.');
 									return false;
 								} else {
-									$('#business_joinform').submit();
+									$('#businessform').submit();
 								}
 							});
 						})
@@ -190,5 +191,6 @@
 	</section>
 
 	<jsp:include page="/WEB-INF/jsp/footer/footer.jsp" />
+	<script src="${root}/js/join.js"></script>
 </body>
 </html>

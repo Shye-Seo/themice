@@ -79,6 +79,20 @@ public class BusinessCtr {
 		return "view/select";
 	}
 	
+	
+	/* 휴대폰 중복 방지(기업) */
+	@RequestMapping(value = "duplicate_business_tel", method = RequestMethod.POST)
+	public @ResponseBody String duplicate_business_tel(HttpServletRequest request, ModelMap modelMap,
+				@RequestParam(value = "tel", defaultValue = "") String tel) {
+		int check = 1;
+		BusinessVO bv = service.duplicate_business_tel(tel);
+		if(bv == null) {
+			check = 0;
+		}
+		return String.valueOf(check);
+	}
+	
+	
 	@RequestMapping(value = "business_num_check", method = RequestMethod.POST)
 	public @ResponseBody String business_num_check(HttpServletRequest request, ModelMap modelMap,
 			@RequestParam(value = "business_num", defaultValue = "") String business_num) {
@@ -165,7 +179,7 @@ public class BusinessCtr {
 		BusinessVO vo = service.getBusiness_info(business_num);
 		String email = vo.getEmail();
 		String email_id = email.split("@")[0];
-		String email_domain = email.split("@")[1];
+		String email_domain = email.split("@")[1]; 
 		
 		modelMap.addAttribute("vo", vo);
 		modelMap.addAttribute("email_id", email_id);
@@ -187,6 +201,8 @@ public class BusinessCtr {
 		
 		String sql = "update business set business_name = '" + vo.getBusiness_name() + "', tel = '" + vo.getTel() + "'";
 		
+		// business_info.jsp에 file 수정부분이 없어서 에러 나는듯??
+		/*
 		String saveName = file.getOriginalFilename();
 		
 		if(!saveName.equals("")) {
@@ -195,6 +211,7 @@ public class BusinessCtr {
 			
 			sql = sql + ", img_path = '" + saveName + "'";
 		}
+		*/
 		
 		if(vo.getAddress() != null || !vo.getAddress().equals("")) {
 			sql = sql + ", address = '" + vo.getAddress() + "'";

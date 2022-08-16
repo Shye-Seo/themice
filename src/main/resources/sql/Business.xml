@@ -18,6 +18,10 @@
 		select * from business where business_num=#{id} and password=SHA2(#{password}, 256)
 	</select>
 	
+	<select id="duplicate_business_tel" parameterType="String" resultType="com.business.BusinessVO">
+		select * from business where tel = #{tel}
+	</select>
+	
 	<select id="business_num_check" parameterType="String" resultType="com.business.BusinessVO">
 		select * from business where business_num = #{business_num}
 	</select>
