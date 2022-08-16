@@ -52,7 +52,8 @@
 				
 				<li>
 					<select onchange="window.location.href=this.value">
-						<option value="member_info">회원정보 수정</option>
+						<!-- <option value="member_info">회원정보 수정</option> -->
+						<option value="login_check">회원정보 수정</option>
 						<option value="member_payment">결재 내역</option>
 						<option value="member_password_update">비밀번호 수정</option>
 						<option value="member_secession" selected="selected">회원 탈퇴</option>

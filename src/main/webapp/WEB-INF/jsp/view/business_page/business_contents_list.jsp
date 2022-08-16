@@ -53,7 +53,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 				<li><a href="#">전시</a></li>
 				<li><select onchange="window.location.href=this.value">
-						<option value="business_info">회원정보 수정</option>
+						<!-- <option value="business_info">회원정보 수정</option> -->
+						<option value="login_check">회원정보 수정</option>
 						<option value="business_contents_list" selected="selected">내 전시 리스트</option>
 						<option value="business_payment">결제 내역</option>
 						<option value="business_password_update">비밀번호 수정</option>
