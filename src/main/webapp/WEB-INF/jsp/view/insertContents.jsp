@@ -585,7 +585,7 @@ selsect::-ms-expand {
 					<div class="right_3">
 						<div class="color_category">
 							<input type="radio" name="layout_type_" value="1" id="color_item_1">
-							<label for="color_item_1" id="first_click"></label>
+							<label for="color_item_1"></label>
 							<input type="radio" name="layout_type_" value="2" id="color_item_2">
 							<label for="color_item_2"></label>
 							<input type="radio" name="layout_type_" value="3" id="color_item_3">
@@ -1363,14 +1363,6 @@ selsect::-ms-expand {
 						$('.previous_page_area').css('display', 'block');
 						$('.page_3')[0].scrollIntoView();
 						$('#page_number').val('3');
-					} else if(page_number == '3') { // 미입력값 있었을때 다음버튼 눌러도 작동 안되던것 처리
-						$('.page_1').hide();
-						$('.page_2').show();
-						$('.top_title').attr('tabindex', -1);
-						$('.top_title').focus();
-						$('.previous_page_area').css('display', 'block');
-						$('.title_area')[0].scrollIntoView();
-						$('#page_number').val('2');
 					}
 				});
 				
@@ -1456,8 +1448,8 @@ selsect::-ms-expand {
 						var end_time = $('#end_time').val();
 						var roadAddress = $('#roadAddress').val();
 						var detail_address = $('#detail_address').val();
-						//var type_select = $('input:radio[name="type_select"]:checked').val();
-						var type_select = $('input:radio[name="layout_type_"]:checked').val();
+						var type_select = $('input:radio[name="type_select"]:checked').val();
+						//var type_select = $('input:radio[name="layout_type_"]:checked').val();
 						
 						var img_1 = $('#detail_img_1').val();
 						var img_2 = $('#detail_img_2').val();
@@ -1521,7 +1513,7 @@ selsect::-ms-expand {
 							$('.previous_page_area').css('display', 'none');
 							$('#roadAddress').focus();
 							return false;
-						} else if (type_select == '1'){
+						} else if (type_select == 1){
 							if(!img_1 || !img_2 || !img_3 || !img_4 || !img_5){
 								alert('이미지를 첨부하세요.');
 								return false;
@@ -1529,7 +1521,7 @@ selsect::-ms-expand {
 								alert('보조 제목을 입력하세요.');
 								return false;
 							}
-						} else if (type_select == '2'){
+						} else if (type_select == 2){
 							if(!img_1 || !img_2 || !img_3 || !img_4 || !img_5 || !img_6){
 								alert('이미지를 첨부하세요.');
 								return false;
@@ -1537,12 +1529,12 @@ selsect::-ms-expand {
 								alert('보조 제목을 입력하세요.');
 								return false;
 							}
-						} else if (type_select == '3'){
+						} else if (type_select == 3){
 							if(!img_1 || !img_2 || !img_3 || !img_4 || !img_5 || !img_6 || !img_7){
 								alert('이미지를 첨부하세요.');
 								return false;
 							}
-						} else if (type_select == '4'){
+						} else if (type_select == 4){
 							if(!img_1 || !img_2 || !img_3 || !img_4 || !img_5){
 								alert('이미지를 첨부하세요.');
 								return false;

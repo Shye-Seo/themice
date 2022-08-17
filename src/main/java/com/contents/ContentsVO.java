@@ -22,7 +22,7 @@ public class ContentsVO {
 	private String age;
 	private String exhn_type;
 	private String font_type;
-	private Integer layout_type; // int타입으로 했을때 에러남
+	private int layout_type; // 뭔가 이상..
 	private int pattern;
 	private String background_color;
 	private String key_word;
