@@ -59,7 +59,7 @@
 	justify-content: space-between;
 	box-sizing: border-box;
 	padding: 3% 10%;
-	height: 360px;
+	height: 400px;
 }
 
 #payment .choice_area .calendar_area {
@@ -141,7 +141,7 @@
 #payment .choice_area .personnel_area .input_area .select_area {
 	display: flex;
     justify-content: space-between;
-    height: 80%;
+    /* height: 80%; */
 }
 
 #payment .choice_area .personnel_area .input_area .select_area li .select_item li
@@ -149,13 +149,14 @@
 	border-bottom: solid;
 	border-width: 1px;
 	width: 100%;
+	height:100%; /* 변경부분 */
 	padding: 3% 0;
 }
 
 #payment .choice_area .personnel_area .input_area ul li .select_item
 	{
 	display: flex;
-	height: 85%;
+	/* height: 85%; */
 	flex-direction: column;
 	justify-content: space-between;
 }
