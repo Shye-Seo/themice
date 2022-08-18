@@ -1343,6 +1343,7 @@ selsect::-ms-expand {
 				$('#Next_Page').click(function (){
 					
 					var page_number = $('#page_number').val();
+					alert(page_number);
 					
 					if(page_number == '1') {
 						$('.page_1').hide();
@@ -1364,6 +1365,18 @@ selsect::-ms-expand {
 						$('.page_3')[0].scrollIntoView();
 						$('#page_number').val('3');
 					}
+					
+					if(page_number == '3') {
+						$('.page_1').hide();
+						$('.page_2').show();
+						$('.top_title').attr('tabindex', -1);
+						$('.top_title').focus();
+						$('.previous_page_area').css('display', 'block');
+						$('.title_area')[0].scrollIntoView();
+						$('#page_number').val('2');
+					}
+					
+					
 				});
 				
 				$('#Previous_Page').click(function (){
