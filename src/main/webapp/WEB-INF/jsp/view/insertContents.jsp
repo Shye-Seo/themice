@@ -1406,7 +1406,7 @@ selsect::-ms-expand {
 				
 				$('#manual').click(function (){
 					//var url = "/Home/manual?mini=Y";
-					var url = "/manual?mini=Y";
+					var url = "/manual?mini=Y"; 
 					window.open(url, "", "width=1800, height=900");
 				});
 				
@@ -1416,7 +1416,8 @@ selsect::-ms-expand {
 						url: 'Preview_check',
 				        success: function (data) {
 				        	if($.trim(data) == 1){
-				        		var url = "/Home/Preview?temporary=Y";
+				        		//var url = "/Home/Preview?temporary=Y";
+				        		var url = "/Preview?temporary=Y";
 								window.open(url,'','height=' + screen.height + ',width=' + screen.width + 'fullscreen=yes');
 				        	} else {
 				        		alert('임시저장을 해주세요.');
