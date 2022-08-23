@@ -1405,7 +1405,8 @@ selsect::-ms-expand {
 				});
 				
 				$('#manual').click(function (){
-					var url = "/Home/manual?mini=Y";
+					//var url = "/Home/manual?mini=Y";
+					var url = "/manual?mini=Y";
 					window.open(url, "", "width=1800, height=900");
 				});
 				
