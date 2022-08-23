@@ -49,6 +49,7 @@ import com.contents.comments.Report_answersVO;
 import com.contents.comments.Report_commentsVO;
 import com.member.MemberVO;
 import com.notice.NoticeVO;
+import com.payment.PaymentSvc;
 import com.payment.PaymentVO;
 import com.website.Introduction_img;
 import com.website.Web_menuVO;
@@ -82,6 +83,9 @@ public class ContentsCtr {
 	
 	@Autowired
 	ContentsSvc service;
+	
+	@Autowired
+	PaymentSvc service2;
 	
 	@Autowired
 	BusinessSvc business_service;
@@ -149,6 +153,12 @@ public class ContentsCtr {
 			@RequestParam(value = "term", defaultValue = "0") String term,
 			@RequestParam(value = "keyword", defaultValue = "") String keyword, HttpSession session) throws IOException {
 
+		
+		String id = (String) session.getAttribute("id");
+		MemberVO mv = service2.getMember(id);
+		
+		modelMap.addAttribute("mv", mv);
+		
 		if (day == null) {
 			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 			day = format.format(System.currentTimeMillis());
