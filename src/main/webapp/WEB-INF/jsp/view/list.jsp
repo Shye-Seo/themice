@@ -235,7 +235,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 							<div class="content_info_link">
 								<a href="detail?contents_idx=${l.idx}">자세히 보기</a>
 								<c:if test="${mv.id ne null}">
-									<a href="payment_page?contents_idx=${l.idx}" target="_blank" onClick="window.open(this.href,'','width=1130, height=850')">예매하기</a>
+									<a href="payment_page?contents_idx=${l.idx}" onClick="window.open(this.href,'_blank','width=1130, height=850'); return false">예매하기</a> 
 								</c:if>
 								<!--  
 								<input type="button" value="예매하기" onclick="payment('${root}')">
