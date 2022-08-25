@@ -237,6 +237,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 								<c:if test="${mv.id ne null}">
 									<a href="payment_page?contents_idx=${l.idx}" onClick="window.open(this.href,'_blank','width=1130, height=850'); return false">예매하기</a> 
 								</c:if>
+								<c:if test="${mv.id eq null}">
+									<a href="javascript:alert('개인 회원으로 로그인해주세요.');">예매하기</a> 
+								</c:if>
 								<!--  
 								<input type="button" value="예매하기" onclick="payment('${root}')">
 								<script type="text/javascript">
