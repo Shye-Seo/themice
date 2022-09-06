@@ -14,13 +14,23 @@
     <tx:annotation-driven transaction-manager="transactionManager"/>
     
     <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close"
-		  p:driverClassName="net.sf.log4jdbc.sql.jdbcapi.DriverSpy" p:url="jdbc:log4jdbc:mysql://13.209.182.224:3306/themice" 
-          p:username="themice"
-          p:password="Thewell1004!"
+		  p:driverClassName="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"
+		  p:url="jdbc:log4jdbc:mysql://database-themice.cdc39ucustpp.ap-northeast-2.rds.amazonaws.com:3306/themice" 
+          p:username="admin"
+          p:password="Themice1004!"
           p:initialSize="3"
           p:maxIdle="10"
           p:minIdle="3"
           p:validationQuery="SELECT 1" />
+          
+          	<!-- MySQL dataSource -->    
+<!--     <bean id="dataSource"
+        class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
+        <property name="url" value="jdbc:mysql://themice-database.cdc39ucustpp.ap-northeast-2.rds.amazonaws.com:3306/Newthemice2?serverTimezone=Asia/Seoul"></property>
+        <property name="username" value="themice"></property>
+        <property name="password" value="thewell1004!"></property>
+    </bean>    -->
 
 	<!-- SqlSession setup for MyBatis Database Layer -->
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
