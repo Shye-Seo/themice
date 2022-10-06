@@ -11,9 +11,13 @@
 </head>
 <body>
 	<header id="header">
+		<c:set var="link" value="/WEB-INF/jsp/view/main.jsp" />
+		<c:set var="URI" value="${pageContext.request.requestURI}" />
+		<c:if test="${URI ne link}">
 		<div class="background">
-			<img alt="" src="${root}/img/header/background.png">
+			<div></div>
 		</div>
+		</c:if>
 
 		<div class="header_item">
 			<div class="navi_area">
@@ -22,49 +26,70 @@
 				</div>
 	
 				<c:if test="${not empty sessionScope.business_id}">
+				<div class="navi_bar">
 					<div class="menu">
 						<ul>
-							<li><a href="list">전시</a></li>
-							<li><a href="insertContents">전시등록</a></li>
-							<li><a href="login_check">마이페이지</a></li>
-							<li><a href="logout">로그아웃</a></li>
+							<li><a href="list" id="tab">전시</a></li>
+							<li><a href="insertContents" id="tab">전시등록</a></li>
+							<li><a href="notice_list" id="tab">공지사항</a></li>
+							<li><a href="login_check" id="tab">마이페이지</a></li>
+						</ul>
+					</div>
+					<div class="small">
+						<ul>
+							<li><a href="logout" id="logout">로그아웃</a></li>
 							<li>
 								<img id="search" src="${root}/img/header/search.svg">
 								<img id="close_btn" src="${root}/img/header/close_btn.svg">
 							</li>
 						</ul>
 					</div>
+				</div>
 				</c:if>
 	
 				<c:if test="${empty sessionScope.id && empty sessionScope.business_id}">
+				<div class="navi_bar">
 					<div class="menu">
 						<ul>
-							<li><a href="divison">화면분할</a></li>
-							<li><a href="list">전시</a></li>
-							<li><a href="insertContents">전시등록</a></li>
-							<li><a href="login">로그인</a></li>
-							<li><a href="join">회원가입</a></li>
-							<li><a href="login_check">마이페이지</a></li>
+<!-- 							<li><a href="divison">화면분할</a></li> -->
+							<li><a href="list" id="tab">전시</a></li>
+							<li><a href="insertContents" id="tab">전시등록</a></li>
+							<li><a href="notice_list" id="tab">공지사항</a></li>
+							<li><a href="login_check" id="tab">마이페이지</a></li>
+						</ul>
+					</div>
+					<div class="small">
+						<ul>
+							<li><a href="login" id="login">로그인</a></li>
+							<li><a href="join" id="join">회원가입</a></li>
 							<li>
 								<img id="search" src="${root}/img/header/search.svg">
 								<img id="close_btn" src="${root}/img/header/close_btn.svg">
 							</li>
 						</ul>
 					</div>
+				</div>
 				</c:if>
 	
 				<c:if test="${not empty sessionScope.id}">
+				<div class="navi_bar">
 					<div class="menu">
 						<ul>
-							<li><a href="list">전시</a></li>
-							<li><a href="login_check">마이페이지</a></li>
-							<li><a href="logout">로그아웃</a></li>
+							<li><a href="list" id="tab">전시</a></li>
+							<li><a href="notice_list" id="tab">공지사항</a></li>
+							<li><a href="login_check" id="tab">마이페이지</a></li>
+						</ul>
+					</div>
+					<div class="small">
+						<ul>
+							<li><a href="logout" id="logout">로그아웃</a></li>
 							<li>
 								<img id="search" src="${root}/img/header/search.svg">
 								<img id="close_btn" src="${root}/img/header/close_btn.svg">
 							</li>
 						</ul>
 					</div>
+				</div>
 				</c:if>
 			</div>
 			
@@ -84,7 +109,7 @@
 						$('#close_btn').css('display', 'block');
 						$('.background').addClass('background_before');
 						$('section').addClass('section_before');
-						$('header .header_item .navi_area .menu ul li a').css('color', '#333333');
+						$('header .header_item .navi_area .menu ul li a').css('color', '#222222');
 					});
 					
 					$('#close_btn').click(function(){
@@ -93,7 +118,7 @@
 						$('#close_btn').css('display', 'none');
 						$('.background').removeClass('background_before');
 						$('section').removeClass('section_before');
-						$('header .header_item .navi_area .menu ul li a').css('color', 'white');
+						$('header .header_item .navi_area .menu ul li a').css('color', '#222222');
 					});
 				});
 			</script>

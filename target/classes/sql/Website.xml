@@ -18,7 +18,7 @@
 	
 	<select id="get_gallery_cnt" parameterType="com.common.PagingVO_3" resultType="int">
 		select count(*) from (select @rownum:=@rownum+1 as num, n.*
-		from(select * from web_notice where contents_idx = #{contents_idx} ${sql} order by idx desc)n,
+		from(select * from gallery where contents_idx = #{contents_idx} ${sql} order by idx desc)n,
 		(select @rownum:=0)v)num;
 	</select>
 	
@@ -43,10 +43,10 @@
 		values(#{contents_idx}, #{title}, #{contents}, #{writer}, #{start_day}, #{end_day}, #{file_path})
 	</insert>
 	
-	<insert id="notice_management_update" parameterType="com.notice.Web_notice">
+	<select id="notice_management_update" parameterType="com.notice.Web_notice">
 		update web_notice set title = #{title}, contents = #{contents}, writer = #{writer}, start_day = #{start_day},
-		end_day = #{end_day}, file_path = #{file_path} where contents_idx = #{contents_idx}
-	</insert>
+		end_day = #{end_day}, file_path = #{file_path} where idx = #{idx}
+	</select>
 	
 	<select id="report_comments_cnt" parameterType="com.common.PagingVO_2" resultType="int">
 		select count(*) from (select @rownum:=@rownum+1 as num, n.*
@@ -120,6 +120,10 @@
 	<select id="comments_write" parameterType="String" resultType="String">
 		select user_id from comments where idx = #{c}
 	</select>
+	
+<!-- 	<select id="comments_update" parameterType="com.contents.CommentsVO"> -->
+<!-- 		update comments set comment = #{comment}, score = #{score} where idx = #{idx} -->
+<!-- 	</select> -->
 	
 	<insert id="user_delete_management" parameterType="String">
 		update member set flag='N' where id = #{writer}
@@ -217,4 +221,5 @@
 	<select id="get_business" parameterType="String" resultType="com.business.BusinessVO">
 		select * from business where business_num = #{business_num};
 	</select>
+	
 </mapper>

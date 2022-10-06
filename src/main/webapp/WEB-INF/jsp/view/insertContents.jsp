@@ -181,15 +181,12 @@ selsect::-ms-expand {
 	<jsp:include page="/WEB-INF/jsp/header/header.jsp" />
 	<div class="header">
 		<div class="title">
-			<span>전시</span>
-		</div>
-		<div class="root">
-			<img alt="" src="${root}/img/list/home_icon.svg"><span>&gt;</span><span>전시</span><span>&gt;</span><span>전시 제작</span>
+			<span>전시등록</span>
 		</div>
 	</div>
 	<section>
 		<div class="title_area">
-			<span>전시장 등록</span>
+			<span>기본정보</span>
 		</div>
 		<div class="essential_area">
 			<span>*</span>
@@ -201,8 +198,7 @@ selsect::-ms-expand {
 					<div class="left">
 						<span>*</span>
 						<ul>
-							<li>제</li>
-							<li>목</li>
+							<li>제목</li>
 						</ul>
 					</div>
 					<div class="right">
@@ -214,13 +210,12 @@ selsect::-ms-expand {
 					<div class="left">
 						<span>*</span>
 						<ul>
-							<li>기</li>
-							<li>간</li>
+							<li>기간</li>
 						</ul>
 					</div>
 					<div class="right">
 						<input type="date" name="start_day" id="start_day" class="input_2">
-						<span style="margin: 0 2.7%; color: #333;">~</span>
+						<span>~</span>
 						<input type="date" name="end_day" id="end_day" class="input_2" min="">
 					</div>
 				</div>
@@ -229,13 +224,37 @@ selsect::-ms-expand {
 					<div class="left">
 						<span>*</span>
 						<ul>
-							<li>시</li>
-							<li>간</li>
+							<li>시간</li>
 						</ul>
 					</div>
 					<div class="right">
-						<input type="time" name="start_time" id="start_time" class="input_2">~
+						<input type="time" name="start_time" id="start_time" class="input_2">
+						<span>~</span>
 						<input type="time" name="end_time" id="end_time" class="input_2">
+					</div>
+				</div>
+				
+				<div class="infomation_area">
+					<div class="left">
+						<span>*</span>
+						<ul>
+							<li>전화</li>
+						</ul>
+					</div>
+					<div class="right">
+						<input type="text" placeholder="하이픈(-)을 포함하여 적어주세요." name="tel" id="tel" class="input_1">
+					</div>
+				</div>
+				
+				<div class="infomation_area">
+					<div class="left">
+						<span>*</span>
+						<ul>
+							<li>팩스</li>
+						</ul>
+					</div>
+					<div class="right">
+						<input type="text" placeholder="하이픈(-)을 포함하여 적어주세요." name="fax" id="fax" class="input_1">
 					</div>
 				</div>
 
@@ -243,38 +262,36 @@ selsect::-ms-expand {
 					<div class="left">
 						<span>*</span>
 						<ul>
-							<li>관</li>
-							<li>람</li>
-							<li>료</li>
+							<li>관람료</li>
 						</ul>
 					</div>
 					<div class="right_2">
 						<div class="price_insert_area">
 							<input id="price" type="text" placeholder="미 작성시 자동으로 무료로 전환됩니다."
 							oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
-							<select id="age_type" class="select">
+							<select id="age_type" class="select" style="width:20%;">
 								<option value="1">성인</option>
 								<option value="2">중,고등학생</option>
 								<option value="3">초등학생</option>
 								<option value="4">아동</option>
-							</select> <input type="button" onclick="Pirce_insert()" value="등록"
-								class="price_btn">
+							</select>
+							<input type="button" onclick="Price_insert()" value="등록" class="price_btn">
 						</div>
 						<div class="key_item">
 							<ul>
-								<li><span class="price_item_1">1</span> <img
+								<li><span class="price_item_1"></span> <img
 									src="${root}/img/insertcontents/close.svg"
 									class="price_img_item_1" onclick="Price_close(1)"><input
 									type="hidden" name="price" id="price_1" value="null"></li>
-								<li><span class="price_item_2">2</span> <img
+								<li><span class="price_item_2"></span> <img
 									src="${root}/img/insertcontents/close.svg"
 									class="price_img_item_2" onclick="Price_close(2)"><input
 									type="hidden" name="price" id="price_2" value="null"></li>
-								<li><span class="price_item_3">3</span> <img
+								<li><span class="price_item_3"></span> <img
 									src="${root}/img/insertcontents/close.svg"
 									class="price_img_item_3" onclick="Price_close(3)"><input
 									type="hidden" name="price" id="price_3" value="null"></li>
-								<li><span class="price_item_4">4</span> <img
+								<li><span class="price_item_4"></span> <img
 									src="${root}/img/insertcontents/close.svg"
 									class="price_img_item_4" onclick="Price_close(4)"><input
 									type="hidden" name="price" id="price_4" value="null"></li>
@@ -282,7 +299,7 @@ selsect::-ms-expand {
 						</div>
 
 						<script type="text/javascript">
-							function Pirce_insert() {
+							function Price_insert() {
 								var age_type = $('#age_type').val();
 								var age_type_text = $('#age_type option:checked').text();
 								var value = $('#price').val();
@@ -338,18 +355,15 @@ selsect::-ms-expand {
 					<div class="left">
 						<span>*</span>
 						<ul>
-							<li>관</li>
-							<li>람</li>
-							<li>연</li>
-							<li>령</li>
+							<li>관람연령</li>
 						</ul>
 					</div>
 					<div class="right">
-						<select name="age" id="age" class="input_3">
-							<option value="박람회">전체관람가</option>
-							<option value="전시회">12세 이상 관람가</option>
-							<option value="페어">15세 이상 관람가</option>
-							<option value="대제전">청소년 관람불가</option>
+						<select name="age" id="age" class="input_3" style="width: 45%;">
+							<option value="전체관람가">전체관람가</option>
+							<option value="12세 이상 관람가">12세 이상 관람가</option>
+							<option value="15세 이상 관람가">15세 이상 관람가</option>
+							<option value="청소년 관람불가">청소년 관람불가</option>
 						</select>
 					</div>
 				</div>
@@ -358,14 +372,11 @@ selsect::-ms-expand {
 					<div class="left">
 						<span>*</span>
 						<ul>
-							<li>전</li>
-							<li>시</li>
-							<li>타</li>
-							<li>입</li>
+							<li>전시타입</li>
 						</ul>
 					</div>
 					<div class="right">
-						<select name="exhn_type" id="exhbn_type" class="input_3">
+						<select name="exhn_type" id="exhbn_type" class="input_3" style="width: 45%;">
 							<option value="박람회">박람회</option>
 							<option value="전시회">전시회</option>
 							<option value="페어">페어</option>
@@ -379,27 +390,21 @@ selsect::-ms-expand {
 					<div class="left">
 						<span>*</span>
 						<ul>
-							<li>전</li>
-							<li>시</li>
-							<li>장</li>
-							<li>소</li>
+							<li>전시장소</li>
 						</ul>
 					</div>
 					<div class="right">
 						<div id="offline">
-							<input type="text" id="roadAddress" placeholder="도로명주소"
-								class="input" name="address" readonly> <input type="button"
-								onclick="sample4_execDaumPostcode()" value="주소검색" class="post">
-							<input type="text" id="detail_address" placeholder="상세주소"
-								class="input" name="detail_address"> <input
-								type="hidden" id="postcode" placeholder="주소검색" class="input">
+							<input type="text" id="roadAddress" placeholder="도로명주소" class="input" name="address" onclick="sample4_execDaumPostcode()" readonly> 
+							<input type="button" onclick="sample4_execDaumPostcode()" value="주소검색" class="post">
+							<input type="text" id="detail_address" placeholder="상세주소" class="input" name="detail_address">
+							<input type="hidden" id="postcode" placeholder="주소검색" class="input">
 						</div>
 						<div id="online">
-							<input type="text" placeholder="홈페이지를 입력해주세요."
-								class="web_address" name="web_address">
+							<input type="text" placeholder="홈페이지를 입력해주세요." class="input" name="web_address" id="web_address">
 						</div>
 						<div class="address_select_area">
-							<select name="selectBox" id="selectBox" class="select">
+							<select name="selectBox" id="selectBox" class="select" style="width: 100%;">
 								<option value="offline">오프라인</option>
 								<option value="online">온라인</option>
 							</select>
@@ -425,10 +430,7 @@ selsect::-ms-expand {
 				<div class="infomation_area">
 					<div class="left">
 						<ul>
-							<li>전</li>
-							<li>시</li>
-							<li>내</li>
-							<li>용</li>
+							<li>전시내용</li>
 						</ul>
 					</div>
 					<div class="right">
@@ -440,11 +442,7 @@ selsect::-ms-expand {
 				<div class="infomation_area">
 					<div class="left">
 						<ul>
-							<li>전</li>
-							<li>시</li>
-							<li>검</li>
-							<li>색</li>
-							<li>어</li>
+							<li>전시 검색어</li>
 						</ul>
 					</div>
 
@@ -520,10 +518,7 @@ selsect::-ms-expand {
 				<div class="infomation_area">
 					<div class="left">
 						<ul>
-							<li>대</li>
-							<li>표</li>
-							<li>사</li>
-							<li>진</li>
+							<li>대표사진</li>
 						</ul>
 					</div>
 
@@ -576,22 +571,19 @@ selsect::-ms-expand {
 					<div class="left">
 						<span>*</span>
 						<ul>
-							<li>전</li>
-							<li>시</li>
-							<li>컬</li>
-							<li>러</li>
+							<li>전시 상세페이지</li>
 						</ul>
 					</div>
 					<div class="right_3">
 						<div class="color_category">
 							<input type="radio" name="layout_type_" value="1" id="color_item_1">
-							<label for="color_item_1"></label>
+							<label for="color_item_1">스타일 1</label>
 							<input type="radio" name="layout_type_" value="2" id="color_item_2">
-							<label for="color_item_2"></label>
+							<label for="color_item_2">스타일 2</label>
 							<input type="radio" name="layout_type_" value="3" id="color_item_3">
-							<label for="color_item_3"></label>
+							<label for="color_item_3">스타일 3</label>
 							<input type="radio" name="layout_type_" value="4" id="color_item_4">
-							<label for="color_item_4"></label>
+							<label for="color_item_4">스타일 4</label>
 						</div>
 						
 						<script type="text/javascript">
@@ -750,8 +742,7 @@ selsect::-ms-expand {
 				<div class="infomation_area">
 					<div class="left">
 						<ul>
-							<li>폰</li>
-							<li>트</li>
+							<li>폰트</li>
 						</ul>
 					</div>
 					<div class="right">
@@ -769,10 +760,7 @@ selsect::-ms-expand {
 				<div class="infomation_area">
 					<div class="left">
 						<ul>
-							<li>배</li>
-							<li>경</li>
-							<li>패</li>
-							<li>턴</li>
+							<li>배경패턴</li>
 						</ul>
 					</div>
 					<div class="right_4"style="justify-content: space-between;">
@@ -816,18 +804,13 @@ selsect::-ms-expand {
 				<div class="infomation_area">
 					<div class="left">
 						<ul>
-							<li>배</li>
-							<li>경</li>
-							<li>색</li>
-							<li>상</li>
+							<li>배경색상</li>
 						</ul>
 					</div>
 					<div class="right_4">
 						<input type="text" name="background_color" class="back_color">
-						<input type="color" id="head"
-							value="#FFFFFF"> <label for="head" class="color_choice">색상
-							고르기</label><input type="button" value="확인" onclick="check()"
-							class="color_submiit">
+						<input type="color" id="head" value="#FFFFFF"><label for="head" class="color_choice">색상	고르기</label>
+						<input type="button" value="확인" onclick="check()" class="color_submiit">
 					</div>
 					<script>
 						function check() {
@@ -842,17 +825,13 @@ selsect::-ms-expand {
 				<div class="infomation_area">
 					<div class="left">
 						<ul>
-							<li>사</li>
-							<li>이</li>
-							<li>트</li>
-							<li>타</li>
-							<li>입</li>
+							<li>사이트</li>
 						</ul>
 					</div>
 					<div class="right web_select_area">
 						<select class="web_type" name="website_type">
 							<option value="1">A 타입</option>
-							<option value="2">B 타입</option>
+							<option value="2" disabled>B 타입</option>
 						</select>
 						
 						<div class="web_A_type">
@@ -881,6 +860,8 @@ selsect::-ms-expand {
 								$('.category_select option[value=4]').prop('disabled', false);
 								$('.category_select option[value=6]').prop('disabled', true);
 							});
+							
+// 							$("select option[value*='2']").prop('disabled',true);
 							
 							$(".web_type").change(function(){
 								var val = $('.web_type').val();
@@ -919,8 +900,7 @@ selsect::-ms-expand {
 					<div class="left">
 						<span>*</span>
 						<ul>
-							<li>로</li>
-							<li>고</li>
+							<li>로고</li>
 						</ul>
 					</div>
 					<div class="right">
@@ -934,11 +914,7 @@ selsect::-ms-expand {
 					<div class="left">
 						<span>*</span>
 						<ul>
-							<li>메</li>
-							<li>인</li>
-							<li>이</li>
-							<li>미</li>
-							<li>지</li>
+							<li>메인 이미지</li>
 						</ul>
 					</div>
 					<div class="right">
@@ -952,8 +928,7 @@ selsect::-ms-expand {
 					<div class="left">
 						<span>*</span>
 						<ul>
-							<li>배</li>
-							<li>너</li>
+							<li>배너</li>
 						</ul>
 					</div>
 					<div class="right">
@@ -963,45 +938,45 @@ selsect::-ms-expand {
 					</div>
 				</div>
 				
-				<div class="infomation_area">
-					<div class="left">
-						<span>*</span>
-						<ul>
-							<li>메</li>
-							<li>뉴</li>
-						</ul>
-					</div>
+<!-- 				<div class="infomation_area"> -->
+<!-- 					<div class="left"> -->
+<!-- 						<span>*</span> -->
+<!-- 						<ul> -->
+<!-- 							<li>메</li> -->
+<!-- 							<li>뉴</li> -->
+<!-- 						</ul> -->
+<!-- 					</div> -->
 					
-					<div class="right">
-						<select class="category_select">
-							<option>메뉴를 선택해주세요.</option>
-							<option value="1">전시소개</option>
-							<option value="2">갤러리</option>
-							<option value="3">위치안내</option>
-							<option value="4">댓글달기</option>
-							<option value="5">환불규정</option>
-							<option value="6">미디어</option>
-						</select>
+<!-- 					<div class="right"> -->
+<!-- 						<select class="category_select"> -->
+<!-- 							<option>메뉴를 선택해주세요.</option> -->
+<!-- 							<option value="1">전시소개</option> -->
+<!-- 							<option value="2">갤러리</option> -->
+<!-- 							<option value="3">위치안내</option> -->
+<!-- 							<option value="4">댓글달기</option> -->
+<!-- 							<option value="5">환불규정</option> -->
+<!-- 							<option value="6">미디어</option> -->
+<!-- 						</select> -->
 						
-						<img alt="" src="${root}/img/insertcontents/menu_plus.svg" class="menu_plus_btn">
+<%-- 						<img alt="" src="${root}/img/insertcontents/menu_plus.svg" class="menu_plus_btn"> --%>
 						
-						<input type="hidden" value="0" id="category_select_cnt">
+<!-- 						<input type="hidden" value="0" id="category_select_cnt"> -->
 						
-						<script type="text/javascript">
-							$('.menu_plus_btn').click(function () {
-								var select = $('.category_select').val();
-								var cnt = $('#category_select_cnt').val();
+<!-- 						<script type="text/javascript"> -->
+<!-- // 							$('.menu_plus_btn').click(function () { -->
+<!-- // 								var select = $('.category_select').val(); -->
+<!-- // 								var cnt = $('#category_select_cnt').val(); -->
 								
-								if(select != '') {
-									$('.menu_category_' + select).css('display', 'flex');
-									$(".menu_category select option[value='" + cnt +"']").prop('disabled', false);
+<!-- // 								if(select != '') { -->
+<!-- // 									$('.menu_category_' + select).css('display', 'flex'); -->
+<!-- // 									$(".menu_category select option[value='" + cnt +"']").prop('disabled', false); -->
 									
-									cnt = Number(cnt) + 1;
-									$('#category_select_cnt').val(cnt);
-								}
-							});
-						</script>
-					</div>
+<!-- // 									cnt = Number(cnt) + 1; -->
+<!-- // 									$('#category_select_cnt').val(cnt); -->
+<!-- // 								} -->
+<!-- // 							}); -->
+<!-- 						</script> -->
+<!-- 					</div> -->
 				</div>
 				
 				<div class="menu_area">
@@ -1343,7 +1318,7 @@ selsect::-ms-expand {
 				$('#Next_Page').click(function (){
 					
 					var page_number = $('#page_number').val();
-					alert(page_number);
+// 					alert(page_number);
 					
 					if(page_number == '1') {
 						$('.page_1').hide();
@@ -1447,11 +1422,11 @@ selsect::-ms-expand {
 				        	if($.trim(data) == 1){
 				        		alert("임시저장 완료");
 				        	} else {
-				        		alert("정보들을 입력해주세요.");
+				        		alert("====================================>"+error);
 				        	}
 				        },          
 				        error: function () {
-				            alert("정보들을 입력해주세요.");
+				            alert("====================================>"+error);
 				         }
 					});  
 				});
@@ -1515,7 +1490,7 @@ selsect::-ms-expand {
 							$('.previous_page_area').css('display', 'none');
 							$('#start_time').focus();
 							return false;
-						} else if (!roadAddress || !detail_address){
+						} else if (!roadAddress && !web_address){
 							alert('장소를 입력해주세요.');
 							$('.page_1').show();
 							$('.page_2').hide();

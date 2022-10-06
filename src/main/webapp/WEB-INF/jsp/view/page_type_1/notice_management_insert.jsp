@@ -31,13 +31,13 @@
 	
 		<section id="preferences">
 			<div class="inner">
-				<div class="category">
-					<a href="main_management?contents_idx=${contents_idx}">메인관리</a>
-					<a href="introduction_management?contents_idx=${contents_idx}">소개관리</a>
-					<a href="notice_management?contents_idx=${contents_idx}">공지사항관리</a>
-					<a href="pop_up_management?contents_idx=${contents_idx}">팝업관리</a>
-					<a href="comment_management?contents_idx=${contents_idx}">댓글관리</a>
-				</div>
+<!-- 				<div class="category"> -->
+<%-- 					<a href="main_management?contents_idx=${contents_idx}">메인관리</a> --%>
+<%-- 					<a href="introduction_management?contents_idx=${contents_idx}">소개관리</a> --%>
+<%-- 					<a href="notice_management?contents_idx=${contents_idx}">공지사항관리</a> --%>
+<%-- 					<a href="pop_up_management?contents_idx=${contents_idx}">팝업관리</a> --%>
+<%-- 					<a href="comment_management?contents_idx=${contents_idx}">댓글관리</a> --%>
+<!-- 				</div> -->
 				
 				<div class="notice_management_insert">
 					<span class="title_area">공지사항 등록</span>

@@ -16,6 +16,7 @@ public class ContentsVO {
 	private String end_time;
 	private String time;
 	private String tel;
+	private String fax;
 	private String address;
 	private String detail_address;
 	private String price;

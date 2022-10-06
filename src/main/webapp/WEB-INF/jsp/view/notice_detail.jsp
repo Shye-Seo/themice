@@ -21,14 +21,7 @@
 	
 	<div class="header">
 		<div class="title">
-			<span>전시</span>
-		</div>
-		<div class="root">
-			<img alt="" src="${root}/img/list/home_icon.svg">
-			<span><img alt="" src="${root}/img/common/arrow_icon.svg"></span>
 			<span>공지사항</span>
-			<span><img alt="" src="${root}/img/common/arrow_icon.svg"></span>
-			<span>상세페이지</span>
 		</div>
 	</div>
 	

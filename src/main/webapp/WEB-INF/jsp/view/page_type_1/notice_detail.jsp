@@ -51,9 +51,12 @@
 				<div class="text_area">
 					<p>${notice_list.contents}</p>
 				</div>
-				
+				<input type="text" value="contents_idx=${contents_idx}  / idx=${notice_list.idx}">
 				<div class="btn_area">
 					<a href="web_notice_list?contents_idx=${contents_idx}">목록</a>
+					<c:if test="${sessionScope.business_id == content_list.business_num}">
+						<a href="notice_management_update?contents_idx=${contents_idx}&idx=${notice_list.idx}">수정</a>
+					</c:if>
 				</div>
 			</div>
 			

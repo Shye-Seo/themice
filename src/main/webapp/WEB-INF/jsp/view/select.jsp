@@ -22,14 +22,7 @@
 	<jsp:include page="/WEB-INF/jsp/header/header.jsp" />
 	<div class="header">
 		<div class="title">
-			<span>전시</span>
-		</div>
-		<div class="root">
-			<img alt="" src="${root}/img/list/home_icon.svg">
-			<span><img alt="" src="${root}/img/common/arrow_icon.svg"></span>
-			<span>기업페이지</span>
-			<span><img alt="" src="${root}/img/common/arrow_icon.svg"></span>
-			<span>선택</span>
+			<span>마이페이지</span>
 		</div>
 	</div>
 	<section id="select_area">
@@ -45,7 +38,7 @@
 			</div>
 			
 			<div class="sub_area" style="border: none;">
-				<a href="list">
+				<a href="/WEB-INF/jsp/view/business_page/business_contents_list">
 					<img src="${root}/img/select/select_icon_2.svg">
 					<span>My 전시장 목록보기</span>
 				</a>

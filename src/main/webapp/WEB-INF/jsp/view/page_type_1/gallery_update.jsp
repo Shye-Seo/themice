@@ -61,7 +61,7 @@
                    console.log("폴더 업로드 불가");
                    return;
                } else {
-                   selectFile(files)
+                   selectFile(files);
                }
            } else {
                alert("ERROR");
@@ -133,14 +133,20 @@
        }
    }
 
+   // 업로드 파일 목록 생성
    function addFileList(fIndex, fileName, fileSizeStr) {
+       /* if (fileSize.match("^0")) {
+           alert("start 0");
+       } */
        var html = "";
        html += "<tr id='fileTr_" + fIndex + "'>";
        html += "    <td id='dropZone' class='left' >";
-       html += fileName + " (" + fileSizeStr +") "
-               + "<input value='삭제' type='button' href='#' onclick='deleteFile(" + fIndex + "); return false;'>"
+       html += fileName + " (" + fileSizeStr +") " 
+               //+ "<a href='#' onclick='deleteFile(" + fIndex + "); return false;' class='btn small bg_02'> 삭제</a>"
+               + "<img src='${root}/img/website/close.svg' href='#' onclick='deleteFile(" + fIndex + "); return false;'"
        html += "    </td>"
        html += "</tr>"
+       
        $('#fileTableTbody').append(html);
    }
 
@@ -161,6 +167,47 @@
             $("fileListTable").hide();
         }
     }
+   
+   // 파일 등록
+   function uploadFile() {
+       // 등록할 파일 리스트
+       var uploadFileList = Object.keys(fileList);
+       alert("fileList =====>"+fileList);
+       // 파일이 있는지 체크
+       if (uploadFileList.length == 0) {
+           // 파일등록 경고창
+           alert("파일이 없습니다.");
+           return;
+       }
+       // 용량을 500MB를 넘을 경우 업로드 불가
+       if (totalFileSize > maxUploadSize) {
+           // 파일 사이즈 초과 경고창
+           alert("총 용량 초과\n총 업로드 가능 용량 : " + maxUploadSize + " MB");
+           return;
+       }
+       if (confirm("수정하시겠습니까?") == true) {
+//		else {
+           // 등록할 파일 리스트를 formData로 데이터 입력
+           var form = $('#uploadForm');
+           var formData = new FormData(form[0]);
+           for (var i = 0; i < fileList.length; i++) {
+           	formData.append('files', fileList[i]);
+           }
+           $.ajax({
+               url : "gallery_update",
+               data : formData,
+               type : 'POST',
+               enctype : 'multipart/form-data',
+               processData : false,
+               contentType : false,
+               dataType : 'json',
+               cache : false,
+               success : location.href = "website?contents_idx="+contents_idx
+           });
+       } else {
+       	return false;
+       }
+   }
 </script>
 </head>
 <body>
@@ -170,7 +217,7 @@
 		<section id="gallery_insert">
 			<div class="inner">
 				<div class="title_area">
-					<span>갤러리 등록</span>
+					<span>갤러리 수정</span>
 				</div>
 				
 				<form name="uploadForm" id="uploadForm" enctype="multipart/form-data" method="post" action="gallery_update">
@@ -180,12 +227,12 @@
 						</div>
 						
 						<div class="right_area">
-							<input type="text" name="title" placeholder="제목을 입력해주세요.">
+							<input type="text" name="title" id="title" placeholder="제목을 입력해주세요.">
 						</div>
 					</div>
 					<div class="infomation">
 						<div class="left_area">
-							<span>섬네일</span>
+							<span>썸네일</span>
 						</div>
 						
 						<div class="right_area">
@@ -232,21 +279,37 @@
 						</div>
 					</div>
 					
-					<div class="infomation">
-						<div class="left_area">
-							<span>링크 첨부</span>
-						</div>
+<!-- 					<div class="infomation"> -->
+<!-- 						<div class="left_area"> -->
+<!-- 							<span>링크 첨부</span> -->
+<!-- 						</div> -->
 						
-						<div class="right_area">
-							<input type="text" placeholder="원하는 영상의 링크를 추가해주세요." name="link_1">
-							<input type="text" placeholder="원하는 영상의 링크를 추가해주세요." name="link_2">
-							<input type="text" placeholder="원하는 영상의 링크를 추가해주세요." name="link_3">
-						</div>
-					</div>
+<!-- 						<div class="right_area"> -->
+<!-- 							<input type="text" placeholder="원하는 영상의 링크를 추가해주세요." name="link_1"> -->
+<!-- 							<input type="text" placeholder="원하는 영상의 링크를 추가해주세요." name="link_2"> -->
+<!-- 							<input type="text" placeholder="원하는 영상의 링크를 추가해주세요." name="link_3"> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
 					
 					<div class="btn_area">
-						<input type="submit" value="완료">
+<!-- 						<input type="submit" id="submit_btn" value="완료"> -->
+						<input type="button" value="완료" id="submit_btn" onclick="uploadFile(); return false;">
 						<input type="reset" value="취소">
+						
+						<script type="text/javascript">
+							$('#submit_btn').click(function () {
+								var title = $('#title').val();
+								var thumbnail = $('#thumbnail').val();
+								
+								if(!title) {
+									alert('제목을 입력해주세요.');
+									return false;
+								} else if (!thumbnail) {
+									alert('썸네일을 추가해주세요.');
+									return false;
+								}
+							});
+						</script>
 					</div>
 					
 					<input type="hidden" value="${contents_idx}" name="contents_idx">

@@ -362,9 +362,10 @@ public class WebsiteCtr {
 		return "";
 	}
 	
+	@ResponseBody
 	@RequestMapping(value = "gallery_insert", method = RequestMethod.POST)
 	public String gallery_insert(PagingVO_2 galleryvo, ModelMap modelMap, GalleryVO gallery,
-			MultipartFile thumbnail_file, List<MultipartFile> img,
+			MultipartFile thumbnail_file, List<MultipartFile> files,
 			@RequestParam(value = "contents_idx", required = false) int contents_idx) throws IOException {
 		
 		modelMap.addAttribute("contents_idx", contents_idx);
@@ -382,17 +383,20 @@ public class WebsiteCtr {
 		
 		List<Gallery_img> gallery_list = new ArrayList<Gallery_img>();
 		
-		for (MultipartFile imgs : img) {
+		for (MultipartFile imgs : files) {
 			String imgName = imgs.getOriginalFilename();
 			
 			if (imgName != null && !imgName.equals("")) {
 				File target_1 = new File(gallery_path, imgName);
 				FileCopyUtils.copy(imgs.getBytes(), target_1);
+				System.out.println("file==============================>"+target_1);
 				
 				Gallery_img gallery_img = new Gallery_img(contents_idx, gallery_idx, imgName);
+				System.out.println("gallery_img===============>"+gallery_img);
 				gallery_list.add(gallery_img);
 			}
 		}
+		System.out.println("gallery_list==========================>"+gallery_list);
 		website_service.set_gallery_img(gallery_list);
 		
 		for(int i = 1; i < 3; i++) {
@@ -424,9 +428,10 @@ public class WebsiteCtr {
 		return "";
 	}
 	
+	@ResponseBody
 	@RequestMapping(value = "gallery_update", method = RequestMethod.POST)
 	public String gallery_update(PagingVO_2 galleryvo, ModelMap modelMap, GalleryVO gallery,
-			MultipartFile thumbnail_file, List<MultipartFile> img,
+			MultipartFile thumbnail_file, List<MultipartFile> files,
 			@RequestParam(value = "contents_idx", required = false) int contents_idx,
 			@RequestParam(value = "gallery_idx", required = false) int gallery_idx) throws IOException {
 		
@@ -447,7 +452,7 @@ public class WebsiteCtr {
 		
 		List<Gallery_img> gallery_list = new ArrayList<Gallery_img>();
 		
-		for (MultipartFile imgs : img) {
+		for (MultipartFile imgs : files) {
 			String imgName = imgs.getOriginalFilename();
 			if (imgName != null && !imgName.equals("")) {
 				File target_1 = new File(gallery_path, imgName);
@@ -479,6 +484,9 @@ public class WebsiteCtr {
 		
 		modelMap.addAttribute("contents_idx", contents_idx);
 		ContentsVO content_list = contents_service.selectContent(contents_idx);
+		
+		String business_num = website_service.get_business_num(contents_idx);
+		modelMap.addAttribute("business_num", business_num);
 		
 		String sql = "";
 		
@@ -526,6 +534,8 @@ public class WebsiteCtr {
 		
 		modelMap.addAttribute("contents_idx", contents_idx);
 		ContentsVO content_list = contents_service.selectContent(contents_idx);
+		String business_num = website_service.get_business_num(contents_idx);
+		modelMap.addAttribute("business_num", business_num);
 		Web_notice notice = website_service.get_web_notice(idx);
 		modelMap.addAttribute("notice_list", notice);
 		
@@ -723,30 +733,38 @@ public class WebsiteCtr {
 			HttpServletResponse response, HttpSession session, Web_notice notice,
 			@RequestParam(value = "contents_idx", required = false) int contents_idx) throws IOException {
 		
-		String content = notice.getContents();
-		content = content.replace("\n", "<br>");
-		notice.setContents(content);
+//		String content = notice.getContents();
+//		content = content.replace("\n", "<br>");
+//		notice.setContents(content);
 		
-		String img_name = img.getOriginalFilename();
-		if(!img_name.equals("")) {
-			File target_1 = new File(notice_path, img_name);
-			FileCopyUtils.copy(img.getBytes(), target_1);
-			notice.setFile_path(img_name);
-		}
+//		String img_name = img.getOriginalFilename();
+//		if(!img_name.equals("")) {
+//			File target_1 = new File(notice_path, img_name);
+//			FileCopyUtils.copy(img.getBytes(), target_1);
+//			notice.setFile_path(img_name);
+//		}
 		
 		modelMap.addAttribute("contents_idx", contents_idx);
 		notice.setContents_idx(contents_idx);
 		website_service.notice_management_insert(notice);
 		
-		return "redirect:notice_management?contents_idx=" + contents_idx;
+//		return "redirect:notice_management?contents_idx=" + contents_idx;
+		return "view/page_type_1/notice_list?contents_idx="+contents_idx;
 	}
 	
 	@RequestMapping(value = "notice_management_update", method = RequestMethod.GET)
 	public String notice_management_update(ModelMap modelMap,
-			@RequestParam(value = "contents_idx", required = false) int contents_idx) {
+			@RequestParam(value = "contents_idx", required = false) int contents_idx,
+			@RequestParam(value = "idx", required = false) int idx) {
 		
 		modelMap.addAttribute("contents_idx", contents_idx);
 		ContentsVO content_list = contents_service.selectContent(contents_idx);
+		String business_num = website_service.get_business_num(contents_idx);
+		modelMap.addAttribute("business_num", business_num);
+		Web_notice notice = website_service.get_web_notice(idx);
+		modelMap.addAttribute("notice_list", notice);
+		modelMap.addAttribute("idx", idx);
+		
 		
 		for(int i = 1; i < 3; i++) {
 			if(content_list.getWebsite_type().equals(String.valueOf(i))) {
@@ -758,15 +776,24 @@ public class WebsiteCtr {
 		return "";
 	}
 	
+	 /** 공지사항 수정
+	 * @throws IOException
+	 * @SuppressWarnings("null")
+	 */
 	@RequestMapping(value = "notice_management_update", method = RequestMethod.POST)
-	public String notice_management_update(Web_notice notice, ModelMap modelMap,
-			@RequestParam(value = "contents_idx", required = false) int contents_idx) {
+	public String notice_management_update_post(HttpServletRequest request, Web_notice notice, ModelMap modelMap,
+			MultipartFile file, HttpSession session, HttpServletResponse response) throws IOException, InterruptedException {
 		
-		modelMap.addAttribute("contents_idx", contents_idx);
-		notice.setContents_idx(contents_idx);
+		int contents_idx = notice.getContents_idx();
+		System.out.println("contents_idx=======>"+contents_idx);
+		int idx = notice.getIdx();
+		System.out.println("idx=======>"+idx);
+		notice.setIdx(idx);
+		modelMap.addAttribute("notice_list", notice);
+		
 		website_service.notice_management_update(notice);
 		
-		return "notice_management?contents_idx=" + contents_idx;
+		return "redirect:notice_management?contents_idx=" + contents_idx;
 	}
 	
 	@RequestMapping(value = "comment_management", method = RequestMethod.GET)

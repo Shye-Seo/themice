@@ -36,13 +36,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 		<div class="title">
 			<span>마이페이지</span>
 		</div>
-		<div class="root">
-			<img alt="" src="${root}/img/list/home_icon.svg">
-			<span><img alt="" src="${root}/img/common/arrow_icon.svg"></span>
-			<span>기업회원</span>
-			<span><img alt="" src="${root}/img/common/arrow_icon.svg"></span>
-			<span>내 전시 목록</span>
-		</div>
 	</div>
 	<div id="navi_area">
 		<nav>
@@ -188,10 +181,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 								</c:if>
 								<ul>
 									<li><h2>${l.title}</h2></li>
-									<li>장소 : ${l.address}</li>
-									<li>기간 : ${l.start_day} ~ ${l.end_day}</li>
-									<li>시간 : ${l.time}</li>
-									<li>관람료 : <span id="price_${l.idx}"></span>
+									<li>장소 | <c:if test="${l.web_address == ''}">${l.address}</c:if> <c:if test="${l.web_address != ''}">${l.web_address}</c:if></li>
+									<li>기간 | ${l.start_day} ~ ${l.end_day}</li>
+									<li>시간 | ${l.start_time} ~ ${l.end_time}</li>
+									<li>관람료 | <span id="price_${l.idx}"></span>
 									
 									<script type="text/javascript">
 										$(function () {

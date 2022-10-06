@@ -76,6 +76,10 @@
 #password_check {
 	width: 1024px;
 	margin: 0 auto;
+	min-height: 100%;
+	margin-bottom: 10%;
+	margin-top: 5%;
+	height: auto;
 }
 
 #password_check .contents_area {

@@ -103,6 +103,7 @@
     flex-direction: column;
     width: 1024px;
     margin: 6% auto;
+    min-height: 1000px;
 }
 
 #notice_detail .title_area{

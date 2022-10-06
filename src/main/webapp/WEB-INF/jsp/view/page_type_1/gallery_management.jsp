@@ -33,10 +33,11 @@
 			<div class="inner">
 				<div class="category">
 					<a href="main_management?contents_idx=${contents_idx}">메인관리</a>
-					<a href="notice_management?contents_idx=${contents_idx}">공지사항관리</a>
+					<a href="introduction_management?contents_idx=${contents_idx}">소개관리</a>
 					<a href="gallery_management?contents_idx=${contents_idx}">갤러리관리</a>
+					<a href="notice_management?contents_idx=${contents_idx}">공지사항관리</a>
+					<a href="pop_up_management?contents_idx=${contents_idx}">팝업관리</a>
 					<a href="comment_management?contents_idx=${contents_idx}">댓글관리</a>
-					<a href="media_management?contents_idx=${contents_idx}">영상관리</a>
 				</div>
 					
 				<div class="gallery_management">

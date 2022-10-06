@@ -17,14 +17,40 @@
 
 	<insert id="insertContents" parameterType="com.contents.ContentsVO">
 		insert into contents
-		(business_num, business, title, start_day, end_day, address, detail_address, start_time, end_time, tel,
+		(business_num, business, title, start_day, end_day, address, detail_address, start_time, end_time, tel, fax,
 		price, age, exhn_type, layout_type, font_type, pattern, background_color, key_word, content, sub_title,
 		web_address, img_path, website_type, web_main_name, logo_name, banner_name)
 		values (#{business_num}, #{business}, #{title}, #{start_day}, #{end_day}, #{address}, 
-		#{detail_address}, #{start_time}, #{end_time}, #{tel}, #{price}, #{age}, #{exhn_type},
+		#{detail_address}, #{start_time}, #{end_time}, #{tel}, #{fax}, #{price}, #{age}, #{exhn_type},
 		#{layout_type}, #{font_type}, #{pattern}, #{background_color}, #{key_word}, #{content}, #{sub_title},
 		#{web_address}, #{img_path}, #{website_type}, #{web_main_name}, #{logo_name}, #{banner_name})
 	</insert>
+	
+	<select id="updateContents" parameterType="com.contents.ContentsVO">
+		update contents set
+		business_num = #{business_num}, business = #{business}, 
+		title = #{title}, start_day = #{start_day}, end_day = #{end_day}, address = #{address}, detail_address = #{detail_address},
+		start_time = #{start_time}, end_time = #{end_time}, tel = #{tel}, fax = #{fax},
+		price = #{price}, age = #{age}, exhn_type = #{exhn_type}, layout_type = #{layout_type}, font_type = #{font_type},
+		pattern = #{pattern} ,background_color = #{background_color}, key_word = #{key_word}, content = #{content}, sub_title = #{sub_title},
+		web_address = #{web_address}, img_path = #{img_path}, website_type = #{website_type}, web_main_name = #{web_main_name},
+		logo_name = #{logo_name}, banner_name = #{banner_name} where idx = #{idx}
+	</select>
+	
+<!-- 	<select id="updateContents" parameterType="com.contents.ContentsVO"> -->
+<!-- 		update contents set -->
+<!-- 		business_num = #{business_num}, business = #{business},  -->
+<!-- 		title = #{title, jdbcType=VARCHAR}, start_day = #{start_day, jdbcType=VARCHAR}, end_day = #{end_day, jdbcType=VARCHAR},  -->
+<!-- 		address = #{address, jdbcType=VARCHAR}, detail_address = #{detail_address, jdbcType=VARCHAR}, -->
+<!-- 		start_time = #{start_time, jdbcType=VARCHAR}, end_time = #{end_time, jdbcType=VARCHAR}, tel = #{tel, jdbcType=VARCHAR}, fax = #{fax, jdbcType=VARCHAR}, -->
+<!-- 		price = #{price, jdbcType=VARCHAR}, age = #{age, jdbcType=VARCHAR}, exhn_type = #{exhn_type, jdbcType=VARCHAR},  -->
+<!-- 		layout_type = #{layout_type, jdbcType=int}, font_type = #{font_type, jdbcType=int}, -->
+<!-- 		pattern = #{pattern, jdbcType=int} ,background_color = #{background_color, jdbcType=VARCHAR}, key_word = #{key_word, jdbcType=VARCHAR},  -->
+<!-- 		content = #{content, jdbcType=VARCHAR}, sub_title = #{sub_title, jdbcType=VARCHAR}, -->
+<!-- 		web_address = #{web_address, jdbcType=VARCHAR}, img_path = #{img_path, jdbcType=VARCHAR},  -->
+<!-- 		website_type = #{website_type, jdbcType=VARCHAR}, web_main_name = #{web_main_name, jdbcType=VARCHAR}, -->
+<!-- 		logo_name = #{logo_name, jdbcType=VARCHAR}, banner_name = #{banner_name, jdbcType=VARCHAR} where idx = #{idx, jdbcType=int} -->
+<!-- 	</select> -->
 
 	<select id="selectContent" parameterType="int" resultType="com.contents.ContentsVO">
 		select * from contents where idx = #{contents_idx}
@@ -70,6 +96,10 @@
 		values
 		(#{contents_idx}, #{img_seq}, #{img_path})
 	</insert>
+	
+	<insert id="delete_img" parameterType="int">
+		delete from img where contents_idx = #{contents_idx}
+	</insert>
 
 	<select id="getContents_idx" resultType="int">
 		SELECT idx FROM contents ORDER BY
@@ -93,22 +123,37 @@
 	
 	<select id="insertTemporary" parameterType="com.contents.Temporary_storage_VO">
 		insert into temporary_storage
-		(business, title, start_day, end_day, start_time, end_time, tel, address, detail_address, sub_title, content,
+		(business, title, start_day, end_day, start_time, end_time, tel, fax, address, detail_address, sub_title, content,
 		price, exhn_type, layout_type, font_type, pattern, background_color, web_address)
 		values
-		(#{business}, #{title}, #{start_day}, #{end_day}, #{start_time}, #{end_time}, #{tel},
+		(#{business}, #{title}, #{start_day}, #{end_day}, #{start_time}, #{end_time}, #{tel}, #{fax},
 		#{address}, #{detail_address}, #{sub_title} ,#{content}, #{price}, #{exhn_type}, #{layout_type},
 		#{font_type}, #{pattern}, #{background_color}, #{web_address})
 	</select>
 	
 	<select id="updateTemporary" parameterType="com.contents.Temporary_storage_VO">
 		update temporary_storage set
-		title = #{title}, start_day = #{start_day}, end_day = #{end_day}, start_time = #{start_time}, end_time = #{end_time}, tel = #{tel},
+		title = #{title}, start_day = #{start_day}, end_day = #{end_day}, start_time = #{start_time}, end_time = #{end_time}, tel = #{tel}, fax = #{fax},
 		address = #{address}, detail_address = #{detail_address}, sub_title = #{sub_title} ,content = #{content}, price = #{price}, age = #{age},
 		exhn_type = #{exhn_type}, layout_type = #{layout_type}, font_type =#{font_type},
 		pattern = #{pattern}, pattern = #{pattern}, background_color = #{background_color},
 		web_address = #{web_address} where business = #{business}
 	</select>
+
+	<insert id="insertTemporary_Img" parameterType="com.common.Temporary_ImgVO">
+		insert into temporary_img
+		(business_num, img_path)
+		values
+		(#{business_num}, #{img_path})
+	</insert>
+	
+	<select id="getTemporary_Img" parameterType="String" resultType="com.common.Temporary_ImgVO">
+		select * from temporary_img where business_num = #{business}
+	</select>
+	
+	<insert id="delete_temporary_img" parameterType="String">
+		delete from temporary_img where business_num = #{business_num}
+	</insert>
 	
 	<select id="countContents" resultType="int">
 		select count(*) from contents
@@ -166,24 +211,10 @@
 		select business_name from business where business_num = #{business_num}
 	</select>
 	
-	<insert id="insertTemporary_Img" parameterType="com.common.Temporary_ImgVO">
-		insert into temporary_img
-		(business_num, img_path)
-		values
-		(#{business_num}, #{img_path})
-	</insert>
-	
-	<select id="getTemporary_Img" parameterType="String" resultType="com.common.Temporary_ImgVO">
-		select * from temporary_img where business_num = #{business}
-	</select>
-	
-	<insert id="delete_temporary_img" parameterType="String">
-		delete from temporary_img where business_num = #{business_num}
-	</insert>
 
 	<select id="updateComment" parameterType="com.contents.comments.CommentsVO">
 		update comments set
-		comment = #{comment}, img_1 = #{img_1}, img_2 = #{img_2}, img_3 = #{img_3}, img_4 = #{img_4}, img_5 = #{img_5}, score = #{score}
+		comment = #{comment}, score = #{score}
 		where idx = #{idx}
 	</select>
 	

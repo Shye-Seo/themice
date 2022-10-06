@@ -35,24 +35,15 @@
 					<li><a href="#">찾아오시는길</a></li>
 					<li><a href="#">개인정보취급방침</a></li>
 				</ul>
-				<select class="site">
-					<option value="">유관사이트</option>
-					<option value="www.naver.com">네이버</option>
-					<option value="www.daum.net">다음</option>
-				</select>
-				<script type="text/javascript">
-					$('.site').change(function() {
-						var value = $('.site option:selected').val();
-						
-						if(value != ''){
-							window.open('about:blank').location.href = value;
-						}
-					});
-				</script>
 			</div>
 		</div>
+		
+		<hr>
 
 		<div class="infomation">
+			<div class="logo">
+				<img src="${root}/img/header/logo.svg">
+			</div>
 			<div class="address">
 				<ul>
 					<li>부산광역시 해운대구 수영강변대로 140(문화컨텐츠 컴플렉스 612호)</li>
@@ -61,7 +52,7 @@
 				</ul>
 				<ul>
 					<li>통신판매업 신고번호 : 2018-부산해운대-0551호</li>
-					<li style="border-right: none;">출판사 신고번호 : 2018-000017호</li>
+					<li>출판사 신고번호 : 2018-000017호</li>
 				</ul>
 			</div>
 		</div>

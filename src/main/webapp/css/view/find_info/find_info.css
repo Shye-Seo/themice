@@ -48,7 +48,7 @@ img{
     float: left;
     border-bottom: 2px solid #707070;
     text-align: center;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     padding-bottom: 2%;
     cursor: pointer;
 }
@@ -85,8 +85,7 @@ img{
 
 .text_on{
     width: 50%;
-    font-weight: 800;
-    border-bottom: 3px solid #EA933C;
+    border-bottom: 2px solid #EA933C;
 }
 
 .text_on span{

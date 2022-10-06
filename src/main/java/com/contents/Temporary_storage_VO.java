@@ -17,6 +17,7 @@ public class Temporary_storage_VO {
 	private String price;
 	private String age;
 	private String tel;
+	private String fax;
 	private String exhn_type;
 	private String layout_type;
 	private String font_type;

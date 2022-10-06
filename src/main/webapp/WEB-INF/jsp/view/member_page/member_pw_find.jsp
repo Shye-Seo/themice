@@ -22,21 +22,14 @@
 	
 	<div class="header">
 		<div class="title">
-			<span>마이페이지</span>
-		</div>
-		<div class="root">
-			<img alt="" src="${root}/img/list/home_icon.svg">
-			<span><img alt="" src="${root}/img/common/arrow_icon.svg"></span>
-			<span>개인 회원</span>
-			<span><img alt="" src="${root}/img/common/arrow_icon.svg"></span>
-			<span>아이디 찾기</span>
+			<span>로그인</span>
 		</div>
 	</div>
 	
 	<section class="container">
 		<div class="id_wrap">
 			<h1 class="id_top_text">
-				<b>개인</b>비밀번호 찾기
+				<b>개인</b> 비밀번호 찾기
 			</h1>
 			<div class="form_wrap">
 				<div class="form_text_box">
@@ -51,13 +44,11 @@
 						$(function () {
 							$('#email_btn').click(function(){
 								$('.email').css('display', 'block');
-								$('#email_btn').css('font-weight', '800');
-								$('#email_btn').css('border-bottom', '3px solid #EA933C');
+								$('#email_btn').css('border-bottom', '2px solid #EA933C');
 								$('#email_btn').css('border-color', '#EA933C');
 								$('#email_btn span').css('color', '#EA933C');
 								
 								$('.tel').css('display', 'none');
-								$('#tel_btn').css('font-weight', 'unset');
 								$('#tel_btn').css('border-bottom', '2px solid #707070');
 								$('#tel_btn').css('border-color', '#333');
 								$('#tel_btn span').css('color', '#333');
@@ -65,14 +56,12 @@
 							
 							$('#tel_btn').click(function(){
 								$('.email').css('display', 'none');
-								$('#email_btn').css('font-weight', 'unset');
 								$('#email_btn').css('border-bottom', '2px solid #707070');
 								$('#email_btn').css('border-color', '#333');
 								$('#email_btn span').css('color', '#333');
 								
 								$('.tel').css('display', 'block');
-								$('#tel_btn').css('font-weight', '800');
-								$('#tel_btn').css('border-bottom', '3px solid #EA933C');
+								$('#tel_btn').css('border-bottom', '2px solid #EA933C');
 								$('#tel_btn').css('border-color', '#EA933C');
 								$('#tel_btn span').css('color', '#EA933C');
 							});

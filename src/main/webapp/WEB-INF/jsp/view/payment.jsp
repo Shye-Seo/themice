@@ -150,9 +150,9 @@ body{
 }
 </style>
 </head>
-<body>
+<body style="overflow-x:hidden;overflow-y:scroll">
+<div id="container"><div id="p">준비중</div></div>
 	<div class="img_area">
-		<img alt="" src="${root}/img/payment/payment_background.png">
 		<div class="header">
 			<div class="title">
 				<span>예매</span>
@@ -172,7 +172,7 @@ body{
 					<li class="title">${cv.title}</li>
 					<li>개최 기간 : ${cv.start_day} ~ ${cv.end_day}</li>
 					<li>관람 시간 : ${cv.start_time} ~ ${cv.end_time }</li>
-					<li>관람 장소 : ${cv.address} ${cv.detail_address}</li>
+					<li>관람 장소 : <c:if test="${cv.web_address == ''}">${cv.address}</c:if> <c:if test="${cv.web_address != ''}">${cv.web_address}</c:if></li>
 				</ul>
 			</div>
 		</div>

@@ -28,13 +28,6 @@
 		<div class="title">
 			<span>마이페이지</span>
 		</div>
-		<div class="root">
-			<img alt="" src="${root}/img/list/home_icon.svg">
-			<span><img alt="" src="${root}/img/common/arrow_icon.svg"></span>
-			<span>개인회원</span>
-			<span><img alt="" src="${root}/img/common/arrow_icon.svg"></span>
-			<span>회원 탈퇴</span>
-		</div>
 	</div>
 	
 	<div id="navi_area">

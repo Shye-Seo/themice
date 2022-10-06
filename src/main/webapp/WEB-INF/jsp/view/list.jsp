@@ -48,23 +48,23 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 		<div class="title">
 			<span>전시</span>
 		</div>
-		<div class="root">
-			<img alt="" src="${root}/img/list/home_icon.svg">
-			<span><img alt="" src="${root}/img/common/arrow_icon.svg"></span>
-			<span>전시</span>
-			<span><img alt="" src="${root}/img/common/arrow_icon.svg"></span>
-			<span>전체일정</span>
-		</div>
 	</div>
 	<section id="list">
+		<div class="contents_category">
+			<a href="list?term=0&exhn_type=${exhn_type}&day=${day}&title=${title}" class="term_0">전체 일정</a>
+			<a href="list?term=1&exhn_type=${exhn_type}&day=${day}&title=${title}" class="term_0">진행 일정</a>
+			<a href="list?term=2&exhn_type=${exhn_type}&day=${day}&title=${title}" class="term_0">지난 일정</a>
+			<input type="hidden" name="term" value="${term}">
+		</div>
+	
 		<div class="category">
 			<ul>
-				<li><a href="list?exhn_type=전체" class="exhn_type_0">전체</a></li>
-				<li><a href="list?exhn_type=박람회" class="exhn_type_1">박람회</a></li>
-				<li><a href="list?exhn_type=전시회" class="exhn_type_2">전시회</a></li>
-				<li><a href="list?exhn_type=페어" class="exhn_type_3">페어</a></li>
-				<li><a href="list?exhn_type=대제전" class="exhn_type_4">대제전</a></li>
-				<li><a href="list?exhn_type=행사" class="exhn_type_5">행사</a></li>
+				<li class="exhn_type_0"><a href="list?exhn_type=전체">전체</a></li>
+				<li class="exhn_type_1"><a href="list?exhn_type=박람회">박람회</a></li>
+				<li class="exhn_type_2"><a href="list?exhn_type=전시회">전시회</a></li>
+				<li class="exhn_type_3"><a href="list?exhn_type=페어">페어</a></li>
+				<li class="exhn_type_4"><a href="list?exhn_type=대제전">대제전</a></li>
+				<li class="exhn_type_5"><a href="list?exhn_type=행사">행사</a></li>
 			</ul>
 			
 			<input type="hidden" name="exhn_type" value="${exhn_type}" class="exhn_type">
@@ -75,16 +75,34 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 				var exhn_type = $('.exhn_type').val();
 				if (exhn_type == '전체') {
 					$('.exhn_type_0').css('font-weight', '700');
+					$('.exhn_type_0 a').css('color', '#FFFFFF');
+					$('.exhn_type_0').css('background-color', '#292929');
+					$('.exhn_type_0').css('border', '1px solid #292929');
 				} else if (exhn_type == '박람회') {
 					$('.exhn_type_1').css('font-weight', '700');
+					$('.exhn_type_1 a').css('color', '#FFFFFF');
+					$('.exhn_type_1').css('background-color', '#65B99B');
+					$('.exhn_type_1').css('border', '1px solid #65B99B');
 				} else if (exhn_type == '전시회') {
 					$('.exhn_type_2').css('font-weight', '700');
+					$('.exhn_type_2 a').css('color', '#FFFFFF');
+					$('.exhn_type_2').css('background-color', '#6CB5E2');
+					$('.exhn_type_2').css('border', '1px solid #6CB5E2');
 				} else if (exhn_type == '페어') {
 					$('.exhn_type_3').css('font-weight', '700');
+					$('.exhn_type_3 a').css('color', '#FFFFFF');
+					$('.exhn_type_3').css('background-color', '#A645AA');
+					$('.exhn_type_3').css('border', '1px solid #A645AA');
 				} else if (exhn_type == '대제전') {
 					$('.exhn_type_4').css('font-weight', '700');
+					$('.exhn_type_4 a').css('color', '#FFFFFF');
+					$('.exhn_type_4').css('background-color', '#FCB800');
+					$('.exhn_type_4').css('border', '1px solid #FCB800');
 				} else if (exhn_type == '행사') {
 					$('.exhn_type_5').css('font-weight', '700');
+					$('.exhn_type_5 a').css('color', '#FFFFFF');
+					$('.exhn_type_5').css('background-color', '#E6648C');
+					$('.exhn_type_5').css('border', '1px solid #E6648C');
 				}
 			});
 		</script>
@@ -137,12 +155,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 				});
 			});
 		</script>
-		<div class="contents_category">
-			<a href="list?term=0&exhn_type=${exhn_type}&day=${day}&title=${title}" class="term_0">전체 일정</a>
-			<a href="list?term=1&exhn_type=${exhn_type}&day=${day}&title=${title}" class="term_0">진행 일정</a>
-			<a href="list?term=2&exhn_type=${exhn_type}&day=${day}&title=${title}" class="term_0">지난 일정</a>
-			<input type="hidden" name="term" value="${term}">
-		</div>
 		
 		<div class="contents">
 			<ul class="contents_item">
@@ -170,14 +182,23 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 						<div class="content_info">
 							<div class="content_info_text">
 								<c:if test="${l.exhn_type != null}">
-									<span class="top_category">${l.exhn_type}</span>
+									<span class="top_category" style="
+																<c:if test="${l.exhn_type eq '박람회'}">background-color: #65B99B;</c:if>
+																<c:if test="${l.exhn_type eq '전시회'}">background-color: #6CB5E2;</c:if>
+																<c:if test="${l.exhn_type eq '페어'}">background-color: #A645AA;</c:if>
+																<c:if test="${l.exhn_type eq '대제전'}">background-color: #FCB800;</c:if>
+																<c:if test="${l.exhn_type eq '행사'}">background-color: #E6648C;</c:if>
+																">
+										${l.exhn_type}
+									</span>
 								</c:if>
+								
 								<ul>
 									<li><h2>${l.title}</h2></li>
-									<li>장소 : ${l.address}</li>
-									<li>기간 : ${l.start_day} ~ ${l.end_day}</li>
-									<li>시간 : ${l.start_time} ~ ${l.end_time}</li>
-									<li>관람료 : <span id="price_${l.idx}"></span>
+									<li>장소 | <c:if test="${l.web_address == ''}">${l.address}</c:if> <c:if test="${l.web_address != ''}">${l.web_address}</c:if></li>
+									<li>기간 | ${l.start_day} ~ ${l.end_day}</li>
+									<li>시간 | ${l.start_time} ~ ${l.end_time}</li>
+									<li>관람료 | <span id="price_${l.idx}"></span>
 									
 									<script type="text/javascript">
 										$(function () {
@@ -211,7 +232,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 									</li>
 									<li class="score_area">
 										<c:if test="${l.grade != null}">
-											<span>평점&nbsp;:&nbsp;</span>
+											<span>평점&nbsp;|&nbsp;</span>
 											<c:forEach var="i" begin="0" end="${l.grade}">
 												<img src="${root}/img/comment/star_color_icon.svg">
 											</c:forEach>
@@ -221,7 +242,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 										</c:if>
 										
 										<c:if test="${l.grade == null}">
-											<span>평점&nbsp;:&nbsp;</span>
+											<span>평점&nbsp;|&nbsp;</span>
 											
 											<c:forEach var="i" begin="0" end="4">
 												<img src="${root}/img/comment/star_non_color_icon.svg">
@@ -233,7 +254,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 								<span class="views">조회수&nbsp;:&nbsp;${l.views}</span>
 							</div>
 							<div class="content_info_link">
-								<a href="detail?contents_idx=${l.idx}">자세히 보기</a>
+								<a href="detail?contents_idx=${l.idx}">상세보기</a>
 								<c:if test="${mv.id ne null}">
 									<a href="payment_page?contents_idx=${l.idx}" onClick="window.open(this.href,'_blank','width=1130, height=850'); return false">예매하기</a> 
 								</c:if>

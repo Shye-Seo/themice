@@ -312,7 +312,7 @@ public class ContentsCtr {
 		
 		String business_id = (String) session.getAttribute("business_id");
 		vo.setBusiness_num(business_id);
-		vo.setTel(service.getTel(business_id));
+//		vo.setTel(service.getTel(business_id)); 전시등록 시, 직접 입력하는 것으로 바꿈
 		vo.setBusiness(service.getBusiness_name(business_id));
 		
 		String saveName = symbol_img.getOriginalFilename();
@@ -355,12 +355,18 @@ public class ContentsCtr {
 				FileCopyUtils.copy(imgs.getBytes(), target);
 				FileCopyUtils.copy(imgs.getBytes(), target1);
 				
-				ImgVO imgvo = new ImgVO(contents_idx, img_seq, imgName);
+		        Calendar cal = Calendar.getInstance();
+		        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
+		        String time = dateFormat.format(cal.getTime());
+				
+				String path = "/C:/workspace/img/watermark/"+imgName;
+				watermark(path, title);
+				
+				String imgName_watermark = time+"_"+imgName;
+				
+				ImgVO imgvo = new ImgVO(contents_idx, img_seq, imgName_watermark);
 				img_list.add(imgvo);
 				img_seq++;
-				
-				String path = "/usr/local/img/watermark/" + imgName;
-				watermark(path, title);
 			}
 		}
 
@@ -374,6 +380,8 @@ public class ContentsCtr {
 	public static void watermark(String path, String watermarkText) throws InterruptedException, IOException {
         File sourceImageFile = new File(path);
         BufferedImage original = ImageIO.read(sourceImageFile);
+        File f = new File(path);
+        String f_name = f.getName();
         // 그래픽 컨텍스트 생성 및 앨리어스 방지 실행
         Graphics2D g2d = original.createGraphics();
         g2d.scale(1, 1);
@@ -409,7 +417,13 @@ public class ContentsCtr {
             }
             g2d.translate(textHeight * 3, -(y + yStep));
         }
-        File output = new File(path);
+        
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
+        String time = dateFormat.format(cal.getTime());
+//        File output = new File(path);
+        File output = new File("/C:/workspace/img/watermark/"+time+"_"+f_name);
+        System.out.println("방금 생성된 파일명 =============================>"+output);
         ImageIO.write(original, "png", output);
     }
 
@@ -551,7 +565,7 @@ public class ContentsCtr {
 			modelMap.addAttribute("merchant_uid", merchant_uid);
 		}
 		
-		if(content_list.getLayout_type() == 1 || content_list.getLayout_type() == 2 || content_list.getLayout_type() == 8) {
+		if(content_list.getLayout_type() == 1 || content_list.getLayout_type() == 2 || content_list.getLayout_type() == 4) {
 			String[] sub_title = content_list.getSub_title().split(",");
 			modelMap.addAttribute("sub_title", sub_title);
 		}
@@ -687,6 +701,7 @@ public class ContentsCtr {
 			@RequestParam(value = "comment_idx", defaultValue = "") int comment_idx) throws IOException {
 		
 		vo.setIdx(comment_idx);
+		System.out.println("comment_idx==========>"+comment_idx);
 		
 		if (vo.getComment() == null) {
 			ScriptUtils.alertAndMovePage(response, "댓글을 입력해 주세요. ", "detail?contents_idx=" + contents_idx);
@@ -897,7 +912,6 @@ public class ContentsCtr {
 		if (temporary == null) {
 			check = 1;
 		}
-		
 		return String.valueOf(check);
 	}
 
@@ -908,7 +922,7 @@ public class ContentsCtr {
 	 **/
 	@RequestMapping(value = "temporary", method = RequestMethod.POST)
 	public @ResponseBody String temporary(HttpSession session, Temporary_storage_VO vo, ModelMap modelMap,
-			List<MultipartFile> file) throws IOException {
+			List<MultipartFile> file) throws IOException, InterruptedException {
 		
 		int check = 0;
 		
@@ -919,29 +933,96 @@ public class ContentsCtr {
 		Temporary_storage_VO temporary = service.temporary_check(business_num);
 		vo.setBusiness(business_num);
 		
-		List<Temporary_ImgVO> img_list = new ArrayList<Temporary_ImgVO>();
-		for (MultipartFile imgs : file) {
-			String imgName = imgs.getOriginalFilename();
-			if (imgName != null && !imgName.equals("")) {
-
-				File target = new File(uploadPath, imgName);
-				FileCopyUtils.copy(imgs.getBytes(), target);
-
-				Temporary_ImgVO imgvo = new Temporary_ImgVO(business_num, imgName);
-				img_list.add(imgvo);
-			}
-		}
-
-		service.insertTemporary_Img(img_list);
-
 		if (temporary == null) {
 			vo.setBusiness(business_num);
 			service.insertTemporary(vo);
+			Temporary_storage_VO temporary1 = service.temporary_check(business_num);
+			
+			List<Temporary_ImgVO> img_list = new ArrayList<Temporary_ImgVO>();
+			String title = temporary1.getTitle();
+			
+			for (MultipartFile imgs : file) {
+				String imgName = imgs.getOriginalFilename();
+				if (imgName != null && !imgName.equals("")) {
+
+					File target = new File(uploadPath, imgName);
+					File target1 = new File(watermarkPath, imgName);
+					
+					FileCopyUtils.copy(imgs.getBytes(), target);
+					FileCopyUtils.copy(imgs.getBytes(), target1);
+
+					
+					Calendar cal = Calendar.getInstance();
+					SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
+					String time = dateFormat.format(cal.getTime());
+					String path = "/C:/workspace/img/watermark/"+imgName;
+					watermark(path, title);
+					
+					String imgName_watermark = time+"_"+imgName;
+					Temporary_ImgVO imgvo = new Temporary_ImgVO(business_num, imgName_watermark);
+					img_list.add(imgvo);
+				}
+			}
+
+			service.insertTemporary_Img(img_list);
 			check = 1;
 		} else {
 			service.updateTemporary(vo);
+			Temporary_storage_VO temporary1 = service.temporary_check(business_num);
+
+			List<Temporary_ImgVO> img_list = new ArrayList<Temporary_ImgVO>();
+			String title = temporary1.getTitle();
+			System.out.println("제목을 가져옵니다 =================>"+title);
+			
+			for (MultipartFile imgs : file) {
+				String imgName = imgs.getOriginalFilename();
+				if (imgName != null && !imgName.equals("")) {
+
+					File target = new File(uploadPath, imgName);
+					File target1 = new File(watermarkPath, imgName);
+					
+					FileCopyUtils.copy(imgs.getBytes(), target);
+					FileCopyUtils.copy(imgs.getBytes(), target1);
+
+					Calendar cal = Calendar.getInstance();
+					SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
+					String time = dateFormat.format(cal.getTime());
+					String path = "/C:/workspace/img/watermark/"+imgName;
+					watermark(path, title);
+					
+					String imgName_watermark = time+"_"+imgName;
+					Temporary_ImgVO imgvo = new Temporary_ImgVO(business_num, imgName_watermark);
+					img_list.add(imgvo);
+				}
+			}
+
+			service.insertTemporary_Img(img_list);
 			check = 1;
 		}
+		
+//		List<Temporary_ImgVO> img_list = new ArrayList<Temporary_ImgVO>();
+//		String title = temporary.getTitle();
+//		
+//		for (MultipartFile imgs : file) {
+//			String imgName = imgs.getOriginalFilename();
+//			if (imgName != null && !imgName.equals("")) {
+//
+//				File target = new File(uploadPath, imgName);
+//				File target1 = new File(watermarkPath, imgName);
+//				
+//				FileCopyUtils.copy(imgs.getBytes(), target);
+//				FileCopyUtils.copy(imgs.getBytes(), target1);
+//
+//				Temporary_ImgVO imgvo = new Temporary_ImgVO(business_num, imgName);
+//				img_list.add(imgvo);
+//				
+//				String path = "/C:/workspace/img/watermark/"+imgName;
+//				watermark(path, title);
+//			}
+//		}
+//
+//		service.insertTemporary_Img(img_list);
+
 
 		if (check == 1) {
 			session.setAttribute("temporary", "Y");
@@ -1147,78 +1228,189 @@ public class ContentsCtr {
 		return String.valueOf(check);
 	}
 	
+//	/** 전시 수정 **/
+//	@RequestMapping(value = "contents_update", method = RequestMethod.GET)
+//	public String contents_update(HttpServletRequest request, ModelMap modelMap, HttpSession session, ContentsVO vo,
+//			HttpServletResponse response) throws IOException {
+//		
+////		String id = (String) session.getAttribute("id");
+////		if(id == null) {
+////			ScriptUtils.alertAndMovePage(response, "개인 회원으로 로그인 해주세요.", "main");
+////		}
+//		int contents_idx = service.getContents_idx();
+//		ContentsVO content_list = service.selectContent(contents_idx);
+//		
+//		modelMap.addAttribute("content_list", content_list);
+//		
+//		return "view/business_page/contents_update";
+//	}
+	
+	/** 전시 수정 
+	 * @throws IOException **/
+//	@SuppressWarnings("null")
 	@RequestMapping(value = "contents_update", method = RequestMethod.POST)
 	public String contents_update_post(HttpServletRequest request, ModelMap modelMap, ContentsVO vo, List<MultipartFile> file,
-			MultipartFile symbol_img, HttpSession session, HttpServletResponse response,
-			@RequestParam(value = "captcha", defaultValue = "") String captcha) throws IOException {
+			MultipartFile symbol_img, MultipartFile logo_name_, MultipartFile web_main_name_, MultipartFile banner,
+			HttpSession session, HttpServletResponse response, Web_menuVO web_menuvo) throws IOException, InterruptedException {
+		
+		int contents_idx = service.getContents_idx();
+		System.out.println("잘 가져오나용=================>contents_idx : "+contents_idx);
+		ContentsVO content_list = service.selectContent(contents_idx);
+		List<ImgVO> contents_img = service.getContents_img(contents_idx);
+		System.out.println(contents_img);
+		
+		modelMap.addAttribute("content_list",content_list);
+		vo.setIdx(contents_idx);
+//		String content = vo.getContent();
+//		content = content.replace("\n", "<br>");
+//		vo.setContent(content);
+		service.delete_img(contents_idx);
+		
+		
+		String business_id = (String) session.getAttribute("business_id");
+		vo.setBusiness_num(business_id);
+//		vo.setTel(service.getTel(business_id)); 전시등록 시, 직접 입력하는 것으로 바꿈
+		vo.setBusiness(service.getBusiness_name(business_id));
+		System.out.println("잘 가져오나용=================>business_id : "+business_id);
+//		System.out.println("잘 가져오나용=================>business_num : "+business_id);
+		
+		
+		String saveName = symbol_img.getOriginalFilename();
+		File target_1 = new File(uploadPath, saveName);
+		FileCopyUtils.copy(symbol_img.getBytes(), target_1);
+		
+		String logoName = logo_name_.getOriginalFilename();
+		File target_2 = new File(logo_path, logoName);
+		FileCopyUtils.copy(logo_name_.getBytes(), target_2);
+		
+		String web_main_Name = web_main_name_.getOriginalFilename();
+		File target_5 = new File(web_main_path, web_main_Name);
+		FileCopyUtils.copy(web_main_name_.getBytes(), target_5);
+		
+		String bannerName = banner.getOriginalFilename();
+		File target_3 = new File(banner_path, bannerName);
+		FileCopyUtils.copy(banner.getBytes(), target_3);
+		
+		vo.setImg_path(saveName);
+		vo.setLogo_name(logoName);
+		vo.setWeb_main_name(web_main_Name);
+		vo.setBanner_name(bannerName);
 		
 		String content = vo.getContent();
 		content = content.replace("\n", "<br>");
 		vo.setContent(content);
 		
-		if (vo.getTitle() == null || vo.getTitle().equals("")) {
-			modelMap.addAttribute("vo", vo);
-			ScriptUtils.alertAndMovePage(response, "제목을 입력해주세요.", "insertContents");
-		}
+		service.updateContents(vo);
 		
-		if (vo.getStart_time() == null || vo.getStart_time().equals("")) {
-			modelMap.addAttribute("vo", vo);
-			ScriptUtils.alertAndMovePage(response, "시간을 입력해주세요.", "insertContents");
-		}
-		
-		if (vo.getEnd_time() == null || vo.getEnd_time().equals("")) {
-			modelMap.addAttribute("vo", vo);
-			ScriptUtils.alertAndMovePage(response, "시간을 입력해주세요.", "insertContents");
-		}
-		
-		if (vo.getAddress() == null || vo.getAddress().equals("")) {
-			modelMap.addAttribute("vo", vo);
-			ScriptUtils.alertAndMovePage(response, "장소를 입력해주세요.", "insertContents");
-		}
-		
-		String Captcha = (String) session.getAttribute("captcha");
-		
-		if (!captcha.equals(Captcha)) {
-			modelMap.addAttribute("vo", vo);
-			ScriptUtils.alertAndMovePage(response, "보안 문자를 다시 입력해주세요.", "insertContents");
-		}
-		
-		String business_id = (String) session.getAttribute("business_id");
-		vo.setBusiness_num(business_id);
-		vo.setTel(service.getTel(business_id));
-		vo.setBusiness(service.getBusiness_name(business_id));
-		
-		String saveName = symbol_img.getOriginalFilename();
-		
-		File target_1 = new File(uploadPath, saveName);
-		FileCopyUtils.copy(symbol_img.getBytes(), target_1);
-		
-		vo.setImg_path(saveName);
-		service.insertContents(vo);
-		
-		int contents_idx = service.getContents_idx();
 		List<ImgVO> img_list = new ArrayList<ImgVO>();
+		
+		String title = vo.getTitle();
 		
 		for (MultipartFile imgs : file) {
 			int img_seq = 0;
 			String imgName = imgs.getOriginalFilename();
+			
 			if (imgName != null && !imgName.equals("")) {
 				
 				File target = new File(uploadPath, imgName);
-				FileCopyUtils.copy(imgs.getBytes(), target);
+				File target1 = new File(watermarkPath, imgName);
 				
-				ImgVO imgvo = new ImgVO(contents_idx, img_seq, imgName);
+				FileCopyUtils.copy(imgs.getBytes(), target);
+				FileCopyUtils.copy(imgs.getBytes(), target1);
+				
+		        Calendar cal = Calendar.getInstance();
+		        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
+		        String time = dateFormat.format(cal.getTime());
+				
+				String path = "/C:/workspace/img/watermark/"+imgName;
+				watermark(path, title);
+				
+				String imgName_watermark = time+"_"+imgName;
+				
+				ImgVO imgvo = new ImgVO(contents_idx, img_seq, imgName_watermark);
 				img_list.add(imgvo);
 				img_seq++;
 			}
 		}
-		
+
 		if (img_list != null) {
 			service.imgupload(img_list);
 		}
 		
 		return "view/business_page/business_contents_list";
 	}
+//	@RequestMapping(value = "contents_update", method = RequestMethod.POST)
+//	public String contents_update_post(HttpServletRequest request, ModelMap modelMap, ContentsVO vo, List<MultipartFile> file,
+//			MultipartFile symbol_img, HttpSession session, HttpServletResponse response,
+//			@RequestParam(value = "captcha", defaultValue = "") String captcha) throws IOException {
+//		
+//		String content = vo.getContent();
+//		content = content.replace("\n", "<br>");
+//		vo.setContent(content);
+//		
+//		if (vo.getTitle() == null || vo.getTitle().equals("")) {
+//			modelMap.addAttribute("vo", vo);
+//			ScriptUtils.alertAndMovePage(response, "제목을 입력해주세요.", "updateContents");
+//		}
+//		
+//		if (vo.getStart_time() == null || vo.getStart_time().equals("")) {
+//			modelMap.addAttribute("vo", vo);
+//			ScriptUtils.alertAndMovePage(response, "시간을 입력해주세요.", "updateContents");
+//		}
+//		
+//		if (vo.getEnd_time() == null || vo.getEnd_time().equals("")) {
+//			modelMap.addAttribute("vo", vo);
+//			ScriptUtils.alertAndMovePage(response, "시간을 입력해주세요.", "updateContents");
+//		}
+//		
+//		if (vo.getAddress() == null || vo.getAddress().equals("") || vo.getWeb_address() == null || vo.getWeb_address().equals("")) {
+//			modelMap.addAttribute("vo", vo);
+//			ScriptUtils.alertAndMovePage(response, "장소를 입력해주세요.", "updateContents");
+//		}
+//		
+////		String Captcha = (String) session.getAttribute("captcha");
+////		
+////		if (!captcha.equals(Captcha)) {
+////			modelMap.addAttribute("vo", vo);
+////			ScriptUtils.alertAndMovePage(response, "보안 문자를 다시 입력해주세요.", "insertContents");
+////		}
+//		
+//		String business_id = (String) session.getAttribute("business_id");
+//		vo.setBusiness_num(business_id);
+//		vo.setTel(service.getTel(business_id));
+//		vo.setBusiness(service.getBusiness_name(business_id));
+//		
+//		String saveName = symbol_img.getOriginalFilename();
+//		
+//		File target_1 = new File(uploadPath, saveName);
+//		FileCopyUtils.copy(symbol_img.getBytes(), target_1);
+//		
+//		vo.setImg_path(saveName);
+//		service.updateContents(vo);
+//		
+//		int contents_idx = service.getContents_idx();
+//		List<ImgVO> img_list = new ArrayList<ImgVO>();
+//		
+//		for (MultipartFile imgs : file) {
+//			int img_seq = 0;
+//			String imgName = imgs.getOriginalFilename();
+//			if (imgName != null && !imgName.equals("")) {
+//				
+//				File target = new File(uploadPath, imgName);
+//				FileCopyUtils.copy(imgs.getBytes(), target);
+//				
+//				ImgVO imgvo = new ImgVO(contents_idx, img_seq, imgName);
+//				img_list.add(imgvo);
+//				img_seq++;
+//			}
+//		}
+//		
+//		if (img_list != null) {
+//			service.imgupload(img_list);
+//		}
+//		
+//		return "view/business_page/business_contents_list";
+//	}
 	
 	
 	@RequestMapping(value = "divison")

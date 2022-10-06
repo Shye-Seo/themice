@@ -14,36 +14,28 @@
 			<ul>
 				<li>
 					<div class="img_area">
-						<a href="main"><img alt="" src="${root}/img/quick/home_icon.svg"></a>
-					</div>
-					<div class="text_area">
-						<a href="main">홈</a>
+						<a href="manual"><img alt="" src="${root}/img/quick/quick01.svg"></a>
 					</div>
 				</li>
 				
 				<li>
 					<div class="img_area">
-						<a href="manual"><img alt="" src="${root}/img/quick/question.svg"></a>
-					</div>
-					<div class="text_area">
-						<a href="manual">전시등록 설명서</a>
+						<a href="login_check"><img alt="" src="${root}/img/quick/quick02.svg"></a>
 					</div>
 				</li>
 				
 				<li>
 					<div class="img_area">
-						<a href="login_check"><img alt="" src="${root}/img/quick/profile.svg"></a>
-					</div>
-					<div class="text_area">
-						<a href="login_check"><span>마이페이지</span></a>
+						<img alt="" src="${root}/img/quick/quick03.svg" onclick="window.scrollTo(0,0);">
 					</div>
 				</li>
+				
 			</ul>
 		</div>
-		<div class="top_btn_area">
-			<span onclick="window.scrollTo(0,0);">Top</span>
-			<img alt="" src="${root}/img/quick/top_arrow.svg" onclick="window.scrollTo(0,0);">
-		</div>
+<!-- 		<div class="top_btn_area"> -->
+<!-- 			<span onclick="window.scrollTo(0,0);">Top</span> -->
+<%-- 			<img alt="" src="${root}/img/quick/top_arrow.svg" onclick="window.scrollTo(0,0);"> --%>
+<!-- 		</div> -->
 	</aside>
 </body>
 </html>

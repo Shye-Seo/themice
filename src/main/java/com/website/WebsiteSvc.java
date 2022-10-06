@@ -113,6 +113,10 @@ public class WebsiteSvc {
 	public String comments_write(String c) {
 		return sqlSession.selectOne("comments_write", c);
 	}
+	
+//	public void comments_update(CommentsVO commentsVO) {
+//		sqlSession.insert("comments_update", commentsVO);
+//	}
 
 	public void user_delete_management(String writer) {
 		sqlSession.insert("user_delete_management", writer);

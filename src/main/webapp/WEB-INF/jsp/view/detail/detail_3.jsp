@@ -188,13 +188,6 @@ $(function() {
 		<div class="title">
 			<span>전시</span>
 		</div>
-		<div class="root">
-			<img alt="" src="${root}/img/list/home_icon.svg">
-			<span><img alt="" src="${root}/img/common/arrow_icon.svg"></span>
-			<span>전시리스트</span>
-			<span><img alt="" src="${root}/img/common/arrow_icon.svg"></span>
-			<span>상세페이지</span>
-		</div>
 	</div>
 
 	<a href="javascript:history.back();" id="back_area">
@@ -206,8 +199,7 @@ $(function() {
 	
 	<div class="detail_quick">
 		<a href="website?contents_idx=${content_list.idx}">
-			<img alt="" src="${root}/img/detail/direct_link.svg">
-			<span>사이트 바로가기</span>
+			<img alt="" src="${root}/img/detail/direct_icon.svg">
 		</a>
 	</div>
 	
@@ -226,14 +218,14 @@ $(function() {
 
 			<div class="content_item_1">
 				<div class="img_area">
-					<img alt="" src="${root}/contents_img/${content_img.img_1}">
+					<img alt="" src="${root}/watermark_path/${content_img.img_1}">
 				</div>
 
 				<div class="content_area">
 					<div class="title_area">
 						<img src="${root}/img/detail/3_type/icon_1.svg"><span>${content_list.title}</span>
-						<input type="button" value="상세내용보기 >" id="change_btn_1">
-						<input type="button" value="전시정보보기 >" id="change_btn_2">
+						<input type="button" value="전시내용 보기  >" id="change_btn_1">
+						<input type="button" value="전시정보 보기  >" id="change_btn_2">
 					</div>
 					<div class="info_area">
 						<ul>
@@ -251,7 +243,7 @@ $(function() {
 									<p>기간</p>
 								</div>
 								<div class="right">
-									<p>${content_list.start_day}~${content_list.end_day}</p>
+									<p>${content_list.start_day} ~ ${content_list.end_day}</p>
 								</div>
 							</li>
 
@@ -272,15 +264,37 @@ $(function() {
 									<p>${content_list.tel}</p>
 								</div>
 							</li>
-
+							
 							<li>
 								<div class="left">
-									<p>개최 장소</p>
+									<p>팩스</p>
 								</div>
 								<div class="right">
-									<p>${content_list.address}${content_list.detail_address}</p>
+									<p>${content_list.fax}</p>
 								</div>
 							</li>
+							
+							<c:if test="${content_list.web_address != ''}">
+							<li>
+								<div class="left">
+									<p>홈페이지</p>
+								</div>
+								<div class="right">
+									<p>${content_list.web_address}</p>
+								</div>
+							</li>
+							</c:if>
+
+							<c:if test="${content_list.web_address == ''}">
+							<li>
+								<div class="left">
+									<p>개최장소</p>
+								</div>
+								<div class="right">
+									<p>${content_list.address}&nbsp;${content_list.detail_address}</p>
+								</div>
+							</li>
+							</c:if>
 
 							<li>
 								<div class="left">
@@ -359,44 +373,44 @@ $(function() {
 				</div>
 				<div class="img_area">
 					<div class="img_item">
-						<img alt="" src="${root}/contents_img/${content_img.img_2}">
+						<img alt="" src="${root}/watermark_path/${content_img.img_2}">
 						<div class="btn_area">
-							<button onclick="payment('${root}')"><img alt="" src="${root}/img/detail/3_type/icon_2.svg">예매하기</button>
+<%-- 							<button onclick="payment('${root}')"><img alt="" src="${root}/img/detail/3_type/icon_2.svg">예매하기</button> --%>
 						</div>
 					</div>
 
 					<div class="img_item">
-						<img alt="" src="${root}/contents_img/${content_img.img_3}">
+						<img alt="" src="${root}/watermark_path/${content_img.img_3}">
 						<div class="btn_area">
-							<button onclick="payment('${root}')"><img alt="" src="${root}/img/detail/3_type/icon_2.svg">예매하기</button>
+<%-- 							<button onclick="payment('${root}')"><img alt="" src="${root}/img/detail/3_type/icon_2.svg">예매하기</button> --%>
 						</div>
 					</div>
 
 					<div class="img_item">
-						<img alt="" src="${root}/contents_img/${content_img.img_4}">
+						<img alt="" src="${root}/watermark_path/${content_img.img_4}">
 						<div class="btn_area">
-							<button onclick="payment('${root}')"><img alt="" src="${root}/img/detail/3_type/icon_2.svg">예매하기</button>
+<%-- 							<button onclick="payment('${root}')"><img alt="" src="${root}/img/detail/3_type/icon_2.svg">예매하기</button> --%>
 						</div>
 					</div>
 
 					<div class="img_item">
-						<img alt="" src="${root}/contents_img/${content_img.img_5}">
+						<img alt="" src="${root}/watermark_path/${content_img.img_5}">
 						<div class="btn_area">
-							<button onclick="payment('${root}')"><img alt="" src="${root}/img/detail/3_type/icon_2.svg">예매하기</button>
+<%-- 							<button onclick="payment('${root}')"><img alt="" src="${root}/img/detail/3_type/icon_2.svg">예매하기</button> --%>
 						</div>
 					</div>
 
 					<div class="img_item">
-						<img alt="" src="${root}/contents_img/${content_img.img_6}">
+						<img alt="" src="${root}/watermark_path/${content_img.img_6}">
 						<div class="btn_area">
-							<button onclick="payment('${root}')"><img alt="" src="${root}/img/detail/3_type/icon_2.svg">예매하기</button>
+<%-- 							<button onclick="payment('${root}')"><img alt="" src="${root}/img/detail/3_type/icon_2.svg">예매하기</button> --%>
 						</div>
 					</div>
 
 					<div class="img_item">
-						<img alt="" src="${root}/contents_img/${content_img.img_7}">
+						<img alt="" src="${root}/watermark_path/${content_img.img_7}">
 						<div class="btn_area">
-							<button onclick="payment('${root}')"><img alt="" src="${root}/img/detail/3_type/icon_2.svg">예매하기</button>
+<%-- 							<button onclick="payment('${root}')"><img alt="" src="${root}/img/detail/3_type/icon_2.svg">예매하기</button> --%>
 						</div>
 					</div>
 					
@@ -427,7 +441,8 @@ $(function() {
 
 		<div class="btn_line_area"></div>
 		<div class="payment_area">
-			<input type="button" value="예매하기" id="m_payment_btn">
+<!-- 			<input type="button" value="예매하기" id="m_payment_btn"> -->
+			<input type="button" value="예매하기" id="m_payment_btn" disabled>
 		</div>
 
 		<script type="text/javascript">

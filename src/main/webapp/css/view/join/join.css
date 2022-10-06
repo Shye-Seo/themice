@@ -1,7 +1,27 @@
+html {
+	min-height: 100%;
+	position: relative;
+	width: 100%;
+}
+
 #join{
-	width: 1024px;
-    margin: 4% auto;
+	width: 100%;
+	height: auto;
+	min-height: 100%;
+    margin: 0 auto;
+	display: flex;
+	margin-top: 5%;
     color: #444343;
+}
+
+#join .content_area {
+	min-height: 100%;
+	width: 1200px;
+	height: 2500px;
+	padding-bottom: 400px;
+	padding-left: 370px;
+	padding-right: 370px;
+	margin-bottom: 50px;
 }
 
 #join p{

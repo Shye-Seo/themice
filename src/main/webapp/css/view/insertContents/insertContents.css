@@ -108,18 +108,30 @@ section{
 }
 
 .page_1 .infomation_area .right_2 .price_insert_area #price{
-	width: 470px;
-	height: 30px;
+	width: 55%;
+	height: 33px;
 	padding: 0;
+	border: 1px solid #ACACAC;
+	border-radius: 5px;
+	text-indent: 5%;
+}
+
+.page_1 .infomation_area .right_2 .price_insert_area .select{
+	width: 20%;
+	padding: 0;
+	border: 1px solid #ACACAC;
+	border-radius: 5px;
 	text-indent: 1%;
 }
 
 .page_1 .infomation_area .right_2 .price_insert_area .price_btn{
-	width: 15%;
-    background: unset;
-    border: solid 1px #707070;
+	width: 20%;
+    background-color: #ACACAC;
+    border: 1px solid #ACACAC;
     display: block;
     cursor: pointer;
+    border-radius: 5px;
+    color: #FFFFFF;
 }
 
 .page_1 .infomation_area .right_2 .price_insert_area #age_type{
@@ -136,14 +148,15 @@ section{
 	width: 100%;
     display: flex;
     flex-direction: row;
-    border: solid 1px #707070;
+    border: solid 1px #ACACAC;
+    border-radius: 5px;
 }
 
 .page_1 .infomation_area .right_2 .key_item ul li{
 	width: 25%;
     border-right: solid;
     border-width: 1px;
-    border-color: #707070;
+    border-color: #ACACAC;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -162,55 +175,76 @@ section{
 .page_1 .infomation_area .right input{
 	width: 100%;
 	height: 33px;
-	text-indent: 1%;
+	text-indent: 3%;
 	padding: 0;
+	border: 1px solid #ACACAC;
+	border-radius: 5px;
 }
 
 .page_1 .infomation_area .right .input_2 {
-    width: 42%;
-    height: 30px;
-    text-indent: 2%;
-}
-
-.page_1 .infomation_area .right .input_3 {
-    width: 470px;
-    height: 30px;
+    width: 45%;
+    height: 33px;
     text-indent: 1%;
 }
 
+.page_1 .infomation_area .right .input_3 {
+    width: 45%;
+    height: 33px;
+    text-indent: 5%;
+    border: 1px solid #ACACAC;
+	border-radius: 5px;
+}
+
 .page_1 .infomation_area .right #offline{
-	width: 83%;
+	width: 75%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
 }
 
 .page_1 .infomation_area .right #offline #roadAddress{
-	width: 470px;
-    margin-bottom: 3%;
+	width: 75%;
+	height: 33px;
+	padding: 0;
+	border: 1px solid #ACACAC;
+	border-radius: 5px;
+	margin-bottom: 3%;
+	margin-right: 3%;
+}
+
+.page_1 .infomation_area .right #offline #detail_address{
+	width: 100%;
+	height: 33px;
+	padding: 0;
+	border: 1px solid #ACACAC;
+	border-radius: 5px;
 }
 
 .page_1 .infomation_area .right #offline .post{
-	width: 18%;
-    background: unset;
-    border: solid 1px #707070;
-    height: 34px;
+	width: 20%;
+    background-color: #ACACAC;
+    border: 1px solid #ACACAC;
+    border-radius: 5px;
+    color: #FFFFFF;
+    height: 33px;
     cursor: pointer;
 }
 
 .page_1 .infomation_area .right #online{
 	display: none;
-	width: 80%;
+	width: 75%;
 }
 
 .page_1 .infomation_area .right .address_select_area{
-	width: 15%;
+	width: 20%;
 }
 
-.page_1 .infomation_area .right .address_select_area select{
+.page_1 .infomation_area .right .address_select_area .select{
 	width: 100%;
-	height: 34px;
+	height: 33px;
+	padding: 0;
+	border: 1px solid #ACACAC;
+	border-radius: 5px;
 	text-indent: 5%;
 }
 
@@ -220,16 +254,21 @@ section{
 }
 
 .page_1 .infomation_area .right_2 .key_insert #keyword{
-	width: 82%;
-	text-indent: 1%;
+	height: 33px;
+	width: 75%;
+	text-indent: 5%;
+	border: 1px solid #ACACAC;
+	border-radius: 5px;
 }
 
 .page_1 .infomation_area .right_2 .key_insert .key_word_input{
-	width: 15%;
-    background: unset;
-    border: solid 1px #707070;
-    height: 34px;
+	width: 20%;
+    background-color: #ACACAC;
+    border: 1px solid #ACACAC;
+    display: block;
     cursor: pointer;
+    border-radius: 5px;
+    color: #FFFFFF;
 }
 
 .page_1 .infomation_area .right_2 #image_container{
@@ -250,17 +289,20 @@ section{
 }
 
 .page_1 .infomation_area .right_2 .symbol_image_btn{
-	border: solid 1px #707070;
+    width: 20%;
+    height: 33px;
+    background-color: #ACACAC;
+    border: 1px solid #ACACAC;
+    border-radius: 5px;
+    color: #FFFFFF;
     display: flex;
-    width: 15%;
     justify-content: space-around;
     align-items: center;
-    height: 30px;
+    cursor: pointer;
     position: absolute;
     bottom: -20%;
     left: 50%;
     transform: translate(-50%, 0);
-    cursor: pointer;
 }
 
 .page_1 .infomation_area .right #exhbn_type{
@@ -277,7 +319,7 @@ section{
 	width: 70%;
     display: flex;
     margin-bottom: 10%;
-    justify-content: space-between;
+/*     justify-content: space-between; */
 }
 
 .page_2 .color_category .type{
@@ -292,28 +334,19 @@ section{
 }
 
 .page_2 .color_category label{
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    border: none;
-    padding: 0;
+    width: 160px;
+    line-height: 50px;
+    height: 50px;
+    background-color: #F7F7F7;
+    border-radius: 5px;
+    border: 1px solid #E5E5E5;
+    margin-right: 5%;
+    margin-top: 5px;
     cursor: pointer;
-}
-
-.page_2 .color_category label:nth-child(2){
-	background-color: yellow;
-}
-
-.page_2 .color_category label:nth-child(4){
-	background-color: purple;
-}
-
-.page_2 .color_category label:nth-child(6){
-	background-color: blue;
-}
-
-.page_2 .color_category label:nth-child(8){
-	background-color: red;
+/*     align-items: center; */
+    text-align: center;
+    font-size: 1rem;
+    color: #585858;
 }
 
 .page_2 .detail_page{
@@ -332,8 +365,9 @@ section{
 
 .page_2 .detail_page label{
 	position: absolute;
-	background-color: white;
+	background-color: #F7F7F7;
     border: solid 1px #707070;
+    border-radius: 5px;
     width: 75px;
     height: 23px;
     display: flex;
@@ -474,9 +508,11 @@ section{
 
 .page_2 .font_type{
 	width: 70%;
-    height: 34px;
+    height: 33px;
     text-indent: 2%;
     background-position-x: 98%;
+    border-radius: 5px;
+    border: 1px solid #E5E5E5;
 }
 
 .page_2 .pattern {
@@ -487,8 +523,9 @@ section{
 .page_2 .pattern img{
     width: 100%;
     height: 100%;
-    border: solid 1px #707070;
+    border: solid 1px #E5E5E5;
     cursor: pointer;
+    border-radius: 5px;
 }
 
 .page_2 .pattern input{
@@ -496,7 +533,8 @@ section{
 }
 
 .page_2 .pattern input:checked + label img{
-	border: solid 2px #EA933C;
+	border: solid 1px #FF9402;
+	border-radius: 5px;
 }
 
 .page_2 #head{
@@ -505,14 +543,17 @@ section{
 }
 
 .page_2 .back_color{
-	width: 55%;
-    height: 28px;
+	width: 65%;
+    height: 33px;
     text-indent: 2%;
+    border: 1px solid #E5E5E5;
+    border-radius: 5px;
 }
 
 .page_2 .color_choice{
-	color: #333333;
-    border: solid 1px #333333;
+	color: #797878;
+    border: 1px solid #E5E5E5;
+    border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -522,22 +563,23 @@ section{
 }
 
 .page_2 .color_submiit{
-	color: #EA933C;
-    border: solid 1px #EA933C;
+	color: #FFFFFF;
+    border: solid 1px #ACACAC;
+    border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    width: 14%;
-    background: unset;
+    width: 15%;
+    background-color: #ACACAC;
     cursor: pointer;
 }
 
 .navigation{
 	position: relative;
     width: 100%;
-    border-bottom: solid;
-    border-width: 1px;
-    border-color: #707070;
+/*     border-bottom: solid; */
+/*     border-width: 1px; */
+/*     border-color: #707070; */
     height: 34px;
     padding-bottom: 1.5%;
 }
@@ -584,11 +626,11 @@ section{
 	background: no-repeat;
     border: none;
     width: 100px;
-    height: 34px;
-    background-color: #EA933C;
-    color: white;
-    border-radius: 7px;
-    font-weight: bold;
+    height: 40px;
+    background-color: #EF8E24;
+    color: #FFFFFF;
+    border-radius: 21px;
+/*     font-weight: bold; */
     font-size: 1rem;
     cursor: pointer;
 }
@@ -626,19 +668,23 @@ section{
 	height: 40px;
 	text-indent: 4%;
 	font-size: 1rem;
-	border: solid 1px #707070;
+	border: solid 1px #E5E5E5;
+	border-radius: 5px;
 	margin-right: 2%;
 	line-height: 2;
 }
 
 .page_3 .infomation_area .right label{
-	border: solid 1px #707070;
+	border: solid 1px #ACACAC;
+	border-radius: 5px;
+	color: #FFFFFF;
     width: 15%;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 40px;
     cursor: pointer;
+    background-color: #ACACAC;
 }
 
 .page_3 .infomation_area .web_select_area{

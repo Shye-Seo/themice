@@ -103,92 +103,93 @@
 	<jsp:include page="/WEB-INF/jsp/header/header.jsp" />
 	<div class="header">
 		<div class="title">
-			<span>전시</span>
-		</div>
-		<div class="root">
-			<img alt="" src="${root}/img/list/home_icon.svg"><span>&gt;</span><span>마이페이지</span><span>&gt;</span><span>로그인</span>
+			<span>로그인</span>
 		</div>
 	</div>
 	<section id="login">
-		<div class="login_area">
-			<form method="post" action="member_login">
-				<div class="title_area">
-					<span>개인 회원로그인</span>
-				</div>
-				<div class="input_area">
-					<input type="text" placeholder="아이디" name="id" id="id"> <input
-						type="password" placeholder="비밀번호" name="password">
-					<button>
-						개인 회원 <br> 로그인
+		<div class="content_area">
+			<div class="login_area">
+				<form method="post" action="member_login">
+					<div class="title_area">
+						<span>개인 회원로그인</span>
+					</div>
+					<div class="input_area">
+						<input type="text" placeholder="아이디" name="id" id="id">
+						<input type="password" placeholder="비밀번호" name="password">
+					</div>
+	
+					<div class="remember_area">
+						<input type="checkbox" id="idSaveCheck">
+						<p>아이디 저장
+						</p>
+					</div>
+					
+					<button id="login">
+						개인 회원 로그인
 					</button>
-				</div>
-
-				<div class="remember_area">
-					<input type="checkbox" id="idSaveCheck">
-					<p>아이디 저장
-					</p>
-				</div>
-			</form>
-
-			<div class="login_sub_area">
-				<div class="sub_area">
-					<div class="img_area">
-						<img src="${root}/img/login/login_person_icon.JPG">
+				</form>
+	
+				<div class="login_sub_area">
+					<div class="sub_area">
+						<div class="img_area">
+							<img src="${root}/img/login/login_person_icon.JPG">
+						</div>
+						<div class="input_area">
+							<a href="join">개인 회원가입</a>
+						</div>
 					</div>
-					<div class="input_area">
-						<a href="join">개인 회원가입</a>
-					</div>
-				</div>
-
-				<div class="sub_area" style="border: none;">
-					<div class="img_area">
-						<img src="${root}/img/login/login_question_icon.JPG">
-					</div>
-					<div class="input_area">
-						<a href="member_id_find">개인 아이디</a>/<a href="member_pw_find">비밀번호 찾기</a>
+	
+					<div class="sub_area" style="border: none;">
+						<div class="img_area">
+							<img src="${root}/img/login/login_question_icon.JPG">
+						</div>
+						<div class="input_area">
+							<a href="member_id_find">개인 아이디</a>/<a href="member_pw_find">비밀번호 찾기</a>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		
-		<div class="line_area"></div>
-
-		<div class="login_area" style="border: none;">
-			<form method="post" action="business_login">
-				<div class="title_area">
-					<span>기업 회원로그인</span>
-				</div>
-				<div class="input_area">
-					<input type="text" placeholder="사업자 번호" name="id" id="business_num">
-					<input type="password" placeholder="비밀번호" name="password">
-					<input type="submit" id="business_submit" style="display: none;">
-					<button>
-						기업 회원 <br> 로그인
+			
+			<div class="line_area"></div>
+	
+			<div class="login_area" style="border: none;">
+				<form method="post" action="business_login">
+					<div class="title_area">
+						<span>기업 회원로그인</span>
+					</div>
+					<div class="input_area">
+						<input type="text" placeholder="사업자 번호" name="id" id="business_num">
+						<input type="password" placeholder="비밀번호" name="password">
+						<input type="submit" id="business_submit" style="display: none;">
+					</div>
+	
+					<div class="remember_area">
+						<input type="checkbox" id="businessCheck">
+						<p>아이디 저장</p>
+					</div>
+					
+					<button id="login">
+						기업 회원 로그인
 					</button>
-				</div>
-
-				<div class="remember_area">
-					<input type="checkbox" id="businessCheck">
-					<p>아이디 저장</p>
-				</div>
-			</form>
-
-			<div class="login_sub_area">
-				<div class="sub_area">
-					<div class="img_area">
-						<img src="${root}/img/login/login_person_icon.JPG">
+				</form>
+	
+				<div class="login_sub_area">
+					<div class="sub_area">
+						<div class="img_area">
+							<img src="${root}/img/login/login_person_icon.JPG">
+						</div>
+						<div class="input_area">
+							<a href="join">기업 회원가입</a>
+						</div>
 					</div>
-					<div class="input_area">
-						<a href="join">기업 회원가입</a>
-					</div>
-				</div>
-
-				<div class="sub_area" style="border: none;">
-					<div class="img_area">
-						<img src="${root}/img/login/login_question_icon.JPG">
-					</div>
-					<div class="input_area">
-						<a href="business_pw_find">기업 비밀번호 찾기</a>
+	
+					<div class="sub_area" style="border: none;">
+						<div class="img_area">
+							<img src="${root}/img/login/login_question_icon.JPG">
+						</div>
+						<div class="input_area">
+							<a href="business_pw_find">기업 비밀번호 찾기</a>
+						</div>
 					</div>
 				</div>
 			</div>

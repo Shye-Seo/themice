@@ -7,7 +7,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>THE MICE</title>
+<link rel="icon" href="${root}/img/common/favicon.svg">
 <link rel="stylesheet" href="${root}/css/view/notice/notice.css">
 <link rel="stylesheet" href="${root}/css/view/notice/mobile_notice.css">
 <link rel="stylesheet" href="${root}/css/view/style.css">
@@ -24,14 +25,7 @@
 	
 	<div class="header">
 		<div class="title">
-			<span>전시</span>
-		</div>
-		<div class="root">
-			<img alt="" src="${root}/img/list/home_icon.svg">
-			<span><img alt="" src="${root}/img/common/arrow_icon.svg"></span>
 			<span>공지사항</span>
-			<span><img alt="" src="${root}/img/common/arrow_icon.svg"></span>
-			<span>리스트</span>
 		</div>
 	</div>
 	

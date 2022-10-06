@@ -13,24 +13,26 @@
     
     <tx:annotation-driven transaction-manager="transactionManager"/>
     
-    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close"
-		  p:driverClassName="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"
-		  p:url="jdbc:log4jdbc:mysql://database-themice.cdc39ucustpp.ap-northeast-2.rds.amazonaws.com:3306/themice" 
+     <!-- 서버용 -->
+<!--     <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close"
+        p:driverClassName="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"
+        p:url="jdbc:log4jdbc:mysql://database-themice.cdc39ucustpp.ap-northeast-2.rds.amazonaws.com:3306/themice" 
           p:username="admin"
           p:password="Themice1004!"
           p:initialSize="3"
           p:maxIdle="10"
           p:minIdle="3"
-          p:validationQuery="SELECT 1" />
+          p:validationQuery="SELECT 1" /> -->
           
-          	<!-- MySQL dataSource -->    
-<!--     <bean id="dataSource"
-        class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
-        <property name="url" value="jdbc:mysql://themice-database.cdc39ucustpp.ap-northeast-2.rds.amazonaws.com:3306/Newthemice2?serverTimezone=Asia/Seoul"></property>
-        <property name="username" value="themice"></property>
-        <property name="password" value="thewell1004!"></property>
-    </bean>    -->
+      <!-- 로컬용 -->    
+    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close"
+        p:driverClassName="net.sf.log4jdbc.sql.jdbcapi.DriverSpy" p:url="jdbc:log4jdbc:mysql://127.0.0.1:3306/themice" 
+          p:username="root"
+          p:password="Thewell9512!"
+          p:initialSize="3"
+          p:maxIdle="10"
+          p:minIdle="3"
+          p:validationQuery="SELECT 1" />
 
 	<!-- SqlSession setup for MyBatis Database Layer -->
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">

@@ -20,14 +20,7 @@
 	
 	<div class="header">
 		<div class="title">
-			<span>마이페이지</span>
-		</div>
-		<div class="root">
-			<img alt="" src="${root}/img/list/home_icon.svg">
-			<span><img alt="" src="${root}/img/common/arrow_icon.svg"></span>
-			<span>마이페이지</span>
-			<span><img alt="" src="${root}/img/common/arrow_icon.svg"></span>
-			<span>아이디 찾기</span>
+			<span>로그인</span>
 		</div>
 	</div>
 	

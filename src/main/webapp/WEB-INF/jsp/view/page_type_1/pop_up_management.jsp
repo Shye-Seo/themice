@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="${root}/css/view/style.css">
 <link rel="stylesheet" href="${root}/css/view/website/website_type_1.css">
 <style type="text/css">
-#preferences .inner .category a:nth-child(4) {
+#preferences .inner .category a:nth-child(5) {
 	color: #EA933C;
     border-bottom: solid;
     border-width: 3px;
@@ -43,6 +43,7 @@
 				<div class="category">
 					<a href="main_management?contents_idx=${contents_idx}">메인관리</a>
 					<a href="introduction_management?contents_idx=${contents_idx}">소개관리</a>
+					<a href="gallery_management?contents_idx=${contents_idx}">갤러리관리</a>
 					<a href="notice_management?contents_idx=${contents_idx}">공지사항관리</a>
 					<a href="pop_up_management?contents_idx=${contents_idx}">팝업관리</a>
 					<a href="comment_management?contents_idx=${contents_idx}">댓글관리</a>

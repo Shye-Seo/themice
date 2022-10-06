@@ -127,10 +127,12 @@ p{
 	position: absolute;
     border: none;
     background: unset;
-    color: white;
+    color: #FFFFFF;
     bottom: 2%;
     right: 2%;
     cursor: pointer;
+    font-size: 15px;
+    font-weight: unset;
 }
 
 .content_item_1 .content_area .info_area{
@@ -144,7 +146,7 @@ p{
 }
 
 .content_item_1 .content_area .info_area ul{
-	display: flex;
+/* 	display: flex; */
     flex-direction: column;
 }
 

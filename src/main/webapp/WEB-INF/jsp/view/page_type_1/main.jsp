@@ -799,12 +799,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 						<input type="radio" name="menu_category" id="place_btn" value="3">
 						<input type="radio" name="menu_category" id="comment_btn" value="4">
 						<input type="radio" name="menu_category" id="refund_btn" value="5">
+						<input type="radio" name="menu_category" id="notice_btn" value="6">
 
 						<label class="menu_item_lable_1"></label>
 						<label class="menu_item_lable_2"></label>
 						<label class="menu_item_lable_3"></label>
 						<label class="menu_item_lable_4"></label>
 						<label class="menu_item_lable_5"></label>
+						<label class="menu_item_lable_6"></label>
 						
 						<script type="text/javascript">
 							$('.menu_item_1').insertAfter('.menu_item_2');
@@ -834,6 +836,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 						        	comment();
 						        } else if(val == '5'){
 						        	refund();
+						        } else if(val == '6'){
+						        	notice();
 						        }
 							});
 							
@@ -846,6 +850,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 					        	$('.place_area').css('display', 'none');
 					        	$('.comment_area').css('display', 'none');
 					        	$('.refund_area').css('display', 'none');
+					        	$('.notice_area').css('display', 'none');
 							};
 							
 							function gallery() {
@@ -857,6 +862,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 					        	$('.place_area').css('display', 'none');
 					        	$('.comment_area').css('display', 'none');
 					        	$('.refund_area').css('display', 'none');
+					        	$('.notice_area').css('display', 'none');
 							};
 							
 							function place() {
@@ -868,6 +874,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 					        	$('.place_area').css('display', 'block');
 					        	$('.comment_area').css('display', 'none');
 					        	$('.refund_area').css('display', 'none');
+					        	$('.notice_area').css('display', 'none');
 					        	
 					        	map.relayout();
 				            	map.setCenter(centerNum);
@@ -882,6 +889,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 					        	$('.place_area').css('display', 'none');
 					        	$('.comment_area').css('display', 'block');
 					        	$('.refund_area').css('display', 'none');
+					        	$('.notice_area').css('display', 'none');
 							};
 							
 							function refund() {
@@ -893,6 +901,19 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 					        	$('.place_area').css('display', 'none');
 					        	$('.comment_area').css('display', 'none');
 					        	$('.refund_area').css('display', 'block');
+					        	$('.notice_area').css('display', 'none');
+							};
+							
+							function notice() {
+								$('#notice_btn').prop('checked', true);
+					        	$('#web_main').css('display', 'none');
+					        	$('#web_detail').css('display', 'block');
+					        	$('.introduction_area').css('display', 'none');
+					        	$('.gallery_area').css('display', 'none');
+					        	$('.place_area').css('display', 'none');
+					        	$('.comment_area').css('display', 'none');
+					        	$('.refund_area').css('display', 'none');
+					        	$('.notice_area').css('display', 'block');
 							};
 						</script>
 					</div>
@@ -992,6 +1013,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 							</p>
 						</div>
 						
+						<div class="notice_area">
+							<jsp:include page="/WEB-INF/jsp/view/page_type_1/notice_list.jsp" />
+						</div>
 				</div>
 				
 				<div class="container_3">

@@ -17,13 +17,13 @@
 </head>
 <body>
 	<div id="section">
-		<jsp:include page="/WEB-INF/jsp/view/page_type_1/header.jsp" />
+<%-- 		<jsp:include page="/WEB-INF/jsp/view/page_type_1/header.jsp" /> --%>
 		
 		<section id="web_notice">
 			<div class="inner">
-				<div class="title_area">
-					<span>공지사항</span>
-				</div>
+<!-- 				<div class="title_area"> -->
+<!-- 					<span>공지사항</span> -->
+<!-- 				</div> -->
 				
 				<div class="web_notice_list">
 					<form method="get">
@@ -50,6 +50,12 @@
 					</div>
 				</div>
 				
+<%-- 				<c:if test="${not empty sessionScope.business_id && sessionScope.business_id eq business_num}"> --%>
+<!-- 						<div class="btn_area"> -->
+<%-- 							<a href="notice_management_insert?contents_idx=${contents_idx}">등록</a> --%>
+<!-- 						</div> -->
+<%-- 				</c:if> --%>
+				
 				<div class="paging">
 					<c:if test="${paging.startPage != 1 }">
 						<a href="web_notice_list?nowPage=${paging.startPage - 1}&cntPerPage=${paging.cntPerPage}&contents_idx=${contents_idx}" class="paging_0">&lt;</a>
@@ -70,7 +76,7 @@
 				</div>
 			</div>
 			
-			<jsp:include page="/WEB-INF/jsp/footer/footer.jsp" />
+<%-- 			<jsp:include page="/WEB-INF/jsp/footer/footer.jsp" /> --%>
 		</section>
 	</div>
 </body>

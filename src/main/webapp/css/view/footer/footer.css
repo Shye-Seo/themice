@@ -13,7 +13,12 @@
 #footer {
 	float: left;
 	width: 100%;
-	background-color: #DBDBDB;
+	bottom: 0;
+	position : relative;
+/*     transform : translateY(-100%); */
+/* 	z-index: 1; */
+	height: 20%;
+	background-color: #EDEDED;
 }
 
 #footer ul, li {
@@ -24,26 +29,45 @@
 
 #footer a {
 	text-decoration: none;
-	color: #808080;
-	font-size: 0.9rem;
+	color: #777777;
+	font-size: 16px;
+}
+
+#footer a:hover {
+	text-decoration: none;
+	color: #EA933C;
+	font-size: 16px;
+}
+
+#footer hr {
+	width: 70%;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	color: #777777;
+}
+
+#footer .infomation .logo img {
+	width: 203px;
+	height: 66.08px;
+	margin-top: 17px;
+	margin-right: 72px;
+	float: left;
 }
 
 #footer .link {
-	border-bottom: solid;
-	border-width: 1px;
-	border-color: #CCCACA;
 	display: flex;
-	justify-content: space-between;
-	box-sizing: border-box;
-	height: 40px;
+/* 	justify-content: space-between; */
+	height: 60px;
+	margin-left: 320px;
 }
 
 #footer .link .info_link {
 	width: 100%;
-    padding: 0 10%;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
+    top: 10px;
 }
 
 #footer .link .info_link ul {
@@ -57,7 +81,7 @@
 	border-width: 1px;
 	border-color: #808080;
 	padding-right: 20px;
-	font-size: 1rem;
+	font-size: 16px;
 }
 
 #footer .link .info_link ul li:nth-child(2) {
@@ -65,39 +89,25 @@
 	border-width: 1px;
 	border-color: #808080;
 	padding: 0 20px;
-	font-size: 1rem;
+	font-size: 16px;
 }
 
 #footer .link .info_link ul li:last-child {
 	padding-left: 20px;
 }
 
-#footer .link .info_link .site {
-	width: 10%;
-    height: 100%;
-    border: unset;
-    background: unset;
-    border-left: solid;
-    border-right: solid;
-    border-width: 1px;
-    border-color: #CCCACA;
-    box-sizing: border-box;
-    padding: 0 1%;
-    color: #808080;
-    cursor: pointer;
-    background-size: 6%;
-}
-
 #footer .infomation {
 	display: flex;
 	align-items: center;
 	box-sizing: border-box;
-	color: #808080;
+	color: #777777;
 	justify-content: space-between;
-	font-size: 0.9rem;
+	font-size: 14px;
 	height: 90px;
 	width: 100%;
-	padding: 0 10%;
+	padding: 0 320px;
+	padding-bottom: 5%;
+	padding-top: 2%;
 }
 
 #footer .infomation .address {
@@ -119,19 +129,19 @@
 }
 
 #footer .infomation .address ul li:first-child {
-	padding-right: 20px;
-	border-right: solid;
-	border-width: 1px;
-	border-color: #808080;
+	padding-right: 15px;
+/* 	border-right: solid; */
+/* 	border-width: 1px; */
+/* 	border-color: #808080; */
 }
 
 #footer .infomation .address ul li:nth-child(2) {
-	padding: 0 20px;
-	border-right: solid;
-	border-width: 1px;
-	border-color: #808080;
+/* 	padding-right: 23px; */
+/* 	border-right: solid; */
+/* 	border-width: 1px; */
+/* 	border-color: #808080; */
 }
 
 #footer .infomation .address ul li:nth-child(3) {
-	padding-left: 20px;
+	padding-left: 23px;
 }

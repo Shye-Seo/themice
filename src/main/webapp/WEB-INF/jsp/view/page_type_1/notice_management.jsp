@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="${root}/css/view/style.css">
 <link rel="stylesheet" href="${root}/css/view/website/website_type_2.css">
 <style type="text/css">
-#preferences .inner .category a:nth-child(3) {
+#preferences .inner .category a:nth-child(4) {
 	color: #EA933C;
     border-bottom: solid;
     border-width: 3px;
@@ -56,6 +56,37 @@
 		});
 	};
 	
+// 	function notice_management_update() {
+// 		var check = [];
+
+// 		$('input[name="check"]:checked').each(function(e) {
+// 			check.push($(this).val());
+// 		})
+
+// 		var list = {
+// 			'check' : check
+// 		}
+
+// 		$.ajax({
+// 			url : 'notice_management_update',
+// 			type : 'post',
+// 			data : list,
+// 			success : function(data) {
+
+// 				if ($.trim(data) != 0) {
+// 					alert('수정되었습니다.');
+// 					location.href = 'notice_management?contents_idx=${contents_idx}';
+// 				} else {
+// 					alert('실패');
+
+// 				}
+// 			},
+// 			error : function() {
+// 				alert("에러입니다=======>"+data.error_msg);
+// 			}
+// 		});
+// 	};
+	
 	function selectAll(selectAll)  {
 		const checkboxes = document.getElementsByName('check');
 		
@@ -74,6 +105,7 @@
 				<div class="category">
 					<a href="main_management?contents_idx=${contents_idx}">메인관리</a>
 					<a href="introduction_management?contents_idx=${contents_idx}">소개관리</a>
+					<a href="gallery_management?contents_idx=${contents_idx}">갤러리관리</a>
 					<a href="notice_management?contents_idx=${contents_idx}">공지사항관리</a>
 					<a href="pop_up_management?contents_idx=${contents_idx}">팝업관리</a>
 					<a href="comment_management?contents_idx=${contents_idx}">댓글관리</a>
@@ -124,9 +156,13 @@
 							<a href="web_notice_list?nowPage=${paging.endPage+1}&cntPerPage=${paging.cntPerPage}&contents_idx=${contents_idx}" class="paging_2">&gt;</a>
 						</c:if>
 					</div>
-					
+					<input type="hidden" value="${contents_idx}" name="contents_idx">
+					<input type="hidden" value="${idx}" name="idx">
+<%-- 						<input type="text" value="contents_idx=${contents_idx}  / idx=${list.idx}"> --%>
 					<div class="btn_area">
 						<a href="notice_management_insert?contents_idx=${contents_idx}">게시글 등록</a>
+<%-- 						<a href="notice_management_update?contents_idx=${contents_idx}?idx=${notice_list.idx}">수정</a> --%>
+<!-- 						<input type="button" onclick="notice_management_update()" value="수정"> -->
 						<input type="button" onclick="notice_delete_management()" value="삭제">
 					</div>
 				</div>

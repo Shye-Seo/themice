@@ -378,6 +378,10 @@ header div ul li .logo_btn{
 	width: 100%;
 }
 
+/* #web_detail .notice_area { */
+/* 	display: none; */
+/* } */
+
 #web_detail .gallery_area .img_area {
 	width: 100%;
     display: flex;
@@ -467,7 +471,7 @@ header div ul li .logo_btn{
 	display: none;
 }
 
-/** 관리 페이지 **/
+/** 愿�由� �럹�씠吏� **/
 #preferences{
 	width: 100%;
     display: flex;
@@ -1053,10 +1057,10 @@ header div ul li .logo_btn{
 #web_notice .inner{
 	height: 100%;
     background-color: white;
-    width: 1024px;
+    width: 100%;
     margin: 0 auto;
-    box-sizing: border-box;
-    padding: 1% 3%;
+/*     box-sizing: border-box; */
+/*     padding: 1% 3%; */
     display: flex;
     flex-direction: column;
 }

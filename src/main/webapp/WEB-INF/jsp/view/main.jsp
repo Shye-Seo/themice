@@ -21,10 +21,10 @@
 #main #section_1 .background img{
 	display: none;
 }
-#footer{
-	position: absolute;
-    bottom: 0;
-}
+/* #footer{ */
+/* 	position: absolute; */
+/*     bottom: 0; */
+/* } */
 #section_1 .header_area{
 	z-index: 1;
 }
@@ -153,8 +153,9 @@
 						</div>
 						<div class="text_area">
 							<span class="main_event_1">${list.sub_title}</span>
-							<span class="main_event_2">${list.title}</span>
-							<span class="main_event_3">${list.start_day} ~ ${list.end_day}</span>
+							<span class="main_event_2">${list.start_day} ~ ${list.end_day}</span>
+							<br>
+							<span class="main_event_3">${list.title}</span>
 						</div>
 					</div>
 				</c:forEach>
@@ -302,17 +303,8 @@
 			<div class="container_1">
 				<div class="title_area title_area_1">
 					<p>
-						<span>New</span>&nbsp;전시
+						<span>NEW</span>
 					</p>
-					<p>
-						매번 최신 순으로 나오는 행사를 업데이트를 하여<br>
-						새로 나온 행사를 보여드려요.
-					</p>
-					<img alt="" src="${root}/img/main/title_background.svg" class="section_2_background_img">
-					
-					<div class="plus_area">
-						<a href="list">더보기&nbsp;&nbsp;<img alt="" src="${root}/img/main/arrow_icon.svg"></a>
-					</div>
 				</div>
 			</div>
 	
@@ -338,40 +330,18 @@
 									<img alt="" src="${root}/img/list/non_img.jpg">
 								</c:if>
 							</c:if>
-						</div>
-	
-						<div class="content_title_area">${list.title}</div>
-	
-						<div class="date_area">${list.start_day}&nbsp;~&nbsp;${list.end_day}</div>
-	
-						<div class="btn_area">
-							<a href="detail?contents_idx=${list.idx}">자세히 보기</a>
-							<input type="button" value="예매하기" onclick="payment('${root}')" class="payment">
-							<script type="text/javascript">
-								function payment(root) {
-									$.ajax({
-										url : 'payment_check',
-										type : 'post',
-										success : function(data) {
-											if ($.trim(data) == 0) {
-												alert('일반회원 로그인을 해주세요.')
-											} else {
-												var _width = '1130';
-											    var _height = '800';
-					
-												var _left = Math.ceil(( window.screen.width - _width )/2);
-											    var _top = Math.ceil(( window.screen.height - _height )/2); 
-					
-												let url = root + "/payment_page?contents_idx=${list.idx}";
-												window.open(url, "", "width=1130, height=850,left=" + _left +", top=" + _top);
-											}
-										},
-										error : function() {
-											alert("로그인을 해주세요.");
-										}
-									});
-								}
-							</script>
+							<div id="inner_content">
+								<div class="content_title_area">${list.title}</div>
+			
+								<div class="date_area">${list.start_day}&nbsp;~&nbsp;${list.end_day}</div>
+			
+								<div class="btn_area">
+									<a href="detail?contents_idx=${list.idx}">상세보기</a>
+									<c:if test="${not empty list.web_address}">
+										<a href="${list.web_address}">사이트바로가기</a>
+									</c:if>
+								</div>
+							</div>
 						</div>
 					</div>
 				</c:forEach>
@@ -383,6 +353,7 @@
 				<div class="section_2_left_btn">
 					<span><img alt="" src="${root}/img/main/right_btn_1.svg"></span>
 				</div>
+				<p></p>
 				<div class="section_2_right_btn">
 					<span><img alt="" src="${root}/img/main/right_btn_1.svg"></span>
 				</div>
@@ -393,7 +364,7 @@
 					$('.section_2_right_btn').click(function(){
 						var cnt = $('#slider_cnt_2').val();
 						
-						if(cnt < 4){
+						if(cnt < 3){
 							$('.slider_area_2').css('transform', 'translateX(-' + Number(cnt) * 20 + '%)');
 							$('#slider_cnt_2').val(Number(cnt) + 1);
 						} else {
@@ -411,7 +382,7 @@
 							$('#slider_cnt_2').val(cnt);
 						} else {
 							$('.slider_area_2').css('transform', 'translateX(-60%)');
-							$('#slider_cnt_2').val(4);
+							$('#slider_cnt_2').val(3);
 						}
 					});
 				});

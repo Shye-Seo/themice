@@ -44,6 +44,10 @@ public class ContentsSvc {
 	public ContentsVO selectContent(int contents_idx) {
 		return sqlSession.selectOne("selectContent", contents_idx);
 	}
+	
+	public void updateContents(ContentsVO vo) {
+		sqlSession.insert("updateContents", vo);
+	}
 
 	public void insertComment(CommentsVO vo) {
 		sqlSession.insert("insertComment", vo);
@@ -75,7 +79,11 @@ public class ContentsSvc {
 			sqlSession.insert("imgupload", img);
 		}
 	}
-
+	
+	public void delete_img(int contents_idx) {
+		sqlSession.insert("delete_img", contents_idx);
+	}
+	
 	public int getContents_idx() {
 		return sqlSession.selectOne("getContents_idx");
 	}
@@ -273,4 +281,7 @@ public class ContentsSvc {
 	public void insert_introduction_img(Introduction_img introduction_img) {
 		sqlSession.insert("insert_introduction_img", introduction_img);
 	}
+
+	
+
 }

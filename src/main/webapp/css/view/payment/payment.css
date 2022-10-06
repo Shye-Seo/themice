@@ -1,18 +1,60 @@
+body {
+	overflow:auto;
+	margin: 0;
+	width: 100%;
+    height: 100%;
+}
+
+#container {
+	opacity: 0.2;
+	background: rgba(0,0,0);
+	opacity: 0.85;
+	color: #FFFFFF;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    font-size: 5em;
+    display: flex;
+    align-items: center;
+  	flex-direction: row;
+  	justify-content: center;
+}
+
+/* #p{ */
+/* /* 	width: 50%; */ */
+/* /* 	height: 30%; */ */
+/* 	position: relative; */
+/* 	left: 50%; */
+/*   	transform: translateY( -50% ); */
+/*   	border: 5px solid yellow; */
+/* } */
+
 /** payment_section start **/
 .img_area{
 	position: relative;
-	background-color: black;
+	background-color: #FFFFFF;
+	padding-bottom: 10%;
+	top: 0;
+/* 	display: flex; */
 }
 
-.img_area img{
-	width: 100%;
-	display: block;
-	opacity: 0.8;
-}
+/* .img_area img{ */
+/* 	width: 100%; */
+/* 	display: block; */
+/* 	opacity: 0.8; */
+/* } */
 
 #payment {
 	width: 800px;
 	margin: 0 auto;
+	min-height: 950px;
+	padding-top: 5%;
+	overflow:auto;
+	pointer-events: none; /* 클릭 막아놓기 */
 }
 
 #payment .info_area {
@@ -149,7 +191,7 @@
 	border-bottom: solid;
 	border-width: 1px;
 	width: 100%;
-	height:100%; /* 변경부분 */
+	height:100%; /* 蹂�寃쎈�遺� */
 	padding: 3% 0;
 }
 

@@ -174,13 +174,6 @@ $(function() {
 		<div class="title">
 			<span>전시</span>
 		</div>
-		<div class="root">
-			<img alt="" src="${root}/img/list/home_icon.svg">
-			<span><img alt="" src="${root}/img/common/arrow_icon.svg"></span>
-			<span>전시리스트</span>
-			<span><img alt="" src="${root}/img/common/arrow_icon.svg"></span>
-			<span>상세페이지</span>
-		</div>
 	</div>
 	
 	<a href="javascript:history.back();" id="back_area">
@@ -192,38 +185,22 @@ $(function() {
 	
 	<div class="detail_quick">
 		<a href="website?contents_idx=${content_list.idx}">
-			<img alt="" src="${root}/img/detail/direct_link.svg">
-			<span>사이트 바로가기</span>
+			<img alt="" src="${root}/img/detail/direct_icon.svg">
 		</a>
 	</div>
 
-	<section id="detail" style="background-image: url('${root}/img/insertcontents/pattern/pattern_${content_list.pattern}.png')">
+	<section id="detail" style="background-color: ${content_list.background_color}; background-image: url('${root}/img/insertcontents/pattern/pattern_${content_list.pattern}.png')">
 		<div class="contents_area">
 			<div class="contents_item_1">
-				<div class="text_area" style="border-color: ${content_list.background_color}">
+				<div class="text_area" style="border-color: yellow">
 					<div>
-						<p>${sub_title[6]} ${sub_title[7]}</p>
+						<p>${sub_title[6]}</p><br>
+						<p>${sub_title[7]}</p>
 						<span>${sub_title[8]}</span>
-					</div>
-					<div class="top_btn_area">
-						<input type="button" value="예매하기" onclick="payment('${root}')" style="background-color: ${content_list.background_color}">
-						<script type="text/javascript">
-							function payment(root) {
-								
-								var _width = '1130';
-							    var _height = '800';
-
-								var _left = Math.ceil(( window.screen.width - _width )/2);
-							    var _top = Math.ceil(( window.screen.height - _height )/2); 
-
-								let url = root + "/payment_page?contents_idx=${contents_idx}";
-								window.open(url, "", "width=1130, height=850,left=" + _left +", top=" + _top);
-							}
-						</script>
 					</div>
 				</div>
 				<div class="img_area">
-					<img alt="" src="${root}/contents_img/${content_img.img_2}">
+					<img alt="" src="${root}/watermark_path/${content_img.img_1}">
 				</div>
 			</div>
 
@@ -233,19 +210,19 @@ $(function() {
 				</div>
 				<ul>
 					<li><img alt=""
-						src="${root}/contents_img/${content_img.img_2}"></li>
+						src="${root}/watermark_path/${content_img.img_2}"></li>
 
 					<li><img alt=""
-						src="${root}/contents_img/${content_img.img_3}"></li>
+						src="${root}/watermark_path/${content_img.img_3}"></li>
 
 					<li><img alt=""
-						src="${root}/contents_img/${content_img.img_4}"></li>
+						src="${root}/watermark_path/${content_img.img_4}"></li>
 				</ul>
 			</div>
 
 			<div class="contents_item_3">
 				<div class="img_area">
-					<img alt="" src="${root}/contents_img/${content_img.img_5}">
+					<img alt="" src="${root}/watermark_path/${content_img.img_5}">
 				</div>
 				<div class="text_area">
 					<div class="title_area">
@@ -263,14 +240,14 @@ $(function() {
 							<li>
 								<ul>
 									<li>기간</li>
-									<li>${content_list.start_day}&nbsp;~&nbsp;${content_list.end_day}</li>
+									<li>${content_list.start_day} ~ ${content_list.end_day}</li>
 								</ul>
 							</li>
 
 							<li>
 								<ul>
 									<li>시간</li>
-									<li>${content_list.start_time}&nbsp;~&nbsp;${content_list.end_time }</li>
+									<li>${content_list.start_time} ~ ${content_list.end_time}</li>
 								</ul>
 							</li>
 
@@ -280,20 +257,31 @@ $(function() {
 									<li>${content_list.tel}</li>
 								</ul>
 							</li>
-
+							
 							<li>
 								<ul>
-									<li>개최 장소</li>
-									<li>${content_list.address}${content_list.detail_address}</li>
+									<li>팩스</li>
+									<li>${content_list.fax}</li>
 								</ul>
 							</li>
 
+							<c:if test="${content_list.web_address != ''}">
 							<li>
 								<ul>
 									<li>홈페이지</li>
-									<li>http://www.busanpetshow.co.kr</li>
+									<li>${content_list.web_address}</li>
 								</ul>
 							</li>
+							</c:if>
+							
+							<c:if test="${content_list.web_address == ''}">
+							<li>
+								<ul>
+									<li>개최장소</li>
+									<li>${content_list.address}&nbsp;${content_list.detail_address}</li>
+								</ul>
+							</li>
+							</c:if>
 
 							<li>
 								<ul>

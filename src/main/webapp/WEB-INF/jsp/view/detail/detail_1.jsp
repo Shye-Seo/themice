@@ -252,12 +252,6 @@ $(function() {
 		<div class="title">
 			<span>전시</span>
 		</div>
-		<div class="root">
-			<img alt="" src="${root}/img/list/home_icon.svg"> <span><img
-				alt="" src="${root}/img/common/arrow_icon.svg"></span> <span>전시리스트</span>
-			<span><img alt="" src="${root}/img/common/arrow_icon.svg"></span>
-			<span>상세페이지</span>
-		</div>
 	</div>
 
 	<a href="javascript:history.back();" id="back_area">
@@ -269,18 +263,17 @@ $(function() {
 	
 	<div class="detail_quick">
 		<a href="website?contents_idx=${content_list.idx}">
-			<img alt="" src="${root}/img/detail/direct_link.svg">
-			<span>사이트 바로가기</span>
+			<img alt="" src="${root}/img/detail/direct_icon.svg">
 		</a>
 	</div>
 
 	<section id="detail"
-		style="background-image: url('${root}/img/insertcontents/pattern/pattern_${content_list.pattern}.png');">
+		style="background-color: ${content_list.background_color}; background-image: url('${root}/img/insertcontents/pattern/pattern_${content_list.pattern}.png');">
 		<div class="contents">
 			<div class="contents_area_1">
 				<div class="slider">
 					<ul>
-						<c:if test="${check ==  0}">
+<%-- 						<c:if test="${check ==  0}"> --%>
 							<li><img alt=""
 								src="${root}/watermark_path/${content_img.img_1}"
 								style="width: 100%; height: 100%;"></li>
@@ -290,19 +283,19 @@ $(function() {
 							<li><img alt=""
 								src="${root}/watermark_path/${content_img.img_3}"
 								style="width: 100%; height: 100%;"></li>
-						</c:if>
+<%-- 						</c:if> --%>
 
-						<c:if test="${check ==  1}">
-							<li><img alt=""
-								src="${root}/contents_img/${content_img.img_1}"
-								style="width: 100%; height: 100%;"></li>
-							<li><img alt=""
-								src="${root}/contents_img/${content_img.img_2}"
-								style="width: 100%; height: 100%;"></li>
-							<li><img alt=""
-								src="${root}/contents_img/${content_img.img_3}"
-								style="width: 100%; height: 100%;"></li>
-						</c:if>
+<%-- 						<c:if test="${check ==  1}"> --%>
+<!-- 							<li><img alt="" -->
+<%-- 								src="${root}/contents_img/${content_img.img_1}" --%>
+<!-- 								style="width: 100%; height: 100%;"></li> -->
+<!-- 							<li><img alt="" -->
+<%-- 								src="${root}/contents_img/${content_img.img_2}" --%>
+<!-- 								style="width: 100%; height: 100%;"></li> -->
+<!-- 							<li><img alt="" -->
+<%-- 								src="${root}/contents_img/${content_img.img_3}" --%>
+<!-- 								style="width: 100%; height: 100%;"></li> -->
+<%-- 						</c:if> --%>
 					</ul>
 				</div>
 				<div class="title_area">
@@ -379,15 +372,15 @@ $(function() {
 			</div>
 
 			<div class="contents_area_2">
-				<c:if test="${check == 0}">
+<%-- 				<c:if test="${check == 0}"> --%>
 					<img alt="" src="${root}/watermark_path/${content_img.img_4}"
 						style="box-shadow: -150px 50px 0px ${content_list.background_color};">
-				</c:if>
+<%-- 				</c:if> --%>
 
-				<c:if test="${check == 1}">
-					<img alt="" src="${root}/contents_img/${content_img.img_4}"
-						style="box-shadow: -150px 50px 0px ${content_list.background_color};">
-				</c:if>
+<%-- 				<c:if test="${check == 1}"> --%>
+<%-- 					<img alt="" src="${root}/contents_img/${content_img.img_4}" --%>
+<%-- 						style="box-shadow: -150px 50px 0px ${content_list.background_color};"> --%>
+<%-- 				</c:if> --%>
 			</div>
 
 			<div class="contents_area_3">
@@ -405,11 +398,17 @@ $(function() {
 					</div>
 					<div class="info_area">
 						<ul>
-							<li>주최 / 기관</li>
-							<li>개최 기간</li>
-							<li>관람 시간</li>
-							<li>개최 장소</li>
+							<li>주최/주관</li>
+							<li>기간</li>
+							<li>시간</li>
 							<li>전화</li>
+							<li>팩스</li>
+							<c:if test="${content_list.web_address != ''}">
+								<li>홈페이지</li>
+							</c:if>
+							<c:if test="${content_list.web_address == ''}">
+								<li>개최장소</li>
+							</c:if>
 							<li>관람료</li>
 						</ul>
 
@@ -417,8 +416,14 @@ $(function() {
 							<li>${content_list.business}</li>
 							<li>${content_list.start_day}&nbsp;~&nbsp;${content_list.end_day}</li>
 							<li>${content_list.start_time}&nbsp;~&nbsp;${content_list.end_time }</li>
-							<li>${content_list.address}&nbsp;${content_list.detail_address}</li>
 							<li>${content_list.tel}</li>
+							<li>${content_list.fax}</li>
+							<c:if test="${content_list.web_address != ''}">
+								<li>${content_list.web_address}</li>
+							</c:if>
+							<c:if test="${content_list.web_address == ''}">
+								<li>${content_list.address}&nbsp;${content_list.detail_address}</li>
+							</c:if>
 							<li><span id="price_${content_list.idx}"></span>
 							<script type="text/javascript">
 								$(function () {
@@ -447,13 +452,13 @@ $(function() {
 					</div>
 				</div>
 				<div class="img_area">
-					<c:if test="${check == 0}">
+<%-- 					<c:if test="${check == 0}"> --%>
 						<img alt="" src="${root}/watermark_path/${content_img.img_5}">
-					</c:if>
+<%-- 					</c:if> --%>
 
-					<c:if test="${check == 1}">
-						<img alt="" src="${root}/contents_img/${content_img.img_5}">
-					</c:if>
+<%-- 					<c:if test="${check == 1}"> --%>
+<%-- 						<img alt="" src="${root}/contents_img/${content_img.img_5}"> --%>
+<%-- 					</c:if> --%>
 				</div>
 			</div>
 		</div>
