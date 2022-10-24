@@ -28,32 +28,37 @@
 	function notice_delete_management() {
 		var check = [];
 
-		$('input[name="check"]:checked').each(function(e) {
-			check.push($(this).val());
-		})
-
-		var list = {
-			'check' : check
-		}
-
-		$.ajax({
-			url : 'notice_delete_management',
-			type : 'post',
-			data : list,
-			success : function(data) {
-
-				if ($.trim(data) == 0) {
-					alert('삭제되었습니다.');
-					location.href = 'notice_management?contents_idx=${contents_idx}';
-				} else {
-					alert('삭제 실패');
-
-				}
-			},
-			error : function() {
-				alert("에러입니다");
+		if($('input[name="check"]:checked').length == 0){
+			alert("선택된 항목이 없습니다.");
+			return false;
+		}else{
+			$('input[name="check"]:checked').each(function(e) {
+				check.push($(this).val());
+			})
+	
+			var list = {
+				'check' : check
 			}
-		});
+	
+			$.ajax({
+				url : 'notice_delete_management',
+				type : 'post',
+				data : list,
+				success : function(data) {
+	
+					if ($.trim(data) == 0) {
+						alert('삭제되었습니다.');
+						location.href = 'notice_management?contents_idx=${contents_idx}';
+					} else {
+						alert('삭제 실패');
+	
+					}
+				},
+				error : function() {
+					alert("에러입니다");
+				}
+			});
+		}
 	};
 	
 // 	function notice_management_update() {
@@ -87,36 +92,43 @@
 // 		});
 // 	};
 	
-	function selectAll(selectAll)  {
-		const checkboxes = document.getElementsByName('check');
-		
-		checkboxes.forEach((checkbox) => {
-			checkbox.checked = selectAll.checked;
-		})
-	};
 </script>
 </head>
 <body>
 	<div id="section">
 		<jsp:include page="/WEB-INF/jsp/view/page_type_1/header.jsp" />
+		
+		<div id="management_title_area">
+			<span>환경설정</span>
+		</div>
+		<div id="navi_area">
+			<nav>
+				<ul>
+					<li><a href="main_management?contents_idx=${contents_idx}">메인관리</a></li>
+					<li><a href="introduction_management?contents_idx=${contents_idx}">소개관리</a></li>
+					<li><a href="gallery_management?contents_idx=${contents_idx}">갤러리관리</a></li>
+					<li><a href="notice_management?contents_idx=${contents_idx}">공지사항관리</a></li>
+					<li><a href="pop_up_management?contents_idx=${contents_idx}">팝업관리</a></li>
+					<li><a href="comment_management?contents_idx=${contents_idx}">댓글관리</a></li>
+				</ul>
+			</nav>
+		</div>
 	
 		<section id="preferences">
 			<div class="inner">
-				<div class="category">
-					<a href="main_management?contents_idx=${contents_idx}">메인관리</a>
-					<a href="introduction_management?contents_idx=${contents_idx}">소개관리</a>
-					<a href="gallery_management?contents_idx=${contents_idx}">갤러리관리</a>
-					<a href="notice_management?contents_idx=${contents_idx}">공지사항관리</a>
-					<a href="pop_up_management?contents_idx=${contents_idx}">팝업관리</a>
-					<a href="comment_management?contents_idx=${contents_idx}">댓글관리</a>
-				</div>
-				
 				<div class="notice_management">
-					<form method="get">
-						<input type="text" placeholder="제목으로 입력해주세요." name="title" value="${test}">
-						<input type="submit" value="검색">
-						<input type="hidden" value="${contents_idx}" name="contents_idx">
-					</form>
+					<span class="title_area">공지사항 관리</span>
+					
+					<div class="btn_area">
+						<a href="notice_management_insert?contents_idx=${contents_idx}">게시글 등록</a>
+						<input type="button" onclick="notice_delete_management()" value="삭제">
+					</div>
+					
+<!-- 					<form method="get"> -->
+<%-- 						<input type="text" placeholder="제목으로 입력해주세요." name="title" value="${test}"> --%>
+<!-- 						<input type="submit" value="검색"> -->
+<%-- 						<input type="hidden" value="${contents_idx}" name="contents_idx"> --%>
+<!-- 					</form> -->
 					
 					<div class="contents_area">
 						<ul>
@@ -124,7 +136,8 @@
 							<li>NO</li>
 							<li>제목</li>
 							<li>작성일자</li>
-							<li>조회순</li>
+							<li>조회수</li>
+							<li>&nbsp;</li>
 						</ul>
 						
 						<c:forEach var="list" items="${notice_list}" varStatus="st">
@@ -134,11 +147,12 @@
 								<li><a href="web_notice_detail?contents_idx=${contents_idx}&idx=${list.idx}">${list.title}</a></li>
 								<li>${list.create_day}</li>
 								<li>${list.views}</li>
+								<li><a href="notice_management_update?contents_idx=${contents_idx}&idx=${list.idx}">수정</a></li>
 							</ul>
 						</c:forEach>
 					</div>
 					
-					<div class="paging" style="margin: 0 auto;">
+					<div class="paging">
 						<c:if test="${paging.startPage != 1 }">
 							<a href="web_notice_list?nowPage=${paging.startPage - 1}&cntPerPage=${paging.cntPerPage}&contents_idx=${contents_idx}" class="paging_0">&lt;</a>
 						</c:if>
@@ -158,13 +172,7 @@
 					</div>
 					<input type="hidden" value="${contents_idx}" name="contents_idx">
 					<input type="hidden" value="${idx}" name="idx">
-<%-- 						<input type="text" value="contents_idx=${contents_idx}  / idx=${list.idx}"> --%>
-					<div class="btn_area">
-						<a href="notice_management_insert?contents_idx=${contents_idx}">게시글 등록</a>
-<%-- 						<a href="notice_management_update?contents_idx=${contents_idx}?idx=${notice_list.idx}">수정</a> --%>
-<!-- 						<input type="button" onclick="notice_management_update()" value="수정"> -->
-						<input type="button" onclick="notice_delete_management()" value="삭제">
-					</div>
+					
 				</div>
 			</div>
 			

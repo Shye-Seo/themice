@@ -52,11 +52,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 	<section id="list">
 		<div class="contents_category">
 			<a href="list?term=0&exhn_type=${exhn_type}&day=${day}&title=${title}" class="term_0">전체 일정</a>
-			<a href="list?term=1&exhn_type=${exhn_type}&day=${day}&title=${title}" class="term_0">진행 일정</a>
+			<a href="list?term=1&exhn_type=${exhn_type}&day=${day}&title=${title}" class="term_0">현재 일정</a>
 			<a href="list?term=2&exhn_type=${exhn_type}&day=${day}&title=${title}" class="term_0">지난 일정</a>
 			<input type="hidden" name="term" value="${term}">
 		</div>
-	
 		<div class="category">
 			<ul>
 				<li class="exhn_type_0"><a href="list?exhn_type=전체">전체</a></li>
@@ -69,7 +68,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 			
 			<input type="hidden" name="exhn_type" value="${exhn_type}" class="exhn_type">
 		</div>
-		
+<%-- 		<div><input type="text" value="${total }"></div> --%>
 		<script type="text/javascript">
 			$(function() {
 				var exhn_type = $('.exhn_type').val();
@@ -108,9 +107,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 		</script>
 
 		<div class="search">
-			<form method="post" action="list">
+			<form method="post" action="list" name="form">
 				<div>
-					<img src="${root}/img/list/star_icon_color.svg">
+					<img src="${root}/img/list/icon_star.svg">
 					<c:if test="${title == null}">
 						<input type="text" placeholder="행사명을 입력하세요." name="title">
 					</c:if>
@@ -123,8 +122,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 					</label>
 				</div>
 				<div>
-					<img src="${root}/img/list/calender_icon.svg"> <input
-						type="date" name="day" id="now_date" value="${day}">
+					<img src="${root}/img/list/icon_date02.svg">
+					<input type="date" name="day" id="now_date" value="${day}">
 				</div>
 			</form>
 		</div>
@@ -150,12 +149,15 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 						$('input[name=title]').focus();
 						return false;
 					} else {
-						$('form').submit();
+						$('form[name=form]').submit();
 					}
 				});
 			});
 		</script>
-		
+		<c:if test="${total == 0}">
+			<div class="none"><div>검색 결과가 없습니다.</div></div>
+		</c:if>
+		<c:if test="${total != 0 }">
 		<div class="contents">
 			<ul class="contents_item">
 				<c:forEach var="l" items="${list}" varStatus="st">
@@ -216,7 +218,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 												} if(strArray[2] != 'null'){
 													price = price + '/ 초등학생 : ' + strArray[2] + '원';
 												} if(strArray[3] != 'null'){
-													price = pirce + '/ 아동 : ' + strArray[3] + '원';
+													price = price + '/ 아동 : ' + strArray[3] + '원';
 												}
 												
 												if(price == ''){
@@ -255,6 +257,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 							</div>
 							<div class="content_info_link">
 								<a href="detail?contents_idx=${l.idx}">상세보기</a>
+								<a href="website?contents_idx=${l.idx}" target="_blank">사이트가기</a>
 								<c:if test="${mv.id ne null}">
 									<a href="payment_page?contents_idx=${l.idx}" onClick="window.open(this.href,'_blank','width=1130, height=850'); return false">예매하기</a> 
 								</c:if>
@@ -295,6 +298,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 				</c:forEach>
 			</ul>
 		</div>
+		</c:if>
 		<div class="paging">
 			<c:if test="${paging.startPage != 1 }">
 				<a href="list?nowPage=${paging.startPage - 1}&cntPerPage=${paging.cntPerPage}&exhn_type=${exhn_type}&term=${term}&day=${day}&title=${title}" class="paging_0">&lt;</a>
@@ -322,7 +326,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 		
 		<div class="category_area">
 			<a href="list?term=0&exhn_type=${exhn_type}&day=${day}&title=${title}" class="term_0">전체 일정</a>
-			<a href="list?term=1&exhn_type=${exhn_type}&day=${day}&title=${title}" class="term_0">진행 일정</a>
+			<a href="list?term=1&exhn_type=${exhn_type}&day=${day}&title=${title}" class="term_0">현재 일정</a>
 			<a href="list?term=2&exhn_type=${exhn_type}&day=${day}&title=${title}" class="term_0">지난 일정</a>
 			<input type="hidden" name="term" value="${term}">
 		</div>
@@ -436,7 +440,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 											} if(strArray[2] != 'null'){
 												price = price + '/ 초등학생 : ' + strArray[2] + '원';
 											} if(strArray[3] != 'null'){
-												price = pirce + '/ 아동 : ' + strArray[3] + '원';
+												price = price + '/ 아동 : ' + strArray[3] + '원';
 											}
 											
 											if(price == ''){

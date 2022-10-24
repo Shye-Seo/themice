@@ -198,8 +198,7 @@ selsect::-ms-expand {
 					<div class="left">
 						<span>*</span>
 						<ul>
-							<li>제</li>
-							<li>목</li>
+							<li>제목</li>
 						</ul>
 					</div>
 					<div class="right">
@@ -212,8 +211,7 @@ selsect::-ms-expand {
 					<div class="left">
 						<span>*</span>
 						<ul>
-							<li>기</li>
-							<li>간</li>
+							<li>기간</li>
 						</ul>
 					</div>
 					<div class="right">
@@ -227,12 +225,12 @@ selsect::-ms-expand {
 					<div class="left">
 						<span>*</span>
 						<ul>
-							<li>시</li>
-							<li>간</li>
+							<li>시간</li>
 						</ul>
 					</div>
 					<div class="right">
-						<input type="time" name="start_time" id="start_time" class="input_2">~
+						<input type="time" name="start_time" id="start_time" class="input_2">
+						<span>~</span>
 						<input type="time" name="end_time" id="end_time" class="input_2">
 					</div>
 				</div>
@@ -241,8 +239,7 @@ selsect::-ms-expand {
 					<div class="left">
 						<span>*</span>
 						<ul>
-							<li>전</li>
-							<li>화</li>
+							<li>전화</li>
 						</ul>
 					</div>
 					<div class="right">
@@ -254,8 +251,7 @@ selsect::-ms-expand {
 					<div class="left">
 						<span>*</span>
 						<ul>
-							<li>팩</li>
-							<li>스</li>
+							<li>팩스</li>
 						</ul>
 					</div>
 					<div class="right">
@@ -267,16 +263,14 @@ selsect::-ms-expand {
 					<div class="left">
 						<span>*</span>
 						<ul>
-							<li>관</li>
-							<li>람</li>
-							<li>료</li>
+							<li>관람료</li>
 						</ul>
 					</div>
 					<div class="right_2">
 						<div class="price_insert_area">
 							<input id="price" type="text" placeholder="미 작성시 자동으로 무료로 전환됩니다."
 							oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
-							<select id="age_type" class="select">
+							<select id="age_type" class="select" style="width:20%;">
 								<option value="1">성인</option>
 								<option value="2">중,고등학생</option>
 								<option value="3">초등학생</option>
@@ -362,14 +356,11 @@ selsect::-ms-expand {
 					<div class="left">
 						<span>*</span>
 						<ul>
-							<li>관</li>
-							<li>람</li>
-							<li>연</li>
-							<li>령</li>
+							<li>관람연령</li>
 						</ul>
 					</div>
 					<div class="right">
-						<select name="age" id="age" class="input_3">
+						<select name="age" id="age" class="input_3" style="width: 45%;">
 							<option value="전체관람가">전체관람가</option>
 							<option value="12세 이상 관람가">12세 이상 관람가</option>
 							<option value="15세 이상 관람가">15세 이상 관람가</option>
@@ -382,14 +373,11 @@ selsect::-ms-expand {
 					<div class="left">
 						<span>*</span>
 						<ul>
-							<li>전</li>
-							<li>시</li>
-							<li>타</li>
-							<li>입</li>
+							<li>전시타입</li>
 						</ul>
 					</div>
 					<div class="right">
-						<select name="exhn_type" id="exhbn_type" class="input_3">
+						<select name="exhn_type" id="exhbn_type" class="input_3" style="width: 45%;">
 							<option value="박람회">박람회</option>
 							<option value="전시회">전시회</option>
 							<option value="페어">페어</option>
@@ -403,10 +391,7 @@ selsect::-ms-expand {
 					<div class="left">
 						<span>*</span>
 						<ul>
-							<li>전</li>
-							<li>시</li>
-							<li>장</li>
-							<li>소</li>
+							<li>전시장소</li>
 						</ul>
 					</div>
 					<div class="right">
@@ -420,7 +405,7 @@ selsect::-ms-expand {
 							<input type="text" placeholder="홈페이지를 입력해주세요." class="input" name="web_address" id="web_address">
 						</div>
 						<div class="address_select_area">
-							<select name="selectBox" id="selectBox" class="select">
+							<select name="selectBox" id="selectBox" class="select" style="width: 100%;">
 								<option value="offline">오프라인</option>
 								<option value="online">온라인</option>
 							</select>
@@ -446,10 +431,7 @@ selsect::-ms-expand {
 				<div class="infomation_area">
 					<div class="left">
 						<ul>
-							<li>전</li>
-							<li>시</li>
-							<li>내</li>
-							<li>용</li>
+							<li>전시내용</li>
 						</ul>
 					</div>
 					<div class="right">
@@ -461,11 +443,7 @@ selsect::-ms-expand {
 				<div class="infomation_area">
 					<div class="left">
 						<ul>
-							<li>전</li>
-							<li>시</li>
-							<li>검</li>
-							<li>색</li>
-							<li>어</li>
+							<li>전시 검색어</li>
 						</ul>
 					</div>
 
@@ -541,10 +519,7 @@ selsect::-ms-expand {
 				<div class="infomation_area">
 					<div class="left">
 						<ul>
-							<li>대</li>
-							<li>표</li>
-							<li>사</li>
-							<li>진</li>
+							<li>대표사진</li>
 						</ul>
 					</div>
 
@@ -597,22 +572,19 @@ selsect::-ms-expand {
 					<div class="left">
 						<span>*</span>
 						<ul>
-							<li>전</li>
-							<li>시</li>
-							<li>컬</li>
-							<li>러</li>
+							<li>전시 상세페이지</li>
 						</ul>
 					</div>
 					<div class="right_3">
 						<div class="color_category">
 							<input type="radio" name="layout_type_" value="1" id="color_item_1">
-							<label for="color_item_1"></label>
+							<label for="color_item_1">스타일 1</label>
 							<input type="radio" name="layout_type_" value="2" id="color_item_2">
-							<label for="color_item_2"></label>
+							<label for="color_item_2">스타일 2</label>
 							<input type="radio" name="layout_type_" value="3" id="color_item_3">
-							<label for="color_item_3"></label>
+							<label for="color_item_3">스타일 3</label>
 							<input type="radio" name="layout_type_" value="4" id="color_item_4">
-							<label for="color_item_4"></label>
+							<label for="color_item_4">스타일 4</label>
 						</div>
 						
 						<script type="text/javascript">
@@ -771,8 +743,7 @@ selsect::-ms-expand {
 				<div class="infomation_area">
 					<div class="left">
 						<ul>
-							<li>폰</li>
-							<li>트</li>
+							<li>폰트</li>
 						</ul>
 					</div>
 					<div class="right">
@@ -780,7 +751,7 @@ selsect::-ms-expand {
 							<option value="1">카페 아네모네</option>
 							<option value="2">에스코어 드림</option>
 							<option value="3">비트로 코어 OTF</option>
-							<option value="4">나눔고딛</option>
+							<option value="4">나눔고딕</option>
 							<option value="5">나눔명조 옛한글</option>
 							<option value="6">Oriya MN</option>
 						</select>
@@ -790,10 +761,7 @@ selsect::-ms-expand {
 				<div class="infomation_area">
 					<div class="left">
 						<ul>
-							<li>배</li>
-							<li>경</li>
-							<li>패</li>
-							<li>턴</li>
+							<li>배경패턴</li>
 						</ul>
 					</div>
 					<div class="right_4"style="justify-content: space-between;">
@@ -837,10 +805,7 @@ selsect::-ms-expand {
 				<div class="infomation_area">
 					<div class="left">
 						<ul>
-							<li>배</li>
-							<li>경</li>
-							<li>색</li>
-							<li>상</li>
+							<li>배경색상</li>
 						</ul>
 					</div>
 					<div class="right_4">
@@ -863,11 +828,7 @@ selsect::-ms-expand {
 				<div class="infomation_area">
 					<div class="left">
 						<ul>
-							<li>사</li>
-							<li>이</li>
-							<li>트</li>
-							<li>타</li>
-							<li>입</li>
+							<li>사이트</li>
 						</ul>
 					</div>
 					<div class="right web_select_area">
@@ -942,8 +903,7 @@ selsect::-ms-expand {
 					<div class="left">
 						<span>*</span>
 						<ul>
-							<li>로</li>
-							<li>고</li>
+							<li>로고</li>
 						</ul>
 					</div>
 					<div class="right">
@@ -957,11 +917,7 @@ selsect::-ms-expand {
 					<div class="left">
 						<span>*</span>
 						<ul>
-							<li>메</li>
-							<li>인</li>
-							<li>이</li>
-							<li>미</li>
-							<li>지</li>
+							<li>메인 이미지</li>
 						</ul>
 					</div>
 					<div class="right">
@@ -975,8 +931,7 @@ selsect::-ms-expand {
 					<div class="left">
 						<span>*</span>
 						<ul>
-							<li>배</li>
-							<li>너</li>
+							<li>배너</li>
 						</ul>
 					</div>
 					<div class="right">

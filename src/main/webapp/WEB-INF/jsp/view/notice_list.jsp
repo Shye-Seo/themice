@@ -28,22 +28,20 @@
 			<span>공지사항</span>
 		</div>
 	</div>
-	
 	<section id="notice">
 		<div class="search_area">
 			<form method="get">
 				<input type="text" placeholder="제목으로 입력해주세요." name="title" value="${title}">
 				<input type="submit" value="검색" id="search_submit">
-				<label for="search_submit"><img alt="" src="${root}/img/list/search.svg"></label>
+<%-- 				<label for="search_submit"><img alt="" src="${root}/img/list/search.svg"></label> --%>
 			</form>
 		</div>
-		
 		<div class="contents_area">
-			<ul class="title_area">
+			<ul>
 				<li>번호</li>
 				<li>제목</li>
 				<li>작성일자</li>
-				<li>조회순</li>
+				<li>조회수</li>
 			</ul>
 			
 			<c:forEach var="nl" items="${notice_list}" varStatus="st">
@@ -56,7 +54,7 @@
 			</c:forEach>
 		</div>
 	</section>
-	
+<%-- 	<input type="text" value="${total}"> --%>
 	<div class="paging">
 		<c:if test="${paging.startPage != 1 }">
 			<a

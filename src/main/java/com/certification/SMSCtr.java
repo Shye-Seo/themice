@@ -217,7 +217,7 @@ public class SMSCtr {
 		sms.setRandom_Number(random);
 		
 		params.put("to", tel);
-		params.put("from", "070-8722-6321");
+		params.put("from", "010-9878-0502");
 		params.put("type", "SMS");
 		params.put("text", "안녕하세요. 인증번호는 " + random + "입니다.");
 		params.put("app_version", "test app 1.2");

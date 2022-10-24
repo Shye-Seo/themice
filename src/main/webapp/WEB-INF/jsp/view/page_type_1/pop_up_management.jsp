@@ -38,17 +38,24 @@
 	<div id="section">
 		<jsp:include page="/WEB-INF/jsp/view/page_type_1/header.jsp" />
 		
+		<div id="management_title_area">
+			<span>환경설정</span>
+		</div>
+		<div id="navi_area">
+			<nav>
+				<ul>
+					<li><a href="main_management?contents_idx=${contents_idx}">메인관리</a></li>
+					<li><a href="introduction_management?contents_idx=${contents_idx}">소개관리</a></li>
+					<li><a href="gallery_management?contents_idx=${contents_idx}">갤러리관리</a></li>
+					<li><a href="notice_management?contents_idx=${contents_idx}">공지사항관리</a></li>
+					<li><a href="pop_up_management?contents_idx=${contents_idx}">팝업관리</a></li>
+					<li><a href="comment_management?contents_idx=${contents_idx}">댓글관리</a></li>
+				</ul>
+			</nav>
+		</div>
+		
 		<section id="preferences">
 			<div class="inner">
-				<div class="category">
-					<a href="main_management?contents_idx=${contents_idx}">메인관리</a>
-					<a href="introduction_management?contents_idx=${contents_idx}">소개관리</a>
-					<a href="gallery_management?contents_idx=${contents_idx}">갤러리관리</a>
-					<a href="notice_management?contents_idx=${contents_idx}">공지사항관리</a>
-					<a href="pop_up_management?contents_idx=${contents_idx}">팝업관리</a>
-					<a href="comment_management?contents_idx=${contents_idx}">댓글관리</a>
-				</div>
-				
 				<div class="pop_up_management">
 					<span class="title_area">팝업 관리</span>
 					<span class="sub_title_area">팝업창은 최대 3개까지 등록 가능합니다.</span>
@@ -104,7 +111,7 @@
 									</div>
 									
 									<div class="upload_item_2">
-										<label for="img_1"><img alt="" src="${root}/img/website/upload_icon.svg">내 PC</label>
+										<label for="img_1"><img alt="" src="${root}/img/website/upload_white.svg">내 PC</label>
 									</div>
 								</div>
 							</div>
@@ -159,7 +166,7 @@
 									</div>
 									
 									<div class="upload_item_2">
-										<label for="img_2"><img alt="" src="${root}/img/website/upload_icon.svg">내 PC</label>
+										<label for="img_2"><img alt="" src="${root}/img/website/upload_white.svg">내 PC</label>
 									</div>
 								</div>
 							</div>
@@ -214,14 +221,14 @@
 									</div>
 									
 									<div class="upload_item_2">
-										<label for="img_3"><img alt="" src="${root}/img/website/upload_icon.svg">내 PC</label>
+										<label for="img_3"><img alt="" src="${root}/img/website/upload_white.svg">내 PC</label>
 									</div>
 								</div>
 							</div>
 						</div>
 						
 						<div class="btn_area">
-							<input type="submit" value="저장" id="img_upload_btn">
+							<input type="submit" value="등록" id="img_upload_btn">
 							<input type="reset" value="취소">
 						</div>
 					</form>

@@ -85,7 +85,7 @@
 
 	<select id="getpayment" resultType="com.payment.PaymentVO">
 		select * from (select @rownum:=@rownum+1 as num, n.*
-		from(select * from payments ${sql} order by idx desc)n,
+		from(select * from payment ${sql} order by idx desc)n,
 		(select @rownum:=0)v)num Where num.num between #{start} and #{end}
 	</select>
 	
@@ -222,7 +222,7 @@
 	
 	<select id="count_payments_total" parameterType="com.admin.Admin_Paging_VO" resultType="int">
 		select count(*) from (select @rownum:=@rownum+1 as num, n.*
-		from(select * from payments ${sql} order by idx desc)n,
+		from(select * from payment ${sql} order by idx desc)n,
 		(select @rownum:=0)v)num;
 	</select>
 	

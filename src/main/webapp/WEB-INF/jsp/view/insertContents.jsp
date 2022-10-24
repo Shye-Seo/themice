@@ -150,7 +150,7 @@
 <style type="text/css">
 input[type="time"]::-webkit-calendar-picker-indicator {
 	background-image: url("${root}/img/insertcontents/input_arrow.svg");
-	background-position: center;
+	background-position: right;
 	cursor: pointer;
 }
 
@@ -171,7 +171,7 @@ select {
 	background-position-y: center;
 }
 
-selsect::-ms-expand {
+select::-ms-expand {
 	display: none;
 }
 </style>
@@ -319,7 +319,7 @@ selsect::-ms-expand {
 							}
 							
 							function Price_close(num) {
-								$('.price_item_'+num).text(num);
+								$('.price_item_'+num).text('');
 								$('.price_img_item_'+num).hide();
 								$('#price_'+num).val('null');
 							}
@@ -750,7 +750,7 @@ selsect::-ms-expand {
 							<option value="1">카페 아네모네</option>
 							<option value="2">에스코어 드림</option>
 							<option value="3">비트로 코어 OTF</option>
-							<option value="4">나눔고딛</option>
+							<option value="4">나눔고딕</option>
 							<option value="5">나눔명조 옛한글</option>
 							<option value="6">Oriya MN</option>
 						</select>

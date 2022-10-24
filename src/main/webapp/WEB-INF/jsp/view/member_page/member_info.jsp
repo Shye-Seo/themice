@@ -29,32 +29,17 @@
 	<div id="navi_area">
 		<nav>
 			<ul>
-				<li>
-					<a href="main">
-						<img alt="" src="${root}/img/member_page/home_icon.svg">
-					</a>
-				</li>
-				
-				<li>
-					<a href="#">전시</a>
-				</li>
-				
-				<li>
-					<select onchange="window.location.href=this.value">
-						<!-- <option value="member_info" selected="selected">회원정보 수정</option> -->
-						<option value="login_check" selected="selected">회원정보 수정</option>
-						<option value="member_payment">결제 내역</option>
-						<option value="member_password_update">비밀번호 수정</option>
-						<option value="member_secession">회원 탈퇴</option>
-					</select>
-				</li>
+				<li><a href="member_payment">결제내역</a></li>
+				<li><a href="login_check">회원정보 수정</a></li>
+				<li><a href="member_password_update">비밀번호 수정</a></li>
+				<li><a href="member_secession">회원탈퇴</a></li>
 			</ul>
 		</nav>
 	</div>
 	
 	<section id="member_info">
 		<div class="title_area">
-			<span>개인정보</span>
+			<span>회원정보 수정</span>
 		</div>
 			
 		<div class="contents">
@@ -73,16 +58,31 @@
 						<span>주소</span>
 					</div>
 					<div class="right_area">
-						<div class="div">
-							<input type="text" id="postcode" placeholder="우편번호" readonly>
-							<input type="button" onclick="sample4_execDaumPostcode()" value="주소검색" class="post">
-						</div>
-						<div class="div">
-							<input type="text" id="roadAddress" placeholder="도로명주소" name="address" value="${mv.address}" readonly>
-						</div>
-						<div class="div">
-							<input type="text" id="detailAddress" placeholder="상세주소" name="detail_address" value="${mv.detail_address}">
-						</div>
+<!-- 						<div class="div"> -->
+<!-- 							<input type="text" id="postcode" placeholder="우편번호" readonly> -->
+<!-- 							<input type="button" onclick="sample4_execDaumPostcode()" value="주소검색" class="post"> -->
+<!-- 						</div> -->
+<!-- 						<div class="div"> -->
+<%-- 							<input type="text" id="roadAddress" placeholder="도로명주소" name="address" value="${mv.address}" readonly> --%>
+<!-- 						</div> -->
+<!-- 						<div class="div"> -->
+<%-- 							<input type="text" id="detailAddress" placeholder="상세주소" name="detail_address" value="${mv.detail_address}"> --%>
+<!-- 						</div> -->
+						<table>
+							<tr>
+								<td><input type="text" id="postcode" placeholder="우편번호" class="input"></td>
+								<td><input type="button" onclick="sample4_execDaumPostcode()"
+								value="주소검색" class="post"></td>
+							</tr>
+							<tr>
+								<td id="roadAddress"><input type="text" id="roadAddress" placeholder="도로명주소"
+								class="input" name="address" value="${mv.address}"></td>
+							</tr>
+							<tr>
+								<td><input type="text" id="detailAddress" placeholder="상세주소"
+								class="input" name="detail_address" value="${mv.detail_address}"></td>
+							</tr>
+						</table>
 					</div>
 				</div>
 				
@@ -116,29 +116,32 @@
 						oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
 						pattern="(?:(010-\d{4})|(01[1|6|7|8|9]-\d{3,4}))-(\d{4})"
 						id="tel" value="${mv.tel}"> <input type="button"
-						onclick="mypage_smsCheck(joinform, '${root}')" value="휴대폰 인증"
+						onclick="mypage_smsCheck(joinform, '${root}')" value="인증요청"
 						class="certification_button" readonly>
 						<input type="hidden" id="sms_certification" value="">
 					</div>
 				</div>
 				
-				<div class="infomation_item">
-					<div class="left_area">
-						<span>프로필 사진</span>
-					</div>
-					<div class="right_area profile_area">
-						<div class="img_area">
-							<img alt="" src="${root}/img/join/user_profile_icon.svg">
-						</div>
-						<div class="input_file_area">
-							<input type="file" name="file" value="이미지 첨부"
-								id="profile_file_upload" accept="image/*"> <label
-								for="profile_file_upload">사진 첨부</label>
-						</div>
-					</div>
-				</div>
-				<input type="button" value="저장" class="submit_btn" id="member_info_update_btn">
+<!-- 				<div class="infomation_item"> -->
+<!-- 					<div class="left_area"> -->
+<!-- 						<span>프로필 사진</span> -->
+<!-- 					</div> -->
+<!-- 					<div class="right_area profile_area"> -->
+<!-- 						<div class="img_area"> -->
+<%-- 							<img alt="" src="${root}/img/join/user_profile_icon.svg"> --%>
+<!-- 						</div> -->
+<!-- 						<div class="input_file_area"> -->
+<!-- 							<input type="file" name="file" value="이미지 첨부" -->
+<!-- 								id="profile_file_upload" accept="image/*"> <label -->
+<!-- 								for="profile_file_upload">사진 첨부</label> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
 			</form>
+				<div class="btn_area">
+					<input type="button" value="저장" class="submit_btn" id="member_info_update_btn">
+					<input type="reset" value="취소">
+				</div>
 		</div>
 	</section>
 	

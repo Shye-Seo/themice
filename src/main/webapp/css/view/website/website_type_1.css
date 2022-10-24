@@ -25,12 +25,20 @@ html{
 }
 
 #section header{
-	height: 9vh;
+	height: 70px;
+}
+
+header div{
+	width: 1225px;
+	height: 70px;
+    margin: 0 auto;
+    align-items: center;
 }
 
 header div ul{
-	width: 1225px;
-    margin: 1% auto;
+	width: 100%;
+	height: 100%;
+	line-height: 70px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -40,6 +48,8 @@ header div ul{
 
 header div ul li{
 	cursor: pointer;
+/* 	margin: 0 auto; */
+/* 	width: 20%; */
 }
 
 header div ul li a{
@@ -48,10 +58,36 @@ header div ul li a{
 
 header div ul li:nth-child(1){
 	margin-right: 15%;
+	margin-top: auto;
+}
+
+header div ul li:nth-child(8){
+	margin-left: 10%;
+}
+
+header div ul li:nth-child(8) a{
+/* 	margin-left: 10%; */
+	font-size: 15px;
+	border: 1px solid #E97333;
+	border-radius: 17px;
+	background-color: unset;
+	display: block;
+	text-align: center;
+	width: 95px;
+	line-height: 35px;
+	padding: auto;
+}
+
+header div ul li:nth-child(9){
+	font-size: 15px;
 }
 
 header div ul li .logo_btn{
 	cursor: pointer;
+	border: 0;
+	width: auto;
+	height: 70px;
+	object-fit: cover;
 }
 
 .rotation_banner{
@@ -119,7 +155,7 @@ header div ul li .logo_btn{
 
 #web_main .text_area{
 	position: absolute;
-    top: 35%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
@@ -131,20 +167,20 @@ header div ul li .logo_btn{
 #web_main .text_area span:nth-child(1){
 	font-size: 3rem;
     font-weight: bold;
-    font-family: Cafe24Danjunghae;
-    letter-spacing: 5px;
+    font-family: 'Noto Sans KR, Medium', sans-serif;
+    letter-spacing: -3.64px;
 }
 
 #web_main .text_area span:nth-child(2){
 	font-size: 1.5rem;
-    margin-top: 3%;
+    margin-top: 10%;
 }
 
 #web_main .detail_btn_area{
 	position: absolute;
     left: 50%;
     transform: translate(-50%, -50%);
-    bottom: 10%;
+    bottom: 25%;
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -170,12 +206,12 @@ header div ul li .logo_btn{
 
 #web_detail {
 	width: 100%;
-    background-color: #EBEBEB;
+/*     background-color: #EBEBEB; */
     display: none;
 }
 
 #web_detail .inner{
-	width: 1024px;
+	width: 1225px;
     margin: 0 auto;
     background-color: white;
     display: flex;
@@ -190,11 +226,12 @@ header div ul li .logo_btn{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    border-radius: 5px;
 }
 
 #web_detail .container_1 .img_area{
-	width: 55%;
-    height: 550px;
+	width: 65%;
+    height: 450px;
     position: relative;
 }
 
@@ -203,142 +240,149 @@ header div ul li .logo_btn{
     height: 100%;
 }
 
-#web_detail .container_1 .img_area .text_area{
-	position: absolute;
-    left: 8%;
-    bottom: 8%;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    font-size: 1rem;
-}
-
-#web_detail .container_1 .img_area .text_area span{
-	font-size: 1.2rem;
-}
-
-#web_detail .container_1 .img_area .text_area span:nth-child(2) {
-	display: flex;
-    align-items: center;
-    margin-top: 2%;
-    font-size: 1rem;
-}
-
-#web_detail .container_1 .img_area .text_area span img{
-	width: 18px;
-    margin-right: 3%;
-}
-
 #web_detail .container_1 .data_area{
-	width: 42%;
+	width: 35%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    background-color: #EF8E24;
 }
 
-#web_detail .container_1 .data_area input{
-	width: 99%;
-    height: 41px;
-    cursor: pointer;
-    text-indent: 3%;
-    box-sizing: border-box;
-    padding-right: 3%;
-}
-
-#web_detail .container_1 .data_area .price_area{
-	border: solid 1px #707070;
+#web_detail .container_1 .data_area .text_area{
 	width: 100%;
-    height: 380px;
-    position: relative;
+	box-sizing: border-box;
+	padding: 0 10% 0 10%;
 }
 
-#web_detail .container_1 .data_area .price_area .price_title_area{
+#web_detail .container_1 .data_area .btn_area{
 	width: 100%;
-    background-color: #D9D9D9;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.1rem;
-    color: #333333;
+	box-sizing: border-box;
+	padding: 0 10% 0 10%;
 }
 
-#web_detail .container_1 .data_area .price_area .price_item{
-	display: none;
-    flex-direction: column;
-    padding: 2% 3%;
-    box-sizing: border-box;
-    border-bottom: solid;
-    border-width: 1px;
-    border-color: #707070;
-    width: 95%;
-    margin: 0 auto;
-    font-size: 1rem;
-    color: #333333;
+#web_detail .container_1 .data_area .text_area span{
+	font-size: 3rem;
+	color: #FFFFFF;
+	font-weight: bold;
 }
 
-#web_detail .container_1 .data_area .price_area .price_item p{
-	margin: 0;
-	display: flex;
-}
-
-#web_detail .container_1 .data_area .price_area .price_item p span{
-	margin-left: 5%;
-}
-
-#web_detail .container_1 .data_area .price_area .price_item .cnt_area{
-	display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 1%;
-}
-
-#web_detail .container_1 .data_area .price_area .price_item .cnt_area div{
+#web_detail .container_1 .data_area .text_area span:nth-child(2) {
 	display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 25%;
+    margin-top: 5%;
+    font-size: 1.2rem;
+    color: #FFFFFF;
 }
 
-#web_detail .container_1 .data_area .price_area .price_item .cnt_area img{
-	width: 20px;
-	cursor: pointer;
-}
-
-#web_detail .container_1 .data_area .price_area .total_area{
-	width: 100%;
-	position: absolute;
-	bottom: 0;
-}
-
-#web_detail .container_1 .data_area .price_area .total_area p{
-	display: flex;
-    justify-content: flex-end;
-    margin: 3% 0;
-    margin-right: 3%;
-}
-
-#web_detail .container_1 .data_area .price_area .total_area span{
-	margin-left: 3%;
-}
-
-#web_detail .container_1 .data_area .payment_btn{
-	width: 100%;
-    background-color: #EA933C;
-    border: unset;
-    color: white;
-    font-size: 2rem;
-    height: 65px;
+#web_detail .container_1 .data_area .btn_area .payment_btn{
+	width: 50%;
+    background-color: unset;
+    border: 2px solid #FFFFFF;
+    border-radius: 55px;
+    color: #FFFFFF;
+    font-size: 1.2rem;
+    height: 55px;
     cursor: pointer;
     font-family: SUIT-Medium;
 }
+
+/* #web_detail .container_1 .data_area .text_area span img{ */
+/* 	width: 18px; */
+/*     margin-right: 3%; */
+/* } */
+
+/* #web_detail .container_1 .data_area input{ */
+/* 	width: 99%; */
+/*     height: 41px; */
+/*     cursor: pointer; */
+/*     text-indent: 3%; */
+/*     box-sizing: border-box; */
+/*     padding-right: 3%; */
+/* } */
+
+/* #web_detail .container_1 .data_area .price_area{ */
+/* 	border: solid 1px #707070; */
+/* 	width: 100%; */
+/*     height: 380px; */
+/*     position: relative; */
+/* } */
+
+/* #web_detail .container_1 .data_area .price_area .price_title_area{ */
+/* 	width: 100%; */
+/*     background-color: #D9D9D9; */
+/*     height: 50px; */
+/*     display: flex; */
+/*     align-items: center; */
+/*     justify-content: center; */
+/*     font-size: 1.1rem; */
+/*     color: #333333; */
+/* } */
+
+/* #web_detail .container_1 .data_area .price_area .price_item{ */
+/* 	display: none; */
+/*     flex-direction: column; */
+/*     padding: 2% 3%; */
+/*     box-sizing: border-box; */
+/*     border-bottom: solid; */
+/*     border-width: 1px; */
+/*     border-color: #707070; */
+/*     width: 95%; */
+/*     margin: 0 auto; */
+/*     font-size: 1rem; */
+/*     color: #333333; */
+/* } */
+
+/* #web_detail .container_1 .data_area .price_area .price_item p{ */
+/* 	margin: 0; */
+/* 	display: flex; */
+/* } */
+
+/* #web_detail .container_1 .data_area .price_area .price_item p span{ */
+/* 	margin-left: 5%; */
+/* } */
+
+/* #web_detail .container_1 .data_area .price_area .price_item .cnt_area{ */
+/* 	display: flex; */
+/*     flex-direction: row; */
+/*     align-items: center; */
+/*     justify-content: space-between; */
+/*     margin-top: 1%; */
+/* } */
+
+/* #web_detail .container_1 .data_area .price_area .price_item .cnt_area div{ */
+/* 	display: flex; */
+/*     align-items: center; */
+/*     justify-content: space-between; */
+/*     width: 25%; */
+/* } */
+
+/* #web_detail .container_1 .data_area .price_area .price_item .cnt_area img{ */
+/* 	width: 20px; */
+/* 	cursor: pointer; */
+/* } */
+
+/* #web_detail .container_1 .data_area .price_area .total_area{ */
+/* 	width: 100%; */
+/* 	position: absolute; */
+/* 	bottom: 0; */
+/* } */
+
+/* #web_detail .container_1 .data_area .price_area .total_area p{ */
+/* 	display: flex; */
+/*     justify-content: flex-end; */
+/*     margin: 3% 0; */
+/*     margin-right: 3%; */
+/* } */
+
+/* #web_detail .container_1 .data_area .price_area .total_area span{ */
+/* 	margin-left: 3%; */
+/* } */
 
 #web_detail .container_2{
 	width: 100%;
     display: flex;
     flex-direction: column;
-    margin-top: 10%;
+    margin-top: 5%;
 }
 
 #web_detail .container_2 .menu_item {
@@ -477,18 +521,62 @@ header div ul li .logo_btn{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: #EBEBEB;
 }
 
 #preferences .inner{
 	height: 100%;
     background-color: white;
-    width: 1024px;
+    width: 1225px;
     margin: 0 auto;
     box-sizing: border-box;
     padding: 1% 3%;
     display: flex;
     flex-direction: column;
+}
+
+#management_title_area{
+	width: 100%;
+	height: 150px;
+	font-size: 36px;
+	font-weight: bold;
+	color: #222222;
+	text-align: center;
+}
+
+#management_title_area span{
+	height: 150px;
+	line-height: 150px;
+}
+
+#navi_area {
+	background-color: #50525D;
+	height: 60px;
+}
+
+#navi_area a{
+	color: #FFFFFF;
+}
+
+#navi_area nav {
+	width: 1024px;
+	margin: 0 auto;
+	height: 100%;
+}
+
+#navi_area nav ul {
+	display: flex;
+	flex-direction: row;
+	height: 100%;
+	width: 1000px;
+	justify-content: center;
+}
+
+#navi_area nav ul li {
+	display: flex;
+	align-items: center;
+	width: 200px;
+	justify-content: space-around;
+	font-size: 18px;
 }
 
 #preferences .inner .category{
@@ -497,9 +585,8 @@ header div ul li .logo_btn{
     margin-top: 5%;
     display: flex;
     justify-content: space-around;
-    border-bottom: solid;
-    border-width: 1px;
-    border-color: #707070;
+    background-color: #50525D;
+    
 }
 
 #preferences .inner .category a{
@@ -517,34 +604,34 @@ header div ul li .logo_btn{
 }
 
 #preferences .inner .main_management .title_area{
-	font-size: 1.2rem;
-    font-weight: bold;
+	text-align: center;
+	font-size: 2rem;
+	font-weight: 300;
     color: #333333;
 }
 
 #preferences .inner .main_management .contents_area{
-	margin-top: 1%;
-    border-top: solid;
-    border-bottom: solid;
-    border-width: 1px;
-    border-color: #707070;
+	margin-top: 5%;
+    border-top: 2px solid #ED7326;
+    border-bottom: 1px solid #707070;
     display: flex;
     flex-direction: row;
     height: 70%;
 }
 
 #preferences .inner .main_management .contents_area .left_area{
-	width: 20%;
+	width: 15%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #EEEEEE;
+    background-color: #F7F7F7;
 }
 
 #preferences .inner .main_management .contents_area .right_area{
-	width: 77%;
+	width: 80%;
     height: 90%;
-    border: solid 1px #707070;
+    border: solid 1px #E5E5E5;
+    border-radius: 3px;
     margin: 2% auto;
 }
 
@@ -568,7 +655,7 @@ header div ul li .logo_btn{
     justify-content: center;
     border-bottom: solid;
     border-width: 1px;
-    border-color: #707070;
+    border-color: #E5E5E5;
     color: #707070;
     position: relative;
 }
@@ -592,12 +679,15 @@ header div ul li .logo_btn{
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-    border: solid 1px #707070;
-    width: 80px;
-    height: 40px;
+    border: solid 1px #A1A1A1;
+    border-radius: 3px;
+    background-color: #A1A1A1;
+    width: 100px;
+    height: 35px;
     cursor: pointer;
     box-sizing: border-box;
     font-size: 0.9rem;
+    color: #FFFFFF;
 }
 
 #preferences .inner .main_management .btn_area{
@@ -608,14 +698,26 @@ header div ul li .logo_btn{
     margin: 5% 0;
 }
 
-#preferences .inner .main_management .btn_area input{
-	width: 70px;
-    height: 30px;
-    background-color: #EA933C;
-    border: unset;
-    color: white;
+#preferences .inner .main_management .btn_area input:nth-child(1){
+	width: 100px;
+    height: 45px;
+    background-color: #414141;
+    border: 1px solid #414141;
+    border-radius: 50px;
+    color: #FFFFFF;
     font-size: 1rem;
-    font-weight: bold;
+    cursor: pointer;
+    margin-right: 2%;
+}
+
+#preferences .inner .main_management .btn_area input:nth-child(2) {
+	border: solid 1px #414141;
+    color: #414141;
+    background: unset;
+    border-radius: 50px;
+    width: 100px;
+    height: 45px;
+    font-size: 14px;
     cursor: pointer;
 }
 
@@ -624,7 +726,14 @@ header div ul li .logo_btn{
     height: 95%;
     display: flex;
     flex-direction: column;
-    margin-top: 3%;
+    margin-top: 5%;
+}
+
+#preferences .inner .notice_management .title_area{
+	text-align: center;
+	font-size: 2rem;
+	font-weight: 300;
+    color: #333333;
 }
 
 #preferences .inner .notice_management form{
@@ -653,10 +762,7 @@ header div ul li .logo_btn{
 #preferences .inner .notice_management .contents_area{
 	width: 100%;
 	height: 500px;
-    margin-top: 3%;
-    border-top: solid;
-    border-width: 1.5px;
-    border-color: #505050;
+    margin-top: 5%;
 }
 
 #preferences .inner .notice_management .contents_area ul{
@@ -664,13 +770,19 @@ header div ul li .logo_btn{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    border-bottom: solid;
-    border-width: 1px;
-    border-color: #707070;
+    border-bottom: 1px solid #E0E0E0;
     box-sizing: border-box;
     padding: 0.8% 0;
     font-size: 15px;
     color: #3C3C3C;
+}
+
+#preferences .inner .notice_management .contents_area ul:hover{
+	background-color: #F7F7F7;
+}
+
+#preferences .inner .notice_management .contents_area ul li{
+	text-align: center;
 }
 
 #preferences .inner .notice_management .contents_area ul a{
@@ -681,7 +793,8 @@ header div ul li .logo_btn{
 	box-sizing: border-box;
     padding: 1% 0;
     font-weight: 500;
-    background-color: #EBEBEB;
+    background-color: #F7F7F7;
+    border-top: 2px solid #E97333;
     font-size: 17px;
     color: #3C3C3C;
     font-weight: bold;
@@ -715,20 +828,41 @@ header div ul li .logo_btn{
 	text-align: center;
 }
 
+#preferences .inner .notice_management .contents_area ul li:last-child{
+	width: 10%;
+	text-align: center;
+}
+
+#preferences .inner .notice_management .contents_area ul li:last-child a {
+ 	width: 70px;
+    height: 25px;
+    border: solid 2px #414141;
+    border-radius: 50px;
+    color: #414141;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    background: unset;
+    cursor: pointer;
+}
+
 #preferences .inner .notice_management .btn_area{
     width: 100%;
     display: flex;
     justify-content: flex-end;
-    margin: 5% 0;
+    margin-top: 5%;
     align-items: center;
 }
 
 #preferences .inner .notice_management .btn_area a {
-	margin-right: 3%;
-    background-color: #EA933C;
-    color: white;
-    width: 90px;
-    height: 30px;
+	margin-right: 10px;
+    background-color: #414141;
+    border: 1px solid #414141;
+    border-radius: 50px;
+    color: #FFFFFF;
+    width: 150px;
+    height: 45px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -736,10 +870,11 @@ header div ul li .logo_btn{
 }
 
 #preferences .inner .notice_management .btn_area input {
-	width: 70px;
-    height: 30px;
-    border: solid 1px #EA933C;
-    color: #EA933C;
+	width: 100px;
+    height: 45px;
+    border: solid 2px #414141;
+    border-radius: 50px;
+    color: #414141;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -748,6 +883,7 @@ header div ul li .logo_btn{
     cursor: pointer;
 }
 
+/******* 공지사항 등록 *******/
 #preferences .inner .notice_management_insert{
 	width: 100%;
     height: 95%;
@@ -756,70 +892,76 @@ header div ul li .logo_btn{
 }
 
 #preferences .inner .notice_management_insert .title_area{
-	font-size: 1.2rem;
-    font-weight: bold;
+	text-align: center;
+	font-size: 2rem;
+	font-weight: 300;
     color: #333333;
     margin-top: 5%;
 }
 
 #preferences .inner .notice_management_insert form{
-	height: 100%;
-    width: 100%;
+	margin-top: 5%;
+    border-top: 2px solid #ED7326;
     display: flex;
     flex-direction: column;
-    margin-top: 1%;
 }
 
 #preferences .inner .notice_management_insert form .infomation{
 	display: flex;
     flex-direction: row;
     height: 8%;
-    border-top: solid;
-    border-width: 1px;
-    border-color: #707070;
+    border-bottom: 1px solid #707070;
 }
 
 #preferences .inner .notice_management_insert form .infomation .left_area{
-	width: 20%;
+	background-color: #F7F7F7;
     display: flex;
-    justify-content: center;
     align-items: center;
-    background-color: #EEEEEE;
+    justify-content: center;
+    width: 15%;
 }
 
 #preferences .inner .notice_management_insert form .infomation .right_area{
-	width: 80%;
-    display: flex;
-    align-items: center;
-    box-sizing: border-box;
+	box-sizing: border-box;
     padding: 1%;
+    display: flex;
+    width: 80%;
 }
 
 #preferences .inner .notice_management_insert form .infomation .right_area textarea{
 	width: 100%;
     height: 300px;
+    border: 1px solid #E5E5E5;
+	border-radius: 3px;
+	text-indent: 10px;
 }
 
 #preferences .inner .notice_management_insert form .infomation input{
 	height: 100%;
+	border: 1px solid #E5E5E5;
+	border-radius: 3px;
+	min-height: 35px;
 }
 
 #preferences .inner .notice_management_insert form .infomation:nth-child(2) .right_area input {
-	width: 80%;
+	width: 100%;
+	text-indent: 10px;
 }
 
 #preferences .inner .notice_management_insert form .infomation:nth-child(3) .right_area {
-	width: 50%;
+	width: 80%;
     justify-content: space-between;
 }
 
 #preferences .inner .notice_management_insert form .infomation:nth-child(3) .right_area input {
-	width: 40%;
+	width: 45%;
 	cursor: pointer;
+	text-indent: 5px;
 }
 
 #preferences .inner .notice_management_insert form .infomation:nth-child(4) .right_area input {
-	width: 60.4%;
+	width: 100%;
+	text-indent: 10px;
 }
 
 #preferences .inner .notice_management_insert form .infomation:nth-child(5) {
@@ -841,8 +983,9 @@ header div ul li .logo_btn{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: solid 1px #707070;
-    color: #707070;
+    border: 1px solid #E5E5E5;
+	border-radius: 3px;
+	color: #797878;
     font-size: 0.9rem;
 }
 
@@ -857,7 +1000,8 @@ header div ul li .logo_btn{
     display: flex;
     justify-content: center;
     align-items: center;
-    border: solid 1px #707070;
+    border: 1px solid #E5E5E5;
+	border-radius: 3px;
     border-top: unset;
 }
 
@@ -866,12 +1010,15 @@ header div ul li .logo_btn{
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-    border: solid 1px #707070;
-    width: 80px;
-    height: 40px;
+    border: solid 1px #A1A1A1;
+    border-radius: 3px;
+    background-color: #A1A1A1;
+    width: 100px;
+    height: 35px;
     cursor: pointer;
     box-sizing: border-box;
     font-size: 0.9rem;
+    color: #FFFFFF;
 }
 
 #preferences .inner .notice_management_insert #main_img{
@@ -890,44 +1037,50 @@ header div ul li .logo_btn{
 	height: 300px;
 }
 
-#preferences .inner .notice_management_insert form .btn_area{
+#preferences .inner .notice_management_insert .btn_area{
 	width: 100%;
     display: flex;
-    justify-content: center;
     align-items: center;
-    margin: 5% auto;
+    justify-content: center;
+    margin: 5% 0;
 }
 
-#preferences .inner .notice_management_insert form .btn_area input{
-	border: unset;
-    background-color: #EA933C;
-    color: white;
-    width: 70px;
-    height: 30px;
+#preferences .inner .notice_management_insert .btn_area input:nth-child(1){
+	width: 100px;
+    height: 45px;
+    background-color: #414141;
+    border: 1px solid #414141;
+    border-radius: 50px;
+    color: #FFFFFF;
     font-size: 1rem;
-    font-weight: bold;
-    margin-right: 2%;
     cursor: pointer;
+    margin-right: 2%;
 }
 
-#preferences .inner .notice_management_insert form .btn_area a{
-	border: solid 1px #EA933C;
-    width: 70px;
-    height: 30px;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #EA933C;
-    font-size: 1rem;
-    font-weight: bold;
+#preferences .inner .notice_management_insert .btn_area input:nth-child(2) {
+	border: solid 1px #414141;
+    color: #414141;
+    background: unset;
+    border-radius: 50px;
+    width: 100px;
+    height: 45px;
+    font-size: 14px;
     cursor: pointer;
 }
 
 #preferences .inner .comments_management{
 	width: 100%;
+	height: 95%;
     display: flex;
     flex-direction: column;
+}
+
+#preferences .inner .comments_management .title_area{
+	text-align: center;
+	font-size: 2rem;
+	font-weight: 300;
+    color: #333333;
+    margin-top: 5%;
 }
 
 #preferences .inner .comments_management form{
@@ -972,12 +1125,11 @@ header div ul li .logo_btn{
 
 #preferences .inner .comments_management .contents_area{
 	width: 100%;
-    display: flex;
-    flex-direction: column;
-    border-top: solid;
-    border-width: 1px;
-    border-color: #505050;
-    height: 390px;
+    height: 100%;
+    margin-top: 5%;
+    min-height: 500px;
+/*     display: flex; */
+/*     flex-direction: column; */
 }
 
 #preferences .inner .comments_management .contents_area ul{
@@ -985,17 +1137,20 @@ header div ul li .logo_btn{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    border-bottom: solid;
-    border-width: 1px;
-    border-color: #707070;
+    border-bottom: 1px solid #E0E0E0;
     padding: 0.5% 0;
 }
 
-#preferences .inner .comments_management .contents_area .title_area {
+#preferences .inner .comments_management .contents_area ul:first-child{
 	box-sizing: border-box;
     padding: 1% 0;
     font-weight: 500;
-    background-color: #EBEBEB;
+    background-color: #F7F7F7;
+    border-top: 2px solid #E97333;
+}
+
+#preferences .inner .comments_management .contents_area ul li{
+	text-align: center;
 }
 
 #preferences .inner .comments_management .contents_area ul li:nth-child(1) {
@@ -1004,12 +1159,10 @@ header div ul li .logo_btn{
 
 #preferences .inner .comments_management .contents_area ul li:nth-child(2) {
 	width: 5%;
-    text-align: center;
 }
 
 #preferences .inner .comments_management .contents_area ul li:nth-child(3) {
 	width: 15%;
-	text-align: center;
 }
 
 #preferences .inner .comments_management .contents_area ul li:nth-child(4) {
@@ -1018,34 +1171,192 @@ header div ul li .logo_btn{
 
 #preferences .inner .comments_management .contents_area ul li:nth-child(5) {
 	width: 10%;
-	text-align: center;
 }
 
 #preferences .inner .comments_management .contents_area ul li:nth-child(6) {
 	width: 10%;
-	text-align: center;
 }
 
 #preferences .inner .comments_management .btn_area{
+	width: 100%;
 	display: flex;
     justify-content: flex-end;
-    margin: 5% 0;
-}
-
-#preferences .inner .comments_management .btn_area button {
-	width: 105px;
-    height: 30px;
-    background-color: #EA933C;
-    color: white;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
+    margin-top: 5%;
     align-items: center;
-    border: unset;
 }
 
+#preferences .inner .comments_management .btn_area input {
+	width: 100px;
+    height: 45px;
+    border: solid 2px #414141;
+    border-radius: 50px;
+    color: #414141;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    background: unset;
+    cursor: pointer;
+}
+
+#preferences .inner .gallery_management{
+	width: 100%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+}
+
+#preferences .inner .gallery_management .title_area{
+	text-align: center;
+	font-size: 2rem;
+	font-weight: 300;
+    color: #333333;
+}
+
+/* #preferences .inner .gallery_management form{ */
+/* 	display: flex; */
+/*     flex-direction: row; */
+/*     width: 100%; */
+/*     height: 6%; */
+/* } */
+
+/* #preferences .inner .gallery_management form input:nth-child(1) { */
+/* 	width: 40%; */
+/*     height: 30px; */
+/*     text-indent: 1%; */
+/*     margin-right: 1%; */
+/* } */
+
+/* #preferences .inner .gallery_management form input:nth-child(2) { */
+/* 	border: unset; */
+/*     background-color: #EA933C; */
+/*     color: white; */
+/*     width: 7%; */
+/*     font-size: 1rem; */
+/*     font-weight: bold; */
+/* } */
+
+#preferences .inner .gallery_management .contents_area{
+	width: 100%;
+	height: 100%;
+    margin-top: 5%;
+}
+
+#preferences .inner .gallery_management .contents_area ul{
+	width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-bottom: 1px solid #E0E0E0;
+    box-sizing: border-box;
+    padding: 0.8% 0;
+    font-size: 15px;
+    color: #222222;
+}
+
+#preferences .inner .gallery_management .contents_area ul a{
+	color: #333333;
+}
+
+#preferences .inner .gallery_management .contents_area ul li{
+	text-align: center;
+}
+
+#preferences .inner .gallery_management .contents_area ul:nth-child(1){
+	box-sizing: border-box;
+    padding: 1% 0;
+    font-weight: 500;
+    background-color: #F7F7F7;
+    border-top: 2px solid #E97333;
+    font-size: 17px;
+    color: #3C3C3C;
+    font-weight: bold;
+}
+
+#preferences .inner .gallery_management .contents_area ul li:nth-child(1){
+	width: 5%;
+    text-align: center;
+}
+
+#preferences .inner .gallery_management .contents_area ul li:nth-child(2){
+	width: 5%;
+    text-align: center;
+}
+
+#preferences .inner .gallery_management .contents_area ul li:nth-child(3){
+	width: 40%;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #333333;
+}
+
+#preferences .inner .gallery_management .contents_area ul li:nth-child(4){
+	width: 40%;
+	text-align: center;
+}
+
+#preferences .inner .gallery_management .contents_area ul li:last-child{
+	width: 10%;
+	text-align: center;
+}
+
+#preferences .inner .gallery_management .contents_area ul li:last-child a{
+    width: 70px;
+    height: 35px;
+    border: solid 2px #414141;
+    border-radius: 50px;
+    color: #414141;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    background: unset;
+    cursor: pointer;
+}
+
+#preferences .inner .gallery_management .contents_area ul li img{
+	width: auto;
+	height: 150px;
+}
+
+#preferences .inner .gallery_management .btn_area{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 5%;
+    align-items: center;
+}
+
+#preferences .inner .gallery_management .btn_area a {
+	margin-right: 10px;
+    background-color: #414141;
+    border: 1px solid #414141;
+    border-radius: 50px;
+    color: #FFFFFF;
+    width: 150px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+#preferences .inner .gallery_management .btn_area input {
+	width: 100px;
+    height: 45px;
+    border: solid 2px #414141;
+    border-radius: 50px;
+    color: #414141;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    background: unset;
+    cursor: pointer;
+}
+
+/******** 공지사항 리스트 *******/
 #web_notice{
 	width: 100%;
     display: flex;
@@ -1119,26 +1430,30 @@ header div ul li .logo_btn{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    border-bottom: solid;
-    border-width: 1px;
-    border-color: #707070;
+    border-bottom: 1px solid #DDDDDD;
     padding: 0.5% 0;
     color: #333333;
 }
 
+#web_notice .inner .web_notice_list .content_area ul:hover{
+	background-color: #F7F7F7;
+}
+
 #web_notice .inner .web_notice_list .content_area ul:nth-child(1) {
 	padding: 1% 0;
-    font-weight: 500;
-    background-color: #EBEBEB;
+    font-weight: bold;
+    background-color: #F7F7F7;
+    border-top: 2px solid #EC8D34;
 }
 
 #web_notice .inner .web_notice_list .content_area ul li:nth-child(1) {
 	width: 5%;
     text-align: center;
+    margin-left: 5%;
 }
 
 #web_notice .inner .web_notice_list .content_area ul li:nth-child(2) {
-	width: 50%;
+	width: 45%;
 }
 
 #web_notice .inner .web_notice_list .content_area ul li:nth-child(3) {
@@ -1149,6 +1464,7 @@ header div ul li .logo_btn{
 #web_notice .inner .web_notice_list .content_area ul li:nth-child(4) {
 	width: 10%;
     text-align: center;
+    margin-right: 5%;
 }
 
 #web_notice .inner .web_notice_list .content_area ul li a {
@@ -1232,35 +1548,171 @@ header div ul li .logo_btn{
     margin-bottom: 5%;
 }
 
-#preferences .inner .pop_up_management{
+
+/****** 공지사항 detail ******/
+#web_notice_detail{
 	width: 100%;
     display: flex;
     flex-direction: column;
-    margin-top: 5%;
+    justify-content: space-between;
 }
 
-#preferences .inner .pop_up_management .title_area{
-	font-size: 1.1rem;
+#web_notice_detail .inner{
+	height: 100%;
+    background-color: white;
+    width: 1024px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 1% 3%;
+    display: flex;
+    flex-direction: column;
+}
+
+#web_notice_detail .inner .title_area {
+	border-bottom: solid;
+    border-width: 1px;
+    border-color: #707070;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333333;
+    text-align: center;
+    margin: 3% 0;
+    padding-bottom: 3%;
+}
+
+#web_notice_detail .inner .top{
+    text-align: center;
+    margin-top: 5%;
+    font-size: 12px;
+    color: #EF8E24;
+}
+
+#web_notice_detail .inner .top span{
+	border: 1px solid #EF8E24;
+    text-align: center;
+    width: 50px;
+    height: 20px;
+}
+
+#web_notice_detail .inner .detail_title_area{
+/* 	width: 100%; */
+    text-align: center;
+    margin-top: 2%;
+    padding-bottom: 5%;
+    font-size: 1.5rem;
     font-weight: bold;
     color: #333333;
 }
 
-#preferences .inner .pop_up_management .sub_title_area{
-	font-size: 1rem;
+#web_notice_detail .inner .infomation_area {
+	width: 100%;
+	border-bottom: 1px solid #E0E0E0;
+/*     margin: 2% 0; */
+}
+
+#web_notice_detail .inner .infomation_area table {
+	width: 70%;
+	border-collapse: collapse;
+	margin: 0 auto;
+	margin-bottom: 5%;
+}
+
+#web_notice_detail .inner .infomation_area table tr {
+	width: 100%;
+	border-left: unset;
+    border-right: unset;
+}
+
+#web_notice_detail .inner .infomation_area table tr td {
+	box-sizing: border-box;
+    padding: 1% 0;
+    text-align: center;
+    color: #A7A7A7;
+    font-size: 14px;
+}
+
+#web_notice_detail .inner .infomation_area table tr td p {
+	color: #747474;
+}
+
+#web_notice_detail .inner .infomation_area table tr td:nth-child(3) {
+	width: 3%;
+}
+
+#web_notice_detail .inner .infomation_area table tr td:nth-child(6) {
+	width: 3%;
+}
+
+#web_notice_detail .inner .text_area{
+	text-align: center;
+	width: 100%;
+	min-height: 450px;
+    margin: 0 auto;
+    color: #707070;
+}
+
+#web_notice_detail .inner .text_area p{
+	text-align: center;
+	width: 100%;
+	padding-top: 5%;
+    margin: 0 auto;
+}
+
+#web_notice_detail .inner .btn_area {
+	display: flex;
+    justify-content: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+#web_notice_detail .inner .btn_area a{
+	background-color: unset;
+    color: #222222;
+    width: 70px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+    margin-right: 2%;
+    cursor: pointer;
+    border: 2px solid #414141;
+    border-radius: 50px;
+}
+
+/********** 팝업관리 ***********/
+#preferences .inner .pop_up_management{
+	margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 95%;
+}
+
+#preferences .inner .pop_up_management .title_area{
+	text-align: center;
+	font-size: 2rem;
+	font-weight: 300;
     color: #333333;
+}
+
+#preferences .inner .pop_up_management .sub_title_area{
+	text-align: center;
+	font-size: 1.2rem;
+    color: #333333;
+    margin-top: 3%;
 }
 
 #preferences .inner .pop_up_management form{
 	display: flex;
     flex-direction: column;
+    margin-top: 5%;
 }
 
 #preferences .inner .pop_up_management form .contents_area{
-	margin-top: 2%;
+	margin-top: 1%;
     margin-bottom: 5%;
-    border-top: solid;
-    border-width: 1px;
-    border-color: #707070;
+    border-top: 2px solid #ED7326;
     display: flex;
     flex-direction: column;
 }
@@ -1278,15 +1730,15 @@ header div ul li .logo_btn{
 }
 
 #preferences .inner .pop_up_management form .contents_area .content_item .left_area{
-	width: 20%;
-    background-color: #EEEEEE;
+	width: 15%;
+    background-color: #F7F7F7;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 #preferences .inner .pop_up_management form .contents_area .content_item .right_area{
-	width: 80%;
+	width: 85%;
     box-sizing: border-box;
     padding: 1%;
     display: flex;
@@ -1298,6 +1750,8 @@ header div ul li .logo_btn{
     height: 30px;
     box-sizing: border-box;
     text-indent: 5px;
+    border: 1px solid #E5E5E5;
+    border-radius: 3px;
 }
 
 #preferences .inner .pop_up_management form .contents_area .content_item:nth-child(2) .right_area {
@@ -1311,9 +1765,12 @@ header div ul li .logo_btn{
     height: 30px;
     box-sizing: border-box;
     text-indent: 5px;
+    border: 1px solid #E5E5E5;
+    border-radius: 3px;
 }
 
 #preferences .inner .pop_up_management form .contents_area .content_item:nth-child(3) .right_area label {
+	margin-left: 1%;
 	margin-right: 15px;
 }
 
@@ -1326,14 +1783,16 @@ header div ul li .logo_btn{
 }
 
 #preferences .inner .pop_up_management form .contents_area .upload_item_1{
-	border: solid 1px #707070;
+	border: solid 1px #E5E5E5;
+	border-radius: 3px;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     box-sizing: border-box;
     padding: 4% 0;
-    font-size: 0.8rem;
+    font-size: 12px;
+    color: #797878;
 }
 
 #preferences .inner .pop_up_management form .contents_area .upload_item_1 div {
@@ -1350,7 +1809,7 @@ header div ul li .logo_btn{
 }
 
 #preferences .inner .pop_up_management form .contents_area .upload_item_2 {
-	border: solid 1px #707070;
+	border: solid 1px #E5E5E5;
     border-top: unset;
     width: 100%;
     box-sizing: border-box;
@@ -1361,12 +1820,15 @@ header div ul li .logo_btn{
 }
 
 #preferences .inner .pop_up_management form .contents_area .upload_item_2 label{
-	border: solid 1px #707070;
+	border: solid 1px #A1A1A1;
+    border-radius: 3px;
+    background-color: #A1A1A1;
     display: flex;
-    width: 70px;
-    height: 30px;
+    width: 100px;
+    height: 35px;
     justify-content: space-evenly;
     align-items: center;
+    color: #FFFFFF;
 }
 
 #preferences .inner .pop_up_management form .contents_area .upload_item_2 label img{
@@ -1381,155 +1843,179 @@ header div ul li .logo_btn{
 }
 
 #preferences .inner .pop_up_management .btn_area input:nth-child(1) {
-	border: unset;
-    background-color: #EA933C;
-    width: 70px;
-    height: 30px;
-    font-size: 1rem;
-    color: white;
-    font-weight: bold;
+	border: 1px solid #414141;
+    background-color: #414141;
+    border-radius: 50px;
+    width: 100px;
+    height: 45px;
+    font-size: 14px;
+    color: #FFFFFF;
     margin-right: 2%;
     cursor: pointer;
 }
 
 #preferences .inner .pop_up_management .btn_area input:nth-child(2) {
-	border: solid 1px #EA933C;
-    color: #EA933C;
+	border: solid 1px #414141;
+    color: #414141;
     background: unset;
-    width: 70px;
-    height: 30px;
+    border-radius: 50px;
+    width: 100px;
+    height: 45px;
+    font-size: 14px;
     cursor: pointer;
 }
 
-#gallery_insert{
+/******* 갤러리 등록 *******/
+#preferences .inner .gallery_insert{
 	width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: #EBEBEB;
-}
-
-#gallery_insert .inner {
-	height: 100%;
-    background-color: white;
-    width: 1024px;
-    margin: 0 auto;
-    box-sizing: border-box;
-    padding: 1% 3%;
+    height: 95%;
     display: flex;
     flex-direction: column;
 }
 
-#gallery_insert .inner .title_area {
-	margin-top: 5%;
-    font-size: 1.2rem;
-    font-weight: bold;
+/* #preferences .inner .gallery_insert { */
+/* 	height: 100%; */
+/*     background-color: white; */
+/*     width: 1024px; */
+/*     margin: 0 auto; */
+/*     box-sizing: border-box; */
+/*     padding: 1% 3%; */
+/*     display: flex; */
+/*     flex-direction: column; */
+/* } */
+
+#preferences .inner .gallery_insert .title_area {
+	text-align: center;
+	font-size: 2rem;
+	font-weight: 300;
     color: #333333;
+    margin-top: 5%;
 }
 
-#gallery_insert .inner form {
-	margin-top: 1%;
-    border-top: solid;
-    border-width: 1px;
-    border-color: #707070;
+#preferences .inner .gallery_insert form {
+	margin-top: 5%;
+    border-top: 2px solid #ED7326;
     display: flex;
     flex-direction: column;
 }
 
-#gallery_insert .inner form .infomation {
+#preferences .inner .gallery_insert form .infomation {
 	display: flex;
     flex-direction: row;
-    border-bottom: solid;
-    border-width: 1px;
-    border-color: #707070;
+    border-bottom: 1px solid #707070;
 }
 
-#gallery_insert .inner form .infomation .left_area {
-	background-color: #EEEEEE;
+#preferences .inner .gallery_insert form .infomation .left_area {
+	background-color: #F7F7F7;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 20%;
+    width: 15%;
 }
 
-#gallery_insert .inner form .infomation .right_area {
+#preferences .inner .gallery_insert form .infomation .right_area {
 	box-sizing: border-box;
     padding: 1%;
     display: flex;
     width: 80%;
 }
 
-#gallery_insert #thumbnail_name{
-	width: 60%;
-    height: 26px;
+#preferences .inner .gallery_insert #thumbnail_name{
+	width: 90%;
+    height: 35px;
     padding: 0;
     background: unset;
     text-indent: 10px;
 }
 
-#gallery_insert #thumbnail{
+#preferences .inner .gallery_insert #thumbnail{
 	display: none;
 }
-    
-#gallery_insert .inner form .infomation:nth-child(1) input {
-	height: 24px;
-    text-indent: 8px;
-    width: 73.5%;
+
+#preferences .inner .gallery_insert form .infomation:nth-child(1){
+	height: 55px;
 }
 
-#gallery_insert .inner form .infomation:nth-child(2) label {
-	margin-left: 2%;
-    border: solid 1px #707070;
-    width: 12%;
-    height: 28px;
-    display: flex;
+#preferences .inner .gallery_insert form .infomation:nth-child(2){
+	height: 55px;
+}
+  
+#preferences .inner .gallery_insert form .infomation:nth-child(1) input {
+	height: 35px;
+    text-indent: 8px;
+    width: 100%;
+    border: 1px solid #BFBFBF;
+    border-radius: 3px;
+}
+
+#preferences .inner .gallery_insert form .infomation:nth-child(2) input {
+	height: 35px;
+    text-indent: 8px;
+    width: 90%;
+    border: 1px solid #BFBFBF;
+    border-radius: 3px;
+}
+
+#preferences .inner .gallery_insert form .infomation:nth-child(2) label {
+	display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
+    border: solid 1px #A1A1A1;
+    border-radius: 3px;
+    background-color: #A1A1A1;
+    width: 100px;
+    height: 35px;
     cursor: pointer;
+    box-sizing: border-box;
+    font-size: 0.9rem;
+    color: #FFFFFF;
+    margin-left: 3%;
 }
 
-#gallery_insert .inner form .infomation:nth-child(2) label img {
+#preferences .inner .gallery_insert form .infomation:nth-child(2) label img {
 	width: 18px;
 }
 
-#gallery_insert .inner form .infomation:nth-child(3) .right_area {
+#preferences .inner .gallery_insert form .infomation:nth-child(3) .right_area {
 	flex-direction: column;
 }
 
-#gallery_insert .drop_area{
+#preferences .inner .gallery_insert .drop_area{
 	width: 100%;
     height: 300px;
-    border: solid 1px #707070;
+    border: 1px solid #BFBFBF;
+    border-radius: 3px;
     overflow: scroll;
     overflow-x: hidden;
 }
 
-#gallery_insert #fileDragDesc{
+#preferences .inner .gallery_insert #fileDragDesc{
 	display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 300px;
     text-align: center;
-    color: #707070;
+    color: #9B9B9B;
 }
 
-#gallery_insert #fileListTable {
+#preferences .inner .gallery_insert #fileListTable {
 	width: 100%;
 }
 
-#gallery_insert #fileListTable tbody {
+#preferences .inner .gallery_insert #fileListTable tbody {
 	display: flex;
     flex-direction: column;
     box-sizing: border-box;
     padding: 2%;
 }
 
-#gallery_insert #fileListTable tbody tr {
+#preferences .inner .gallery_insert #fileListTable tbody tr {
 	margin-bottom: 2%;
 }
 
-#gallery_insert #fileListTable tbody tr td {
+#preferences .inner .gallery_insert #fileListTable tbody tr td {
 	display: flex;
     width: 100%;
     overflow: hidden;
@@ -1538,76 +2024,82 @@ header div ul li .logo_btn{
     align-items: center;
 }
 
-#gallery_insert #fileListTable tbody tr td img {
+#preferences .inner .gallery_insert #fileListTable tbody tr td img {
     cursor: pointer;
     width: 15px;
     margin-left: 10px;
 }
 
-#gallery_insert .upload-btn-wrapper{
+#preferences .inner .gallery_insert .upload-btn-wrapper{
 	width: 100%;
-    height: 40px;
-    border: solid 1px #707070;
-    border-top: unset;
+    height: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 1px solid #BFBFBF;
+    border-top: none;
 }
 
-#gallery_insert .upload-btn-wrapper input{
+#preferences .inner .gallery_insert .upload-btn-wrapper input{
 	display: none;
 }
 
-#gallery_insert .upload-btn-wrapper label {
-	border: solid 1px #707070;
-    width: 12%;
-    height: 30px;
-    display: flex;
+#preferences .inner .gallery_insert .upload-btn-wrapper label {
+	display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-    background: unset;
+    border: solid 1px #A1A1A1;
+    border-radius: 3px;
+    background-color: #A1A1A1;
+    width: 100px;
+    height: 35px;
     cursor: pointer;
+    box-sizing: border-box;
+    font-size: 0.9rem;
+    color: #FFFFFF;
 }
 
-#gallery_insert .inner form .infomation:nth-child(4) .right_area {
+#preferences .inner .gallery_insert form .infomation:nth-child(4) .right_area {
 	flex-direction: column;
     height: 120px;
     justify-content: space-between;
 }
 
-#gallery_insert .inner form .infomation:nth-child(4) .right_area input{
+#preferences .inner .gallery_insert form .infomation:nth-child(4) .right_area input{
 	height: 24px;
 	text-indent: 8px;
 	width: 73.5%;
 }
 
-#gallery_insert .inner form .btn_area {
-	margin-top: 3%;
-    margin-bottom: 5%;
+#preferences .inner .gallery_insert .btn_area {
+	width: 100%;
     display: flex;
+    align-items: center;
     justify-content: center;
+    margin: 5% 0;
 }
 
-#gallery_insert .inner form .btn_area input:nth-child(1) {
-	border: unset;
-    background-color: #EA933C;
-    color: white;
-    width: 70px;
-    height: 30px;
+#preferences .inner .gallery_insert .btn_area input:nth-child(1) {
+	width: 100px;
+    height: 45px;
+    background-color: #414141;
+    border: 1px solid #414141;
+    border-radius: 50px;
+    color: #FFFFFF;
     font-size: 1rem;
-    font-weight: bold;
-    margin-right: 2%;
     cursor: pointer;
+    margin-right: 2%;
 }
 
-#gallery_insert .inner form .btn_area input:nth-child(2) {
-	border: solid 1px #EA933C;
+#preferences .inner .gallery_insert .btn_area input:nth-child(2) {
+	border: solid 1px #414141;
+    color: #414141;
     background: unset;
-    width: 70px;
-    height: 30px;
-    font-size: 1rem;
-    font-weight: bold;
-    color: #EA933C;
+    border-radius: 50px;
+    width: 100px;
+    height: 45px;
+    font-size: 14px;
     cursor: pointer;
 }
 
@@ -1616,7 +2108,6 @@ header div ul li .logo_btn{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: #EBEBEB;
 }
 
 #gallery_detail .inner {
@@ -1634,8 +2125,8 @@ header div ul li .logo_btn{
 	border-bottom: solid;
     border-width: 1px;
     border-color: #707070;
-    margin: 5% 0;
-    padding-bottom: 2%;
+    margin: 3% 0;
+    padding-bottom: 3%;
     font-size: 1.5rem;
     font-weight: bold;
     color: #333333;
@@ -1647,15 +2138,12 @@ header div ul li .logo_btn{
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    margin-bottom: 3%;
-    border-bottom: solid;
-    border-width: 1px;
-    border-color: #707070;
+    margin-bottom: 5%;
 }
 
 #gallery_detail .inner .contents_area .img_item {
 	width: 100%;
-    margin-bottom: 3%;
+    margin-bottom: 5%;
 }
 
 #gallery_detail .inner .contents_area .img_item img {
@@ -1665,21 +2153,22 @@ header div ul li .logo_btn{
 #gallery_detail .inner .btn_area {
 	display: flex;
     justify-content: center;
-    margin-bottom: 10%;
+    margin-bottom: 5%;
 }
 
 #gallery_detail .inner .btn_area a:nth-child(1) {
-	background-color: #EA933C;
-    color: white;
+	background-color: unset;
+    color: #222222;
     width: 70px;
     height: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1rem;
-    font-weight: bold;
+    font-size: 0.8rem;
     margin-right: 2%;
     cursor: pointer;
+    border: 2px solid #414141;
+    border-radius: 50px;
 }
 
 #gallery_detail .inner .btn_area a:nth-child(2) {

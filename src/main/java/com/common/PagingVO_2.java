@@ -8,7 +8,7 @@ public class PagingVO_2 {
 	private int cntPage = 10;
 	private int contents_idx;
 	private int notice_idx;
-	private String consumer;
+	private String id;
 	private String business_num;
 	private String sql;
 	private String sql_2;
@@ -51,4 +51,5 @@ public class PagingVO_2 {
 				+ ", cntPerPage=" + cntPerPage + ", lastPage=" + lastPage + ", start=" + start + ", end=" + end
 				+ ", cntPage=" + cntPage + "]";
 	}
+
 }

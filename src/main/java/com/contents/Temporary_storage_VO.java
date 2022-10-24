@@ -26,4 +26,5 @@ public class Temporary_storage_VO {
 	private String content;
 	private String sub_title;
 	private String web_address;
+	private int crawling_num = 0;
 }

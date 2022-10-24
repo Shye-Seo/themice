@@ -198,7 +198,7 @@ $(function() {
 	<jsp:include page="/WEB-INF/jsp/aside/quick.jsp" />
 	
 	<div class="detail_quick">
-		<a href="website?contents_idx=${content_list.idx}">
+		<a href="website?contents_idx=${content_list.idx}" target="_blank">
 			<img alt="" src="${root}/img/detail/direct_icon.svg">
 		</a>
 	</div>
@@ -316,7 +316,7 @@ $(function() {
 											} if(strArray[2] != 'null'){
 												price = price + '/ 초등학생 : ' + strArray[2] + '원';
 											} if(strArray[3] != 'null'){
-												price = pirce + '/ 아동 : ' + strArray[3] + '원';
+												price = price + '/ 아동 : ' + strArray[3] + '원';
 											}
 											
 											if(price == ''){
@@ -374,44 +374,26 @@ $(function() {
 				<div class="img_area">
 					<div class="img_item">
 						<img alt="" src="${root}/watermark_path/${content_img.img_2}">
-						<div class="btn_area">
-<%-- 							<button onclick="payment('${root}')"><img alt="" src="${root}/img/detail/3_type/icon_2.svg">예매하기</button> --%>
-						</div>
 					</div>
 
 					<div class="img_item">
 						<img alt="" src="${root}/watermark_path/${content_img.img_3}">
-						<div class="btn_area">
-<%-- 							<button onclick="payment('${root}')"><img alt="" src="${root}/img/detail/3_type/icon_2.svg">예매하기</button> --%>
-						</div>
 					</div>
 
 					<div class="img_item">
 						<img alt="" src="${root}/watermark_path/${content_img.img_4}">
-						<div class="btn_area">
-<%-- 							<button onclick="payment('${root}')"><img alt="" src="${root}/img/detail/3_type/icon_2.svg">예매하기</button> --%>
-						</div>
 					</div>
 
 					<div class="img_item">
 						<img alt="" src="${root}/watermark_path/${content_img.img_5}">
-						<div class="btn_area">
-<%-- 							<button onclick="payment('${root}')"><img alt="" src="${root}/img/detail/3_type/icon_2.svg">예매하기</button> --%>
-						</div>
 					</div>
 
 					<div class="img_item">
 						<img alt="" src="${root}/watermark_path/${content_img.img_6}">
-						<div class="btn_area">
-<%-- 							<button onclick="payment('${root}')"><img alt="" src="${root}/img/detail/3_type/icon_2.svg">예매하기</button> --%>
-						</div>
 					</div>
 
 					<div class="img_item">
 						<img alt="" src="${root}/watermark_path/${content_img.img_7}">
-						<div class="btn_area">
-<%-- 							<button onclick="payment('${root}')"><img alt="" src="${root}/img/detail/3_type/icon_2.svg">예매하기</button> --%>
-						</div>
 					</div>
 					
 					<script type="text/javascript">

@@ -14,7 +14,7 @@
 			<ul>
 				<li>
 					<div class="img_area">
-						<a href="manual"><img alt="" src="${root}/img/quick/quick01.svg"></a>
+						<a href="manual"  target="_blank"><img alt="" src="${root}/img/quick/quick01.svg"></a>
 					</div>
 				</li>
 				

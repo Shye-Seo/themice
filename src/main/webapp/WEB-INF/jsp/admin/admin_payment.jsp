@@ -62,9 +62,9 @@ function selectAll(selectAll)  {
 								<li><input type="checkbox" name="check" value="${pl.idx}"></li>
 								<li>${pl.idx}</li>
 								<li>${pl.title}</li>
-								<li>${pl.amount}</li>
-								<li>${pl.consumer}</li>
-								<li>${pl.time}</li>
+								<li>${pl.total}</li>
+								<li>${pl.id}</li>
+								<li>${pl.payment_date}</li>
 								<li><c:if test="${pl.status == 'paid'}">결제완료</c:if> <c:if
 										test="${pl.status == 'refund'}">환불완료</c:if></li>
 							</ul>

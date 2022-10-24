@@ -292,7 +292,6 @@ img {
 #section_2 .container_2 .slider_area_2 .content_item .img_area{
 	width: 100%;
     height: 100%;
-    background-color: #000;
     border-radius: 7px;
     position: relative;
     overflow: hidden;
@@ -422,7 +421,7 @@ img {
 }
 
 #section_3 .container_1{
-	width: 60%;
+	width: 100%;
     height: 100%;
     box-sizing: border-box;
     padding: 8% 0;
@@ -439,20 +438,55 @@ img {
 #section_3 .container_1 form .date_area{
 	height: 10%;
     width: 100%;
-    display: flex;
-    flex-direction: row;
     border-top: solid;
     border-bottom: solid;
     border-width: 1px;
-    border-color: #707070;
-    box-sizing: border-box;
-    padding: 1% 2.4%;
-    justify-content: space-between;
-    align-items: center;
+    border-color: #EDEDED;
 }
 
-#section_3 .container_1 form .date_area .year_item{
+#section_3 .container_1 form .date_area #top_date{
+    flex-direction: row;
+	height: 100%;
+	width: 70%;
+	margin: 0 auto;
+	align-items: center;
+	display: flex;
+	box-sizing: border-box;
+}
+
+#section_3 .container_1 form .date_area .date_img{
+	border: 1px solid #E27238;
+	border-radius: 32px;
+	background-color: #E27238;
 	width: 10%;
+	height: 40px;
+	color: #FFFFFF;
+	font-size: 1rem;
+	margin-right: 3%;
+	display: flex;
+}
+
+#section_3 .container_1 form .date_area .date_img img{
+	width: 30px;
+	height: 40px;
+	line-height: 40px;
+	float: left;
+	margin: auto;
+	margin-right: 0;
+}
+
+#section_3 .container_1 form .date_area .date_img span{
+	width: 60px;
+	height: 40px;
+	line-height: 40px;
+	margin: auto;
+}
+
+
+#section_3 .container_1 form .date_area .year_item{
+	width: 5%;
+	float: left;
+	margin-right: 3%;
 }
 
 #section_3 .container_1 form .date_area .year_item select{
@@ -464,9 +498,11 @@ img {
 }
 
 #section_3 .container_1 form .date_area .month_item{
-	width: 80%;
+	width: 70%;
     display: flex;
     justify-content: space-between;
+    float: left;
+    margin-right: 3%;
 }
 
 #section_3 .container_1 form .date_area .month_item input{
@@ -485,14 +521,15 @@ img {
 }
 
 #section_3 .container_1 form .date_area .month_item input:checked + label{
-	background-color: #EA933C;
+	background-color: #E27238;
     color: white;
 }
 
 #section_3 .container_1 form .slider_area_3{
 	height: 80%;
-    width: 100%;
+    width: 80%;
     overflow: hidden;
+    margin: 0 10%;
 }
 
 #section_3 .container_1 form .slider_area_3 .slider{
@@ -522,62 +559,85 @@ img {
 	height: 100%;
 }
 
+#section_3 .container_1 form .slider_area_3 .slider .slider_item .img_area img{
+	border-radius: 7px;
+	margin-right: 65px;
+}
+
 #section_3 .container_1 form .slider_area_3 .slider .slider_item:hover .btn_area{
 	display: flex;
 }
 
 #section_3 .container_1 form .slider_area_3 .slider .slider_item .btn_area{
-	height: 20%;
+	height: 100%;
     position: absolute;
     bottom: 0;
     background-color: #0000004f;
-    color: white;
+    color: #FFFFFF;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem;
     width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     display: none;
+    text-align: center;
+    border-radius: 7px;
+}
+
+#section_3 .container_1 form .slider_area_3 .slider .slider_item .btn_area .content_title_area{
+	font-size: 18px;
+    padding-bottom: 50%;
+    padding-top: 15%;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-family: 'Noto Sans KR, Regular',  sans-serif;
+}
+
+#section_3 .container_1 form .slider_area_3 .slider .slider_item .btn_area .date_area_2{
+	padding-bottom: 10%;
 }
 
 #section_3 .container_1 form .slider_area_3 .slider .slider_item .btn_area a{
-	background-color: #EA933C;
-    width: 100px;
-    height: 30px;
-    color: white;
+	color: #FFFFFF;
+    border: solid 1px #FFFFFF;
+    border-radius: 45px;
+    width: 120px;
+    height: 34px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    margin-top: 15px;
     font-size: 0.9rem;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    box-sizing: border-box;
 }
 
 #section_3 .container_1 form .slider_btn_area{
 	position: absolute;
     display: flex;
     flex-direction: row;
-    left: 62%;
-    bottom: 15.9%;
+    left: 50%;
+    bottom: 5%;
     cursor: pointer;
 }
 
 #section_3 .container_1 form .slider_btn_area div {
-	border: solid 1px #707070;
-    width: 50px;
-    height: 50px;
+	border: solid 2px #333333;
+    width: 45px;
+    height: 45px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
+    border-radius: 75px;
 }
 
 #section_3 .container_1 form .slider_btn_area div:nth-child(1) {
-	border-left: none;
-    transform: scaleX(-1);
+	transform: scaleX(-1);
+    margin-right: 10px;
 }
 
 #section_3 .container_2{
@@ -692,10 +752,9 @@ img {
 }
 
 #section_4 .notice_area .container_2 .text_area .btn_area a:nth-child(1){
-	border: solid 1px #EA933C;
-	background-color: #EA933C;
-    color: white;
-    border-radius: 15px;
+	border: solid 1px #FFFFFF;
+    color: #FFFFFF;
+    border-radius: 25px;
     width: 122px;
     height: 30px;
     display: flex;
@@ -706,9 +765,9 @@ img {
 }
 
 #section_4 .notice_area .container_2 .text_area .btn_area a:nth-child(2){
-	border: solid 1px white;
-    color: white;
-    border-radius: 15px;
+	border: solid 1px #FFFFFF;
+    color: #FFFFFF;
+    border-radius: 25px;
     width: 122px;
     height: 30px;
     display: flex;

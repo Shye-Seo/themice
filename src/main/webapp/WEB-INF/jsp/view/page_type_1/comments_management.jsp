@@ -28,84 +28,93 @@
 	function user_delete_management() {
 		var check = [];
 
-		$('input[name="check"]:checked').each(function(e) {
-			check.push($(this).val());
-		})
-
-		var list = {
-			'check' : check
-		}
-
-		$.ajax({
-			url : 'user_delete_management',
-			type : 'post',
-			data : list,
-			success : function(data) {
-
-				if ($.trim(data) == 0) {
-					alert('삭제되었습니다');
-					location.href = 'comment_management?contents_idx=${contents_idx}';
-				} else {
-					alert('삭제 실패');
-
-				}
-			},
-			error : function() {
-				alert("에러입니다");
+		if($('input[name="check"]:checked').length == 0){
+			alert("선택된 항목이 없습니다.");
+			return false;
+		}else {
+			$('input[name="check"]:checked').each(function(e) {
+				check.push($(this).val());
+			})
+	
+			var list = {
+				'check' : check
 			}
-		});
+	
+			$.ajax({
+				url : 'user_delete_management',
+				type : 'post',
+				data : list,
+				success : function(data) {
+	
+					if ($.trim(data) == 0) {
+						alert('삭제되었습니다');
+						location.href = 'comment_management?contents_idx=${contents_idx}';
+					} else {
+						alert('삭제 실패');
+	
+					}
+				},
+				error : function() {
+					alert("에러입니다");
+				}
+			});
+		}
 	};
 	
-	function selectAll(selectAll)  {
-		const checkboxes = document.getElementsByName('check');
-		
-		checkboxes.forEach((checkbox) => {
-			checkbox.checked = selectAll.checked;
-		})
-	};
 </script>
 </head>
 <body>
 	<div id="section">
 		<jsp:include page="/WEB-INF/jsp/view/page_type_1/header.jsp" />
+		
+		<div id="management_title_area">
+			<span>환경설정</span>
+		</div>
+		<div id="navi_area">
+			<nav>
+				<ul>
+					<li><a href="main_management?contents_idx=${contents_idx}">메인관리</a></li>
+					<li><a href="introduction_management?contents_idx=${contents_idx}">소개관리</a></li>
+					<li><a href="gallery_management?contents_idx=${contents_idx}">갤러리관리</a></li>
+					<li><a href="notice_management?contents_idx=${contents_idx}">공지사항관리</a></li>
+					<li><a href="pop_up_management?contents_idx=${contents_idx}">팝업관리</a></li>
+					<li><a href="comment_management?contents_idx=${contents_idx}">댓글관리</a></li>
+				</ul>
+			</nav>
+		</div>
 	
 		<section id="preferences">
 			<div class="inner">
-				<div class="category">
-					<a href="main_management?contents_idx=${contents_idx}">메인관리</a>
-					<a href="introduction_management?contents_idx=${contents_idx}">소개관리</a>
-					<a href="gallery_management?contents_idx=${contents_idx}">갤러리관리</a>
-					<a href="notice_management?contents_idx=${contents_idx}">공지사항관리</a>
-					<a href="pop_up_management?contents_idx=${contents_idx}">팝업관리</a>
-					<a href="comment_management?contents_idx=${contents_idx}">댓글관리</a>
-				</div>
-				
 				<div class="comments_management">
-					<form method="get">
-						<div class="search_area">
-							<input type="text" placeholder="아이디로 입력해주세요." name="user_id" value="${user_id}">
-							<input type="submit" value="검색">
-						</div>
+					<span class="title_area">댓글관리</span>
+<!-- 					<form method="get"> -->
+<!-- 						<div class="search_area"> -->
+<%-- 							<input type="text" placeholder="아이디로 입력해주세요." name="user_id" value="${user_id}"> --%>
+<!-- 							<input type="submit" value="검색"> -->
+<!-- 						</div> -->
 						
-						<div class="select_area">
-							<input type="radio" name="category" id="comments_report" value="1">
-							<label for="comments_report">댓글</label>
+<!-- 						<div class="select_area"> -->
+<!-- 							<input type="radio" name="category" id="comments_report" value="1"> -->
+<!-- 							<label for="comments_report">댓글</label> -->
 						
-							<input type="radio" name="category" id="answers_report" value="2">
-							<label for="answers_report">대댓글</label>
-							<script type="text/javascript">
+<!-- 							<input type="radio" name="category" id="answers_report" value="2"> -->
+<!-- 							<label for="answers_report">대댓글</label> -->
+<!-- 							<script type="text/javascript"> -->
 								
-							</script>
-						</div>
-					</form>
+<!-- 							</script> -->
+<!-- 						</div> -->
+<!-- 					</form> -->
+					<div class="btn_area">
+						<input type="button" onclick="user_delete_management()" value="댓글삭제">
+					</div>
 					
 					<div class="contents_area">
-						<ul class="title_area">
+						<ul>
 							<li><input type="checkbox" onclick='selectAll(this)'></li>
 							<li>NO</li>
 							<li>아이디</li>
-							<li>신고내용</li>
-							<li>신고시간</li>
+							<li>작성내용</li>
+							<li>작성시간</li>
 							<li>신고횟수</li>
 						</ul>
 						
@@ -155,9 +164,6 @@
 						</c:if>
 					</div>
 					
-					<div class="btn_area">
-						<button onclick="user_delete_management()" type="button">삭제 및 정지</button>
-					</div>
 				</div>
 			</div>
 			

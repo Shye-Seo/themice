@@ -270,8 +270,9 @@ html {
 }
 
 #join .member_submit input{
-	background-color: #EA933C;
-    border: none;
+	background-color: #EF8E24;
+    border: 1px solid #EF8E24;
+    border-radius: 21px;
     color: white;
     font-size: 1.2rem;
     padding: 0.5% 2.5%;
@@ -279,9 +280,10 @@ html {
 }
 
 #join .member_submit .reset{
-	background-color: white;
-    border: solid 1px #EA933C;
-    color: #EA933C;
+	background-color: unset;
+    border: solid 1px #EF8E24;
+    border-radius: 21px;
+    color: #EF8E24;
     font-size: 1.2rem;
     padding: 0.5% 2.5%;
     margin-left: 3%;
@@ -340,8 +342,9 @@ html {
 }
 
 #join .business_submit input{
-	background-color: #EA933C;
-    border: none;
+	background-color: #EF8E24;
+    border: 1px solid #EF8E24;
+    border-radius: 21px;
     color: white;
     font-size: 1.2rem;
     padding: 0.5% 2.5%;
@@ -349,9 +352,10 @@ html {
 }
 
 #join .business_submit .reset{
-	background-color: white;
-    border: solid 1px #EA933C;
-    color: #EA933C;
+	background-color: unset;
+    border: solid 1px #EF8E24;
+    border-radius: 21px;
+    color: #EF8E24;
     font-size: 1.2rem;
     padding: 0.5% 2.5%;
     margin-left: 3%;

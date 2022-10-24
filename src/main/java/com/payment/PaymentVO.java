@@ -1,30 +1,36 @@
 package com.payment;
 
+import java.sql.Date;
+
 import lombok.Data;
 
 @Data
 public class PaymentVO {
 	private int idx;
-	private String business_num;
 	private String contents_idx;
-	private String product_id;
+	private String business_num;
+	private String id;
+	private String name;
+	private String tel;
 	private String title;
-	private String time;
-	private String amount;
-	private String consumer;
-	private String entry_date;
+	private String visit_date;
+	private String ticket_amount;
+	private String total;
+	private Date payment_date;
 	private String status;
 	
-	public PaymentVO(String business_num, String contents_idx, String product_id, String title, String amount, String consumer, String time,
-			String entry_date, String status) {
-		this.business_num = business_num;
+	public PaymentVO(String contents_idx, String business_num, String id, String name, String tel,
+			String title, String visit_date, String ticket_amount, String total, Date payment_date, String status) {
 		this.contents_idx = contents_idx;
-		this.product_id = product_id;
+		this.business_num = business_num;
+		this.id = id;
+		this.name = name;
+		this.tel = tel;
 		this.title = title;
-		this.amount = amount;
-		this.consumer = consumer;
-		this.time = time;
-		this.entry_date = entry_date;
+		this.visit_date = visit_date;
+		this.ticket_amount = ticket_amount;
+		this.total = total;
+		this.payment_date = payment_date;
 		this.status = status;
 	}
 

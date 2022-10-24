@@ -34,8 +34,6 @@ import com.contents.ContentsSvc;
 import com.contents.ContentsVO;
 import com.contents.comments.CommentsVO;
 import com.contents.comments.Comments_answerVO;
-import com.contents.comments.Report_answersVO;
-import com.contents.comments.Report_commentsVO;
 import com.member.MemberVO;
 import com.notice.Web_notice;
 
@@ -389,14 +387,11 @@ public class WebsiteCtr {
 			if (imgName != null && !imgName.equals("")) {
 				File target_1 = new File(gallery_path, imgName);
 				FileCopyUtils.copy(imgs.getBytes(), target_1);
-				System.out.println("file==============================>"+target_1);
 				
 				Gallery_img gallery_img = new Gallery_img(contents_idx, gallery_idx, imgName);
-				System.out.println("gallery_img===============>"+gallery_img);
 				gallery_list.add(gallery_img);
 			}
 		}
-		System.out.println("gallery_list==========================>"+gallery_list);
 		website_service.set_gallery_img(gallery_list);
 		
 		for(int i = 1; i < 3; i++) {
@@ -729,7 +724,7 @@ public class WebsiteCtr {
 	}
 	
 	@RequestMapping(value = "notice_management_insert", method = RequestMethod.POST)
-	public String notice_management_insert(HttpServletRequest request, ModelMap modelMap, MultipartFile img,
+	public String notice_management_insert(HttpServletRequest request, ModelMap modelMap, MultipartFile notice_img,
 			HttpServletResponse response, HttpSession session, Web_notice notice,
 			@RequestParam(value = "contents_idx", required = false) int contents_idx) throws IOException {
 		
@@ -737,19 +732,20 @@ public class WebsiteCtr {
 //		content = content.replace("\n", "<br>");
 //		notice.setContents(content);
 		
-//		String img_name = img.getOriginalFilename();
-//		if(!img_name.equals("")) {
-//			File target_1 = new File(notice_path, img_name);
-//			FileCopyUtils.copy(img.getBytes(), target_1);
-//			notice.setFile_path(img_name);
-//		}
-		
 		modelMap.addAttribute("contents_idx", contents_idx);
+		
+		String img_name = notice_img.getOriginalFilename();
+		if(!img_name.equals("")) {
+			File target = new File(notice_path, img_name);
+			FileCopyUtils.copy(notice_img.getBytes(), target);
+			notice.setFile_path(img_name);
+		}
+		
 		notice.setContents_idx(contents_idx);
 		website_service.notice_management_insert(notice);
 		
-//		return "redirect:notice_management?contents_idx=" + contents_idx;
-		return "view/page_type_1/notice_list?contents_idx="+contents_idx;
+		return "redirect:notice_management?contents_idx=" + contents_idx;
+//		return "redirect:notice_management";
 	}
 	
 	@RequestMapping(value = "notice_management_update", method = RequestMethod.GET)
@@ -782,12 +778,18 @@ public class WebsiteCtr {
 	 */
 	@RequestMapping(value = "notice_management_update", method = RequestMethod.POST)
 	public String notice_management_update_post(HttpServletRequest request, Web_notice notice, ModelMap modelMap,
-			MultipartFile file, HttpSession session, HttpServletResponse response) throws IOException, InterruptedException {
+			MultipartFile notice_img, HttpSession session, HttpServletResponse response) throws IOException, InterruptedException {
 		
 		int contents_idx = notice.getContents_idx();
-		System.out.println("contents_idx=======>"+contents_idx);
 		int idx = notice.getIdx();
-		System.out.println("idx=======>"+idx);
+		
+		String img_name = notice_img.getOriginalFilename();
+		if(!img_name.equals("")) {
+			File target = new File(notice_path, img_name);
+			FileCopyUtils.copy(notice_img.getBytes(), target);
+			notice.setFile_path(img_name);
+		}
+		
 		notice.setIdx(idx);
 		modelMap.addAttribute("notice_list", notice);
 		
@@ -798,8 +800,8 @@ public class WebsiteCtr {
 	
 	@RequestMapping(value = "comment_management", method = RequestMethod.GET)
 	public String comments_management(HttpServletRequest request, ModelMap modelMap, PagingVO_2 vo,
-			HttpServletResponse response, HttpSession session, Report_commentsVO report_commentsVO,
-			Report_answersVO report_answersvo,
+			HttpServletResponse response, HttpSession session, CommentsVO commentsVO,
+			Comments_answerVO answersvo,
 			@RequestParam(value = "nowPage", required = false) String nowPage,
 			@RequestParam(value = "cntPerPage", required = false) String cntPerPage,
 			@RequestParam(value = "category", defaultValue = "1") int category,
@@ -822,7 +824,7 @@ public class WebsiteCtr {
 		vo.setContents_idx(contents_idx);
 		
 		if(category == 1) {
-			int total = website_service.report_comments_cnt(vo);
+			int total = website_service.comments_cnt(vo);
 			if (nowPage == null && cntPerPage == null) {
 				nowPage = "1";
 				cntPerPage = "10";
@@ -838,8 +840,10 @@ public class WebsiteCtr {
 			if (total != 0) {
 				vo.setSql(sql);
 				vo.setContents_idx(contents_idx);
-				List<CommentsVO> comments_list = website_service.select_report_comments(vo);
+				List<CommentsVO> comments_list = website_service.select_comments(vo);
 				modelMap.addAttribute("comments_list", comments_list);
+				List<Comments_answerVO> answers_list = website_service.select_answers(vo);
+				modelMap.addAttribute("answers_list", answers_list);
 			}
 			
 			for(int i = 1; i < 3; i++) {
@@ -849,7 +853,7 @@ public class WebsiteCtr {
 				}
 			}
 		} else {
-			int total = website_service.report_answers_cnt(vo);
+			int total = website_service.answers_cnt(vo);
 			if (nowPage == null && cntPerPage == null) {
 				nowPage = "1";
 				cntPerPage = "10";
@@ -865,7 +869,7 @@ public class WebsiteCtr {
 			if (total != 0) {
 				vo.setSql(sql);
 				vo.setContents_idx(contents_idx);
-				List<Comments_answerVO> answers_list = website_service.select_report_answers(vo);
+				List<Comments_answerVO> answers_list = website_service.select_answers(vo);
 				modelMap.addAttribute("answers_list", answers_list);
 			}
 			
@@ -967,29 +971,56 @@ public class WebsiteCtr {
 			@RequestParam(value = "check[]", defaultValue = "") List<String> check) {
 		
 		int cnt = 0;
-		
 		for (String c : check) {
-			website_service.user_delete_comments(c);
 			website_service.user_delete_answer(c);
+			website_service.user_delete_comments(c);
 			
-			String writer = website_service.comments_write(c);
-			website_service.user_delete_management(writer);
+//			String writer = website_service.comments_write(c);
+//			website_service.user_delete_management(writer);
 		}
 		
 		return String.valueOf(cnt);
 	}
 	
 	@RequestMapping(value = "gallery_management", method = RequestMethod.GET)
-	public String gallery_management(ModelMap modelMap,
-			@RequestParam(value = "contents_idx", required = false) int contents_idx) throws IOException {
+	public String gallery_management(HttpServletRequest request, ModelMap modelMap, PagingVO_3 vo,
+			HttpServletResponse response, HttpSession session, Web_notice notice,
+			@RequestParam(value = "nowPage", required = false) String nowPage,
+			@RequestParam(value = "cntPerPage", required = false) String cntPerPage,
+			@RequestParam(value = "contents_idx", required = false) int contents_idx,
+			@RequestParam(value = "title", required = false) String title) {
 		
 		modelMap.addAttribute("contents_idx", contents_idx);
 		ContentsVO content_list = contents_service.selectContent(contents_idx);
-		int gallery_cnt = website_service.get_gallery_list_cnt(contents_idx);
-		modelMap.addAttribute("gallery_cnt", gallery_cnt);
-		if(gallery_cnt != 0) {
-			List<Gallery_img> img_list = website_service.get_gallery_img_list(contents_idx);
-			modelMap.addAttribute("img_list", img_list);
+		
+		String sql = "";
+		
+		if(title != null) {
+			modelMap.addAttribute("title", title);
+			sql = " and title like '%" + title + "%'";
+		}
+		
+		vo.setSql(sql);
+		vo.setContents_idx(contents_idx);
+		
+		int total = website_service.get_gallery_cnt(vo);
+		if (nowPage == null && cntPerPage == null) {
+			nowPage = "1";
+			cntPerPage = "10";
+		} else if (nowPage == null) {
+			nowPage = "1";
+		} else if (cntPerPage == null) {
+			cntPerPage = "10";
+		}
+		
+		vo = new PagingVO_3(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+		modelMap.addAttribute("paging", vo);
+		
+		if (total != 0) {
+			vo.setSql(sql);
+			vo.setContents_idx(contents_idx);
+			List<GalleryVO> gallery_list = website_service.get_Gallery_list(vo);
+			modelMap.addAttribute("gallery_list", gallery_list);
 		}
 		
 		for(int i = 1; i < 3; i++) {
@@ -999,7 +1030,7 @@ public class WebsiteCtr {
 			}
 		}
 		
-		return "view/page_type_2/main";
+		return "";
 	}
 	
 	@RequestMapping(value = "gallery_management", method = RequestMethod.POST)
@@ -1056,6 +1087,20 @@ public class WebsiteCtr {
 		}
 		
 		return "view/page_type_2/main";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "gallery_delete_management", method = RequestMethod.POST)
+	public String gallery_delete_management(HttpServletRequest request, ModelMap modelMap,
+			@RequestParam(value = "check[]", defaultValue = "") List<String> check) {
+
+		int cnt = 0;
+
+		for (String c : check) {
+			website_service.gallery_delete_management(c);
+		}
+
+		return String.valueOf(cnt);
 	}
 	
 	@RequestMapping(value = "media_management", method = RequestMethod.GET)

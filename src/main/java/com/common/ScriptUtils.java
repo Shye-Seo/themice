@@ -32,4 +32,5 @@ public class ScriptUtils {
         out.println("<script>alert('" + alertText + "'); history.go(-1);</script>");
         out.flush();
     }
+
 }

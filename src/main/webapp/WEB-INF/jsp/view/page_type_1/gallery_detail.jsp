@@ -41,9 +41,6 @@
 				
 				<div class="btn_area">
 					<a href="website?contents_idx=${contents_idx}">목록</a>
-					<c:if test="${sessionScope.business_id == content_list.business_num}">
-						<a href="gallery_update?contents_idx=${contents_idx}&gallery_idx=${gallery_idx}">수정</a>
-					</c:if>
 				</div>
 			</div>
 			

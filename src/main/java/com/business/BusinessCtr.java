@@ -404,9 +404,7 @@ public class BusinessCtr {
 		vo.setBusiness_num(business_num);
 		int total = service.count_business_contents(vo);
 
-		if (total == 0) {
-			ScriptUtils.alertAndMovePage(response, "검색 결과가 없습니다.", "list");
-		}
+		modelMap.addAttribute("total", total);
 
 		if (nowPage == null && cntPerPage == null) {
 			nowPage = "1";
@@ -473,10 +471,7 @@ public class BusinessCtr {
 		vo.setBusiness_num(business_num);
 		int total = service.count_business_contents(vo);
 
-		if (total == 0) {
-			ScriptUtils.alertAndMovePage(response, "검색 결과가 없습니다.", "list");
-		}
-
+		modelMap.addAttribute("total", total);
 		modelMap.addAttribute("title", title);
 
 		if (nowPage == null && cntPerPage == null) {

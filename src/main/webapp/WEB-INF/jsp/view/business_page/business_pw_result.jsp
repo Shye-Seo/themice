@@ -35,7 +35,7 @@
 		<form>
 			<div class="contents_item">
 				<div class="left_area">
-					<span>새비밀번호</span>
+					<span>새 비밀번호</span>
 				</div>
 				<div class="right_area">
 					<input class="pw" id="password" name="password" type="password" placeholder="비밀번호를 입력하세요." required />
@@ -80,7 +80,7 @@
 			
 			<div class="contents_item">
 				<div class="left_area">
-					<span>새비밀번호 확인</span>
+					<span>새 비밀번호 확인</span>
 				</div>
 				<div class="right_area">
 					<input class="pw" id="ConfirmPassword" type="password" placeholder="비밀번호를 다시 입력하세요." required />
@@ -145,10 +145,10 @@
 			</script>
 		</form>
 		
-		<div class="btn">
-			<a href="login">로그인</a>
-			<a href="member_id_find">아이디 찾기</a>
-		</div>
+<!-- 		<div class="btn"> -->
+<!-- 			<a href="login">로그인</a> -->
+<!-- 			<a href="member_id_find">아이디 찾기</a> -->
+<!-- 		</div> -->
 	</section>
 	
 	<jsp:include page="/WEB-INF/jsp/footer/footer.jsp" />

@@ -15,52 +15,67 @@
 
 	<c:if test="${mini != 'Y'}">
 		<jsp:include page="/WEB-INF/jsp/header/header.jsp" />
+			<div class="header">
+				<div class="title">
+					<span>전시등록 설명서</span>
+				</div>
+			</div>
 		
 		<jsp:include page="/WEB-INF/jsp/aside/quick.jsp" />
 	</c:if>
+	<c:if test="${mini == 'Y'}">
+				<div class="title_mini">
+					<span>전시등록 설명서</span>
+				</div>
+		
+	</c:if>
+	
 	
 	<section id="manual">
-		<div class="top_title_area">
-			<span>THE MICE 사용 설명서</span>
-		</div>
 		<div class="manual_area">
 			<ul>
 				<li>
 					<div class="title_area">
-						<p><span>1</span>기본 정보 입력</p>
+						<p>1. 기본 정보 입력</p>
 					</div>
 					<div class="img_area">
-						<img alt="" src="${root}/img/manual/manual_1.jpg">
+						<img alt="" src="${root}/img/manual/manual_01.jpg">
 					</div>
 					<div class="text_area">
-						<p>- 필수 항목(*) 입력 후 필요한 선택 사항 정보를 입력합니다.</p>
+						<div id="text">
+							<p>- 필수 항목(*) 입력 후 필요한 선택 사항 정보를 입력합니다.</p>
+						</div>
 					</div>
 				</li>
 				
 				<li>
 					<div class="title_area">
-						<p><span>2</span>원하는 전시 타입 선택</p>
+						<p>2. 전시 상세페이지 스타일 선택</p>
 					</div>
-					<div class="img_area">
-						<img alt="" src="${root}/img/manual/manual_2.jpg">
+					<div class="img_area" id="manual_02">
+						<img alt="" src="${root}/img/manual/manual_02.jpg">
 					</div>
 					<div class="text_area">
-						<p style="margin-bottom: 0;">- 총 5가지의 전시 타입이 있으며, 각각의 타입 안에 다른 A,B 타입을<br>&nbsp;&nbsp;제공합니다.</p>
-						<p style="margin: 0">&nbsp;&nbsp;예시 = 주황색 컬러 선택(1번 2번)중 선택</p>
-						<p>- 원하는 전시 타입을 선택 후 이미지 하단 버튼을 클릭하여 사이즈에<br>&nbsp;&nbsp;맞는 이미지를 업로드 합니다.</p>
+						<div id="text">
+							<p>- 4가지의 상세페이지 스타일이 있습니다.</p>
+							<p>- 원하는 스타일을 선택 후 이미지 안의 버튼을 클릭하여<br>이미지를 첨부하며, 
+							이미지에 관련된 텍스트를 입력합니다.</p>
+						</div>
 					</div>
 				</li>
 				
 				<li>
 					<div class="title_area">
-						<p><span>3</span>타입 선택 후 꾸미기 선택</p>
+						<p>3. 스타일 선택 후 꾸미기</p>
 					</div>
 					<div class="img_area">
-						<img alt="" src="${root}/img/manual/manual_3.jpg">
+						<img alt="" src="${root}/img/manual/manual_03.jpg">
 					</div>
 					<div class="text_area">
-						<p>- 전시 타입을 선택후 원하는 폰트, 배경 이미지(패턴)을 선택합니다.</p>
-						<p style="font-weight: bold;"><span style="color: #EA933C;">*</span>색상 이미지와 배경 색상은 전시 타입에 따라 선택 사항에 제공이 다릅니다.</p>
+						<div id="text">
+							<p>- 스타일을 선택후 원하는 폰트, 배경패턴, 배경색상을 선택합니다.</p>
+							<p style="color: #EA933C;">* 배경패턴과 배경색상은 전시 스타일에 따라 다르게 적용됩니다.</p>
+						</div>
 					</div>
 				</li>
 			</ul>

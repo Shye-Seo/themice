@@ -22,17 +22,16 @@
 			<ul>
 				<li>
 					<a href="website?contents_idx=${content_list.idx}">
-						<img alt="" src="${root}/logo_path/${content_list.logo_name}" class="logo_btn" border="0" width="300" height="100">
+						<img alt="" src="${root}/logo_path/${content_list.logo_name}" class="logo_btn">
 					</a>
 				</li>
 				
 				<li onclick="introduction();">전시소개</li>
-				<li onclick="place();">위치안내</li>
 				<li onclick="gallery();">갤러리</li>
-				<li onclick="comment();">댓글달기</li>
+				<li onclick="place();">위치안내</li>
+				<li onclick="comment();">리뷰</li>
 				<li onclick="refund();">환불규정</li>
 				<li onclick="notice();">공지사항</li>
-<%-- 				<li><a href="web_notice_list?contents_idx=${content_list.idx}">공지사항</a></li> --%>
 				<c:if test="${not empty sessionScope.business_id || not empty sessionScope.id}">
 					 <li><a href="logout">로그아웃</a></li>
 				</c:if>

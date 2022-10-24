@@ -1,7 +1,31 @@
 #list{
 	width: 1024px;
     margin: 0 auto;
-    margin-top: 2%;
+/*     margin-top: 2%; */
+}
+
+#list .list_title{
+	width: 100%;
+	height: 20%;
+	text-align: center;
+	box-sizing: border-box;
+	padding: 10% 0;
+}
+
+#list .list_title span{
+	width: 100%;
+	height: 10%;
+	font-size: 3rem;
+	font-weight: bold;
+	left: 50%;
+}
+
+#list .none{
+	align-items: center;
+	font-size: 1.5rem;
+	font-weight: bold;
+	text-align: center;
+	padding-top: 5%;
 }
 
 #list ul,li{
@@ -141,7 +165,7 @@
 }
 
 #list .search form div:first-child img:first-child{
-	width: 20px;
+	width: 25px;
     margin-right: 15px;
     margin-left: 15px;
 }
@@ -151,7 +175,7 @@
 }
 
 #list .search form div:first-child img:last-child{
-	width: 20px;
+	width: 25px;
 	cursor: pointer;
 }
 
@@ -164,7 +188,7 @@
 }
 
 #list .search form div:last-child img{
-	width: 20px;
+	width: 25px;
 	margin-right: 15px;
 	margin-left: 15px;
 }
@@ -184,8 +208,15 @@
     background-color: #F5F5F5;
     align-items: center;
     justify-content: center;
-    height: 50%;
+    height: 65px;
     margin-bottom: 5%;
+}
+
+#list #my_list{
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10%;
 }
 
 #list .contents_category a{
@@ -200,11 +231,38 @@
     height: 65px;
 }
 
+#list #my_list a{
+	background-color: #F7F7F7;
+    color: #222222;
+    border: 1px solid #F7F7F7;
+    border-radius: 21px;
+    display: flex;
+    font-size: 15px;
+    align-items: center;
+    justify-content: space-around;
+    width: 130px;
+    height: 42px;
+    margin-right: 10px;
+}
+
+#list #my_list a:hover{
+	background-color: unset;
+    color: #222222;
+    border: 1px solid #EF8E24;
+    border-radius: 21px;
+    display: flex;
+    font-size: 15px;
+    align-items: center;
+    justify-content: space-around;
+    width: 130px;
+    height: 42px;
+}
+
 #list .contents_category a:nth-child(2){
 	margin: 0 2%;
 }
 
-#list .contents_category a:last-child{
+#list .contents_category a:nth-child(3){
 	border-right: none;
 }
 
@@ -313,9 +371,9 @@
 
 #list .contents .contents_item .content .content_info .content_info_link a{
     display: flex;
-    width: 88px;
-    height: 35px;
-    font-size: 14px;
+    width: 80px;
+    height: 32px;
+    font-size: 12px;
     align-items: center;
     justify-content: space-around;
     border: 1px solid #222222;
@@ -325,6 +383,14 @@
 }
 
 #list .contents .contents_item .content .content_info .content_info_link a:first-child{
+	background-color: unset;
+    color: #222222;
+    display: flex;
+    align-items: center;
+    margin-right: 5px;
+}
+
+#list .contents .contents_item .content .content_info .content_info_link a:nth-child(2){
 	background-color: unset;
     color: #222222;
     display: flex;

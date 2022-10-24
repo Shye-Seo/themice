@@ -122,11 +122,12 @@ a{
 	width: 100%;
     display: flex;
     flex-direction: column;
-    margin-bottom: 5%;
+    margin-bottom: 10%;
 }
 
 #comment .insert form{
-    border: solid 1px #707070;
+    border: solid 1px #8E8E8E;
+    border-radius: 3px;
 }
 
 #comment .insert form .non_login{
@@ -140,14 +141,27 @@ a{
     justify-content: space-between;
     box-sizing: border-box;
     padding: 2%;
+    height: 150px;
 }
 
 #comment .insert form .insert_item_1 .id{
 	font-size: 1.2rem;
     font-weight: bold;
+    box-sizing: border-box;
+    padding: 0;
+    width: 90%;
+}
+
+#comment .insert form .insert_item_1 .id input{
+	width: 800px;
+    margin-left: 10px;
+    outline: none;
+    height: 34px;
+    border: none;
 }
 
 #comment .insert form .insert_item_1 .score{
+	width: 10%;
 	display: flex;
 }
 
@@ -160,23 +174,23 @@ a{
     width: 20px;
 }
 
-#comment .insert form .insert_item_2{
-	box-sizing: border-box;
-    padding: 0 2%;
-}
+/* #comment .insert form .insert_item_2{ */
+/* 	box-sizing: border-box; */
+/*     padding: 0 2%; */
+/* } */
 
-#comment .insert form .insert_item_2 input{
-	width: 100%;
-    border: none;
-    margin: 1% 0;
-    outline: none;
-    height: 34px;
-}
+/* #comment .insert form .insert_item_2 input{ */
+/* 	width: 100%; */
+/*     border: none; */
+/*     margin: 1% 0; */
+/*     outline: none; */
+/*     height: 34px; */
+/* } */
 
 #comment .insert form .submit_area{
 	border-top: solid;
     border-width: 1px;
-    border-color: #707070;
+    border-color: #8E8E8E;
     display: flex;
     justify-content: flex-end;
 }
@@ -184,11 +198,14 @@ a{
 #comment .insert form .submit_area input{
 	border: unset;
     width: 70px;
-    height: 30px;
-    background-color: #EA933C;
+    height: 45px;
+    background-color: #ACACAC;
+    border: 1px solid #ACACAC;
+    border-radius: 3px;
     color: white;
     font-size: 1rem;
     cursor: pointer;
+    margin: 10px auto;
 }
 
 #comment .insert form .upload_area .submit_area{
@@ -222,9 +239,7 @@ a{
 	display: flex;
     flex-direction: row;
     margin-bottom: 3%;
-    border-bottom: solid;
-    border-width: 1px;
-    border-color: #707070;
+    border-bottom: 2px solid #F7F7F7;
     box-sizing: border-box;
     padding-bottom: 2%;
     justify-content: space-between;
@@ -245,6 +260,10 @@ a{
 
 .show_comment .comment_item .score_area img{
 	width: 18px;
+}
+
+.show_comment .comment_item .text_area{
+	margin-bottom: 50px;
 }
 
 .show_comment .comment_item .answer_btn{
@@ -295,17 +314,18 @@ a{
     flex-direction: column;
     position: absolute;
     top: 5%;
-    right: 0;
+    margin-right: 7%;
 }
 
 .show_comment .comment_item .comment_item_2 .btn_area .btn_item input{
 	display: block;
-    border: unset;
-    background-color: #EA933C;
-    color: white;
+    border: 1px solid #F0F0F0;
+    border-radius: 50px;
+    background-color: unset;
+    color: #BEBEBE;
     font-size: 0.9rem;
     width: 60px;
-    height: 23px;
+    height: 25px;
     margin-bottom: 5%;
     cursor: pointer;
 }
@@ -426,8 +446,8 @@ a{
     flex-direction: column;
     box-sizing: border-box;
     border-bottom: solid;
-    border-width: 1px;
-    border-color: #707070;
+    border-width: 2px;
+    border-color: #F7F7F7;
     margin-bottom: 3%;
 }
 
@@ -449,18 +469,22 @@ a{
 	width: 72%;
     margin-right: 3%;
     height: 24px;
+    background-color: #F7F7F7;
+    border-radius: 3px;
+    border: none;
 }
 
 .answer .insert_answer form .answer_submit{
 	display: flex;
     width: 9%;
-    background-color: #EA933C;
+    background-color: #ACACAC;
     color: white;
     height: 30px;
     align-items: center;
     justify-content: center;
     font-size: 1rem;
-    border: none;
+    border: 1px solid #ACACAC;
+    border-radius: 3px;
     cursor: pointer;
 }
 
@@ -810,35 +834,29 @@ a{
 
 /** manual start **/
 #manual{
-	float: left;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	vertical-align: center;
     width: 100%;
     box-sizing: border-box;
-    padding: 0 5%;
     margin-bottom: 3%;
+    padding: 3% 5% 7% 5%;
 }
 
-#manual .top_title_area{
-	width: 100%;
-    float: left;
-    border-bottom: solid;
-    border-width: 1px;
-    border-color: #707070;
-    font-size: 2em;
-    color: #333;
-    text-align: center;
-    margin-top: 6%;
-    padding-bottom: 2%;
+#manual p{
+	padding: 0;
+	margin: 0;
 }
 
 #manual .manual_area{
-	width: 100%;
-	float: left;
+	width: 1280px;
+	margin: 0 auto;
 	margin-top: 5%;
 }
 
 #manual .manual_area ul{
 	width: 100%;
-    float: left;
     display: flex;
     padding: 0;
     margin: 0;
@@ -848,34 +866,79 @@ a{
 #manual .manual_area ul li{
 	width: calc(100%/3);
     box-sizing: border-box;
-    padding: 0 2%;
+    border: 1px solid #E0E0E0;
+	height: 625px;
+    float: left;
 }
 
 #manual .manual_area ul li .title_area{
 	width: 100%;
     font-weight: 500;
-    font-size: 1.4em;
-}
-
-#manual .manual_area ul li .title_area span{
-	background-color: #EA933C;
-    border-radius: 50%;
-    padding: 3px 10px;
-    margin-right: 10px;
-    color: white;
+    font-size: 1.2em;
+    background-color: #F5F5F5;
+    color: #585858;
+    height: 70px;
+    line-height: 70px;
+    top: 0;
 }
 
 #manual .manual_area ul li .img_area{
 	width: 100%;
+	padding: 15px 0;
 }
 
-#manual .manual_area ul li .img_area img{
-	width: 100%;
+#manual .manual_area ul li:first-child .img_area img{
+	width: auto;
+	height: 370px;
+	padding: 5px 15px;
+	margin: 0 auto;
 	display: block;
+/* 	object-fit: cover; */
+}
+
+#manual .manual_area ul li:nth-child(2) .img_area img{
+	width: auto;
+	height: 370px;
+	padding: 5px 15px;
+	margin: 0 auto;
+	display: block;
+/* 	object-fit: cover; */
+}
+
+#manual .manual_area ul li:nth-child(3) .img_area img{
+	width: auto;
+	height: 370px;
+	padding: 5px 15px;
+	margin: 0 auto;
+	display: block;
+/* 	object-fit: cover; */
 }
 
 #manual .manual_area ul li .text_area{
 	width: 100%;
+	height: 120px;
+	font-size: 15px;
+	background-color: #FAFAFA;
+	color: #777777;
+	padding: 11.5px 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#manual .manual_area ul li .text_area p{
+	padding: 5px 0;
+}
+
+.title_mini{
+	width: 100%;
+	position: absolute;
+	color: #222222;
+	font-size: 46px;
+	font-weight: bold;
+	padding-top: 3%;
+	letter-spacing: -1.35px;
+	text-align: center;
 }
 /** manual end **/
 

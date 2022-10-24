@@ -26,17 +26,31 @@
 <!-- 				</div> -->
 				
 				<div class="web_notice_list">
-					<form method="get">
-						<input type="text" placeholder="제목으로 입력해주세요." name="title">
-						<input type="submit" value="검색">
-					</form>
+<!-- 					<form action="web_notice_list" method="post" name="form"> -->
+<!-- 						<input type="text" placeholder="제목으로 입력해주세요." name="title"> -->
+<!-- 						<input type="submit" value="검색" id="search_submit_btn"> -->
+<!-- 					</form> -->
+<!-- 					<script> -->
+					
+<!-- // 						$('#search_submit_btn').click(function(){ -->
+<!-- // 							var title = $('input[name=title]').val(); -->
+										
+<!-- // 							if(title == null || title == ''){ -->
+<!-- // 								alert('검색어를 입력해주세요.'); -->
+<!-- // 								$('input[name=title]').focus(); -->
+<!-- // 								return false; -->
+<!-- // 							} else { -->
+<!-- // 								$('form[name=form]').submit(); -->
+<!-- // 							} -->
+<!-- // 						}); -->
+<!-- 					</script> -->
 					
 					<div class="content_area">
 						<ul>
 							<li>NO</li>
 							<li>제목</li>
 							<li>작성일자</li>
-							<li>조회순</li>
+							<li>조회수</li>
 						</ul>
 						
 						<c:forEach var="list" items="${notice_list}" varStatus="st">

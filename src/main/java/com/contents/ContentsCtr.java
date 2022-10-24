@@ -13,12 +13,19 @@ import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.attribute.PosixFileAttributes;
+import java.nio.file.attribute.PosixFilePermission;
+import java.nio.file.attribute.PosixFilePermissions;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 import javax.annotation.Resource;
 import javax.imageio.ImageIO;
@@ -193,10 +200,12 @@ public class ContentsCtr {
 		vo.setSql(sql);
 		
 		int total = service.countSelectContents(vo);
+		
+//		if(total == 0) {
+//			ScriptUtils.alert(response, "test");
+//		}
 
-		if (total == 0) {
-			ScriptUtils.alertAndMovePage(response, "검색 결과가 없습니다.", "list");
-		}
+		modelMap.addAttribute("total", total);
 
 		if (nowPage == null && cntPerPage == null) {
 			nowPage = "1";
@@ -262,12 +271,13 @@ public class ContentsCtr {
 		vo.setSql(sql);
 
 		int total = service.countSelectContents(vo);
-
+		
+//		if(total == 0) {
+//			ScriptUtils.alert(response, "test");
+//		}
+		
+		modelMap.addAttribute("total", total);
 		System.out.println("total : " + total);
-
-		if (total == 0) {
-			ScriptUtils.alertAndMovePage(response, "검색 결과가 없습니다.", "list");
-		}
 
 		modelMap.addAttribute("title", title);
 
@@ -344,13 +354,42 @@ public class ContentsCtr {
 		String title = vo.getTitle();
 		
 		for (MultipartFile imgs : file) {
+//			int permissionCode = 750;
 			int img_seq = 0;
 			String imgName = imgs.getOriginalFilename();
 			
 			if (imgName != null && !imgName.equals("")) {
-				
 				File target = new File(uploadPath, imgName);
 				File target1 = new File(watermarkPath, imgName);
+				
+				target.setReadable(true, true);
+				target.setWritable(true, true);
+				target.setExecutable(true, true);
+				
+				target1.setReadable(true, true);
+				target1.setWritable(true, true);
+				target1.setExecutable(true, true);
+//				
+//				if(target1.exists()) {
+//					if(permissionCode == 750) {
+//						Path paths = Paths.get(watermarkPath);
+//						Set<PosixFilePermission> posixPermissions = Files.readAttributes(paths,PosixFileAttributes.class).permissions();
+//						posixPermissions.add(PosixFilePermission.OWNER_READ);
+//						posixPermissions.add(PosixFilePermission.OWNER_WRITE);
+//						posixPermissions.add(PosixFilePermission.OWNER_EXECUTE);
+//						
+//						posixPermissions.add(PosixFilePermission.GROUP_READ);
+//						posixPermissions.add(PosixFilePermission.GROUP_WRITE);
+//						posixPermissions.add(PosixFilePermission.GROUP_EXECUTE);
+//						
+//						posixPermissions.add(PosixFilePermission.OTHERS_READ);
+//						posixPermissions.add(PosixFilePermission.OTHERS_WRITE);
+//						posixPermissions.add(PosixFilePermission.OTHERS_EXECUTE);
+//						Files.setPosixFilePermissions(paths, posixPermissions);
+//					}
+//				}
+//				Runtime.getRuntime().exec("chmod -R 777 " + target);
+//				Runtime.getRuntime().exec("chmod -R 777 " + target1);
 				
 				FileCopyUtils.copy(imgs.getBytes(), target);
 				FileCopyUtils.copy(imgs.getBytes(), target1);
@@ -359,7 +398,7 @@ public class ContentsCtr {
 		        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
 		        String time = dateFormat.format(cal.getTime());
 				
-				String path = "/C:/workspace/img/watermark/"+imgName;
+				String path = "/usr/local/img/watermark/"+imgName;
 				watermark(path, title);
 				
 				String imgName_watermark = time+"_"+imgName;
@@ -422,9 +461,11 @@ public class ContentsCtr {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
         String time = dateFormat.format(cal.getTime());
 //        File output = new File(path);
-        File output = new File("/C:/workspace/img/watermark/"+time+"_"+f_name);
-        System.out.println("방금 생성된 파일명 =============================>"+output);
+        File output = new File("/usr/local/img/watermark/"+time+"_"+f_name);
         ImageIO.write(original, "png", output);
+        output.setReadable(true, true);
+        output.setWritable(true, true);
+        output.setExecutable(true, true);
     }
 
 	@RequestMapping(value = "detail", method = RequestMethod.GET)
@@ -521,7 +562,7 @@ public class ContentsCtr {
 			
 			if(price_check == 1) {
 				PaymentVO payment = new PaymentVO();
-				payment.setConsumer(id);
+				payment.setId(id);
 				payment.setContents_idx(String.valueOf(contents_idx));
 				payment = service.check_payment(payment);
 				
@@ -568,6 +609,7 @@ public class ContentsCtr {
 		if(content_list.getLayout_type() == 1 || content_list.getLayout_type() == 2 || content_list.getLayout_type() == 4) {
 			String[] sub_title = content_list.getSub_title().split(",");
 			modelMap.addAttribute("sub_title", sub_title);
+			System.out.println("detail subtitle --------------->"+sub_title);
 		}
 		
 		
@@ -790,113 +832,33 @@ public class ContentsCtr {
 	}
 	
 	@RequestMapping(value = "comment_report", method = RequestMethod.POST)
-	public @ResponseBody String comment_report(HttpSession session, Report_commentsVO vo,
+	public @ResponseBody String comment_report(HttpSession session, CommentsVO vo,
 			@RequestParam(value = "idx", defaultValue = "") int idx) {
 		
 		int check = 1;
-		String reporter = "";
-		String authority = (String) session.getAttribute("authority");
 		CommentsVO comments = service.getcomments(idx);
 		
-		if (authority.equals("member")) {
-			String member_id = (String) session.getAttribute("id");
-			reporter = member_id;
-			
-			vo.setComments_idx(idx);
-			vo.setReporter(reporter);
-			
-			int report_check = service.comments_report_check(vo);
-			
-			if(report_check == 0) {
-				vo.setComments_idx(idx);
-				vo.setReporter(reporter);
-				vo.setReport_target(comments.getUser_id());
-				vo.setReport_content(comments.getComment());
-				service.comment_report(vo);
-				service.comment_report_cnt(idx);
-			} else {
-				check = 2;
-			}
-			
-		} else if (authority.equals("business")) {
-			String business_id = (String) session.getAttribute("business_id");
-			String business_name = service.getBusiness_name(business_id);
-			reporter = business_name;
-			
-			vo.setComments_idx(idx);
-			vo.setReporter(reporter);
-			
-			int report_check = service.comments_report_check(vo);
-			
-			if(report_check == 0) {
-				vo.setComments_idx(idx);
-				vo.setReporter(reporter);
-				vo.setReport_target(comments.getUser_id());
-				vo.setReport_content(comments.getComment());
-				service.comment_report(vo);
-			} else {
-				check = 2;
-			}
-		} else {
-			check = 0;
-		}
+		service.comment_report_cnt(idx);
 		
 		return String.valueOf(check);
 	}
 	
 	@RequestMapping(value = "answer_report", method = RequestMethod.POST)
-	public @ResponseBody String answer_report(HttpSession session, Report_answersVO vo,
+	public @ResponseBody String answer_report(HttpSession session, Comments_answerVO vo,
 			@RequestParam(value = "idx", defaultValue = "") int idx) {
 		
 		int check = 1;
-		String reporter = "";
 		String authority = (String) session.getAttribute("authority");
 		CommentsVO comments = service.getcomments(idx);
 		
 		if (authority.equals("member")) {
-			String member_id = (String) session.getAttribute("id");
-			reporter = member_id;
 			
-			vo.setAnswers_idx(idx);
-			vo.setReporter(reporter);
-			
-			int report_check = service.answers_report_check(vo);
-			
-			if(report_check == 0) {
-				vo.setAnswers_idx(idx);
-				vo.setReporter(reporter);
-				vo.setReport_target(comments.getUser_id());
-				vo.setReport_content(comments.getComment());
-				service.answer_report(vo);
-				service.answer_report_cnt(idx);
-			} else {
-				check = 2;
-			}
+			service.answer_report_cnt(idx);
 			
 		} else if (authority.equals("business")) {
-			String business_id = (String) session.getAttribute("business_id");
-			String business_name = service.getBusiness_name(business_id);
-			reporter = business_name;
 			
-			vo.setAnswers_idx(idx);
-			vo.setReporter(reporter);
-			
-			int report_check = service.answers_report_check(vo);
-			
-			if(report_check == 0) {
-				vo.setAnswers_idx(idx);
-				vo.setReporter(reporter);
-				vo.setReport_target(comments.getUser_id());
-				vo.setReport_content(comments.getComment());
-				service.answer_report(vo);
-				service.answer_report_cnt(idx);
-			} else {
-				check = 2;
-			}
-		} else {
-			check = 0;
+			service.answer_report_cnt(idx);
 		}
-		
 		return String.valueOf(check);
 	}
 
@@ -948,6 +910,14 @@ public class ContentsCtr {
 					File target = new File(uploadPath, imgName);
 					File target1 = new File(watermarkPath, imgName);
 					
+					target.setReadable(true, true);
+					target.setWritable(true, true);
+					target.setExecutable(true, true);
+					
+					target1.setReadable(true, true);
+					target1.setWritable(true, true);
+					target1.setExecutable(true, true);
+					
 					FileCopyUtils.copy(imgs.getBytes(), target);
 					FileCopyUtils.copy(imgs.getBytes(), target1);
 
@@ -955,7 +925,7 @@ public class ContentsCtr {
 					Calendar cal = Calendar.getInstance();
 					SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
 					String time = dateFormat.format(cal.getTime());
-					String path = "/C:/workspace/img/watermark/"+imgName;
+					String path = "/usr/local/img/watermark/"+imgName;
 					watermark(path, title);
 					
 					String imgName_watermark = time+"_"+imgName;
@@ -972,7 +942,6 @@ public class ContentsCtr {
 
 			List<Temporary_ImgVO> img_list = new ArrayList<Temporary_ImgVO>();
 			String title = temporary1.getTitle();
-			System.out.println("제목을 가져옵니다 =================>"+title);
 			
 			for (MultipartFile imgs : file) {
 				String imgName = imgs.getOriginalFilename();
@@ -981,13 +950,21 @@ public class ContentsCtr {
 					File target = new File(uploadPath, imgName);
 					File target1 = new File(watermarkPath, imgName);
 					
+					target.setReadable(true, true);
+					target.setWritable(true, true);
+					target.setExecutable(true, true);
+					
+					target1.setReadable(true, true);
+					target1.setWritable(true, true);
+					target1.setExecutable(true, true);
+					
 					FileCopyUtils.copy(imgs.getBytes(), target);
 					FileCopyUtils.copy(imgs.getBytes(), target1);
 
 					Calendar cal = Calendar.getInstance();
 					SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
 					String time = dateFormat.format(cal.getTime());
-					String path = "/C:/workspace/img/watermark/"+imgName;
+					String path = "/usr/local/img/watermark/"+imgName;
 					watermark(path, title);
 					
 					String imgName_watermark = time+"_"+imgName;
@@ -1083,11 +1060,12 @@ public class ContentsCtr {
 		}
 		
 		if(temporary.getLayout_type().equals("1") || temporary.getLayout_type().equals("2") || temporary.getLayout_type().equals("4")) {
+//			String[] sub_title = temporary.getSub_title().split(",");
 			String[] sub_title = temporary.getSub_title().split(",");
 			modelMap.addAttribute("sub_title", sub_title);
 		}
 
-		for (int i = 0; i < 9; i++) {
+		for (int i = 0; i < 5; i++) {
 			if (Integer.parseInt(temporary.getLayout_type()) == i) {
 				modelMap.addAttribute("t", t);
 				modelMap.addAttribute("content_list", temporary);
@@ -1119,20 +1097,40 @@ public class ContentsCtr {
 	 * @throws IOException
 	 **/
 	@RequestMapping(value = "login_check", method = RequestMethod.GET)
-	public String password_check(HttpServletResponse response, HttpSession session) throws IOException {
+	public String login_check(HttpSession session, HttpServletResponse response) throws Exception {
 
-		String authority = (String) session.getAttribute("authority");
-		if (authority == null || authority.equals("")) {
-			ScriptUtils.alertAndMovePage(response, "로그인을 해주세요.", "login");
+		String business = (String) session.getAttribute("business_id");
+		String member = (String) session.getAttribute("id");
+//		String authority = (String) session.getAttribute("authority");
+
+		if ((business == null || business.equals("")) && (member == null || member.equals(""))) {
+			ScriptUtils.alertAndMovePage(response, "로그인을 해주세요", "login");
 		} else {
-			if (authority.equals("member")) {
+			if (member != null) {
 				return "view/member_page/member_password_check";
-			} else if (authority.equals("business")) {
+			} else if (business != null) {
 				return "view/business_page/business_password_check";
 			}
 		}
 		return "view/login";
 	}
+	
+//	
+//	@RequestMapping(value = "login_check", method = RequestMethod.GET)
+//	public String password_check(HttpServletResponse response, HttpSession session) throws IOException {
+//
+//		String authority = (String) session.getAttribute("authority");
+//		if (authority == null || authority.equals("")) {
+//			ScriptUtils.alertAndMovePage(response, "로그인을 해주세요.", "login");
+//		} else {
+//			if (authority.equals("member")) {
+//				return "view/member_page/member_password_check";
+//			} else if (authority.equals("business")) {
+//				return "view/business_page/business_password_check";
+//			}
+//		}
+//		return "view/login";
+//	}
 		
 	/** 메뉴얼 **/
 	@RequestMapping(value = "manual")
@@ -1159,6 +1157,7 @@ public class ContentsCtr {
 		
 		vo.setSql(sql);
 		int total = service.notice_count(vo);
+		modelMap.addAttribute("total", total);
 		
 		if (nowPage == null && cntPerPage == null) {
 			nowPage = "1";
@@ -1254,7 +1253,6 @@ public class ContentsCtr {
 			HttpSession session, HttpServletResponse response, Web_menuVO web_menuvo) throws IOException, InterruptedException {
 		
 		int contents_idx = service.getContents_idx();
-		System.out.println("잘 가져오나용=================>contents_idx : "+contents_idx);
 		ContentsVO content_list = service.selectContent(contents_idx);
 		List<ImgVO> contents_img = service.getContents_img(contents_idx);
 		System.out.println(contents_img);
@@ -1271,9 +1269,6 @@ public class ContentsCtr {
 		vo.setBusiness_num(business_id);
 //		vo.setTel(service.getTel(business_id)); 전시등록 시, 직접 입력하는 것으로 바꿈
 		vo.setBusiness(service.getBusiness_name(business_id));
-		System.out.println("잘 가져오나용=================>business_id : "+business_id);
-//		System.out.println("잘 가져오나용=================>business_num : "+business_id);
-		
 		
 		String saveName = symbol_img.getOriginalFilename();
 		File target_1 = new File(uploadPath, saveName);
@@ -1315,6 +1310,14 @@ public class ContentsCtr {
 				File target = new File(uploadPath, imgName);
 				File target1 = new File(watermarkPath, imgName);
 				
+				target.setReadable(true, true);
+				target.setWritable(true, true);
+				target.setExecutable(true, true);
+				
+				target1.setReadable(true, true);
+				target1.setWritable(true, true);
+				target1.setExecutable(true, true);
+				
 				FileCopyUtils.copy(imgs.getBytes(), target);
 				FileCopyUtils.copy(imgs.getBytes(), target1);
 				
@@ -1322,7 +1325,7 @@ public class ContentsCtr {
 		        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
 		        String time = dateFormat.format(cal.getTime());
 				
-				String path = "/C:/workspace/img/watermark/"+imgName;
+				String path = "/usr/local/img/watermark/"+imgName;
 				watermark(path, title);
 				
 				String imgName_watermark = time+"_"+imgName;

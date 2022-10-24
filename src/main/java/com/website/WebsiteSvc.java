@@ -56,20 +56,20 @@ public class WebsiteSvc {
 		sqlSession.insert("notice_management_update", noticeVO);
 	}
 	
-	public int report_comments_cnt(PagingVO_2 vo) {
-		return sqlSession.selectOne("report_comments_cnt", vo);
+	public int comments_cnt(PagingVO_2 vo) {
+		return sqlSession.selectOne("comments_cnt", vo);
 	}
 	
-	public List<CommentsVO> select_report_comments(PagingVO_2 vo) {
-		return sqlSession.selectList("select_report_comments", vo);
+	public List<CommentsVO> select_comments(PagingVO_2 vo) {
+		return sqlSession.selectList("select_comments", vo);
 	}
 	
-	public int report_answers_cnt(PagingVO_2 vo) {
-		return sqlSession.selectOne("report_answers_cnt", vo);
+	public int answers_cnt(PagingVO_2 vo) {
+		return sqlSession.selectOne("answers_cnt", vo);
 	}
 	
-	public List<Comments_answerVO> select_report_answers(PagingVO_2 vo) {
-		return sqlSession.selectList("select_report_answers", vo);
+	public List<Comments_answerVO> select_answers(PagingVO_2 vo) {
+		return sqlSession.selectList("select_answers", vo);
 	}
 
 	public Web_notice get_web_notice(int idx) {
@@ -92,6 +92,10 @@ public class WebsiteSvc {
 
 	public List<Gallery_img> get_gallery_img(int gallery_idx) {
 		return sqlSession.selectList("get_gallery_img", gallery_idx);
+	}
+	
+	public void gallery_delete_management(String c) {
+		sqlSession.insert("gallery_delete_management", c);
 	}
 
 	public void set_pop_up(Pop_upVO pop_up) {

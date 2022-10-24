@@ -102,7 +102,7 @@
 								},
 								success : function(data) {
 									if ($.trim(data) == 1) {
-										var url = "/Home/member_pw_email_certification?id=" + id + "&certification_type=" + email;
+										var url = "member_pw_email_certification?id=" + id + "&certification_type=" + email;
 										window.open(url, "", "width=" + width + ", height=" + height + ", left=" + left + ", top=" + top);
 									} else {
 										alert('일치하는 정보가 없습니다.');
@@ -127,7 +127,7 @@
 								},
 								success : function(data) {
 									if ($.trim(data) == 1) {
-										var url = "/Home/member_pw_tel_certification?id=" + id + "&certification_type=" + tel;
+										var url = "member_pw_tel_certification?id=" + id + "&certification_type=" + tel;
 										window.open(url, "", "width=" + width + ", height=" + height + ", left=" + left + ", top=" + top);
 									} else {
 										alert('일치하는 정보가 없습니다.');

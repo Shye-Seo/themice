@@ -48,32 +48,32 @@
 		end_day = #{end_day}, file_path = #{file_path} where idx = #{idx}
 	</select>
 	
-	<select id="report_comments_cnt" parameterType="com.common.PagingVO_2" resultType="int">
+	<select id="comments_cnt" parameterType="com.common.PagingVO_2" resultType="int">
 		select count(*) from (select @rownum:=@rownum+1 as num, n.*
-		from(select * from comments where count > 0 and contents_idx = #{contents_idx} ${sql} order by idx desc)n,
+		from(select * from comments where contents_idx = #{contents_idx} ${sql} order by idx desc)n,
 		(select @rownum:=0)v)num;
 	</select>
 	
-	<select id="select_report_comments" parameterType="com.common.PagingVO_2" resultType="com.contents.comments.CommentsVO">
+	<select id="select_comments" parameterType="com.common.PagingVO_2" resultType="com.contents.comments.CommentsVO">
 		select * from (select @rownum:=@rownum+1 as num, n.*
 		from(select * from comments where count > 0 and contents_idx = #{contents_idx} ${sql} order by idx desc)n,
 		(select @rownum:=0)v)num where num.num between ${start} and ${end}
 	</select>
 	
-	<select id="report_answers_cnt" parameterType="com.common.PagingVO_2" resultType="int">
+	<select id="answers_cnt" parameterType="com.common.PagingVO_2" resultType="int">
 		select count(*) from (select @rownum:=@rownum+1 as num, n.*
-		from(select * from comments_answer where count > 0 and contents_idx = #{contents_idx} ${sql} order by idx desc)n,
+		from(select * from comments_answer where contents_idx = #{contents_idx} ${sql} order by idx desc)n,
 		(select @rownum:=0)v)num;
 	</select>
 	
-	<select id="select_report_answers" parameterType="com.common.PagingVO_2" resultType="com.contents.comments.Comments_answerVO">
+	<select id="select_answers" parameterType="com.common.PagingVO_2" resultType="com.contents.comments.Comments_answerVO">
 		select * from (select @rownum:=@rownum+1 as num, n.*
 		from(select * from comments_answer where count > 0 and contents_idx = #{contents_idx} ${sql} order by idx desc)n,
 		(select @rownum:=0)v)num where num.num between ${start} and ${end}
 	</select>
 	
 	<select id="get_web_notice" parameterType="int" resultType="com.notice.Web_notice">
-		select * from web_notice where idx = #{idx}
+		select * from web_notice where idx = #{idx} and flag = 'Y'
 	</select>
 	
 	<insert id="set_gallery" parameterType="com.website.GalleryVO">
@@ -92,6 +92,10 @@
 	<select id="get_gallery_img" parameterType="int" resultType="com.website.Gallery_img">
 		select * from gallery_img where gallery_idx = #{gallery_idx}
 	</select>
+	
+	<insert id="gallery_delete_management" parameterType="String">
+		delete from gallery where idx =#{c}
+	</insert>
 	
 	<insert id="set_pop_up" parameterType="com.website.Pop_upVO">
 		insert into pop_up (contents_idx, title_1, start_day_1, end_day_1, ratio_1, img_1,
@@ -134,7 +138,7 @@
 	</insert>
 	
 	<insert id="user_delete_answer" parameterType="String">
-		delete from comments_answer where comments_idx = #{c}
+		delete from comments_answer where idx = #{c}
 	</insert>
 	
 	<insert id="notice_delete_management" parameterType="String">
@@ -146,7 +150,7 @@
 	</select>
 	
 	<select id="get_main_notice" parameterType="int" resultType="com.notice.Web_notice">
-		select * from web_notice where contents_idx = #{contents_idx} order by idx desc limit 5
+		select * from web_notice where contents_idx = #{contents_idx} and flag = 'Y' order by idx desc limit 5
 	</select>
 	
 	<select id="get_gallery" parameterType="int" resultType="com.website.GalleryVO">

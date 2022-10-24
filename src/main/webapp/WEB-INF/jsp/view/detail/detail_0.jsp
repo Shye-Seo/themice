@@ -27,13 +27,6 @@
 		<div class="title">
 			<span>전시</span>
 		</div>
-		<div class="root">
-			<img alt="" src="${root}/img/list/home_icon.svg">
-			<span><img alt="" src="${root}/img/common/arrow_icon.svg"></span>
-			<span>전시리스트</span>
-			<span><img alt="" src="${root}/img/common/arrow_icon.svg"></span>
-			<span>상세페이지</span>
-		</div>
 	</div>
 	
 	<a href="javascript:history.back();" id="back_area">
@@ -42,27 +35,16 @@
 	</a>
 		
 	<section id="detail">
-		<div class="title_area">
-			<span>${content_list.title}</span>
-		</div>
-
 		<div class="contents_area">
 			<div class="img_area">
 				<img alt="" src="${root}/crawiling_img/${content_list.img_path}">
 			</div>
 			
 			<div class="text_area">
-				<div class="content_area">
-					<div>
-						<span>전시내용</span>
-					</div>
-					
-					<div>
-						<p>${content_list.content}</p>
-					</div>
-				</div>
-
 				<div class="info_area">
+					<div class="title_area">
+						<span>${content_list.title}</span>
+					</div>
 					<ul>
 						<li>
 							<div class="left">
@@ -102,7 +84,7 @@
 
 						<li>
 							<div class="left">
-								<p>개최 장소</p>
+								<p>장소</p>
 							</div>
 							<div class="right">
 								<p>${content_list.address}${content_list.detail_address}</p>
@@ -117,10 +99,30 @@
 								<p>${content_list.price}</p>
 							</div>
 						</li>
+						
+						<c:if test="${content_list.web_address != '' || content_list.web_address != null }">
+						<li>
+							<div class="left">
+								<p>홈페이지</p>
+							</div>
+							<div class="right">
+								<p>${content_list.web_address}</p>
+							</div>
+						</li>
+						</c:if>
 					</ul>
 				</div>
 			</div>
 		</div>
+		<div class="content_area">
+					<div>
+						<span>전시내용</span>
+					</div>
+					
+					<div>
+						<p>${content_list.content}</p>
+					</div>
+				</div>
 	</section>
 
 	<jsp:include page="/WEB-INF/jsp/footer/footer.jsp" />

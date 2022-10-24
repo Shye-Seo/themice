@@ -278,7 +278,7 @@
 	</select>
 	
 	<select id="check_payment" parameterType="com.payment.PaymentVO" resultType="com.payment.PaymentVO">
-		select * from payments where contents_idx = #{contents_idx} and consumer = #{consumer}
+		select * from payment where contents_idx = #{contents_idx} and id = #{id}
 	</select>
 	
 	<insert id="add_contents_view" parameterType="int">
@@ -324,7 +324,7 @@
 	</insert>
 	
 	<insert id="answer_report_cnt" parameterType="int">
-		update answers set count = count+1 where idx = #{idx}
+		update comments_answer set count = count+1 where idx = #{idx}
 	</insert>
 	
 	<insert id="insert_introduction_img" parameterType="com.website.Introduction_img">

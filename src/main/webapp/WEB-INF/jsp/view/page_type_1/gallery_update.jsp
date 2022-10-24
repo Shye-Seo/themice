@@ -214,11 +214,26 @@
 	<div id="section">
 		<jsp:include page="/WEB-INF/jsp/view/page_type_1/header.jsp" />
 		
-		<section id="gallery_insert">
+		<div id="management_title_area">
+			<span>환경설정</span>
+		</div>
+		<div id="navi_area">
+			<nav>
+				<ul>
+					<li><a href="main_management?contents_idx=${contents_idx}">메인관리</a></li>
+					<li><a href="introduction_management?contents_idx=${contents_idx}">소개관리</a></li>
+					<li><a href="gallery_management?contents_idx=${contents_idx}">갤러리관리</a></li>
+					<li><a href="notice_management?contents_idx=${contents_idx}">공지사항관리</a></li>
+					<li><a href="pop_up_management?contents_idx=${contents_idx}">팝업관리</a></li>
+					<li><a href="comment_management?contents_idx=${contents_idx}">댓글관리</a></li>
+				</ul>
+			</nav>
+		</div>
+		
+		<section id="preferences">
 			<div class="inner">
-				<div class="title_area">
-					<span>갤러리 수정</span>
-				</div>
+			<div class="gallery_insert">
+				<span class="title_area">갤러리 수정</span>
 				
 				<form name="uploadForm" id="uploadForm" enctype="multipart/form-data" method="post" action="gallery_update">
 					<div class="infomation">
@@ -238,7 +253,7 @@
 						<div class="right_area">
 							<input type="text" disabled id="thumbnail_name" placeholder="* 4:3 비율의 이미지가 사용 가능합니다.">
 							<input type="file" id="thumbnail" name="thumbnail_file" accept="image/*">
-							<label for="thumbnail"><img alt="" src="${root}/img/website/upload_icon.svg">내 PC</label>
+							<label for="thumbnail"><img alt="" src="${root}/img/website/upload_white.svg">내 PC</label>
 							
 							<script type="text/javascript">
 								$(function () {
@@ -274,7 +289,7 @@
 		
 							<div class="upload-btn-wrapper">
 								<input type="file" id="input_file" multiple="multiple" name="img" accept="image/*"/>
-								<label for="input_file"><img alt="" src="${root}/img/website/upload_icon.svg">내 PC</label>
+								<label for="input_file"><img alt="" src="${root}/img/website/upload_white.svg">내 PC</label>
 							</div>
 						</div>
 					</div>
@@ -291,9 +306,13 @@
 <!-- 						</div> -->
 <!-- 					</div> -->
 					
+					
+					<input type="hidden" value="${contents_idx}" name="contents_idx">
+					<input type="hidden" value="${gallery_idx}" name="gallery_idx">
+				</form>
 					<div class="btn_area">
 <!-- 						<input type="submit" id="submit_btn" value="완료"> -->
-						<input type="button" value="완료" id="submit_btn" onclick="uploadFile(); return false;">
+						<input type="button" value="등록" id="submit_btn" onclick="uploadFile(); return false;">
 						<input type="reset" value="취소">
 						
 						<script type="text/javascript">
@@ -311,12 +330,8 @@
 							});
 						</script>
 					</div>
-					
-					<input type="hidden" value="${contents_idx}" name="contents_idx">
-					<input type="hidden" value="${gallery_idx}" name="gallery_idx">
-				</form>
 			</div>
-			
+			</div>			
 			<jsp:include page="/WEB-INF/jsp/footer/footer.jsp" />
 		</section>
 	</div>

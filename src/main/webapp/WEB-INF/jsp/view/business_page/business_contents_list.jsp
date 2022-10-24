@@ -40,32 +40,26 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 	<div id="navi_area">
 		<nav>
 			<ul>
-				<li><a href="main"> <img alt=""
-						src="${root}/img/member_page/home_icon.svg">
-				</a></li>
-
-				<li><a href="#">전시</a></li>
-				<li><select onchange="window.location.href=this.value">
-						<!-- <option value="business_info">회원정보 수정</option> -->
-						<option value="login_check">회원정보 수정</option>
-						<option value="business_contents_list" selected="selected">내 전시 리스트</option>
-						<option value="business_payment">결제 내역</option>
-						<option value="business_password_update">비밀번호 수정</option>
-						<option value="business_secession">회원 탈퇴</option>
-				</select></li>
+				<li><a href="business_contents_list">MY 전시</a></li>
+				<li><a href="business_payment">결제내역</a></li>
+				<li><a href="login_check">회원정보 수정</a></li>
+				<li><a href="business_password_update">비밀번호 수정</a></li>
+				<li><a href="business_secession">회원탈퇴</a></li>
 			</ul>
 		</nav>
 	</div>
-
 	<section id="list">
+		<div class="list_title">
+			<span>MY 전시</span>
+		</div>
 		<div class="category">
 			<ul>
-				<li><a href="business_contents_list?exhn_type=전체" class="exhn_type_0">전체</a></li>
-				<li><a href="business_contents_list?exhn_type=박람회" class="exhn_type_1">박람회</a></li>
-				<li><a href="business_contents_list?exhn_type=전시회" class="exhn_type_2">전시회</a></li>
-				<li><a href="business_contents_list?exhn_type=페어" class="exhn_type_3">페어</a></li>
-				<li><a href="business_contents_list?exhn_type=대제전" class="exhn_type_4">대제전</a></li>
-				<li><a href="business_contents_list?exhn_type=행사" class="exhn_type_5">행사</a></li>
+				<li class="exhn_type_0"><a href="business_contents_list?exhn_type=전체">전체</a></li>
+				<li class="exhn_type_1"><a href="business_contents_list?exhn_type=박람회">박람회</a></li>
+				<li class="exhn_type_2"><a href="business_contents_list?exhn_type=전시회">전시회</a></li>
+				<li class="exhn_type_3"><a href="business_contents_list?exhn_type=페어">페어</a></li>
+				<li class="exhn_type_4"><a href="business_contents_list?exhn_type=대제전">대제전</a></li>
+				<li class="exhn_type_5"><a href="business_contents_list?exhn_type=행사">행사</a></li>
 			</ul>
 
 			<input type="hidden" name="exhn_type" value="${exhn_type}"
@@ -77,16 +71,34 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 				var exhn_type = $('.exhn_type').val();
 				if (exhn_type == '전체') {
 					$('.exhn_type_0').css('font-weight', '700');
+					$('.exhn_type_0 a').css('color', '#FFFFFF');
+					$('.exhn_type_0').css('background-color', '#292929');
+					$('.exhn_type_0').css('border', '1px solid #292929');
 				} else if (exhn_type == '박람회') {
 					$('.exhn_type_1').css('font-weight', '700');
+					$('.exhn_type_1 a').css('color', '#FFFFFF');
+					$('.exhn_type_1').css('background-color', '#65B99B');
+					$('.exhn_type_1').css('border', '1px solid #65B99B');
 				} else if (exhn_type == '전시회') {
 					$('.exhn_type_2').css('font-weight', '700');
+					$('.exhn_type_2 a').css('color', '#FFFFFF');
+					$('.exhn_type_2').css('background-color', '#6CB5E2');
+					$('.exhn_type_2').css('border', '1px solid #6CB5E2');
 				} else if (exhn_type == '페어') {
 					$('.exhn_type_3').css('font-weight', '700');
+					$('.exhn_type_3 a').css('color', '#FFFFFF');
+					$('.exhn_type_3').css('background-color', '#A645AA');
+					$('.exhn_type_3').css('border', '1px solid #A645AA');
 				} else if (exhn_type == '대제전') {
 					$('.exhn_type_4').css('font-weight', '700');
+					$('.exhn_type_4 a').css('color', '#FFFFFF');
+					$('.exhn_type_4').css('background-color', '#FCB800');
+					$('.exhn_type_4').css('border', '1px solid #FCB800');
 				} else if (exhn_type == '행사') {
 					$('.exhn_type_5').css('font-weight', '700');
+					$('.exhn_type_5 a').css('color', '#FFFFFF');
+					$('.exhn_type_5').css('background-color', '#E6648C');
+					$('.exhn_type_5').css('border', '1px solid #E6648C');
 				}
 			});
 		</script>
@@ -94,7 +106,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 		<div class="search">
 			<form method="post" action="business_contents_list">
 				<div>
-					<img src="${root}/img/list/star_icon_color.svg">
+					<img src="${root}/img/list/icon_star.svg">
 					<c:if test="${title == null}">
 						<input type="text" placeholder="행사명을 입력하세요." name="title">
 					</c:if>
@@ -108,7 +120,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 					</label>
 				</div>
 				<div>
-					<img src="${root}/img/list/calender_icon.svg"> <input
+					<img src="${root}/img/list/icon_date02.svg"> <input
 						type="date" name="day" id="now_date" value="${day}">
 				</div>
 			</form>
@@ -140,17 +152,32 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 				});
 			});
 		</script>
-		<div class="contents_category">
-			<a
-				href="business_contents_list?term=0&exhn_type=${exhn_type}&day=${day}&title=${title}"
-				class="term_0">전체 일정</a> <a
-				href="business_contents_list?term=1&exhn_type=${exhn_type}&day=${day}&title=${title}"
-				class="term_0">진행 일정</a> <a
-				href="business_contents_list?term=2&exhn_type=${exhn_type}&day=${day}&title=${title}"
-				class="term_0">지난 일정</a> <input type="hidden" name="term"
-				value="${term}">
+		<div id="my_list">
+			<a href="business_contents_list?term=0&exhn_type=${exhn_type}&day=${day}&title=${title}" class="term_0" id="term_0">전체 일정</a>
+			<a href="business_contents_list?term=1&exhn_type=${exhn_type}&day=${day}&title=${title}" class="term_0" id="term_1">현재 일정</a>
+			<a href="business_contents_list?term=2&exhn_type=${exhn_type}&day=${day}&title=${title}" class="term_0" id="term_2">지난 일정</a>
+			<input type="hidden" name="term" value="${term}" id="term">
 		</div>
+		<script type="text/javascript">
+			$(function() {
+				var term = $('#term').val();
+				if (term == 0) {
+					$('#term_0').css('background-color', 'unset');
+					$('#term_0').css('border', '1px solid #EF8E24');
+				} else if (term == 1) {
+					$('#term_1').css('background-color', 'unset');
+					$('#term_1').css('border', '1px solid #EF8E24');
+				} else if (term == 2) {
+					$('#term_2').css('background-color', 'unset');
+					$('#term_2').css('border', '1px solid #EF8E24');
+				}
+			});
+		</script>
 
+		<c:if test="${total == 0}">
+			<div class="none"><div>검색 결과가 없습니다.</div></div>
+		</c:if>
+		<c:if test="${total != 0 }">
 		<div class="contents">
 			<ul class="contents_item">
 				<c:forEach var="l" items="${list}" varStatus="st">
@@ -177,7 +204,15 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 						<div class="content_info">
 							<div class="content_info_text">
 								<c:if test="${l.exhn_type != null}">
-									<span>${l.exhn_type}</span>
+									<span class="top_category" style="
+																<c:if test="${l.exhn_type eq '박람회'}">background-color: #65B99B;</c:if>
+																<c:if test="${l.exhn_type eq '전시회'}">background-color: #6CB5E2;</c:if>
+																<c:if test="${l.exhn_type eq '페어'}">background-color: #A645AA;</c:if>
+																<c:if test="${l.exhn_type eq '대제전'}">background-color: #FCB800;</c:if>
+																<c:if test="${l.exhn_type eq '행사'}">background-color: #E6648C;</c:if>
+																">
+										${l.exhn_type}
+									</span>
 								</c:if>
 								<ul>
 									<li><h2>${l.title}</h2></li>
@@ -215,17 +250,37 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 											}
 										});
 									</script>
+									<li class="score_area">
+										<c:if test="${l.grade != null}">
+											<span>평점&nbsp;|&nbsp;</span>
+											<c:forEach var="i" begin="0" end="${l.grade}">
+												<img src="${root}/img/comment/star_color_icon.svg">
+											</c:forEach>
+											<c:forEach var="i" begin="${l.grade+1}" end="4">
+												<img src="${root}/img/comment/star_non_color_icon.svg">
+											</c:forEach>
+										</c:if>
+										
+										<c:if test="${l.grade == null}">
+											<span>평점&nbsp;|&nbsp;</span>
+											
+											<c:forEach var="i" begin="0" end="4">
+												<img src="${root}/img/comment/star_non_color_icon.svg">
+											</c:forEach>
+										</c:if>
+									</li>
 								</ul>
 							</div>
-							<div class="content_info_link" style="width: 170px;">
-								<a href="detail?contents_idx=${l.idx}" style="padding: 0.5% 10px;">자세히 보기</a>
-								<a href="contents_update?contents_idx=${l.idx}" style="padding: 0.5% 10px; width: 50px;">수정</a>
+							<div class="content_info_link">
+								<a href="detail?contents_idx=${l.idx}">상세보기</a>
+								<a href="contents_update?contents_idx=${l.idx}">수정</a>
 							</div>
 						</div>
 					</li>
 				</c:forEach>
 			</ul>
 		</div>
+		</c:if>
 	</section>
 	<div class="paging">
 		<c:if test="${paging.startPage != 1 }">

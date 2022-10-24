@@ -35,7 +35,7 @@ public class MemberCtr {
 
 	/** 회원가입 **/
 	@RequestMapping(value = "memeber_join", method = RequestMethod.POST)
-	public String join(HttpServletRequest request, MemberVO vo) throws IOException {
+	public String join(HttpServletRequest request, HttpServletResponse response, MemberVO vo) throws IOException {
 
 		String password = vo.getPassword();
 		String encryption = SHA256Util.SHA256(password);
@@ -45,17 +45,21 @@ public class MemberCtr {
 		String email = vo.getEmail() + "@" + request.getParameter("email_add");
 		vo.setEmail(email);  
 		memberservice.join(vo);
+		
+		ScriptUtils.alertAndMovePage(response, "회원가입을 축하드립니다.", "login");
 		return "redirect:login";
 	}
 	
 	/** 모바일 회원 가입 **/
 	@RequestMapping(value = "m_memeber_join", method = RequestMethod.POST)
-	public String m_join(HttpServletRequest request, MemberVO vo) throws IOException {
+	public String m_join(HttpServletRequest request, HttpServletResponse response, MemberVO vo) throws IOException {
 	
 		String password = vo.getPassword();
 		String encryption = SHA256Util.SHA256(password);
 		vo.setPassword(encryption);
 		memberservice.join(vo);
+		
+		ScriptUtils.alert(response, "회원가입을 축하드립니다.");
 		return "view/login";
 	}
 
@@ -216,12 +220,24 @@ public class MemberCtr {
 		}
 		MemberVO mv = memberservice.getMember_info(id);
 		String email = mv.getEmail();
-		String email_id = email.split("@")[0];
-		String email_domain = email.split("@")[1];
+//		String split_first = email.substring(0, email.indexOf("@"));
+//		System.out.println("==============>split_first : "+email.indexOf("@"));
 		
-		modelMap.addAttribute("mv", mv);
-		modelMap.addAttribute("email_id", email_id);
-		modelMap.addAttribute("email_domain",email_domain);
+		if(email.indexOf("@") != 0) {
+			String email_id = email.split("[@]")[0];
+			String email_domain = email.split("[@]")[1];
+			
+			modelMap.addAttribute("mv", mv);
+			modelMap.addAttribute("email_id", email_id);
+			modelMap.addAttribute("email_domain",email_domain);
+		}else {
+			String email_id = null;
+			String email_domain = email.substring(email.indexOf("@")+1);
+			
+			modelMap.addAttribute("mv", mv);
+			modelMap.addAttribute("email_id", email_id);
+			modelMap.addAttribute("email_domain",email_domain);
+		}
 		
 		return "view/member_page/member_info";
 	}
@@ -253,6 +269,7 @@ public class MemberCtr {
 		sql = sql + " where id = '" + id + "'";
 		memberservice.set_member_update(sql);
 		
+		ScriptUtils.alertAndMovePage(response, "회원정보가 수정되었습니다.", "member_info");
 		return "redirect:member_info";
 	}
 	
@@ -268,6 +285,7 @@ public class MemberCtr {
 		vo.setId(id);
 		memberservice.set_m_member_update(vo);
 		
+		ScriptUtils.alert(response, "회원정보가 수정되었습니다.");
 		return "redirect:mobile_mypage";
 	}
 
@@ -294,6 +312,8 @@ public class MemberCtr {
 		} else {
 			memberservice.member_secession(id);
 			session.removeAttribute("id");
+			ScriptUtils.alertAndMovePage(response, "회원탈퇴가 완료되었습니다.", "main");
+			
 			return "redirect:main";
 		}
 		return "view/member_page/password_check";
@@ -334,13 +354,13 @@ public class MemberCtr {
 			@RequestParam(value = "cntPerPage", required = false) String cntPerPage,
 			@RequestParam(value = "title", required = false) String title, HttpServletResponse response) throws IOException {
 		
-		String consumer = (String) session.getAttribute("id");
+		String id = (String) session.getAttribute("id");
 		
-		if(consumer == null) {
+		if(id == null) {
 			ScriptUtils.alertAndMovePage(response, "개인 회원으로 로그인 해주세요.", "main");
 		}
 		
-		int total = memberservice.member_payment_count(consumer);
+		int total = memberservice.member_payment_count(id);
 
 		if (nowPage == null && cntPerPage == null) {
 			nowPage = "1";
@@ -361,7 +381,7 @@ public class MemberCtr {
 		}
 		
 		vo.setSql(sql);
-		vo.setConsumer(consumer);
+		vo.setId(id);
 		
 		modelMap.addAttribute("paging", vo);
 	

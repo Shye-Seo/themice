@@ -20,38 +20,16 @@
 		<div class="title">
 			<span>마이페이지</span>
 		</div>
-		<div class="root">
-			<img alt="" src="${root}/img/list/home_icon.svg">
-			<span><img alt="" src="${root}/img/common/arrow_icon.svg"></span>
-			<span>기업회원</span>
-			<span><img alt="" src="${root}/img/common/arrow_icon.svg"></span>
-			<span>결제 내역</span>
-		</div>
 	</div>
 	
 	<div id="navi_area">
 		<nav>
 			<ul>
-				<li>
-					<a href="main">
-						<img alt="" src="${root}/img/member_page/home_icon.svg">
-					</a>
-				</li>
-				
-				<li>
-					<a href="#">전시</a>
-				</li>
-				
-				<li>
-					<select onchange="window.location.href=this.value">
-						<!-- <option value="business_info">회원정보 수정</option> -->
-						<option value="login_check">회원정보 수정</option>
-						<option value="business_contents_list">내 전시 리스트</option>
-						<option value="business_payment" selected="selected">결제 내역</option>
-						<option value="business_password_update">비밀번호 수정</option>
-						<option value="business_secession">회원 탈퇴</option>
-					</select>
-				</li>
+				<li><a href="business_contents_list">MY 전시</a></li>
+				<li><a href="business_payment">결제내역</a></li>
+				<li><a href="login_check">회원정보 수정</a></li>
+				<li><a href="business_password_update">비밀번호 수정</a></li>
+				<li><a href="business_secession">회원탈퇴</a></li>
 			</ul>
 		</nav>
 	</div>
@@ -65,7 +43,7 @@
 			<div class="search_area">
 				<form method="get" action="business_payment">
 					<input type="text" name="title" placeholder="제목을 입력하세요." value="${title}">
-					<img alt="" src="${root}/img/member_page/search.svg">
+<%-- 					<img alt="" src="${root}/img/member_page/search.svg"> --%>
 					<input type="submit" value="검색">
 				</form>
 			</div>
@@ -74,8 +52,9 @@
 				<ul>
 					<li>NO</li>
 					<li>행사명</li>
-					<li>예매일</li>
+					<li>행사일시</li>
 					<li>예매가격</li>
+					<li>예매일시</li>
 					<li>처리단계</li>
 				</ul>
 				
@@ -83,8 +62,9 @@
 					<ul>
 						<li>${pl.idx}</li>
 						<li>${pl.title}</li>
-						<li>${pl.time}</li>
-						<li>${pl.amount}</li>
+						<li>${pl.visit_date}</li>
+						<li>${pl.total}</li>
+						<li>${pl.payment_date}</li>
 						<li>
 							<c:if test="${pl.status == 'paid'}">구매완료</c:if>
 						</li>

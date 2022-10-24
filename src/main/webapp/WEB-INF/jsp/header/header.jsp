@@ -74,8 +74,8 @@
 				<c:if test="${not empty sessionScope.id}">
 				<div class="navi_bar">
 					<div class="menu">
-						<ul>
-							<li><a href="list" id="tab">전시</a></li>
+						<ul style="margin-left: 150px;">
+							<li ><a href="list" id="tab">전시</a></li>
 							<li><a href="notice_list" id="tab">공지사항</a></li>
 							<li><a href="login_check" id="tab">마이페이지</a></li>
 						</ul>

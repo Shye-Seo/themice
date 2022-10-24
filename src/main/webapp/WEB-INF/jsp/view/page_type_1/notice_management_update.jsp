@@ -26,18 +26,27 @@
 </style>
 </head>
 <body>
+	<div id="section">
 	<jsp:include page="/WEB-INF/jsp/view/page_type_1/header.jsp" />
 	
+	<div id="management_title_area">
+			<span>환경설정</span>
+		</div>
+		<div id="navi_area">
+			<nav>
+				<ul>
+					<li><a href="main_management?contents_idx=${contents_idx}">메인관리</a></li>
+					<li><a href="introduction_management?contents_idx=${contents_idx}">소개관리</a></li>
+					<li><a href="gallery_management?contents_idx=${contents_idx}">갤러리관리</a></li>
+					<li><a href="notice_management?contents_idx=${contents_idx}">공지사항관리</a></li>
+					<li><a href="pop_up_management?contents_idx=${contents_idx}">팝업관리</a></li>
+					<li><a href="comment_management?contents_idx=${contents_idx}">댓글관리</a></li>
+				</ul>
+			</nav>
+		</div>
+		
 	<section id="preferences">
 		<div class="inner">
-<!-- 			<div class="category"> -->
-<%-- 				<a href="main_management?contents_idx=${contents_idx}">메인관리</a> --%>
-<%-- 				<a href="introduction_management?contents_idx=${contents_idx}">소개관리</a> --%>
-<%-- 				<a href="notice_management?contents_idx=${contents_idx}">공지사항관리</a> --%>
-<%-- 				<a href="pop_up_management?contents_idx=${contents_idx}">팝업관리</a> --%>
-<%-- 				<a href="comment_management?contents_idx=${contents_idx}">댓글관리</a> --%>
-<!-- 			</div> -->
-			
 			<div class="notice_management_insert">
 				<span class="title_area">공지사항 수정</span>
 				
@@ -49,7 +58,7 @@
 							</div>
 							
 							<div class="right_area">
-								<input type="text" name="title" id="title">
+								<input type="text" name="title" id="title" value="${title}">
 							</div>
 						</div>
 						
@@ -69,7 +78,7 @@
 							</div>
 							
 							<div class="right_area">
-								<input type="text" name="writer" id="writer">
+								<input type="text" name="writer" id="writer" value="${writer}">
 							</div>
 						</div>
 						
@@ -79,7 +88,7 @@
 							</div>
 							
 							<div class="right_area">
-								<input type="file" name="img" id="notice_img" accept="image/*">
+								<input type="file" name="notice_img" id="notice_img" accept="image/*">
 								<div class="upload_item_1">
 									<span class="text_item">* 고해상도 이미지의 16:9 비율을 사용해주세요.</span>
 									<span class="text_item">* 5MB까지 사용가능합니다.</span>
@@ -90,11 +99,11 @@
 								</div>
 								
 								<div class="upload_item_2">
-									<label for="notice_img"><img alt="" src="${root}/img/website/upload_icon.svg">내 PC</label>
+									<label for="notice_img"><img alt="" src="${root}/img/website/upload_white.svg">내 PC</label>
 								</div>
 								
 								<script type="text/javascript">
-									$('input[name=img]').off().on('change', function(){
+									$('input[name=notice_img]').off().on('change', function(){
 										var fileValue = $(this).val().split("\\");
 										var fileName = fileValue[fileValue.length-1];
 										
@@ -122,7 +131,7 @@
 										$('.close_item').click(function () {
 											$('.text_item').css('display', 'block');
 											$('.text_item_1').css('display', 'none');
-											$('input[name=img]').val('');
+											$('input[name=notice_img]').val('');
 										});
 									});
 								</script>
@@ -135,15 +144,16 @@
 							</div>
 							
 							<div class="right_area">
-								<textarea name="contents" id="contents"></textarea>
+								<textarea name="contents" id="contents">${contents}</textarea>
 							</div>
 						</div>
-					<input type="text" value="contents_idx=${contents_idx}  / idx=${notice_list.idx}">
 					<input type="hidden" name="idx" value="${notice_list.idx}">
+				</form>
+				
 					<div class="btn_area">
-							<input type="button" value="완료" id="submit_btn">
-							<a href="notice_management_insert?contents_idx=${contents_idx}">목록</a>
-							
+						<input type="button" value="등록" id="submit_btn">
+						<input type="reset" value="취소">
+					</div>
 							<script type="text/javascript">
 								$(function () {
 									$('#submit_btn').click(function () {
@@ -175,12 +185,11 @@
 									});
 								});
 							</script>
-						</div>
-				</form>
 			</div>
 		</div>
 		
 		<jsp:include page="/WEB-INF/jsp/footer/footer.jsp" />
 	</section>
+	</div>
 </body>
 </html>

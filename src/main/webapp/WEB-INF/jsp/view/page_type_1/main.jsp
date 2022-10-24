@@ -552,75 +552,78 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 			<div class="inner">
 				<div class="container_1">
 					<div class="img_area">
-						<img alt="" src="${root}/banner_path/${content_list.banner_name}" style="filter: brightness(0.5);">
+						<img alt="" src="${root}/banner_path/${content_list.banner_name}">
+					</div>
+					
+					<div class="data_area">
 						<div class="text_area">
 							<span>${content_list.title}</span>
 							<span>${content_list.start_day}&nbsp;~&nbsp;${content_list.end_day}</span>
 						</div>
-					</div>
-					
-					<div class="data_area">
-						<input type="date">
-						<div class="price_area">
-							<div class="price_title_area">
-								<span>선택</span>
-							</div>
-							<div class="price_item_0 price_item">
-								<p>성인 :<span class="price_0"></span>원</p>
-								<div class="cnt_area">
-									<div>
-										<img alt="" src="${root}/img/website/minus_icon.svg" class="price_minus_0">
-										<span class="price_cnt_0">0</span>
-										<img alt="" src="${root}/img/website/plus_icon.svg" class="price_plus_0">
-										<span>매</span>
-									</div>
-									<p><span class="sum_0"></span>원</p>
-								</div>
-							</div>
-							
-							<div class="price_item_1 price_item">
-								<p>중,고등학생<span class="price_1"></span></p>
-								<div class="cnt_area">
-									<div>
-										<img alt="" src="${root}/img/website/minus_icon.svg" class="price_minus_1">
-										<span class="price_cnt_1">0</span>
-										<img alt="" src="${root}/img/website/plus_icon.svg" class="price_plus_1">
-										<span>매</span>
-									</div>
-									<p><span class="sum_1"></span>원</p>
-								</div>
-							</div>
-							
-							<div class="price_item_2 price_item">
-								<p>초등학생<span class="price_2"></span></p>
-								<div class="cnt_area">
-									<div>
-										<img alt="" src="${root}/img/website/minus_icon.svg" class="price_minus_2">
-										<span class="price_cnt_2">0</span>
-										<img alt="" src="${root}/img/website/plus_icon.svg" class="price_plus_2">
-										<span>매</span>
-									</div>
-									<p><span class="sum_2"></span>원</p>
-								</div>
-							</div>
-							
-							<div class="price_item_3 price_item">
-								<p>아동<span class="price_3"></span></p>
-								<div class="cnt_area">
-									<div>
-										<img alt="" src="${root}/img/website/minus_icon.svg" class="price_minus_3">
-										<span class="price_cnt_3">0</span>
-										<img alt="" src="${root}/img/website/plus_icon.svg" class="price_plus_3">
-										<span>매</span>
-									</div>
-									<p><span class="sum_3"></span>원</p>
-								</div>
-							</div>
-							
-							<div class="total_area">
-								<p>총 결제 금액 : <span class="total_sum"></span>원</p>
-							</div>
+						<div class="btn_area">
+							<button class="payment_btn" onclick="payment('${root}')">예매하기</button>
 						</div>
+<!-- 						<input type="date"> -->
+<!-- 						<div class="price_area"> -->
+<!-- 							<div class="price_title_area"> -->
+<!-- 								<span>선택</span> -->
+<!-- 							</div> -->
+<!-- 							<div class="price_item_0 price_item"> -->
+<!-- 								<p>성인 :<span class="price_0"></span>원</p> -->
+<!-- 								<div class="cnt_area"> -->
+<!-- 									<div> -->
+<%-- 										<img alt="" src="${root}/img/website/minus_icon.svg" class="price_minus_0"> --%>
+<!-- 										<span class="price_cnt_0">0</span> -->
+<%-- 										<img alt="" src="${root}/img/website/plus_icon.svg" class="price_plus_0"> --%>
+<!-- 										<span>매</span> -->
+<!-- 									</div> -->
+<!-- 									<p><span class="sum_0"></span>원</p> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+							
+<!-- 							<div class="price_item_1 price_item"> -->
+<!-- 								<p>중,고등학생 :<span class="price_1"></span>원</p> -->
+<!-- 								<div class="cnt_area"> -->
+<!-- 									<div> -->
+<%-- 										<img alt="" src="${root}/img/website/minus_icon.svg" class="price_minus_1"> --%>
+<!-- 										<span class="price_cnt_1">0</span> -->
+<%-- 										<img alt="" src="${root}/img/website/plus_icon.svg" class="price_plus_1"> --%>
+<!-- 										<span>매</span> -->
+<!-- 									</div> -->
+<!-- 									<p><span class="sum_1"></span>원</p> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+							
+<!-- 							<div class="price_item_2 price_item"> -->
+<!-- 								<p>초등학생 :<span class="price_2"></span>원</p> -->
+<!-- 								<div class="cnt_area"> -->
+<!-- 									<div> -->
+<%-- 										<img alt="" src="${root}/img/website/minus_icon.svg" class="price_minus_2"> --%>
+<!-- 										<span class="price_cnt_2">0</span> -->
+<%-- 										<img alt="" src="${root}/img/website/plus_icon.svg" class="price_plus_2"> --%>
+<!-- 										<span>매</span> -->
+<!-- 									</div> -->
+<!-- 									<p><span class="sum_2"></span>원</p> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+							
+<!-- 							<div class="price_item_3 price_item"> -->
+<!-- 								<p>아동 :<span class="price_3"></span>원</p> -->
+<!-- 								<div class="cnt_area"> -->
+<!-- 									<div> -->
+<%-- 										<img alt="" src="${root}/img/website/minus_icon.svg" class="price_minus_3"> --%>
+<!-- 										<span class="price_cnt_3">0</span> -->
+<%-- 										<img alt="" src="${root}/img/website/plus_icon.svg" class="price_plus_3"> --%>
+<!-- 										<span>매</span> -->
+<!-- 									</div> -->
+<!-- 									<p><span class="sum_3"></span>원</p> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+							
+<!-- 							<div class="total_area"> -->
+<!-- 								<p>총 결제 금액 : <span class="total_sum"></span>원</p> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
 						
 						<script type="text/javascript">
 							$(function () {
@@ -639,6 +642,20 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 								} if(price_array[3] != 'null'){
 									$('.price_item_3').css('display', 'flex');
 									$('.price_3').text(price_array[3]);
+								} 
+								
+								else if(price_array[0] == 'null'){
+									$('.price_item_0').css('display', 'flex');
+									$('.price_0').text(0);
+								} if(price_array[1] == 'null'){
+									$('.price_item_1').css('display', 'flex');
+									$('.price_1').text(0);
+								} if(price_array[2] == 'null'){
+									$('.price_item_2').css('display', 'flex');
+									$('.price_2').text(0);
+								} if(price_array[3] == 'null'){
+									$('.price_item_3').css('display', 'flex');
+									$('.price_3').text(0);
 								}
 							});
 							
@@ -757,7 +774,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 							};
 						</script>
 						
-						<button class="payment_btn" onclick="payment('${root}')">예매하기</button>
 						<script type="text/javascript">
 							function payment(root) {
 								$.ajax({
@@ -935,18 +951,31 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 							</div>
 							
 							<div class="search_area">
-								<form action="website" method="get">
-									<select name="category">
-										<option value="이미지">이미지</option>
-										<option value="영상">영상</option>
-									</select>
-									<input type="text" name="title" placeholder="제목으로 입력해주세요.">
-									<input type="submit" value="검색">
-								</form>
+<!-- 								<form action="website" method="post" name="form"> -->
+<!-- 									<select name="category"> -->
+<!-- 										<option value="이미지">이미지</option> -->
+<!-- 										<option value="영상">영상</option> -->
+<!-- 									</select> -->
+<!-- 									<input type="text" name="title" placeholder="제목으로 입력해주세요."> -->
+<!-- 									<input type="submit" value="검색" id="search_submit_btn"> -->
+<!-- 								</form> -->
+<!-- 								<script> -->
+<!-- // 									$('#search_submit_btn').click(function(){ -->
+<!-- // 										var title = $('input[name=title]').val(); -->
+										
+<!-- // 										if(title == null || title == ''){ -->
+<!-- // 											alert('검색어를 입력해주세요.'); -->
+<!-- // 											$('input[name=title]').focus(); -->
+<!-- // 											return false; -->
+<!-- // 										} else { -->
+<!-- // 											$('form[name=form]').submit(); -->
+<!-- // 										} -->
+<!-- // 									}); -->
+<!-- 								</script> -->
 								
-								<c:if test="${sessionScope.business_id == content_list.business_num}">
-									<a href="gallery_insert?contents_idx=${contents_idx}"><img src="">글쓰기</a>
-								</c:if>
+<%-- 								<c:if test="${sessionScope.business_id == content_list.business_num}"> --%>
+<%-- 									<a href="gallery_insert?contents_idx=${contents_idx}"><img src="">글쓰기</a> --%>
+<%-- 								</c:if> --%>
 							</div>
 							
 							<div class="paging">
@@ -963,7 +992,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 										</c:when>
 									</c:choose>
 								</c:forEach>
-								<c:if test="${paging_2.endPage != paging.lastPage}">
+								<c:if test="${paging_2.endPage != paging_2.lastPage}">
 									<a href="website?nowPage_2=${paging_2.endPage+1}&cntPerPage_2=${paging_2.cntPerPage}&contents_idx=${contents_idx}" class="paging_2">&gt;</a>
 								</c:if>
 							</div>
@@ -1300,7 +1329,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 			</script>
 		</div>
 		
-		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=328dac099a55125f1d0b29b37bdd009b&libraries=services"></script>
+		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=16e3aa505cb28f9baced04a98761aae7&libraries=services"></script>
 		<script type="text/javascript">
 			var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 		    mapOption = {

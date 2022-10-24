@@ -184,7 +184,7 @@ $(function() {
 	<jsp:include page="/WEB-INF/jsp/aside/quick.jsp" />
 	
 	<div class="detail_quick">
-		<a href="website?contents_idx=${content_list.idx}">
+		<a href="website?contents_idx=${content_list.idx}" target="_blank">
 			<img alt="" src="${root}/img/detail/direct_icon.svg">
 		</a>
 	</div>
@@ -302,7 +302,7 @@ $(function() {
 												} if(strArray[2] != 'null'){
 													price = price + '/ 초등학생 : ' + strArray[2] + '원';
 												} if(strArray[3] != 'null'){
-													price = pirce + '/ 아동 : ' + strArray[3] + '원';
+													price = price + '/ 아동 : ' + strArray[3] + '원';
 												}
 												
 												if(price == ''){

@@ -32,4 +32,12 @@ public class PaymentSvc {
 	public String getBusiness_num(String contents_idx) {
 		return sqlSession.selectOne("getBusiness_num", contents_idx);
 	}
+
+	public void insert_payment(PaymentVO vo) {
+		sqlSession.insert("insert_payment", vo);
+	}
+	
+	public void update_payment_status(PaymentVO vo) {
+		sqlSession.insert("update_payment_status", vo);
+	}
 }

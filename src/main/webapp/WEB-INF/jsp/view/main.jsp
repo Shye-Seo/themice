@@ -22,7 +22,7 @@
 	display: none;
 }
 /* #footer{ */
-/* 	position: absolute; */
+/*  	position: absolute; */
 /*     bottom: 0; */
 /* } */
 #section_1 .header_area{
@@ -134,7 +134,7 @@
 <body>
 	<jsp:include page="/WEB-INF/jsp/aside/quick.jsp" />
 	<script type="text/javascript">
-		$('.top_btn_area').click(function () {
+		$('.img_area:last-child').click(function () {
 			$('#mouse_cnt').val(1);
 			$('#main').css('transform', 'translateY(0)');
 		});
@@ -310,41 +310,41 @@
 	
 			<div class="container_2">
 				<div class="slider_area_2">
-				<c:forEach var="list" items="${section_2_list}" varStatus="st">
-					<div class="content_item">
-						<div class="img_area">
-							<c:if test="${list.layout_type == 0}">
-								<c:if test="${list.img_path != null}">
-									<img alt="" src="${root}/crawiling_img/${list.img_path}">
-								</c:if>
-								<c:if test="${list.img_path == null}">
-									<img alt="" src="${root}/img/list/non_img.jpg">
-								</c:if>
-							</c:if>
-
-							<c:if test="${list.layout_type != 0}">
-								<c:if test="${list.img_path != null}">
-									<img alt="" src="${root}/contents_img/${list.img_path}">
-								</c:if>
-								<c:if test="${list.img_path == null}">
-									<img alt="" src="${root}/img/list/non_img.jpg">
-								</c:if>
-							</c:if>
-							<div id="inner_content">
-								<div class="content_title_area">${list.title}</div>
+							<c:forEach var="list" items="${section_2_list}" varStatus="st">
+								<div class="content_item">
+									<div class="img_area">
+										<c:if test="${list.layout_type == 0}">
+											<c:if test="${list.img_path != null}">
+												<img alt="" src="${root}/crawiling_img/${list.img_path}">
+											</c:if>
+											<c:if test="${list.img_path == null}">
+												<img alt="" src="${root}/img/list/non_img.jpg">
+											</c:if>
+										</c:if>
 			
-								<div class="date_area">${list.start_day}&nbsp;~&nbsp;${list.end_day}</div>
-			
-								<div class="btn_area">
-									<a href="detail?contents_idx=${list.idx}">상세보기</a>
-									<c:if test="${not empty list.web_address}">
-										<a href="${list.web_address}">사이트바로가기</a>
-									</c:if>
+										<c:if test="${list.layout_type != 0}">
+											<c:if test="${list.img_path != null}">
+												<img alt="" src="${root}/contents_img/${list.img_path}">
+											</c:if>
+											<c:if test="${list.img_path == null}">
+												<img alt="" src="${root}/img/list/non_img.jpg">
+											</c:if>
+										</c:if>
+										<div id="inner_content">
+											<div class="content_title_area">${list.title}</div>
+						
+											<div class="date_area">${list.start_day}&nbsp;~&nbsp;${list.end_day}</div>
+						
+											<div class="btn_area">
+												<a href="detail?contents_idx=${list.idx}">상세보기</a>
+												<c:if test="${list.layout_type != 0}">
+													<a href="website?contents_idx=${list.idx}" target="_blank">사이트바로가기</a>
+												</c:if>
+											</div>
+										</div>
+									</div>
 								</div>
-							</div>
-						</div>
-					</div>
-				</c:forEach>
+							</c:forEach>
 					<input type="hidden" id="slider_cnt_2" value="1">
 				</div>
 			</div>
@@ -360,32 +360,32 @@
 			</div>
 			
 			<script type="text/javascript">
-				$(function () {
-					$('.section_2_right_btn').click(function(){
-						var cnt = $('#slider_cnt_2').val();
-						
-						if(cnt < 3){
-							$('.slider_area_2').css('transform', 'translateX(-' + Number(cnt) * 20 + '%)');
-							$('#slider_cnt_2').val(Number(cnt) + 1);
-						} else {
-							$('.slider_area_2').css('transform', 'translateX(0)');
-							$('#slider_cnt_2').val(1);
-						}
-					});
+			$(function () {
+				$('.section_2_right_btn').click(function(){
+					var cnt = $('#slider_cnt_2').val();
 					
-					$('.section_2_left_btn').click(function(){
-						var cnt = $('#slider_cnt_2').val();
-						cnt = Number(cnt) - 1;
-						
-						if(cnt > 0){
-							$('.slider_area_2').css('transform', 'translateX(-' + (Number(cnt) - 1) * 20 + '%)');
-							$('#slider_cnt_2').val(cnt);
-						} else {
-							$('.slider_area_2').css('transform', 'translateX(-60%)');
-							$('#slider_cnt_2').val(3);
-						}
-					});
+					if(cnt < 3){
+						$('.slider_area_2').css('transform', 'translateX(-' + Number(cnt) * 20 + '%)');
+						$('#slider_cnt_2').val(Number(cnt) + 1);
+					} else {
+						$('.slider_area_2').css('transform', 'translateX(0)');
+						$('#slider_cnt_2').val(1);
+					}
 				});
+				
+				$('.section_2_left_btn').click(function(){
+					var cnt = $('#slider_cnt_2').val();
+					cnt = Number(cnt) - 1;
+					
+					if(cnt > 0){
+						$('.slider_area_2').css('transform', 'translateX(-' + (Number(cnt) - 1) * 20 + '%)');
+						$('#slider_cnt_2').val(cnt);
+					} else {
+						$('.slider_area_2').css('transform', 'translateX(-60%)');
+						$('#slider_cnt_2').val(3);
+					}
+				});
+			});
 			</script>
 		</div>
 
@@ -393,43 +393,49 @@
 			<div class="container_1">
 				<form id="form_item" method="get">
 					<div class="date_area">
-						<div class="year_item">
-							<select id="year_select" name=year>
-								<c:forEach var="i" begin="2010" end="${end_year}">
-									<option value="${i}">${i}</option>
+						<div id="top_date">
+							<div class="date_img">
+								<img src="${root}/img/list/icon_date01.svg">
+								<span>월간일정</span>
+							</div>
+							<div class="year_item">
+								<select id="year_select" name=year>
+									<c:forEach var="i" begin="2010" end="${end_year}">
+										<option value="${i}">${i}</option>
+									</c:forEach>
+								</select>
+								<script type="text/javascript">
+									$(function () {
+										var year = ${year};
+										$('#year_select').val(year).prop('selected', true);
+									});
+								</script>
+							</div>
+		
+							<div class="month_item">
+								<c:forEach var="i" begin="1" end="12">
+									<input type="radio" name="month" value="0${i}" id="month_0${i}">
+									<label for="month_0${i}">${i}월</label>
 								</c:forEach>
-							</select>
+							</div>
+		
 							<script type="text/javascript">
 								$(function () {
-									var year = ${year};
-									$('#year_select').val(year).prop('selected', true);
+									var month = '${month}';
+									console.log(month);
+									if(month == '') {
+										
+									} else {
+										
+									}
+									
+									$('#month_' + month).prop('checked', true); 
+									$('input[type=radio][name=month]').change(function () {
+										$('#form_item').submit();
+									});
 								});
 							</script>
 						</div>
-	
-						<div class="month_item">
-							<c:forEach var="i" begin="1" end="12">
-								<input type="radio" name="month" value="0${i}" id="month_0${i}">
-								<label for="month_0${i}">${i}월</label>
-							</c:forEach>
-						</div>
-	
-						<script type="text/javascript">
-							$(function () {
-								var month = '${month}';
-								console.log(month);
-								if(month == '') {
-									
-								} else {
-									
-								}
-								
-								$('#month_' + month).prop('checked', true); 
-								$('input[type=radio][name=month]').change(function () {
-									$('#form_item').submit();
-								});
-							});
-						</script>
 					</div>
 	
 					<div class="slider_area_3">
@@ -463,8 +469,9 @@
 											</a>
 										</div>
 										<div class="btn_area">
-											<span>${list.title}</span>
-											<a href="detail?contents_idx=${list.idx}">자세히 보기</a>
+											<span class="content_title_area">${list.title}</span>
+											<span class="date_area_2">${list.start_day}&nbsp;~&nbsp;${list.end_day}</span>
+											<a href="detail?contents_idx=${list.idx}">상세보기</a>
 										</div>
 									</div>
 								</c:forEach>
@@ -489,7 +496,7 @@
 							
 							var cnt = ${section_3_cnt};
 							console.log(cnt);
-							$('.slider').css('width', 40 * Number(cnt) + '%');
+							$('.slider').css('width', 30 * Number(cnt) + '%');
 							
 							$('.section_3_right_btn').click(function(){
 								var cnt = $('#section_3_cnt').val();
@@ -497,7 +504,7 @@
 								var slider_cnt_3 = $('#slider_cnt_3').val();
 								
 								if(cnt > 3 && slider_cnt_3 <= end){
-									$('#slider_cnt_3').val(Number(slider_cnt_3) + 1);
+									$('#slider_cnt_3').val(Number(slider_cnt_3));
 									var val = -100 / Number(cnt) * Number(slider_cnt_3);
 									$('.slider').css('transform', 'translateX(calc(' + val + '%))');
 								} else if(cnt > 3 && slider_cnt_3 > end){
@@ -512,8 +519,8 @@
 								var slider_cnt_3 = $('#slider_cnt_3').val();
 								
 								if(cnt > 3 && slider_cnt_3 > 1){
-									$('#slider_cnt_3').val(Number(slider_cnt_3) - 1);
-									var val = -100 / Number(cnt) * (Number(slider_cnt_3) - 2);
+									$('#slider_cnt_3').val(Number(slider_cnt_3));
+									var val = -100 / Number(cnt) * (Number(slider_cnt_3) - 1);
 									$('.slider').css('transform', 'translateX(calc(' + val + '%))');
 								} else if(cnt > 3 && slider_cnt_3 == 1){
 									$('#slider_cnt_3').val(end);
@@ -525,22 +532,6 @@
 					</script>
 				</form>
 			</div>
-			
-			<div class="container_2">
-				<div class="title_area title_area_2">
-					<p>
-						<span>Best</span>&nbsp;전시
-					</p>
-					<p>
-						다양한 행사를 인기순으로 여러종류 전시를 볼 수 있으며,<br>
-						년/월 별로도 확인 할 수 있어요.
-					</p>
-					
-					<div class="plus_area">
-						<a href="list"><img alt="" src="${root}/img/main/arrow_right_icon.svg">&nbsp;&nbsp;더보기</a>
-					</div>
-				</div>
-			</div>
 		</div>
 		
 		<div id="section_4">
@@ -548,7 +539,7 @@
 				<div class="container_1">
 					<div class="title_area title_area_3">
 						<p>
-							<span>New</span>&nbsp;공지
+							공지사항
 						</p>
 						<p>
 							행사에 관련된 중요한 공지사항, 뉴스, 입찰정보를<br>
@@ -575,8 +566,8 @@
 								<span>다양한 전시를 편리하게 보여드리겠습니다.</span>
 							</div>
 							<div class="btn_area">
-								<a href="notice_list">공지사항 바로가기</a>
-								<a href="list">전시 바로가기</a>
+								<a href="notice_list">공지사항 더보기</a>
+								<a href="list">전시일정 바로가기</a>
 							</div>
 						</div>
 					</div>

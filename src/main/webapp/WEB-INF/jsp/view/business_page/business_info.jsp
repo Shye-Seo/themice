@@ -39,30 +39,18 @@
 	<div id="navi_area">
 		<nav>
 			<ul>
-				<li>
-					<a href="main">
-					<img alt="" src="${root}/img/member_page/home_icon.svg">
-					</a>
-				</li>
-
-				<li><a href="#">전시</a></li>
-				<li>
-					<select onchange="window.location.href=this.value">
-						<!-- <option value="business_info" selected="selected">회원정보 수정</option> -->
-						<option value="login_check" selected="selected">회원정보 수정</option>
-						<option value="business_contents_list">내 전시 리스트</option>
-						<option value="business_payment">결제 내역</option>
-						<option value="business_password_update">비밀번호 수정</option>
-						<option value="business_secession">회원 탈퇴</option>
-					</select>
-				</li>
+				<li><a href="business_contents_list">MY 전시</a></li>
+				<li><a href="business_payment">결제내역</a></li>
+				<li><a href="login_check">회원정보 수정</a></li>
+				<li><a href="business_password_update">비밀번호 수정</a></li>
+				<li><a href="business_secession">회원탈퇴</a></li>
 			</ul>
 		</nav>
 	</div>
 
 	<section id="business_info">
 		<div class="title_area">
-			<span>개인정보 수정</span>
+			<span>회원정보 수정</span>
 		</div>
 
 		<div class="contents">
@@ -82,19 +70,34 @@
 						<span>주소</span>
 					</div>
 					<div class="right_area">
-						<div class="div">
-							<input type="text" id="postcode" placeholder="우편번호" class="input">
-							<input type="button" onclick="sample4_execDaumPostcode()"
-								value="우편번호 찾기" class="post">
-						</div>
-						<div class="div">
-							<input type="text" id="roadAddress" placeholder="도로명주소"
-								class="input" name="address" value="${vo.address}">
-						</div>
-						<div class="div">
-							<input type="text" id="detailAddress" placeholder="상세주소"
-								class="input" name="detail_address" value="${vo.detail_address}">
-						</div>
+<!-- 						<div class="div"> -->
+<!-- 							<input type="text" id="postcode" placeholder="우편번호" class="input"> -->
+<!-- 							<input type="button" onclick="sample4_execDaumPostcode()" -->
+<!-- 								value="우편번호 찾기" class="post"> -->
+<!-- 						</div> -->
+<!-- 						<div class="div"> -->
+<!-- 							<input type="text" id="roadAddress" placeholder="도로명주소" -->
+<%-- 								class="input" name="address" value="${vo.address}"> --%>
+<!-- 						</div> -->
+<!-- 						<div class="div"> -->
+<!-- 							<input type="text" id="detailAddress" placeholder="상세주소" -->
+<%-- 								class="input" name="detail_address" value="${vo.detail_address}"> --%>
+<!-- 						</div> -->
+						<table>
+							<tr>
+								<td><input type="text" id="postcode" placeholder="우편번호" class="input"></td>
+								<td><input type="button" onclick="sample4_execDaumPostcode()"
+								value="주소검색" class="post"></td>
+							</tr>
+							<tr>
+								<td id="roadAddress"><input type="text" id="roadAddress" placeholder="도로명주소"
+								class="input" name="address" value="${vo.address}"></td>
+							</tr>
+							<tr>
+								<td><input type="text" id="detailAddress" placeholder="상세주소"
+								class="input" name="detail_address" value="${vo.detail_address}"></td>
+							</tr>
+						</table>
 					</div>
 				</div>
 
@@ -103,9 +106,9 @@
 						<span>이메일</span>
 					</div>
 					<div class="right_area form email_area">
-						<input type="text" name="email" value="${email_id}">@<input type="text"
-							name="email_add" maxlength="50" value="${email_domain}"> <select
-							name="sel_email">
+						<input type="text" name="email" value="${email_id}" placeholder="이메일을 입력해주세요.">
+						@<input type="text" name="email_add" maxlength="50" value="${email_domain}">
+						<select name="sel_email">
 							<option value="etc">직접입력</option> 
 							<option value="naver.com">naver.com</option>
 							<option value="hanmail.net">hanmail.net</option>
@@ -144,7 +147,7 @@
 							oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
 							pattern="(?:(010-\d{4})|(01[1|6|7|8|9]-\d{3,4}))-(\d{4})"
 							id="business_tel" value="${vo.tel}"> <input type="button"
-							onclick="mypage_business_smsCheck(businessform, '${root}')" value="인증번호 발송"
+							onclick="mypage_business_smsCheck(businessform, '${root}')" value="인증요청"
 							class="certification_button" readonly>
 							<input type="hidden" id="business_sms_certification" value="">
 					</div>
@@ -159,8 +162,12 @@
 					</div>
 				</div>
 				
+			</form>
 				<div class="btn_area">
 					<input type="button" value="저장" class="submit_btn">
+					<input type="reset" value="취소">
+					
+				</div>
 					<script type="text/javascript">
 						$(function () {
 							$('.submit_btn').click(function(){
@@ -179,8 +186,6 @@
 							});
 						})
 					</script>
-				</div>
-			</form>
 		</div>
 	</section>
 

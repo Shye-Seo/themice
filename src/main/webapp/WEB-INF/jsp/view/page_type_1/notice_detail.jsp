@@ -19,22 +19,20 @@
 	<div id="section">
 		<jsp:include page="/WEB-INF/jsp/view/page_type_1/header.jsp" />
 		
-		<section id="web_notice">
+		<section id="web_notice_detail">
 			<div class="inner">
+				<div class="title_area">
+					<span>공지사항</span>
+				</div>
+				<div class="top"><span>공지</span></div>
 				<div class="detail_title_area">
 					<span>${notice_list.title}</span>
 				</div>
 				
 				<div class="infomation_area">
-					<table border="1">
+					<table>
 						<tr>
-							<td>작성일</td>
-							<td>${notice_list.create_day}</td>
-							<td>조회수</td>
-							<td>${notice_list.views}</td>
-						</tr>
-						<tr>
-							<td>첨부파일</td>
+							<td><p>첨부파일</p></td>
 							<td colspan="3">
 								<c:if test="${notice_list.file_path != null}">
 									<form action="download" method="post">
@@ -44,6 +42,12 @@
 									</form>
 								</c:if>
 							</td>
+							<td>|</td>
+							<td><p>작성일</p></td>
+							<td>${notice_list.create_day}</td>
+							<td>|</td>
+							<td><p>조회수</p></td>
+							<td>${notice_list.views}</td>
 						</tr>
 					</table>
 				</div>
@@ -51,17 +55,12 @@
 				<div class="text_area">
 					<p>${notice_list.contents}</p>
 				</div>
-				<input type="text" value="contents_idx=${contents_idx}  / idx=${notice_list.idx}">
 				<div class="btn_area">
-					<a href="web_notice_list?contents_idx=${contents_idx}">목록</a>
-					<c:if test="${sessionScope.business_id == content_list.business_num}">
-						<a href="notice_management_update?contents_idx=${contents_idx}&idx=${notice_list.idx}">수정</a>
-					</c:if>
+					<a href="website?contents_idx=${contents_idx}">목록</a>
 				</div>
 			</div>
 			
 			<jsp:include page="/WEB-INF/jsp/footer/footer.jsp" />
-			
 		</section>
 	</div>
 </body>

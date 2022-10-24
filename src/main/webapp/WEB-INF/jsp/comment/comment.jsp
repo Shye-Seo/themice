@@ -18,6 +18,7 @@
 					<div class="insert_item_1">
 						<div class="id">
 							<span>${sessionScope.id}</span>
+							<input type="text" name="comment" placeholder="악플은 경고조치 없이 삭제되며 징계대상이 될 수 있습니다." class="comment_text">
 						</div>
 						<div class="score">
 							<input type="radio" id="score_item_1" value="1" name="score">
@@ -59,15 +60,19 @@
 						</script>
 					</div>
 					
-					<div class="insert_item_2">
-						<input type="text" name="comment" placeholder="악플은 경고조치 없이 삭제되며 징계대상이 될 수 있습니다." class="comment_text">
-					</div>
-					
 					<div class="submit_area">
 						<input type="button" value="등록" id="comment_submit_btn">
 					</div>
 					
 					<script type="text/javascript">
+					$(function() {
+						$('input[type="text"]').keydown(function() {
+							  if (event.keyCode === 13) {
+							    event.preventDefault();
+							  };
+							});
+					});
+					
 						$('#comment_submit_btn').click(function () {
 							var score = $('input[name=score]:checked').val();
 							var comment = $('.comment_text').val();
@@ -92,6 +97,7 @@
 					<div class="insert_item_1">
 						<div class="id">
 							<span>${sessionScope.id}</span>
+							<input type="text" name="comment" placeholder="악플은 경고조치 없이 삭제되며 징계대상이 될 수 있습니다." class="comment_text">
 						</div>
 						<div class="score">
 							<input type="radio" id="score_item_1" value="1" name="score">
@@ -137,16 +143,27 @@
 						</script>
 					</div>
 					
-					<div class="insert_item_2">
-						<input type="text" name="comment" placeholder="악플은 경고조치 없이 삭제되며 징계대상이 될 수 있습니다." class="comment_text">
-					</div>
+<!-- 					<div class="insert_item_2"> -->
+<!-- 						<input type="text" name="comment" placeholder="악플은 경고조치 없이 삭제되며 징계대상이 될 수 있습니다." class="comment_text"> -->
+<!-- 					</div> -->
 					
 					<div class="submit_area">
 						<input type="button" value="등록" id="comment_submit_btn">
 					</div>
 					
 					<script type="text/javascript">
+					$(function() {
+						$(function() {
+							$('input[type="text"]').keydown(function() {
+								  if (event.keyCode === 13) {
+								    event.preventDefault();
+								  };
+								});
+						});
+					});
+					
 						$('#comment_submit_btn').click(function () {
+							debugger;
 							var score = $('input[name=score]:checked').val();
 							var comment = $('.comment_text').val();
 							
@@ -181,7 +198,7 @@
 						
 						<div class="score_area">
 							<c:if test="${cl.score != '0'}">
-								<c:forEach var="i" begin="0" end="${cl.score - 1}">
+								<c:forEach var="i" begin="0" end="${cl.score -1}">
 									<img src="${root}/img/comment/star_color_icon.svg">
 								</c:forEach>
 								<c:forEach var="i" begin="${cl.score}" end="4">

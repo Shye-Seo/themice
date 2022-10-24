@@ -1,28 +1,28 @@
 body {
 	overflow:auto;
-	margin: 0;
+	top: 0;
 	width: 100%;
     height: 100%;
 }
 
-#container {
-	opacity: 0.2;
-	background: rgba(0,0,0);
-	opacity: 0.85;
-	color: #FFFFFF;
-	text-align: center;
-	width: 100%;
-	height: 100%;
-	position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 100;
-    font-size: 5em;
-    display: flex;
-    align-items: center;
-  	flex-direction: row;
-  	justify-content: center;
-}
+/* #container { */
+/* 	opacity: 0.2; */
+/* 	background: rgba(0,0,0); */
+/* 	opacity: 0.85; */
+/* 	color: #FFFFFF; */
+/* 	text-align: center; */
+/* 	width: 100%; */
+/* 	height: 100%; */
+/* 	position: fixed; */
+/*     top: 0; */
+/*     left: 0; */
+/*     z-index: 100; */
+/*     font-size: 5em; */
+/*     display: flex; */
+/*     align-items: center; */
+/*   	flex-direction: row; */
+/*   	justify-content: center; */
+/* } */
 
 /* #p{ */
 /* /* 	width: 50%; */ */
@@ -30,16 +30,33 @@ body {
 /* 	position: relative; */
 /* 	left: 50%; */
 /*   	transform: translateY( -50% ); */
-/*   	border: 5px solid yellow; */
+/* /*   	border: 5px solid yellow; */ */
 /* } */
 
 /** payment_section start **/
-.img_area{
+.upper_area{
 	position: relative;
 	background-color: #FFFFFF;
-	padding-bottom: 10%;
 	top: 0;
-/* 	display: flex; */
+	display: flex;
+}
+
+.upper_area .title {
+	position: relative;
+	height: 130px;
+/* 	border: 1px solid red; */
+	text-align: center;
+	justify-content: center;
+}
+
+.upper_area .title span {
+/* 	border: 1px solid blue; */
+	line-height: 130px;
+	margin: 5% auto;
+	font-size: 45px;
+	font-weight: bold;
+	color: #222222;
+	letter-spacing: -1.35px;
 }
 
 /* .img_area img{ */
@@ -52,13 +69,14 @@ body {
 	width: 800px;
 	margin: 0 auto;
 	min-height: 950px;
-	padding-top: 5%;
+	padding-top: 2%;
 	overflow:auto;
-	pointer-events: none; /* 클릭 막아놓기 */
+/* 	pointer-events: none; 클릭 막아놓기 */
 }
 
 #payment .info_area {
 	width: 100%;
+	height: 300px;
 	display: flex;
 	box-sizing: border-box;
 	padding: 3% 10%;
@@ -66,31 +84,43 @@ body {
 	align-items: center;
 }
 
+#payment .info_area #container_info {
+	width: 800%;
+	height: 100%;
+	display: flex;
+	box-sizing: border-box;
+	padding: 3% 3%;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #F7F7F7;
+	border: 1px solid #C7C7C7;
+}
+
 #payment .info_area .img_area {
-	width: 40%;
+	width: 30%;
+	height: 100%;
 }
 
 #payment .info_area .img_area img {
 	width: 100%;
-	display: block;
+	height: 100%;
+	object-fit: cover;
 	opacity: 1;
 }
 
 #payment .info_area .text_area {
-	width: 55%;
+	width: 65%;
 }
 
 #payment .info_area .text_area ul li {
-	border-bottom: solid;
-	border-width: 1px;
 	padding-bottom: 2%;
-	margin-bottom: 7%;
-	text-indent: 2%;
+/* 	margin-bottom: 7%; */
+/* 	text-indent: 2%; */
 }
 
 #payment .info_area .text_area ul .title {
 	font-size: 1.6rem;
-	margin-bottom: 5%;
+	margin-bottom: 3%;
 	border: none;
 	font-weight: bold;
 }
@@ -104,49 +134,49 @@ body {
 	height: 400px;
 }
 
-#payment .choice_area .calendar_area {
+#payment .choice_area .information_area {
 	width: 49%;
-    border: solid 1px black;
+    border: solid 1px #C7C7C7;
     height: 100%;
     display: flex;
     flex-direction: column;
 }
 
-#payment .choice_area .calendar_area .title_area {
+#payment .choice_area .information_area .title_area {
 	text-align: center;
-	border-bottom: solid;
-	border-width: 1px;
+	border-bottom: 1px solid #C7C7C7;
 	padding: 2%;
 	height: 10%;
 	box-sizing: border-box;
+	background-color: #E5E5E5;
 }
 
-#payment .choice_area .calendar_area .input_area {
+#payment .choice_area .information_area .input_area {
 	width: 100%;
 	padding: 0;
 	height: 90%;
 	margin: 0;
 }
 
-#payment .choice_area .calendar_area .input_area table {
+#payment .choice_area .information_area .input_area table {
 	margin: 0;
     width: 100%;
     text-align: center;
-    background-color: #F8F8F8;
     box-sizing: border-box;
     padding: 3% 6%;
     height: 100%;
 }
 
-#payment .choice_area .calendar_area .input_area table tr td {
-	border-radius: 50%;
-	height: 32px;
+#payment .choice_area .information_area .input_area table tr td input {
+	height: 40px;
 	cursor: pointer;
+	border: 1px solid #E5E5E5;
+	background-color: #FFFFFF;
 }
 
 #payment .choice_area .personnel_area {
 	width: 49%;
-    border: solid 1px black;
+    border: solid 1px #C7C7C7;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -154,16 +184,15 @@ body {
 
 #payment .choice_area .personnel_area .title_area {
 	text-align: center;
-	border-bottom: solid;
-	border-width: 1px;
+	border-bottom: 1px solid #C7C7C7;
 	padding: 2%;
 	height: 10%;
     box-sizing: border-box;
+    background-color: #E5E5E5;
 }
 
 #payment .choice_area .personnel_area .input_area {
 	height: 90%;
-    background-color: #F8F8F8;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -178,21 +207,20 @@ body {
 #payment .choice_area .personnel_area .input_area ul li {
 	width: calc(100%/ 3);
 	margin-top: 3%;
+/* 	background-color: #F7F7F7; */
 }
 
 #payment .choice_area .personnel_area .input_area .select_area {
 	display: flex;
     justify-content: space-between;
-    /* height: 80%; */
+    height: 80%;
 }
 
-#payment .choice_area .personnel_area .input_area .select_area li .select_item li
-	{
-	border-bottom: solid;
-	border-width: 1px;
+#payment .choice_area .personnel_area .input_area .select_area li .select_item li{
+	background-color : #F7F7F7;
 	width: 100%;
-	height:100%; /* 蹂�寃쎈�遺� */
-	padding: 3% 0;
+	height:100%;
+	padding: 5% 5%;
 }
 
 #payment .choice_area .personnel_area .input_area ul li .select_item
@@ -201,13 +229,11 @@ body {
 	/* height: 85%; */
 	flex-direction: column;
 	justify-content: space-between;
+	text-align: center;
 }
 
-#payment .choice_area .personnel_area .input_area .select_area li .select_item li select
-	{
-	vertical-align: top;
+#payment .choice_area .personnel_area .input_area .select_area li .select_item li select{
 	border-color: #EA933C;
-	width: 55px;
 	cursor: pointer;
 }
 
@@ -219,21 +245,25 @@ body {
 
 #payment .choice_area .personnel_area .input_area .payment_area {
 	display: flex;
-    justify-content: space-between;
-    border-top: solid;
-    border-width: 1px;
+/*     justify-content: space-between; */
+/*     border-top: 1px solid #F7F7F7; */
     height: auto;
+/*     padding: 2% 5%; */
+    width: 100%;
+    margin-left: 3%;
 }
 
 #payment .choice_area .personnel_area .input_area .payment_area .payment_btn
 	{
-	background-color: #EA933C;
-	border: none;
-	border-radius: 5px;
+	background-color: #EF8E24;
+	border: 1px solid #EF8E24;
+	border-radius: 19px;
 	color: white;
-	padding: 4% 13%;
-	margin-top: -2%;
-	margin-right: 7%;
+	width: 70px;
+	height: 25px;
+/* 	padding: 4% 13%; */
+/* 	margin-top: -2%; */
+/* 	margin-right: 7%; */
 	cursor: pointer;
 }
 

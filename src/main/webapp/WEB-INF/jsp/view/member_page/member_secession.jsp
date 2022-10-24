@@ -33,25 +33,10 @@
 	<div id="navi_area">
 		<nav>
 			<ul>
-				<li>
-					<a href="main">
-						<img alt="" src="${root}/img/member_page/home_icon.svg">
-					</a>
-				</li>
-				
-				<li>
-					<a href="#">전시</a>
-				</li>
-				
-				<li>
-					<select onchange="window.location.href=this.value">
-						<!-- <option value="member_info">회원정보 수정</option> -->
-						<option value="login_check">회원정보 수정</option>
-						<option value="member_payment">결재 내역</option>
-						<option value="member_password_update">비밀번호 수정</option>
-						<option value="member_secession" selected="selected">회원 탈퇴</option>
-					</select>
-				</li>
+				<li><a href="member_payment">결제내역</a></li>
+				<li><a href="login_check">회원정보 수정</a></li>
+				<li><a href="member_password_update">비밀번호 수정</a></li>
+				<li><a href="member_secession">회원탈퇴</a></li>
 			</ul>
 		</nav>
 	</div>

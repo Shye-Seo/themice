@@ -25,26 +25,11 @@
 	<div id="navi_area">
 		<nav>
 			<ul>
-				<li>
-					<a href="main">
-						<img alt="" src="${root}/img/member_page/home_icon.svg">
-					</a>
-				</li>
-				
-				<li>
-					<a href="#">전시</a>
-				</li>
-				
-				<li>
-					<select onchange="window.location.href=this.value">
-						<!-- <option value="business_info">회원정보 수정</option> -->
-						<option value="login_check">회원정보 수정</option>
-						<option value="business_contents_list">내 전시 리스트</option>
-						<option value="business_payment">결제 내역</option>
-						<option value="business_password_update" selected="selected">비밀번호 수정</option>
-						<option value="business_secession">회원 탈퇴</option>
-					</select>
-				</li>
+				<li><a href="business_contents_list">MY 전시</a></li>
+				<li><a href="business_payment">결제내역</a></li>
+				<li><a href="login_check">회원정보 수정</a></li>
+				<li><a href="business_password_update">비밀번호 수정</a></li>
+				<li><a href="business_secession">회원탈퇴</a></li>
 			</ul>
 		</nav>
 	</div>
@@ -77,8 +62,7 @@
 						</div>
 						
 						<div class="right_area">
-							<input class="member_pw" name="password" type="password" placeholder="비밀번호를 입력하세요."/>
-							<p>(영문 대소문자/숫자/특수문자 중 2가지 이상조합, 10~16자)</p>
+							<input class="member_pw" name="password" type="password" placeholder="(영문 대소문자/숫자/특수문자 중 2가지 이상조합, 10~16자)"/>
 							<span id="member_pw"></span>
 						</div>
 					</div>
@@ -94,10 +78,14 @@
 						</div>
 					</div>
 					
+				</form>
+			</div>
+		</div>
 					<div class="btn_area">
 						<input type="button" value="저장" id="business_pw_update_btn">
 						<input type="reset" value="취소">
 						
+					</div>
 						<script type="text/javascript">
 							$('#business_pw_update_btn').click(function() {
 								var current_password = $('#current_password').val();
@@ -131,10 +119,6 @@
 								});
 							});
 						</script>
-					</div>
-				</form>
-			</div>
-		</div>
 	</section>
 	
 	<jsp:include page="/WEB-INF/jsp/footer/footer.jsp" />

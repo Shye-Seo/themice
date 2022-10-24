@@ -51,11 +51,11 @@
 	</insert>
 	
 	<select id="business_payment_count" parameterType="String" resultType="int">
-		select count(*) from payments where business_num = #{business_num}
+		select count(*) from payment where business_num = #{business_num}
 	</select>
 	
 	<select id="business_payment_count_search" parameterType="com.common.PagingVO_2" resultType="int">
-		select count(*) from payments where business_num = #{business_num} and title like ${sql_2}
+		select count(*) from payment where business_num = #{business_num} and title like ${sql_2}
 	</select>
 	
 	<select id="count_business_contents" parameterType="com.common.PagingVO_2" resultType="int">
@@ -66,7 +66,7 @@
 	
 	<select id="getBusiness_payment" parameterType="com.common.PagingVO_2" resultType="com.payment.PaymentVO">
 		select * from (select @rownum:=@rownum+1 as num, n.*
-		from(select * from payments where business_num = #{business_num} ${sql} order by idx desc)n,
+		from(select * from payment where business_num = #{business_num} ${sql} order by idx desc)n,
 		(select @rownum:=0)v)num Where num.num between #{start} and #{end}
 	</select>
 	

@@ -42,13 +42,11 @@
 						$(function () {
 							$('#email_btn').click(function(){
 								$('.email').css('display', 'block');
-								$('#email_btn').css('font-weight', '800');
-								$('#email_btn').css('border-bottom', '3px solid #EA933C');
+								$('#email_btn').css('border-bottom', '2px solid #EA933C');
 								$('#email_btn').css('border-color', '#EA933C');
 								$('#email_btn span').css('color', '#EA933C');
 								
 								$('.tel').css('display', 'none');
-								$('#tel_btn').css('font-weight', 'unset');
 								$('#tel_btn').css('border-bottom', '2px solid #707070');
 								$('#tel_btn').css('border-color', '#333');
 								$('#tel_btn span').css('color', '#333');
@@ -56,14 +54,12 @@
 							
 							$('#tel_btn').click(function(){
 								$('.email').css('display', 'none');
-								$('#email_btn').css('font-weight', 'unset');
 								$('#email_btn').css('border-bottom', '2px solid #707070');
 								$('#email_btn').css('border-color', '#333');
 								$('#email_btn span').css('color', '#333');
 								
 								$('.tel').css('display', 'block');
-								$('#tel_btn').css('font-weight', '800');
-								$('#tel_btn').css('border-bottom', '3px solid #EA933C');
+								$('#tel_btn').css('border-bottom', '2px solid #EA933C');
 								$('#tel_btn').css('border-color', '#EA933C');
 								$('#tel_btn span').css('color', '#EA933C');
 							});
@@ -104,7 +100,7 @@
 								},
 								success : function(data) {
 									if ($.trim(data) == 1) {
-										var url = "/Home/member_id_email_certification?name=" + name + "&certification_type=" + email;
+										var url = "member_id_email_certification?name=" + name + "&certification_type=" + email;
 										window.open(url, "", "width=" + width + ", height=" + height + ", left=" + left + ", top=" + top);
 									} else {
 										alert('일치하는 정보가 없습니다.');
@@ -129,7 +125,7 @@
 								},
 								success : function(data) {
 									if ($.trim(data) == 1) {
-										var url = "/Home/member_id_tel_certification?name=" + name + "&certification_type=" + tel;
+										var url = "member_id_tel_certification?name=" + name + "&certification_type=" + tel;
 										window.open(url, "", "width=" + width + ", height=" + height + ", left=" + left + ", top=" + top);
 									} else {
 										alert('일치하는 정보가 없습니다.');

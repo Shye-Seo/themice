@@ -93,7 +93,7 @@
 
 #header .header_item .navi_area .small{
 	float: left;
-	margin-top: 5px;
+	margin-top: 3px;
 /* 	border: 1px solid green; */
 }
 
@@ -126,9 +126,6 @@
 
 #header .search_area {
 	display: none;
-	border-top: solid;
-	border-width: 1px;
-	border-color: #707070;
 	box-sizing: border-box;
 	padding-top: 3%;
 	margin-top: 1%;

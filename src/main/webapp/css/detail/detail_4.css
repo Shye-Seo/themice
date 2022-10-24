@@ -212,68 +212,64 @@ ul, li, p{
 }
 
 .btn_area{
+	margin-top: 10px;
     display: flex;
     width: 100%;
     position: relative;
 }
 
 .btn_area .payment{
-	width: 80px;
-    height: 30px;
+	width: 100px;
+    height: 50px;
     box-sizing: border-box;
     border: none;
-    background-color: #EA933C;
+    background-color: #363636;
     color: white;
     font-size: 0.9rem;
     font-weight: bold;
     margin-right: 15px;
-    border-radius: 5px;
+    border-radius: 25px;
     cursor: pointer;
 }
 
 .btn_area .share{
 	opacity: 1;
-    width: 80px;
-    height: 30px;
-    border: solid 1px #EA933C;
+    width: 100px;
+    height: 50px;
+    border: solid 1px #363636;
     background: unset;
-    color: #EA933C;
+    color: #363636;
     font-size: 0.9rem;
     font-weight: bold;
-    border-radius: 5px;
+    border-radius: 25px;
     cursor: pointer;
-}
-
-.btn_area .share:hover{
-	color: white;
-    background-color: #EA933C;
 }
 
 #detail .url_share{
 	position: absolute;
     flex-direction: row;
-    left: 95px;
+    left: 115px;
     display: none;
 }
 
 #detail .url_share input:nth-child(1){
-	width: 80px;
-    height: 30px;
-    border: solid 1px #EA933C;
+	width: 100px;
+    height: 50px;
+    border: solid 1px #363636;
     background: unset;
-    color: #EA933C;
+    color: #363636;
     font-size: 0.9rem;
     font-weight: bold;
     cursor: pointer;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
     cursor: pointer;
 }
 
 #detail .url_share input:nth-child(2){
 	width: 200px;
-    height: 30px;
-    background-color: #EA933C;
+    height: 50px;
+    background-color: #363636;
     border: unset;
     box-sizing: border-box;
     overflow: hidden;
@@ -281,8 +277,8 @@ ul, li, p{
     white-space: nowrap;
     color: white;
     text-indent: 5px;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
     cursor: pointer;
 }
 

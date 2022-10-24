@@ -31,26 +31,11 @@
 	<div id="navi_area">
 		<nav>
 			<ul>
-				<li>
-					<a href="main">
-						<img alt="" src="${root}/img/member_page/home_icon.svg">
-					</a>
-				</li>
-				
-				<li>
-					<a href="#">전시</a>
-				</li>
-				
-				<li>
-					<select onchange="window.location.href=this.value">
-						<!-- <option value="business_info">회원정보 수정</option> -->
-						<option value="login_check">회원정보 수정</option>
-						<option value="business_contents_list">내 전시 리스트</option>
-						<option value="business_payment">결제 내역</option>
-						<option value="business_password_update">비밀번호 수정</option>
-						<option value="business_secession" selected="selected">회원 탈퇴</option>
-					</select>
-				</li>
+				<li><a href="business_contents_list">MY 전시</a></li>
+				<li><a href="business_payment">결제내역</a></li>
+				<li><a href="login_check">회원정보 수정</a></li>
+				<li><a href="business_password_update">비밀번호 수정</a></li>
+				<li><a href="business_secession">회원탈퇴</a></li>
 			</ul>
 		</nav>
 	</div>
@@ -63,7 +48,7 @@
 		<div class="contents_area">
 			<div class="text_area">
 				<span>- 본인 확인을 위해 비밀번호를 입력해주세요.</span>
-				<span>비밀번호는 타인에게 노출되지 않도록 주의해주세요.</span>
+				<span>- 비밀번호는 타인에게 노출되지 않도록 주의해주세요.</span>
 			</div>
 			<div class="input_area">
 				<form method="post" action="member_secession">

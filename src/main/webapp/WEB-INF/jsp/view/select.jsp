@@ -38,7 +38,8 @@
 			</div>
 			
 			<div class="sub_area" style="border: none;">
-				<a href="/WEB-INF/jsp/view/business_page/business_contents_list">
+				<input type="hidden" value="${sessionScope.business_id}">
+				<a href="/business_contents_list">
 					<img src="${root}/img/select/select_icon_2.svg">
 					<span>My 전시장 목록보기</span>
 				</a>

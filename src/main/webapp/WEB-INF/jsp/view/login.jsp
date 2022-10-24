@@ -131,20 +131,13 @@
 	
 				<div class="login_sub_area">
 					<div class="sub_area">
-						<div class="img_area">
-							<img src="${root}/img/login/login_person_icon.JPG">
-						</div>
+<!-- 						<div class="img_area"> -->
+<%-- 							<img src="${root}/img/login/login_person_icon.JPG"> --%>
+<!-- 						</div> -->
 						<div class="input_area">
-							<a href="join">개인 회원가입</a>
-						</div>
-					</div>
-	
-					<div class="sub_area" style="border: none;">
-						<div class="img_area">
-							<img src="${root}/img/login/login_question_icon.JPG">
-						</div>
-						<div class="input_area">
-							<a href="member_id_find">개인 아이디</a>/<a href="member_pw_find">비밀번호 찾기</a>
+							<a href="member_id_find">아이디 찾기</a>
+							|<a href="member_pw_find">비밀번호 찾기</a>
+							|<a href="join">회원가입</a>
 						</div>
 					</div>
 				</div>
@@ -175,20 +168,9 @@
 	
 				<div class="login_sub_area">
 					<div class="sub_area">
-						<div class="img_area">
-							<img src="${root}/img/login/login_person_icon.JPG">
-						</div>
 						<div class="input_area">
-							<a href="join">기업 회원가입</a>
-						</div>
-					</div>
-	
-					<div class="sub_area" style="border: none;">
-						<div class="img_area">
-							<img src="${root}/img/login/login_question_icon.JPG">
-						</div>
-						<div class="input_area">
-							<a href="business_pw_find">기업 비밀번호 찾기</a>
+							<a href="business_pw_find">비밀번호 찾기</a>
+							|<a href="join">회원가입</a>
 						</div>
 					</div>
 				</div>

@@ -74,7 +74,7 @@ public class CrawlingCtr {
 				conn.setRequestProperty("Referer", src);
 				BufferedImage img = ImageIO.read(conn.getInputStream());
 				
-				img_path = "C:\\workspace\\img\\crawiling\\crawling" + idx + ".jpg";
+				img_path = "usr\\local\\img\\crawiling" + idx + ".jpg";
 				img_name = "crawling" + idx + ".jpg";
 				FileOutputStream out = new FileOutputStream(img_path);
 				ImageIO.write(img, "jpg", out);

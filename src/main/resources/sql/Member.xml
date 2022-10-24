@@ -45,13 +45,13 @@
 	
 	<select id="getMember_payment" parameterType="com.common.PagingVO_2" resultType="com.payment.PaymentVO">
 		select * from (select @rownum:=@rownum+1 as num, n.*
-		from(select * from payments where consumer = #{consumer} ${sql} order by idx desc)n,
+		from(select * from payment where id = #{id} ${sql} order by idx desc)n,
 		(select @rownum:=0)v)num Where num.num between #{start} and #{end}
 	</select>
 	
 	<select id="getm_Member_payment" parameterType="com.common.PagingVO_2" resultType="com.payment.PaymentVO">
 		select * from (select @rownum:=@rownum+1 as num, n.*
-		from(select * from payments where consumer = #{consumer} ${sql} order by idx desc)n,
+		from(select * from payment where id = #{id} ${sql} order by idx desc)n,
 		(select @rownum:=0)v)num;
 	</select>
 	
@@ -80,7 +80,7 @@
 	</select>
 	
 	<select id="member_payment_count" parameterType="String" resultType="int">
-		select count(*) from payments where consumer = #{consumer}
+		select count(*) from payment where id = #{id}
 	</select>
 	
 	<select id="member_secession" parameterType="String">

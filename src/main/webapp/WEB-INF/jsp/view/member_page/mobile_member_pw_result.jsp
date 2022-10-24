@@ -25,7 +25,7 @@
 		
 		<form method="post" action="m_member_pw_result" id="pw_result">
 			<div class="content_item">
-				<span>새비밀번호</span>
+				<span>새 비밀번호</span>
 				<span id="pw_ture" style="display: none; color: blue;">사용가능</span>
 				<span id="pw_false" style="display: none; color: red;">사용불가</span>
 			</div>
@@ -37,7 +37,7 @@
 			</div>
 			
 			<div class="content_item">
-				<span>새비밀번호 확인</span>
+				<span>새 비밀번호 확인</span>
 				<span id="alert-success" style="display: none; color: blue;">비밀번호가 일치합니다.</span>
 				<span id="alert-danger" style="display: none; color: red;">비밀번호가 일치하지 않습니다.</span>
 			</div>

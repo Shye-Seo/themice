@@ -3,10 +3,19 @@
 
 <mapper namespace="payment">
 	
-	<insert id="insertPayment" parameterType="com.payment.PaymentVO">
-		insert into payments (contents_idx, product_id, title, amount, consumer, time, status)
-		values (#{contents_idx}, #{product_id}, #{title}, #{amount}, #{consumer}, #{time}, #{status})
+	<insert id="insert_payment" parameterType="com.payment.PaymentVO">
+		insert into payment (contents_idx, business_num, id, name, tel, title, visit_date, ticket_amount, total, status)
+		values (#{contents_idx}, #{business_num}, #{id}, #{name}, #{tel}, #{title}, #{visit_date}, #{ticket_amount}, #{total}, #{status})
 	</insert>
+	
+	<select id="update_payment_status" parameterType="com.payment.PaymentVO">
+		update payment set status = #{status}
+	</select>
+	
+<!-- 	<insert id="insertPayment" parameterType="com.payment.PaymentVO"> -->
+<!-- 		insert into payments (contents_idx, product_id, title, amount, consumer, time, status) -->
+<!-- 		values (#{contents_idx}, #{product_id}, #{title}, #{amount}, #{consumer}, #{time}, #{status}) -->
+<!-- 	</insert> -->
 	
 	<select id="getTitle" parameterType="String" resultType="String">
 		select title from contents where idx = #{contents_idx}
@@ -21,6 +30,6 @@
 	</select>
 	
 	<select id="getBusiness_num" parameterType="String" resultType="com.contents.ContentsVO">
-		select business from contents where idx = #{contents_idx};
+		select business_num from contents where idx = #{contents_idx};
 	</select>
 </mapper>

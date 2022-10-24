@@ -24,197 +24,175 @@
     font-weight: bold;
 }
 </style>
+<script>
+	function gallery_delete_management() {
+		var check = [];
+
+		if($('input[name="check"]:checked').length == 0){
+			alert("선택된 항목이 없습니다.");
+			return false;
+		}else {
+			$('input[name="check"]:checked').each(function(e) {
+				check.push($(this).val());
+			})
+	
+			var list = {
+				'check' : check
+			}
+	
+			
+			$.ajax({
+				url : 'gallery_delete_management',
+				type : 'post',
+				data : list,
+				success : function(data) {
+	
+					if ($.trim(data) == 0) {
+						alert('삭제되었습니다.');
+						location.href = 'gallery_management?contents_idx=${contents_idx}';
+					} else {
+						alert('삭제 실패');
+	
+					}
+				},
+				error : function() {
+					alert("에러입니다");
+				}
+			});
+		}
+	};
+	
+// 	function gallery_management_update() {
+// 		var check = [];
+
+// 		$('input[name="check"]:checked').each(function(e) {
+// 			check.push($(this).val());
+// 		})
+
+// 		var list = {
+// 			'check' : check
+// 		}
+
+// 		$.ajax({
+// 			url : 'gallery_management_update',
+// 			type : 'post',
+// 			data : list,
+// 			success : function(data) {
+
+// 				if ($.trim(data) != 0) {
+// 					alert('수정되었습니다.');
+// 					location.href = 'gallery_management?contents_idx=${contents_idx}';
+// 				} else {
+// 					alert('실패');
+
+// 				}
+// 			},
+// 			error : function() {
+// 				alert("에러입니다=======>"+data.error_msg);
+// 			}
+// 		});
+// 	};
+	
+	$("#selectAll").click(function(){
+		if($(this).is(":checked")){
+			$('input[name="check"]').attr("checked", true);
+		}else{
+			$('input[name="check"]').attr("checked", false);
+		}
+	});
+	
+	$("#selectAll").change(function(){
+
+	    if($(this).is(":checked")){ 
+	        $('input[name="check"]').prop("checked", true);
+	    }else{ 
+	        $('input[name="check"]').prop("checked", false);
+	    }
+	}); 
+</script>
 </head>
 <body>
 	<div id="section">
 		<jsp:include page="/WEB-INF/jsp/view/page_type_1/header.jsp" />
+		
+		<div id="management_title_area">
+			<span>환경설정</span>
+		</div>
+		<div id="navi_area">
+			<nav>
+				<ul>
+					<li><a href="main_management?contents_idx=${contents_idx}">메인관리</a></li>
+					<li><a href="introduction_management?contents_idx=${contents_idx}">소개관리</a></li>
+					<li><a href="gallery_management?contents_idx=${contents_idx}">갤러리관리</a></li>
+					<li><a href="notice_management?contents_idx=${contents_idx}">공지사항관리</a></li>
+					<li><a href="pop_up_management?contents_idx=${contents_idx}">팝업관리</a></li>
+					<li><a href="comment_management?contents_idx=${contents_idx}">댓글관리</a></li>
+				</ul>
+			</nav>
+		</div>
 	
 		<section id="preferences">
 			<div class="inner">
-				<div class="category">
-					<a href="main_management?contents_idx=${contents_idx}">메인관리</a>
-					<a href="introduction_management?contents_idx=${contents_idx}">소개관리</a>
-					<a href="gallery_management?contents_idx=${contents_idx}">갤러리관리</a>
-					<a href="notice_management?contents_idx=${contents_idx}">공지사항관리</a>
-					<a href="pop_up_management?contents_idx=${contents_idx}">팝업관리</a>
-					<a href="comment_management?contents_idx=${contents_idx}">댓글관리</a>
-				</div>
-					
 				<div class="gallery_management">
-					<span class="title_area">갤러리 관리</span>
+					<span class="title_area">갤러리관리</span>
+<!-- 					<form method="get"> -->
+<%-- 						<input type="text" placeholder="제목으로 입력해주세요." name="title" value="${test}"> --%>
+<!-- 						<input type="submit" value="검색"> -->
+<%-- 						<input type="hidden" value="${contents_idx}" name="contents_idx"> --%>
+<!-- 					</form> -->
 					
-					<div class="img_area">
-						<form method="post" enctype="multipart/form-data">
-							<div class="img_item" id="image_container_1">
-								<c:if test="${gallery_list.img_1 == 'null'}">
-									<img alt="" src="${root}/gallery_path/${gallery_list.img_1}">
-								</c:if>
-								
-								<div class="upload_area">
-									<input type="file" name="img_1" id="gallery_img_1" accept="image/*" onchange="setThumbnail(event);">
-									<label for="gallery_img_1"><img alt="" src="${root}/img/website/upload_icon.svg">내 PC</label>
-								</div>
-								
-								<div class="text_area">
-									<span>*고해상도 이미지의 4:3 비율을 사용해주세요.</span>
-									<span>*5MB까지 사용가능합니다.</span>
-								</div>
-							</div>
-							
-							<div class="img_item" id="image_container_2">
-								<c:if test="${gallery_list.img_2 == 'null'}">
-									<img alt="" src="${root}/gallery_path/${gallery_list.img_2}">
-								</c:if>
-								
-								<div class="upload_area">
-									<input type="file" name="img_2" id="gallery_img_2" accept="image/*" onchange="setThumbnail(event);">
-									<label for="gallery_img_2"><img alt="" src="${root}/img/website/upload_icon.svg">내 PC</label>
-								</div>
-								
-								<div class="text_area">
-									<span>*고해상도 이미지의 4:3 비율을 사용해주세요.</span>
-									<span>*5MB까지 사용가능합니다.</span>
-								</div>
-							</div>
-							
-							<div class="img_item" id="image_container_3">
-								<c:if test="${gallery_list.img_3 == 'null'}">
-									<img alt="" src="${root}/gallery_path/${gallery_list.img_3}">
-								</c:if>
-								
-								<div class="upload_area">
-									<input type="file" name="img_3" id="gallery_img_3" accept="image/*" onchange="setThumbnail(event);">
-									<label for="gallery_img_3"><img alt="" src="${root}/img/website/upload_icon.svg">내 PC</label>
-								</div>
-								
-								<div class="text_area">
-									<span>*고해상도 이미지의 4:3 비율을 사용해주세요.</span>
-									<span>*5MB까지 사용가능합니다.</span>
-								</div>
-							</div>
-							
-							<div class="img_item" id="image_container_4">
-								<c:if test="${gallery_list.img_4 == 'null'}">
-									<img alt="" src="${root}/gallery_path/${gallery_list.img_4}">
-								</c:if>
-								
-								<div class="upload_area">
-									<input type="file" name="img_4" id="gallery_img_4" accept="image/*" onchange="setThumbnail(event);">
-									<label for="gallery_img_4"><img alt="" src="${root}/img/website/upload_icon.svg">내 PC</label>
-								</div>
-								
-								<div class="text_area">
-									<span>*고해상도 이미지의 4:3 비율을 사용해주세요.</span>
-									<span>*5MB까지 사용가능합니다.</span>
-								</div>
-							</div>
-							
-							<div class="img_item" id="image_container_5">
-								<c:if test="${gallery_list.img_5 == 'null'}">
-									<img alt="" src="${root}/gallery_path/${gallery_list.img_5}">
-								</c:if>
-								
-								<div class="upload_area">
-									<input type="file" name="img_5" id="gallery_img_5" accept="image/*" onchange="setThumbnail(event);">
-									<label for="gallery_img_5"><img alt="" src="${root}/img/website/upload_icon.svg">내 PC</label>
-								</div>
-								
-								<div class="text_area">
-									<span>*고해상도 이미지의 4:3 비율을 사용해주세요.</span>
-									<span>*5MB까지 사용가능합니다.</span>
-								</div>
-							</div>
-							
-							<div class="img_item" id="image_container_6">
-								<c:if test="${gallery_list.img_6 == 'null'}">
-									<img alt="" src="${root}/gallery_path/${gallery_list.img_6}">
-								</c:if>
-								
-								<div class="upload_area">
-									<input type="file" name="img_6" id="gallery_img_6" accept="image/*" onchange="setThumbnail(event);">
-									<label for="gallery_img_6"><img alt="" src="${root}/img/website/upload_icon.svg">내 PC</label>
-								</div>
-								
-								<div class="text_area">
-									<span>*고해상도 이미지의 4:3 비율을 사용해주세요.</span>
-									<span>*5MB까지 사용가능합니다.</span>
-								</div>
-							</div>
-							
-							<div class="img_item" id="image_container_7">
-								<c:if test="${gallery_list.img_7 == 'null'}">
-									<img alt="" src="${root}/gallery_path/${gallery_list.img_7}">
-								</c:if>
-								
-								<div class="upload_area">
-									<input type="file" name="img_7" id="gallery_img_7" accept="image/*" onchange="setThumbnail(event);">
-									<label for="gallery_img_7"><img alt="" src="${root}/img/website/upload_icon.svg">내 PC</label>
-								</div>
-								
-								<div class="text_area">
-									<span>*고해상도 이미지의 4:3 비율을 사용해주세요.</span>
-									<span>*5MB까지 사용가능합니다.</span>
-								</div>
-							</div>
-							
-							<div class="img_item" id="image_container_8">
-								<c:if test="${gallery_list.img_8 == 'null'}">
-									<img alt="" src="${root}/gallery_path/${gallery_list.img_8}">
-								</c:if>
-								
-								<div class="upload_area">
-									<input type="file" name="img_8" id="gallery_img_8" accept="image/*" onchange="setThumbnail(event);">
-									<label for="gallery_img_8"><img alt="" src="${root}/img/website/upload_icon.svg">내 PC</label>
-								</div>
-								
-								<div class="text_area">
-									<span>*고해상도 이미지의 4:3 비율을 사용해주세요.</span>
-									<span>*5MB까지 사용가능합니다.</span>
-								</div>
-							</div>
-							
-							<script type="text/javascript">
-								function setThumbnail(event) {
-									var id = $(this).attr('id');
-									console.log(id);
-									var container = id.charAt(id.length-1);
-									
-									var reader = new FileReader();
-									reader.onload = function(event) {
-										var img = document.createElement("img");
-										img.setAttribute("src", event.target.result);
-										document.querySelector("div#image_container_" + container).appendChild(img);
-									};
-									reader.readAsDataURL(event.target.files[0]);
-								}
-								
-								$(function () {
-									$('input[type="file"]').off().on('change', function(){
-										if (this.files && this.files[0]) {
-											var fileForm = /(.*?)\.(jpg|jpeg|png|gif|bmp|pdf)$/;
-											var imgFile = $(this).val();
-											var maxSize = 5 * 1024 * 1024;
-											var fileSize = this.files[0].size;
-											
-											if(!imgFile.match(fileForm)) {
-										    	alert("이미지 파일만 업로드 가능합니다.");
-										    	$(this).val('');
-										        return false;
-										    } else if(fileSize > maxSize){
-												alert("이미지 크기는 5MB 이내로 등록 가능합니다.");
-												$(this).val('');
-												return false;
-											}
-										}
-									});
-								});
-							</script>
-						</form>
-						
-						<div class="btn_area">
-							<input type="button" value="저장">
-						</div>
+					<div class="btn_area">
+						<a href="gallery_insert?contents_idx=${contents_idx}">갤러리 등록</a>
+<%-- 						<a href="notice_management_update?contents_idx=${contents_idx}?idx=${notice_list.idx}">수정</a> --%>
+<!-- 						<input type="button" onclick="notice_management_update()" value="수정"> -->
+						<input type="button" onclick="gallery_delete_management()" value="삭제">
 					</div>
+					
+					<div class="contents_area">
+						<ul>
+							<li><input type="checkbox" name="check" id="selectAll"></li>
+							<li>NO</li>
+							<li>제목</li>
+							<li>대표이미지</li>
+							<li>&nbsp;</li>
+						</ul>
+						
+						<c:forEach var="list" items="${gallery_list}" varStatus="st">
+							<ul>
+								<li><input type="checkbox" name="check" value="${list.idx}" id="check"></li>
+								<li>${list.idx}</li>
+								<li><a href="gallery_detail?contents_idx=${contents_idx}&gallery_idx=${list.idx}">${list.title}</a></li>
+								<li><a href="gallery_detail?contents_idx=${contents_idx}&gallery_idx=${list.idx}">
+											<img alt="" src="${root}/thumbnail_path/${list.thumbnail}">
+									</a>
+								</li>
+								<li><a href="gallery_update?contents_idx=${contents_idx}&gallery_idx=${list.idx}">수정</a></li>
+							</ul>
+						</c:forEach>
+					</div>
+					
+					<div class="paging">
+						<c:if test="${paging.startPage != 1 }">
+							<a href="website?nowPage=${paging.startPage - 1}&cntPerPage=${paging.cntPerPage}&contents_idx=${contents_idx}" class="paging_0">&lt;</a>
+						</c:if>
+						<c:forEach begin="${paging.startPage}" end="${paging.endPage}" var="p">
+							<c:choose>
+								<c:when test="${p == paging.nowPage}">
+									<p>${p}</p>
+								</c:when>
+								<c:when test="${p != paging.nowPage}">
+									<a href="website?nowPage=${p}&cntPerPage=${paging.cntPerPage}&contents_idx=${contents_idx}" class="paging_1">${p}</a>
+								</c:when>
+							</c:choose>
+						</c:forEach>
+						<c:if test="${paging.endPage != paging.lastPage}">
+							<a href="website?nowPage=${paging.endPage+1}&cntPerPage=${paging.cntPerPage}&contents_idx=${contents_idx}" class="paging_2">&gt;</a>
+						</c:if>
+					</div>
+					<input type="hidden" value="${contents_idx}" name="contents_idx">
+					<input type="hidden" value="${idx}" name="idx">
+<%-- 						<input type="text" value="contents_idx=${contents_idx}  / idx=${list.idx}"> --%>
+					
 				</div>
 			</div>
 			

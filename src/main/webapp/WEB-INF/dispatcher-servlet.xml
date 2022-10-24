@@ -36,71 +36,71 @@
 	<mvc:resources mapping="/img/*" location="/img/" />
 	
 	
-	<mvc:resources mapping="/business_img/*" location="file:\\\C:\workspace\img\business\" />
-	<mvc:resources mapping="/contents_img/*" location="file:\\\C:\workspace\img\contents\" />
-	<mvc:resources mapping="/crawiling_img/*" location="file:\\\C:\workspace\img\crawiling\" />
-	<mvc:resources mapping="/advertisement_img/*" location="file:\\\C:\workspace\img\advertisement\" />
-	<mvc:resources mapping="/notice_img/*" location="file:\\\C:\workspace\img\notice\" />
-	<mvc:resources mapping="/watermark_path/*" location="file:\\\C:\workspace\img\watermark\" />
-	<mvc:resources mapping="/web_main_path/*" location="file:\\\C:\workspace\img\web_main\" />
-	<mvc:resources mapping="/logo_path/*" location="file:\\\C:\workspace\img\logo\" />
-	<mvc:resources mapping="/banner_path/*" location="file:\\\C:\workspace\img\banner\" />
-	<mvc:resources mapping="/gallery_path/*" location="file:\\\C:\workspace\img\gallery\" />
-	<mvc:resources mapping="/introduction_path/*" location="file:\\\C:\workspace\img\introduction\" />
-	<mvc:resources mapping="/thumbnail_path/*" location="file:\\\C:\workspace\img\thumbnail\" />
-	<mvc:resources mapping="/pop_up_path/*" location="file:\\\C:\workspace\img\pop_up\" />
+<!-- 	<mvc:resources mapping="/business_img/*" location="file:\\\C:\workspace\img\business\" /> -->
+<!-- 	<mvc:resources mapping="/contents_img/*" location="file:\\\C:\workspace\img\contents\" /> -->
+<!-- 	<mvc:resources mapping="/crawiling_img/*" location="file:\\\C:\workspace\img\crawiling\" /> -->
+<!-- 	<mvc:resources mapping="/advertisement_img/*" location="file:\\\C:\workspace\img\advertisement\" /> -->
+<!-- 	<mvc:resources mapping="/notice_img/*" location="file:\\\C:\workspace\img\notice\" /> -->
+<!-- 	<mvc:resources mapping="/watermark_path/*" location="file:\\\C:\workspace\img\watermark\" /> -->
+<!-- 	<mvc:resources mapping="/web_main_path/*" location="file:\\\C:\workspace\img\web_main\" /> -->
+<!-- 	<mvc:resources mapping="/logo_path/*" location="file:\\\C:\workspace\img\logo\" /> -->
+<!-- 	<mvc:resources mapping="/banner_path/*" location="file:\\\C:\workspace\img\banner\" /> -->
+<!-- 	<mvc:resources mapping="/gallery_path/*" location="file:\\\C:\workspace\img\gallery\" /> -->
+<!-- 	<mvc:resources mapping="/introduction_path/*" location="file:\\\C:\workspace\img\introduction\" /> -->
+<!-- 	<mvc:resources mapping="/thumbnail_path/*" location="file:\\\C:\workspace\img\thumbnail\" /> -->
+<!-- 	<mvc:resources mapping="/pop_up_path/*" location="file:\\\C:\workspace\img\pop_up\" /> -->
 	
-	<bean id="contents_path" class="java.lang.String">
-		<constructor-arg value="C:\workspace\img\contents" />
-	</bean>
+<!-- 	<bean id="contents_path" class="java.lang.String"> -->
+<!-- 		<constructor-arg value="C:\workspace\img\contents" /> -->
+<!-- 	</bean> -->
 	
-	<bean id="business_path" class="java.lang.String">
-		<constructor-arg value="C:\workspace\img\business" />
-	</bean>
+<!-- 	<bean id="business_path" class="java.lang.String"> -->
+<!-- 		<constructor-arg value="C:\workspace\img\business" /> -->
+<!-- 	</bean> -->
 	
-	<bean id="advertisement_path" class="java.lang.String">
-		<constructor-arg value="C:\workspace\img\advertisement" />
-	</bean>
+<!-- 	<bean id="advertisement_path" class="java.lang.String"> -->
+<!-- 		<constructor-arg value="C:\workspace\img\advertisement" /> -->
+<!-- 	</bean> -->
 	
-	<bean id="notice_path" class="java.lang.String">
-		<constructor-arg value="C:\workspace\img\notice" />
-	</bean>
+<!-- 	<bean id="notice_path" class="java.lang.String"> -->
+<!-- 		<constructor-arg value="C:\workspace\img\notice" /> -->
+<!-- 	</bean> -->
 	
-	<bean id="watermark_path" class="java.lang.String">
-		<constructor-arg value="C:\workspace\img\watermark" />
-	</bean>
+<!-- 	<bean id="watermark_path" class="java.lang.String"> -->
+<!-- 		<constructor-arg value="C:\workspace\img\watermark" /> -->
+<!-- 	</bean> -->
 	
-	<bean id="web_main_path" class="java.lang.String">
-		<constructor-arg value="C:\workspace\img\web_main" />
-	</bean>
+<!-- 	<bean id="web_main_path" class="java.lang.String"> -->
+<!-- 		<constructor-arg value="C:\workspace\img\web_main" /> -->
+<!-- 	</bean> -->
 	
-	<bean id="logo_path" class="java.lang.String">
-		<constructor-arg value="C:\workspace\img\logo" />
-	</bean>
+<!-- 	<bean id="logo_path" class="java.lang.String"> -->
+<!-- 		<constructor-arg value="C:\workspace\img\logo" /> -->
+<!-- 	</bean> -->
 	
-	<bean id="banner_path" class="java.lang.String">
-		<constructor-arg value="C:\workspace\img\banner" />
-	</bean>
+<!-- 	<bean id="banner_path" class="java.lang.String"> -->
+<!-- 		<constructor-arg value="C:\workspace\img\banner" /> -->
+<!-- 	</bean> -->
 	
-	<bean id="gallery_path" class="java.lang.String">
-		<constructor-arg value="C:\workspace\img\gallery" />
-	</bean>
+<!-- 	<bean id="gallery_path" class="java.lang.String"> -->
+<!-- 		<constructor-arg value="C:\workspace\img\gallery" /> -->
+<!-- 	</bean> -->
 	
-	<bean id="introduction_path" class="java.lang.String">
-		<constructor-arg value="C:\workspace\img\introduction" />
-	</bean>
+<!-- 	<bean id="introduction_path" class="java.lang.String"> -->
+<!-- 		<constructor-arg value="C:\workspace\img\introduction" /> -->
+<!-- 	</bean> -->
 	
-	<bean id="thumbnail_path" class="java.lang.String">
-		<constructor-arg value="C:\workspace\img\thumbnail" />
-	</bean>
+<!-- 	<bean id="thumbnail_path" class="java.lang.String"> -->
+<!-- 		<constructor-arg value="C:\workspace\img\thumbnail" /> -->
+<!-- 	</bean> -->
 	
-	<bean id="pop_up_path" class="java.lang.String">
-		<constructor-arg value="C:\workspace\img\pop_up" />
-	</bean>
+<!-- 	<bean id="pop_up_path" class="java.lang.String"> -->
+<!-- 		<constructor-arg value="C:\workspace\img\pop_up" /> -->
+<!-- 	</bean> -->
 	
 	<!-- 리눅스 -->
 	
-	<!-- <mvc:resources mapping="/business_img/*"		location="file:///usr/local/img/business/" />
+	<mvc:resources mapping="/business_img/*"		location="file:///usr/local/img/business/" />
 	<mvc:resources mapping="/contents_img/*"		location="file:///usr/local/img/contents/" />
 	<mvc:resources mapping="/crawiling_img/*"		location="file:///usr/local/img/crawiling/" />
 	<mvc:resources mapping="/advertisement_img/*"	location="file:///usr/local/img/advertisement/" />
@@ -160,5 +160,5 @@
 	
 	<bean id="pop_up_path" class="java.lang.String">
 		<constructor-arg value="/usr/local/img/pop_up" />
-	</bean> -->
+	</bean>
 </beans>
