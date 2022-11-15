@@ -1,11 +1,13 @@
 package com.crawling;
 
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.Resource;
 import javax.imageio.ImageIO;
 import javax.net.ssl.HttpsURLConnection;
 
@@ -21,11 +23,13 @@ import org.springframework.stereotype.Controller;
 @Controller
 @Component
 public class CrawlingCtr {
+	@Resource(name = "crawiling_path")
+	private String uploadPath;
 
 	@Autowired
 	CrawlingSvc service;
 
-	@Scheduled(cron = "0 0 23 * * ?")
+//	@Scheduled(cron = "0 0 23 * * ?")
 	public void Crolling() {
 
 		boolean play = true;
@@ -45,7 +49,7 @@ public class CrawlingCtr {
 		String img_name = "";		
 
 //		BexcoVO vo = service.getidx();
-		int idx = 9500;
+		int idx = 10858;
 //		int safe = idx + 1000;
 
 		while (play) {
@@ -74,11 +78,22 @@ public class CrawlingCtr {
 				conn.setRequestProperty("Referer", src);
 				BufferedImage img = ImageIO.read(conn.getInputStream());
 				
-				img_path = "usr\\local\\img\\crawiling" + idx + ".jpg";
+//				img_path = "/usr/local/img/crawiling/" + idx + ".jpg";
+//				img_name = "crawling" + idx + ".jpg";
+//				FileOutputStream out = new FileOutputStream(img_path);
+//				ImageIO.write(img, "jpg", out);
+				
+				img_path = "/usr/local/img/crawiling/" + idx + ".jpg";
 				img_name = "crawling" + idx + ".jpg";
-				FileOutputStream out = new FileOutputStream(img_path);
-				ImageIO.write(img, "jpg", out);
-
+				
+				File target = new File(uploadPath, img_name);
+				
+				target.setReadable(true, true);
+				target.setWritable(true, true);
+				target.setExecutable(true, true);
+				
+//				FileCopyUtils.copy(img.getBytes(), target);
+				
 				for (Element st : strong) {
 					String data = st.getElementsByTag("h3").text();
 					title = data;
@@ -128,7 +143,7 @@ public class CrawlingCtr {
 			service.setCrawling(list);
 			idx++;
 
-			if (idx == 10400) {
+			if (idx == 11640) {
 				play = false;
 			}
 		}

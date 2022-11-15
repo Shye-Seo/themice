@@ -1305,7 +1305,7 @@ selsect::-ms-expand {
 				</div>
 
 				<div class="manual_btn">
-					<input type="button" value="설명서 보기" id="manual">
+					<input type="button" value="설명서 보기" id="manual_btn">
 				</div>
 				
 				<input type="submit" style="display: none;">
@@ -1382,7 +1382,7 @@ selsect::-ms-expand {
 					}
 				});
 				
-				$('#manual').click(function (){
+				$('#manual_btn').click(function (){
 					//var url = "/Home/manual?mini=Y";
 					var url = "/manual?mini=Y"; 
 					window.open(url, "", "width=1800, height=900");

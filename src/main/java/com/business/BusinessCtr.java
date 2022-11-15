@@ -240,12 +240,6 @@ public class BusinessCtr {
 	@RequestMapping(value = "business_secession", method = RequestMethod.GET)
 	public String business_secession_password(HttpSession session, HttpServletResponse response) throws IOException {
 
-		String business_num = (String) session.getAttribute("business_id");
-		
-		if(business_num == null) {
-			ScriptUtils.alertAndMovePage(response, "기업아이디로 로그인해주세요.", "main");
-		}
-		
 		return "view/business_page/business_secession";
 	}
 
@@ -256,18 +250,20 @@ public class BusinessCtr {
 		String business_num = (String) session.getAttribute("business_id");
 		
 		if(business_num == null) {
-			ScriptUtils.alertAndMovePage(response, "기업아이디로 로그인해주세요.", "main");
+			ScriptUtils.alertAndMovePage(response, "기업 회원으로 로그인해주세요.", "main");
 		}
 		
-		vo.setId(business_num);
-		mo = service.BusinessCheck(vo);
-
+		mo.setBusiness_num(business_num);
+		mo = service.business_password_check(mo);
+		
 		if (mo == null) {
 			ScriptUtils.alertAndMovePage(response, "패스워드가 틀렸습니다.", "password_check");
 		} else {
 			service.business_secession(business_num);
 			session.removeAttribute("business_id");
-			ScriptUtils.alertAndMovePage(response, "회원이 탈퇴 되었습니다.", "main");
+			ScriptUtils.alertAndMovePage(response, "회원탈퇴가 완료되었습니다.", "main");
+			
+			return "redirect:main";
 		}
 		return "view/business_page/business_password_check";
 	}

@@ -63,16 +63,20 @@
 						<li>${pl.idx}</li>
 						<li>${pl.title}</li>
 						<li>${pl.visit_date}</li>
-						<li>${pl.total}</li>
+						<li>
+<%-- 							<c:if test="${pl.total == 0 || pl.total == ''}"> --%>
+<!-- 							무료예매 -->
+<%-- 							</c:if> --%>
+<%-- 							<c:if test="${pl.total != 0 || pl.total != ''}"> --%>
+							${pl.total}
+<%-- 							</c:if> --%>
+						</li>
 						<li>${pl.payment_date}</li>
 						<li>
 							<c:if test="${pl.status == 'paid'}">구매완료</c:if>
 						</li>
 					</ul>
 				</c:forEach>
-			</div>
-		</div>
-		
 		<c:if test="${payment_list == null}">
 		
 			<style>
@@ -86,6 +90,9 @@
 				<span>결제 내역이 없습니다.</span>
 			</div>
 		</c:if>
+			</div>
+		</div>
+		
 		
 		<div class="paging">
 			<c:if test="${paging.startPage != 1 }">

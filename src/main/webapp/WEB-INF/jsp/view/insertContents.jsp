@@ -150,13 +150,15 @@
 <style type="text/css">
 input[type="time"]::-webkit-calendar-picker-indicator {
 	background-image: url("${root}/img/insertcontents/input_arrow.svg");
-	background-position: right;
+	background-position-x: 95%;
+	background-position-y: center;
 	cursor: pointer;
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
 	background-image: url("${root}/img/insertcontents/input_arrow.svg");
-	background-position: center;
+	background-position-x: 95%;
+	background-position-y: center;
 	cursor: pointer;
 }
 
@@ -404,7 +406,7 @@ select::-ms-expand {
 							<input type="text" placeholder="홈페이지를 입력해주세요." class="input" name="web_address" id="web_address">
 						</div>
 						<div class="address_select_area">
-							<select name="selectBox" id="selectBox" class="select" style="width: 100%;">
+							<select name="selectBox" id="selectBox" class="select" style="width: 100%;" class="input_select">
 								<option value="offline">오프라인</option>
 								<option value="online">온라인</option>
 							</select>
@@ -517,6 +519,7 @@ select::-ms-expand {
 
 				<div class="infomation_area">
 					<div class="left">
+						<span>*</span>
 						<ul>
 							<li>대표사진</li>
 						</ul>
@@ -829,10 +832,10 @@ select::-ms-expand {
 						</ul>
 					</div>
 					<div class="right web_select_area">
-						<select class="web_type" name="website_type">
-							<option value="1">A 타입</option>
-							<option value="2" disabled>B 타입</option>
-						</select>
+<!-- 						<select class="web_type" name="website_type"> -->
+<!-- 							<option value="1">A 타입</option> -->
+<!-- 							<option value="2" disabled>B 타입</option> -->
+<!-- 						</select> -->
 						
 						<div class="web_A_type">
 							<img alt="" src="${root}/img/insertcontents/web_A_type_thumbnail.png">
@@ -1302,7 +1305,7 @@ select::-ms-expand {
 				</div>
 
 				<div class="manual_btn">
-					<input type="button" value="설명서 보기" id="manual">
+					<input type="button" value="설명서 보기" id="manual_btn">
 				</div>
 				
 				<input type="submit" style="display: none;">
@@ -1379,7 +1382,7 @@ select::-ms-expand {
 					}
 				});
 				
-				$('#manual').click(function (){
+				$('#manual_btn').click(function (){
 					//var url = "/Home/manual?mini=Y";
 					var url = "/manual?mini=Y"; 
 					window.open(url, "", "width=1800, height=900");

@@ -28,6 +28,7 @@
 </head>
 <body>
 	<footer id="footer">
+		<div id="wrap_footer">
 		<div class="link">
 			<div class="info_link">
 				<ul>
@@ -38,7 +39,7 @@
 			</div>
 		</div>
 		
-		<hr>
+		<div id="line"></div>
 
 		<div class="infomation">
 			<div class="logo">
@@ -55,6 +56,7 @@
 					<li>출판사 신고번호 : 2018-000017호</li>
 				</ul>
 			</div>
+		</div>
 		</div>
 	</footer>
 </body>

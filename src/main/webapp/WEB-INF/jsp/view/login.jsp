@@ -107,8 +107,9 @@
 		</div>
 	</div>
 	<section id="login">
+		<div id="login_wrap">
 		<div class="content_area">
-			<div class="login_area">
+			<div class="login_area" id="personal">
 				<form method="post" action="member_login">
 					<div class="title_area">
 						<span>개인 회원로그인</span>
@@ -175,6 +176,7 @@
 					</div>
 				</div>
 			</div>
+		</div>
 		</div>
 	</section>
 	<jsp:include page="/WEB-INF/jsp/footer/footer.jsp" />

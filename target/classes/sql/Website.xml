@@ -77,8 +77,8 @@
 	</select>
 	
 	<insert id="set_gallery" parameterType="com.website.GalleryVO">
-		insert into gallery (contents_idx, title, thumbnail, link_1, link_2, link_3)
-		values (#{contents_idx}, #{title}, #{thumbnail}, #{link_1}, #{link_2}, #{link_3})
+		insert into gallery (contents_idx, title, thumbnail, link_1, link_2, link_3, link_4)
+		values (#{contents_idx}, #{title}, #{thumbnail}, #{link_1}, #{link_2}, #{link_3}, #{link_4})
 	</insert>
 	
 	<select id="get_gallery_idx" parameterType="int" resultType="int">

@@ -63,7 +63,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 				<li class="exhn_type_2"><a href="list?exhn_type=전시회">전시회</a></li>
 				<li class="exhn_type_3"><a href="list?exhn_type=페어">페어</a></li>
 				<li class="exhn_type_4"><a href="list?exhn_type=대제전">대제전</a></li>
-				<li class="exhn_type_5"><a href="list?exhn_type=행사">행사</a></li>
+				<li class="exhn_type_5" style="margin-right: 0"><a href="list?exhn_type=행사">행사</a></li>
 			</ul>
 			
 			<input type="hidden" name="exhn_type" value="${exhn_type}" class="exhn_type">
@@ -235,10 +235,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 									<li class="score_area">
 										<c:if test="${l.grade != null}">
 											<span>평점&nbsp;|&nbsp;</span>
-											<c:forEach var="i" begin="0" end="${l.grade}">
+											<c:forEach var="i" begin="1" end="${l.grade}">
 												<img src="${root}/img/comment/star_color_icon.svg">
 											</c:forEach>
-											<c:forEach var="i" begin="${l.grade+1}" end="4">
+											<c:forEach var="i" begin="${l.grade}" end="4">
 												<img src="${root}/img/comment/star_non_color_icon.svg">
 											</c:forEach>
 										</c:if>

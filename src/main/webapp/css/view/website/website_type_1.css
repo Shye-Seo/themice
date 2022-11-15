@@ -261,7 +261,7 @@ header div ul li .logo_btn{
 }
 
 #web_detail .container_1 .data_area .text_area span{
-	font-size: 3rem;
+	font-size: 1.8rem;
 	color: #FFFFFF;
 	font-weight: bold;
 }
@@ -272,6 +272,7 @@ header div ul li .logo_btn{
     margin-top: 5%;
     font-size: 1.2rem;
     color: #FFFFFF;
+    font-weight: normal;
 }
 
 #web_detail .container_1 .data_area .btn_area .payment_btn{
@@ -1141,7 +1142,7 @@ header div ul li .logo_btn{
     padding: 0.5% 0;
 }
 
-#preferences .inner .comments_management .contents_area ul:first-child{
+#preferences .inner .comments_management .contents_area #comment_head{
 	box-sizing: border-box;
     padding: 1% 0;
     font-weight: 500;

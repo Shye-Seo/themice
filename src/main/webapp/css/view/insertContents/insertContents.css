@@ -17,18 +17,19 @@ section{
 	display: flex;
     justify-content: flex-end;
     align-items: center;
-    font-size: 1.2rem;
-    font-weight: bold;
+    font-size: 1rem;
+/*     font-weight: bold; */
     border-top: solid;
     border-width: 1px;
     border-color: #707070;
+    color: #585858;
     padding-top: 1%;
 }
 
 .essential_area span{
 	color: #EA933C;
-    margin-right: 1%;
-    font-size: 1.6rem;
+    margin-right: 0.15%;
+/*     font-size: 1.6rem; */
 }
 
 .essential_area p{
@@ -48,7 +49,7 @@ section{
 .infomation_area{
 	display: flex;
     justify-content: space-between;
-    margin: 8% 0;
+    margin: 2.5% 0;
     align-items: flex-start;
 }
 
@@ -61,15 +62,16 @@ section{
 
 .infomation_area .left span{
 	color: #EA933C;
-    font-size: 1.6rem;
-    margin-right: 10%;
+/*     font-size: 1.6rem; */
+    margin-right: 1%;
 }
 
 .infomation_area .left ul{
+	color: #585858;
 	display: flex;
     justify-content: space-between;
-    font-size: 1.3rem;
-    font-weight: bold;
+    font-size: 1.15rem;
+/*     font-weight: bold; */
     width: 80%;
 }
 
@@ -109,11 +111,11 @@ section{
 
 .page_1 .infomation_area .right_2 .price_insert_area #price{
 	width: 55%;
-	height: 33px;
+	height: 40px;
 	padding: 0;
 	border: 1px solid #ACACAC;
 	border-radius: 5px;
-	text-indent: 5%;
+	text-indent: 10px;
 }
 
 .page_1 .infomation_area .right_2 .price_insert_area .select{
@@ -121,7 +123,7 @@ section{
 	padding: 0;
 	border: 1px solid #ACACAC;
 	border-radius: 5px;
-	text-indent: 1%;
+	text-indent: 10px;
 }
 
 .page_1 .infomation_area .right_2 .price_insert_area .price_btn{
@@ -136,7 +138,7 @@ section{
 
 .page_1 .infomation_area .right_2 .price_insert_area #age_type{
 	width: 15%;
-	text-indent: 5%;
+	text-indent: 10px;
 }
 
 .page_1 .infomation_area .right_2 .key_item{
@@ -160,7 +162,7 @@ section{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    height: 30px;
+    height: 40px;
     font-size: 0.8rem;
 }
 
@@ -174,8 +176,8 @@ section{
 
 .page_1 .infomation_area .right input{
 	width: 100%;
-	height: 33px;
-	text-indent: 3%;
+	height: 40px;
+	text-indent: 10px;
 	padding: 0;
 	border: 1px solid #ACACAC;
 	border-radius: 5px;
@@ -183,20 +185,23 @@ section{
 
 .page_1 .infomation_area .right .input_2 {
     width: 45%;
-    height: 33px;
-    text-indent: 1%;
+    height: 40px;
+    padding-right: 5px;
+/*     text-indent: 10px; */
+/*     background-position-x: 98%; */
 }
 
 .page_1 .infomation_area .right .input_3 {
     width: 45%;
-    height: 33px;
-    text-indent: 5%;
+    height: 40px;
+    text-indent: 10px;
     border: 1px solid #ACACAC;
 	border-radius: 5px;
+	background-position-x: 98%;
 }
 
 .page_1 .infomation_area .right #offline{
-	width: 75%;
+	width: 78%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -204,7 +209,7 @@ section{
 
 .page_1 .infomation_area .right #offline #roadAddress{
 	width: 75%;
-	height: 33px;
+	height: 40px;
 	padding: 0;
 	border: 1px solid #ACACAC;
 	border-radius: 5px;
@@ -214,7 +219,7 @@ section{
 
 .page_1 .infomation_area .right #offline #detail_address{
 	width: 100%;
-	height: 33px;
+	height: 40px;
 	padding: 0;
 	border: 1px solid #ACACAC;
 	border-radius: 5px;
@@ -226,8 +231,9 @@ section{
     border: 1px solid #ACACAC;
     border-radius: 5px;
     color: #FFFFFF;
-    height: 33px;
+    height: 40px;
     cursor: pointer;
+    text-indent: 0;
 }
 
 .page_1 .infomation_area .right #online{
@@ -241,11 +247,11 @@ section{
 
 .page_1 .infomation_area .right .address_select_area .select{
 	width: 100%;
-	height: 33px;
+	height: 40px;
 	padding: 0;
 	border: 1px solid #ACACAC;
 	border-radius: 5px;
-	text-indent: 5%;
+	text-indent: 10px;
 }
 
 .page_1 .infomation_area .right_2 .key_insert{
@@ -254,9 +260,9 @@ section{
 }
 
 .page_1 .infomation_area .right_2 .key_insert #keyword{
-	height: 33px;
-	width: 75%;
-	text-indent: 5%;
+	height: 40px;
+	width: 77%;
+	text-indent: 10px;
 	border: 1px solid #ACACAC;
 	border-radius: 5px;
 }
@@ -290,7 +296,7 @@ section{
 
 .page_1 .infomation_area .right_2 .symbol_image_btn{
     width: 20%;
-    height: 33px;
+    height: 40px;
     background-color: #ACACAC;
     border: 1px solid #ACACAC;
     border-radius: 5px;
@@ -306,8 +312,8 @@ section{
 }
 
 .page_1 .infomation_area .right #exhbn_type{
-	height: 34px;
-	background-position-x: 98%;
+	height: 40px;
+/* 	background-position-x: 98%; */
 }
 
 .page_2{
@@ -436,7 +442,7 @@ section{
     bottom: 29%;
 }
 
-.page_2 .detail_page_2 .label_6 #sub_title_btn{
+.page_2 .detail_page_2 #sub_title_btn{
 	top: 16%;
     left: 45%;
 }
@@ -508,8 +514,8 @@ section{
 
 .page_2 .font_type{
 	width: 70%;
-    height: 33px;
-    text-indent: 2%;
+    height: 40px;
+    text-indent: 10px;
     background-position-x: 98%;
     border-radius: 5px;
     border: 1px solid #E5E5E5;
@@ -544,8 +550,8 @@ section{
 
 .page_2 .back_color{
 	width: 65%;
-    height: 33px;
-    text-indent: 2%;
+    height: 40px;
+    text-indent: 10px;
     border: 1px solid #E5E5E5;
     border-radius: 5px;
 }
@@ -631,16 +637,17 @@ section{
     color: #FFFFFF;
     border-radius: 21px;
 /*     font-weight: bold; */
-    font-size: 1rem;
+    font-size: 0.9rem;
     cursor: pointer;
 }
 
-.navigation #manual{
+.navigation #manual_btn{
 	width: 100px;
 }
 
 .page_3{
 	width: 100%;
+	margin-bottom: 5%;
     display: flex;
     flex-direction: column;
     display: none;
@@ -656,7 +663,7 @@ section{
 .page_3 .infomation_area .right .web_type{
 	width: 60%;
     height: 40px;
-    text-indent: 4%;
+    text-indent: 10px;
 }
 
 .page_3 .infomation_area .right input{
@@ -666,7 +673,7 @@ section{
 .page_3 .infomation_area .right span{
 	width: 60%;
 	height: 40px;
-	text-indent: 4%;
+	text-indent: 10px;
 	font-size: 1rem;
 	border: solid 1px #E5E5E5;
 	border-radius: 5px;
@@ -707,7 +714,7 @@ section{
 .page_3 .infomation_area .web_select_area .web_A_type{
 	width: 80%;
     position: relative;
-    margin-top: 5%;
+/*     margin-top: 5%; */
     cursor: pointer;
 }
 
@@ -715,7 +722,7 @@ section{
 	display: none;
 	width: 80%;
     position: relative;
-    margin-top: 5%;
+/*     margin-top: 5%; */
     cursor: pointer;
 }
 
@@ -771,7 +778,7 @@ section{
 	width: 60%;
     height: 42px;
     margin-right: 2%;
-    text-indent: 15px;
+    text-indent: 10px;
 }
 
 .menu_plus_btn {

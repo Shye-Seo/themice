@@ -263,7 +263,7 @@ body{
 						<li style="text-align: right;"><button class="payment_btn" id="payment_btn">결제</button></li>
 					</ul>
 					
-<!-- 					<input type="text" value="0" id="total" name="total"> -->
+					<input type="hidden" value="0" id="total" name="total">
 					<input type="hidden" value="0" id="amount_1" name="ticket_amount">
 					<input type="hidden" value="0" id="amount_2" name="ticket_amount">
 					<input type="hidden" value="0" id="amount_3" name="ticket_amount">

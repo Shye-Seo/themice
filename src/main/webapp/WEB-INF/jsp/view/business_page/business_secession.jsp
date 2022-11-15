@@ -51,7 +51,7 @@
 				<span>- 비밀번호는 타인에게 노출되지 않도록 주의해주세요.</span>
 			</div>
 			<div class="input_area">
-				<form method="post" action="member_secession">
+				<form method="post" action="business_secession">
 					<input type="password" placeholder="비밀번호를 입력하세요." name="password" class="text_input">
 					<input type="submit" value="확인" class="text_submit">
 				</form>

@@ -15,7 +15,7 @@
 	</insert>
 
 	<select id="BusinessCheck" parameterType="com.common.loginVO" resultType="com.business.BusinessVO">
-		select * from business where business_num=#{id} and password=SHA2(#{password}, 256)
+		select * from business where flag = 'Y' and business_num=#{id} and password=SHA2(#{password}, 256)
 	</select>
 	
 	<select id="duplicate_business_tel" parameterType="String" resultType="com.business.BusinessVO">
@@ -43,7 +43,7 @@
 	</insert>
 	
 	<select id="business_secession" parameterType="String">
-		update business set flag ='N' where id = #{business_num}
+		update business set flag ='N' where business_num = #{business_num}
 	</select>
 	
 	<insert id="setBusiness_password_update" parameterType="com.business.BusinessVO">

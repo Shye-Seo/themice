@@ -345,6 +345,7 @@ public class ContentsCtr {
 		vo.setLogo_name(logoName);
 		vo.setWeb_main_name(web_main_Name);
 		vo.setBanner_name(bannerName);
+		vo.setWebsite_type("1"); //현재 웹사이트 1번만 가능하게끔 통일
 		
 		service.insertContents(vo);
 		
@@ -430,7 +431,8 @@ public class ContentsCtr {
         // 렌더링을 위한 워터 마크 텍스트 모양 생성
         //Font font = new Font(Font.SANS_SERIF, Font.PLAIN, 200);
         // (해당 PC에 존재하는 폰트 이름,     스타일 ex)bold,    front크기 이미지 해상도에따라 비율로 설정해야됨)
-        Font font = new Font("궁서체",Font.PLAIN, 120);
+//        Font font = new Font("/usr/local/apache-tomcat-8.5.82/webapps/font/maruburi/마루 부리/MaruBuri-SemiBold.otf",Font.PLAIN, 120);
+        Font font = new Font("Noto Sans KR",Font.PLAIN, 120);
         GlyphVector fontGV = font.createGlyphVector(g2d.getFontRenderContext(), watermarkText);
         Rectangle size = fontGV.getPixelBounds(g2d.getFontRenderContext(), 0, 0);
         Shape textShape = fontGV.getOutline();
@@ -462,6 +464,7 @@ public class ContentsCtr {
         String time = dateFormat.format(cal.getTime());
 //        File output = new File(path);
         File output = new File("/usr/local/img/watermark/"+time+"_"+f_name);
+//        File output = new File("/C:/workspace/img/watermark/"+time+"_"+f_name);
         ImageIO.write(original, "png", output);
         output.setReadable(true, true);
         output.setWritable(true, true);
@@ -926,6 +929,7 @@ public class ContentsCtr {
 					SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
 					String time = dateFormat.format(cal.getTime());
 					String path = "/usr/local/img/watermark/"+imgName;
+//					String path = "/C:/workspace/img/watermark/"+imgName;
 					watermark(path, title);
 					
 					String imgName_watermark = time+"_"+imgName;
@@ -965,6 +969,7 @@ public class ContentsCtr {
 					SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
 					String time = dateFormat.format(cal.getTime());
 					String path = "/usr/local/img/watermark/"+imgName;
+//					String path = "/C:/workspace/img/watermark/"+imgName;
 					watermark(path, title);
 					
 					String imgName_watermark = time+"_"+imgName;
@@ -1029,7 +1034,7 @@ public class ContentsCtr {
 			if (i == 0) {
 				content_img.setImg_1(contents_img.get(i).getImg_path());
 			}
-			
+
 			if (i == 1) {
 				content_img.setImg_2(contents_img.get(i).getImg_path());
 			}
@@ -1041,21 +1046,21 @@ public class ContentsCtr {
 			if (i == 3) {
 				content_img.setImg_4(contents_img.get(i).getImg_path());
 			}
-			
+
 			if (i == 4) {
 				content_img.setImg_5(contents_img.get(i).getImg_path());
 			}
-			
+
 			if (i == 5) {
 				content_img.setImg_6(contents_img.get(i).getImg_path());
 			}
-			
+
 			if (i == 6) {
-				content_img.setImg_6(contents_img.get(i).getImg_path());
+				content_img.setImg_7(contents_img.get(i).getImg_path());
 			}
-			
+
 			if (i == 7) {
-				content_img.setImg_6(contents_img.get(i).getImg_path());
+				content_img.setImg_8(contents_img.get(i).getImg_path());
 			}
 		}
 		

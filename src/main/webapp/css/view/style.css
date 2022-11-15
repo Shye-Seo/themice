@@ -134,6 +134,7 @@ a{
 	display: flex;
     margin: 5% auto;
     justify-content: center;
+    font-size: 1.2rem;
 }
 
 #comment .insert form .insert_item_1{
@@ -463,12 +464,13 @@ a{
 
 .answer .insert_answer form span{
 	width: 15%;
+	font-size: 1.2rem;
 }
 
 .answer .insert_answer form .text_area{
 	width: 72%;
     margin-right: 3%;
-    height: 24px;
+    height: 44px;
     background-color: #F7F7F7;
     border-radius: 3px;
     border: none;
@@ -479,7 +481,7 @@ a{
     width: 9%;
     background-color: #ACACAC;
     color: white;
-    height: 30px;
+    height: 44px;
     align-items: center;
     justify-content: center;
     font-size: 1rem;
@@ -493,16 +495,21 @@ a{
     justify-content: space-between;
     border-top: solid;
     border-width: 1px;
-    border-color: #707070;
+    border-color: #EDEDED;
     box-sizing: border-box;
-    padding: 3% 0;
-    margin-left: 9%;
-    margin-right: 3%;
+    padding-top: 3%;
+/*     margin-left: 9%; */
+/*     margin-right: 3%; */
+}
+
+.answer ul:first-child{
+	border-top: none;
 }
 
 .answer ul li:first-child{
 	width: 15%;
-    font-size: 1.1rem;
+    font-size: 1rem;
+    color: #484848;
 }
 
 .answer ul li:nth-child(2){
@@ -512,16 +519,26 @@ a{
 .answer ul li:nth-child(3){
 	width: 15%;
 	font-size: 0.9rem;
+	color: #8E8E8E;
 }
 
 .answer ul li input{
-	border: solid 1px #707070;
+	border: solid 1px #8E8E8E;
+	color: #8E8E8E;
     background: unset;
-    font-size: 0.9rem;
-    width: 45px;
+    font-size: 0.8rem;
+    width: 60px;
     height: 25px;
     margin-left: 10px;
     cursor: pointer;
+    border-radius: 50px;
+}
+
+.answer #al_comments{
+	width: 100%;
+	color: #8E8E8E;
+	padding: 2% 0;
+	font-size: 0.9rem;
 }
 
 /** comment end **/
@@ -861,14 +878,25 @@ a{
     padding: 0;
     margin: 0;
     list-style: none;
+    border: 1px solid #E0E0E0;
 }
 
 #manual .manual_area ul li{
 	width: calc(100%/3);
     box-sizing: border-box;
-    border: 1px solid #E0E0E0;
+/*     border: 1px solid #E0E0E0; */
 	height: 625px;
     float: left;
+}
+
+#manual .manual_area ul li:nth-child(2){
+	width: calc(100%/3);
+    box-sizing: border-box;
+/*     border: 1px solid #E0E0E0; */
+	height: 625px;
+    float: left;
+    border-left: 1px solid #E0E0E0;
+	border-right: 1px solid #E0E0E0;
 }
 
 #manual .manual_area ul li .title_area{

@@ -340,6 +340,9 @@
 												<c:if test="${list.layout_type != 0}">
 													<a href="website?contents_idx=${list.idx}" target="_blank">사이트바로가기</a>
 												</c:if>
+												<c:if test="${list.layout_type == 0}">
+													<a href="${list.web_address}" target="_blank">사이트바로가기</a>
+												</c:if>
 											</div>
 										</div>
 									</div>
@@ -414,8 +417,9 @@
 		
 							<div class="month_item">
 								<c:forEach var="i" begin="1" end="12">
-									<input type="radio" name="month" value="0${i}" id="month_0${i}">
-									<label for="month_0${i}">${i}월</label>
+									<c:if test="${i lt 10}"><c:set var="i" value="0${i}"></c:set></c:if>
+									<input type="radio" name="month" value="${i}" id="month_${i}">
+									<label for="month_${i}">${i}월</label>
 								</c:forEach>
 							</div>
 		
@@ -471,7 +475,12 @@
 										<div class="btn_area">
 											<span class="content_title_area">${list.title}</span>
 											<span class="date_area_2">${list.start_day}&nbsp;~&nbsp;${list.end_day}</span>
-											<a href="detail?contents_idx=${list.idx}">상세보기</a>
+											<div>
+												<a href="detail?contents_idx=${list.idx}">상세보기</a>
+												<c:if test="${list.layout_type != 0}">
+													<a href="website?contents_idx=${list.idx}" target="_blank">사이트바로가기</a>
+												</c:if>
+											</div>
 										</div>
 									</div>
 								</c:forEach>

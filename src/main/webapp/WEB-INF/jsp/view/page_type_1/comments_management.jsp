@@ -109,7 +109,7 @@
 					</div>
 					
 					<div class="contents_area">
-						<ul>
+						<ul id="comment_head">
 							<li><input type="checkbox" onclick='selectAll(this)'></li>
 							<li>NO</li>
 							<li>아이디</li>

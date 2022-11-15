@@ -14,6 +14,12 @@ html {
     padding: 7% 0 7% 0;
 }
 
+#login #login_wrap{
+	width: 1280px;
+    margin: 0 auto;
+    display: flex;
+}
+
 #login img{
 	width: 55px;
 }
@@ -21,10 +27,11 @@ html {
 #login .content_area {
 	position: relative;
 	box-sizing: border-box;
-	width: 1100px;
+	width: 100%;
 	display: flex;
-	margin-left: 30%;
-	margin-right: 30%;
+	margin: 0 10%;
+/* 	margin-left: 30%; */
+/* 	margin-right: 30%; */
 }
 
 #login .login_area {
@@ -39,14 +46,14 @@ html {
 }
 
 #login .login_area .title_area {
-    float: left;
+/*     float: left; */
     text-align: center;
     align-items: center;
     font-family: 'Noto Sans KR, Medium', sans-serif;
     font-size: 30px;
     font-weight: 600;
     padding-bottom: 35px;
-    margin-left: 65px;
+/*     margin-left: 65px; */
 }
 
 #login .login_area .input_area {
@@ -56,27 +63,28 @@ html {
 }
 
 #login .login_area .input_area input {
-	width: 350px;
+	width: 95%;
 	height: 50px;
-    float: left;
+/*     float: left; */
     margin-bottom: 12px;
     font-size: 18px;
     text-indent: 2%;
     border: 2px solid #E5E5E5;
     border-radius: 5px;
+    margin-left: 1.5%;
 }
 
 #login .login_area #login {
-    width: 350px;
+    width: 95%;
 	height: 50px;
 	
-    background-color: #EA933C;
+    background-color: #EF8E24;
     color: #FFFFFF;
     border: none;
     border-radius: 78px;
     
     font-family: 'Noto Sans KR, Regular', sans-serif;
-    font-size: 22px;
+    font-size: 20px;
     text-align: center;
     
     display: flex;
@@ -91,6 +99,7 @@ html {
 	width: 100%;
     float: left;
     margin-bottom: 7%;
+    margin-left: 1%;
 }
 
 #login .login_area .remember_area input {

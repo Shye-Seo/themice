@@ -21,6 +21,7 @@
 
 		<div class="header_item">
 			<div class="navi_area">
+				<div id="center_wrap">
 				<div class="logo">
 					<a href="main"><img src="${root}/img/header/logo.svg"></a>
 				</div>
@@ -95,7 +96,7 @@
 			
 			<div class="search_area">
 				<form action="list" method="get">
-					<input type="text" name="keyword">
+					<input type="text" name="keyword" placeholder="키워드를 입력하세요.">
 					<input type="submit" value="검색">
 					<img alt="" src="${root}/img/header/search_black.svg">
 				</form>
@@ -122,6 +123,7 @@
 					});
 				});
 			</script>
+			</div>
 		</div>
 	</header>
 </body>

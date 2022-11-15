@@ -35,44 +35,58 @@
 	flex-direction: row;
 /* 	justify-content: space-between; */
 /* 	box-sizing: border-box; */
-	padding: 0 320px;
-	align-items: flex-end;
+/* 	padding: 0 320px; */
+/* 	align-items: flex-end; */
 /* 	border: 1px solid red; */
 	width: 100%;
+	margin: 15px auto;
 }
 
-#header .header_item .navi_area .logo img {
+#header .header_item .navi_area #center_wrap{
+	margin: 0 auto;
+    width: 1280px;
+    flex-direction: row;
+    display: flex;
+}
+#header .header_item .navi_area #center_wrap .logo{
+/* 	padding-right: 70px;	 */
+}
+
+#header .header_item .navi_area #center_wrap .logo img {
 	width: 70%;
 	height: auto;
 	display: block;
-	margin-top: 17px;
-/* 	float: left; */
+/* 	margin-top: 17px; */
+	float: left;
 }
 
-#header .header_item .navi_area .navi_bar {
-	width: 100%;
+#header .header_item .navi_area #center_wrap .navi_bar {
+	width: 90%;
+	margin-top: 15px;
 /* 	justify-content: center; */
 /* 	align-items: center; */
 /* 	border: 1px solid blue; */
 }
 
-#header .header_item .navi_area .menu {
+#header .header_item .navi_area #center_wrap .navi_bar .menu {
 	float: left;
-	margin-right: 50px;
+	padding-left: 230px;
+	padding-right: 70px;
+/* 	margin-right: 50px; */
 /* 	border: 1px solid yellow; */
 /* 	justify-content: center; */
 /* 	align-items: center; */
 }
 
-#header .header_item .navi_area .menu ul {
+#header .header_item .navi_area #center_wrap .navi_bar .menu ul {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	margin-bottom: 2%;
-	justify-content: flex-end;
+/* 	justify-content: flex-end; */
 }
 
-#header .header_item .navi_area .menu ul li {
+#header .header_item .navi_area #center_wrap .navi_bar .menu ul li {
 	margin-left: 55px;
 /* 	float: left; */
 }
@@ -94,6 +108,8 @@
 #header .header_item .navi_area .small{
 	float: left;
 	margin-top: 3px;
+	position: relative;
+	margin-right: 15px;
 /* 	border: 1px solid green; */
 }
 
@@ -119,9 +135,11 @@
 
 #header .header_item .navi_area .small ul li img {
 	width: 17px;
-	display: block;
 	height: 17px;
+	display: block;
 	cursor: pointer;
+	top: 4.5px;
+	position: absolute;
 }
 
 #header .search_area {

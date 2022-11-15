@@ -426,11 +426,12 @@
 						<c:if test="${cl.idx == al.comments_idx}">
 							<ul>
 								<li>${al.user_id}</li>
-								<li>${al.comments}</li>
+								<li></li>
 								<li>${al.date}</li>
 								<li><input type="button" value="삭제" onclick="answer_delete(${al.idx})"></li>
 								<li><input type="button" value="신고" onclick="answer_report(${al.idx})"></li>
 							</ul>
+							<div id="al_comments">${al.comments}</div>
 						</c:if>
 					</c:forEach>
 					

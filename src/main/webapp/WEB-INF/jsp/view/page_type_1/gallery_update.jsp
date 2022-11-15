@@ -172,7 +172,7 @@
    function uploadFile() {
        // 등록할 파일 리스트
        var uploadFileList = Object.keys(fileList);
-       alert("fileList =====>"+fileList);
+       
        // 파일이 있는지 체크
        if (uploadFileList.length == 0) {
            // 파일등록 경고창
@@ -186,7 +186,6 @@
            return;
        }
        if (confirm("수정하시겠습니까?") == true) {
-//		else {
            // 등록할 파일 리스트를 formData로 데이터 입력
            var form = $('#uploadForm');
            var formData = new FormData(form[0]);
@@ -202,10 +201,10 @@
                contentType : false,
                dataType : 'json',
                cache : false,
-               success : location.href = "website?contents_idx="+contents_idx
+               success : location.href = "website?contents_idx="+${contents_idx}
            });
        } else {
-       	return false;
+       		return false;
        }
    }
 </script>
@@ -312,7 +311,7 @@
 				</form>
 					<div class="btn_area">
 <!-- 						<input type="submit" id="submit_btn" value="완료"> -->
-						<input type="button" value="등록" id="submit_btn" onclick="uploadFile(); return false;">
+						<input type="button" value="등록" id="submit_btn">
 						<input type="reset" value="취소">
 						
 						<script type="text/javascript">
@@ -326,6 +325,8 @@
 								} else if (!thumbnail) {
 									alert('썸네일을 추가해주세요.');
 									return false;
+								} else {
+									uploadFile();
 								}
 							});
 						</script>

@@ -225,7 +225,6 @@
             return;
         }
         if (confirm("등록 하시겠습니까?") == true) {
-// 		else {
             // 등록할 파일 리스트를 formData로 데이터 입력
             var form = $('#uploadForm');
             var formData = new FormData(form[0]);

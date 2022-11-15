@@ -115,12 +115,12 @@ public class WebsiteCtr {
 			}
 		    
 			if(pop_up != null) {
-				SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-				Date currentTime = new Date();
-				String date = format.format(currentTime);
-				Date todate = format.parse(date);
 				
 				if(!pop_up.getStart_day_1().equals("") && !pop_up.getEnd_day_1().equals("")) {
+					SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+					Date currentTime = new Date();
+					String date = format.format(currentTime);
+					Date todate = format.parse(date);
 					String start_dt = pop_up.getStart_day_1();
 					String end_dt = pop_up.getEnd_day_1();
 					Date startDate = format.parse(start_dt);
@@ -133,6 +133,11 @@ public class WebsiteCtr {
 				}
 				
 				if(!pop_up.getStart_day_2().equals("") && !pop_up.getEnd_day_2().equals("")) {
+					SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+					Date currentTime = new Date();
+					String date = format.format(currentTime);
+					Date todate = format.parse(date);
+
 					String start_dt = pop_up.getStart_day_2();
 					String end_dt = pop_up.getEnd_day_2();
 					Date startDate = format.parse(start_dt);
@@ -145,6 +150,11 @@ public class WebsiteCtr {
 				}
 				
 				if(!pop_up.getStart_day_3().equals("") && !pop_up.getEnd_day_3().equals("")) {
+					SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+					Date currentTime = new Date();
+					String date = format.format(currentTime);
+					Date todate = format.parse(date);
+
 					String start_dt = pop_up.getStart_day_3();
 					String end_dt = pop_up.getEnd_day_3();
 					Date startDate = format.parse(start_dt);
@@ -371,6 +381,12 @@ public class WebsiteCtr {
 		
 		String thumbnail_name = thumbnail_file.getOriginalFilename();
 		File target = new File(thumbnail_path, thumbnail_name);
+		
+		target.setReadable(true, true);
+		target.setWritable(true, true);
+		target.setExecutable(true, true);
+		
+//		Runtime.getRuntime().exec("chmod -R 777 " + target);
 		FileCopyUtils.copy(thumbnail_file.getBytes(), target);
 		
 		gallery.setContents_idx(contents_idx);
@@ -386,6 +402,14 @@ public class WebsiteCtr {
 			
 			if (imgName != null && !imgName.equals("")) {
 				File target_1 = new File(gallery_path, imgName);
+				
+//				Runtime.getRuntime().exec("chmod -R 777 " + target_1);
+//				Runtime.getRuntime().exec("chmod -R 777 " + target1);
+				
+				target_1.setReadable(true, true);
+				target_1.setWritable(true, true);
+				target_1.setExecutable(true, true);
+				
 				FileCopyUtils.copy(imgs.getBytes(), target_1);
 				
 				Gallery_img gallery_img = new Gallery_img(contents_idx, gallery_idx, imgName);
@@ -435,6 +459,12 @@ public class WebsiteCtr {
 		
 		String thumbnail_name = thumbnail_file.getOriginalFilename();
 		File target = new File(thumbnail_path, thumbnail_name);
+		System.out.println("======================>"+thumbnail_name);
+		
+		target.setReadable(true, true);
+		target.setWritable(true, true);
+		target.setExecutable(true, true);
+		
 		FileCopyUtils.copy(thumbnail_file.getBytes(), target);
 		
 		gallery.setIdx(gallery_idx);

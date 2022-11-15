@@ -28,22 +28,55 @@
 		</div>
 	</div>
 	<section id="join">
+		<div id="join_wrap">
 		<div class="content_area">
 			<div class="title_area">
 <!-- 				<p>회원가입</p> -->
 			</div>
 	
 			<div class="division_area">
-				<div class="left">
-					<p>회원구분</p>
-				</div>
-				<div class="right">
-					<label><input type="radio"
-						id="member_check" name="join" onchange="setDisplay()" checked>개인회원</label>
-					<label><input type="radio" id="business_check" name="join"
-						onchange="setDisplay()">사업자회원</label>
+				<div class="division">
+					<div class="personal_div">
+						<div id="div_text">
+<!-- 							<input type="radio"	id="member_check" name="join" onchange="setDisplay()" checked> -->
+							<label>개인회원</label>
+						</div>
+					</div>
+					<div class="business_div">
+						<div id="div_text">
+<!-- 							<input type="radio" id="business_check" name="join" onchange="setDisplay()"> -->
+							<label>사업자회원</label>
+						</div>
+					</div>
 				</div>
 			</div>
+			
+			<script type="text/javascript">
+						$(function () {
+							$('.personal_div').click(function(){
+								$('#member').css('display', 'block');
+								$('#business').css('display', 'none');
+								$('.personal_div').css('background-color', '#EF8E24');
+								$('.business_div').css('background-color', '#4B4B4B');
+// 								$('#business_check').attr('checked', false);
+// 								$('#member_check').attr('checked', true);
+// 								$('input[type=radio][id=member_check]').attr('checked', true);
+// 								$('input[type=radio][id=business_check]').attr('checked', false);
+// 								$('#business').css('display', 'none');
+							});
+							
+							$('.business_div').click(function(){
+								$('#business').css('display', 'block');
+								$('#member').css('display', 'none');
+								$('.business_div').css('background-color', '#EF8E24');
+								$('.personal_div').css('background-color', '#4B4B4B');
+// 								$('#member_check').attr('checked', false);
+// 								$('#business_check').attr('checked', true);
+// 								$('input[type=radio][id=member_check]').attr('checked', false);
+// 								$('input[type=radio][id=business_check]').attr('checked', true);
+							});
+						});
+					</script>
 			
 			<div class="text_area">
 				<div class="item_1">
@@ -753,6 +786,7 @@
 						<input type="reset" value="취소" class="reset">
 					</div>
 			</div>
+		</div>
 		</div>
 	</section>
 	<jsp:include page="/WEB-INF/jsp/footer/footer.jsp" />
