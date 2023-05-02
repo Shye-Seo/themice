@@ -44,30 +44,31 @@
 			$('.title_area_2 .plus_area').css('opacity', '1');
 		};
 		
-		$("#main").on('mousewheel', function(e) {
-			var wheel = e.originalEvent.wheelDelta;
-			var cnt = $('#mouse_cnt').val();
-			$('#main').css('transition', '2s');
-			if (wheel > 0) { //휠 올라감
-				if(cnt != 1){
-					$('#mouse_cnt').val(Number(cnt) - 1);
-					move();
-					title_area();
-				}
-			} else { //휠 내려감
-				if(cnt < 4){
-					$('#mouse_cnt').val(Number(cnt) + 1);
-					move();
-					title_area();
-				}
-			}
-		});
+		//마우스휠 정지
+// 		$("#main").on('mousewheel', function(e) {
+// 			var wheel = e.originalEvent.wheelDelta;
+// 			var cnt = $('#mouse_cnt').val();
+// 			$('#main').css('transition', '2s');
+// 			if (wheel > 0) { //휠 올라감
+// 				if(cnt != 1){
+// 					$('#mouse_cnt').val(Number(cnt) - 1);
+// 					move();
+// 					title_area();
+// 				}
+// 			} else { //휠 내려감
+// 				if(cnt < 4){
+// 					$('#mouse_cnt').val(Number(cnt) + 1);
+// 					move();
+// 					title_area();
+// 				}
+// 			}
+// 		});
 
-		$('#main').on('scroll touchmove mousewheel', function(event) {
-			event.preventDefault();
-			event.stopPropagation();
-			return false;
-		});
+// 		$('#main').on('scroll touchmove mousewheel', function(event) {
+// 			event.preventDefault();
+// 			event.stopPropagation();
+// 			return false;
+// 		});
 		
 		function move() {
 			var cnt = $('#mouse_cnt').val();

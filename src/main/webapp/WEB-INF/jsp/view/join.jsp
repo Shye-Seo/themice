@@ -424,11 +424,11 @@
 						</div>
 					</div>
 					
-				</form>
 					<div class="member_submit">
 						<input type="button" value="가입" id="member_submit_btn">
 						<input type="reset" value="취소" class="reset">
 					</div>
+				</form>
 			</div>
 	
 	
